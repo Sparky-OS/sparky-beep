@@ -1,0 +1,107 @@
+#!/bin/bash
+
+# It checks beep services running on Sparky server edition
+# last update 2019/02/23 by pavroo
+
+##################################################################
+# check 1: beep_netdata
+PACKNETDATA=`apt-cache policy netdata | head -n2 | tail -n1 | grep [0-9]`
+
+if [ "$PACKNETDATA" != "" ]; then
+	CHECKBEEPNETDATA=`systemctl status beep_netdata | grep inacitve`
+
+	if [ "$CHECKBEEPNETDATA" != " " ]; then
+		systemctl start beep_netdata
+		CHECKBEEPNETDATA0=`systemctl status beep_netdata | grep "Active: active"`
+		if [ "$CHECKBEEPNETDATA0" != " " ]; then
+			echo "beep_netdata service is active..."
+		else
+			echo "beep_netdata service is NOT active..."
+		fi
+	fi
+
+	# enable it if not enabled
+	LOADBEEPNETDATA=`systemctl status beep_netdata | grep disabled;`
+	if [ "$LOADBEEPNETDATA" != " " ]; then
+		systemctl enable beep_netdata
+	fi
+fi
+##################################################################
+# check 2: beep_samba
+PACKSAMBA=`apt-cache policy samba | head -n2 | tail -n1 | grep [0-9]`
+
+if [ "$PACKSAMBA" != "" ]; then
+	CHECKBEEPSAMBA=`systemctl status beep_samba | grep inacitve`
+	CHECKSMBD=`systemctl status smbd | grep masked`
+	CHECKSAMBAADDC=`systemctl status samba-ad-dc | grep masked`
+	if [ "$CHECKBEEPSAMBA" != " " ]; then
+		if [ "$CHECKSMBD" = " " ]; then
+			systemctl stop smbd
+			systemctl disable smbd
+			systemctl mask smbd
+		fi
+		if [ "$CHECKSAMBAADDC" != " " ]; then
+			systemctl unmask samba-ad-dc
+			systemctl enable samba-ad-dc
+			systemctl start samba-ad-dc
+		fi
+		systemctl start beep_samba
+		CHECKBEEPSAMBA0=`systemctl status beep_samba | grep "Active: active"`
+		if [ "$CHECKBEEPSAMBA0" != " " ]; then
+			echo "beep_samba service is active..."
+		else
+			echo "beep_samba service is NOT active..."
+		fi
+	fi
+
+	# enable it if not enabled
+	LOADBEEPSAMBA=`systemctl status beep_samba | grep disabled;`
+	if [ "$LOADBEEPSAMBA" != " " ]; then
+		systemctl enable beep_samba
+	fi
+fi
+#####################################################################
+# check 3: beep_sys
+CHECKBEEPSYS=`systemctl status beep_sys | grep inacitve`
+if [ "$CHECKBEEPSYS" != " " ]; then
+	systemctl start beep_sys
+	CHECKBEEPSYS0=`systemctl status beep_sys | grep "Active: active"`
+	if [ "$CHECKBEEPSYS0" != " " ]; then
+		echo "beep_sys service is active..."
+	else
+		echo "beep_sys service is NOT active..."
+	fi
+fi
+
+# enable it if not enabled
+LOADBEEPSYS=`systemctl status beep_sys | grep disabled;`
+if [ "$LOADBEEPSYS" != " " ]; then
+	systemctl enable beep_sys
+fi
+######################################################################
+# check 4: beep_webmin
+PACKWEBMIN=`apt-cache policy webmin | head -n2 | tail -n1 | grep [0-9]`
+
+if [ "$PACKWEBMIN" != "" ]; then
+	CHECKBEEPWEBMIN=`systemctl status beep_webmin | grep inacitve`
+	if [ "$CHECKBEEPWEBMIN" != " " ]; then
+		systemctl start beep_webmin
+		CHECKBEEPWEBMIN0=`systemctl status beep_webmin | grep "Active: active"`
+		if [ "$CHECKBEEPWEBMIN0" != " " ]; then
+			echo "beep_webmin service is active..."
+		else
+			echo "beep_webmin service is NOT active..."
+		fi
+	fi
+
+	# enable it if not enabled
+	LOADBEEPWEBMIN=`systemctl status beep_webmin | grep disabled;`
+	if [ "$LOADBEEPWEBMIN" != " " ]; then
+		systemctl enable beep_webmin
+	fi
+fi
+#######################################################################
+
+echo "sparky-beep started" >> /tmp/sparky-beep-test.$$
+
+exit 0

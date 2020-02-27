@@ -1,0 +1,15 @@
+[Unit]
+Description=Emit a beep sound at basic system state changes
+After=ssh.service
+BindsTo=ssh.service
+ReloadPropagatedFrom=ssh.service
+ 
+[Service]
+Type=simple
+RemainAfterExit=yes
+ExecStart=/etc/init.d/beep_sys start
+ExecStop=/etc/init.d/beep_sys stop
+ExecReload=/etc/init.d/beep_sys restart
+ 
+[Install]
+WantedBy=ssh.service

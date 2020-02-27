@@ -1,0 +1,15 @@
+[Unit]
+Description=Emit a beep sound at webmin state changes
+After=webmin
+BindsTo=webmin
+ReloadPropagatedFrom=webmin
+ 
+[Service]
+Type=simple
+RemainAfterExit=yes
+ExecStart=/etc/init.d/beep_webmin start
+ExecStop=/etc/init.d/beep_webmin stop
+ExecReload=/etc/init.d/beep_webmin restart
+ 
+[Install]
+WantedBy=webmin

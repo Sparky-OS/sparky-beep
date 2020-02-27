@@ -1,0 +1,15 @@
+[Unit]
+Description=Emit a beep sound at samba state changes
+After=samba-ad-dc.service
+BindsTo=samba-ad-dc.service
+ReloadPropagatedFrom=samba-ad-dc.service.target
+ 
+[Service]
+Type=simple
+RemainAfterExit=yes
+ExecStart=/etc/init.d/beep_samba start
+ExecStop=/etc/init.d/beep_samba stop
+ExecReload=/etc/init.d/beep_samba restart
+
+[Install]
+WantedBy=samba-ad-dc.service

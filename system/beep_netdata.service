@@ -1,0 +1,15 @@
+[Unit]
+Description=Emit a beep sound at netdata state changes
+After=netdata.service
+BindsTo=netdata.service
+ReloadPropagatedFrom=netdata.service
+ 
+[Service]
+Type=simple
+RemainAfterExit=yes
+ExecStart=/etc/init.d/beep_netdata start
+ExecStop=/etc/init.d/beep_netdata stop
+ExecReload=/etc/init.d/beep_netdata restart
+ 
+[Install]
+WantedBy=netdata.service
