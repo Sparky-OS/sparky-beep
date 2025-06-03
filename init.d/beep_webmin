@@ -25,7 +25,7 @@ for z in {3500..21..40}; do beep -f $z -d 20 -l 20; done;
 beep -f 660 -l 100 -d 150; beep -f 660 -l 100 -d 300;beep -f 660 -l 100 -d 300; beep -f 510 -l 100 -d 100; beep -f 660 -l 100 -d 300; beep -f 770 -l 100 -d 550;beep -f 380 -l 100 -d 575;
 ;;
   *)
-  echo "Use: /etc/init.d/beep_netdata {start|stop|restart}"
+  echo "Use: /etc/init.d/beep_webmin {start|stop|restart}"
   exit 1
   ;;
 esac
