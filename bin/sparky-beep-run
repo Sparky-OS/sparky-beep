@@ -63,13 +63,13 @@ fi
 #####################################################################
 # check 3: beep_sys
 CHECKBEEPSYS=`systemctl status beep_sys | grep inactive`
-if [ -n "$CHECKBEEPSYS" ]; then
-        systemctl start beep_sys
-        CHECKBEEPSYS0=`systemctl status beep_sys | grep "Active: active"`
-        if [ -n "$CHECKBEEPSYS0" ]; then
-                echo "beep_sys service is active..."
-        else
-                echo "beep_sys service is NOT active..."
+if [ "$CHECKBEEPSYS" != " " ]; then
+	systemctl start beep_sys
+	CHECKBEEPSYS0=`systemctl status beep_sys | grep "Active: active"`
+	if [ "$CHECKBEEPSYS0" != " " ]; then
+		echo "beep_sys service is active..."
+	else
+		echo "beep_sys service is NOT active..."
 	fi
 fi
 
@@ -84,13 +84,13 @@ PACKWEBMIN=`apt-cache policy webmin | head -n2 | tail -n1 | grep [0-9]`
 
 if [ "$PACKWEBMIN" != "" ]; then
         CHECKBEEPWEBMIN=`systemctl status beep_webmin | grep inactive`
-        if [ -n "$CHECKBEEPWEBMIN" ]; then
-                systemctl start beep_webmin
-                CHECKBEEPWEBMIN0=`systemctl status beep_webmin | grep "Active: active"`
-                if [ -n "$CHECKBEEPWEBMIN0" ]; then
-                        echo "beep_webmin service is active..."
-                else
-                        echo "beep_webmin service is NOT active..."
+	if [ "$CHECKBEEPWEBMIN" != " " ]; then
+		systemctl start beep_webmin
+		CHECKBEEPWEBMIN0=`systemctl status beep_webmin | grep "Active: active"`
+		if [ "$CHECKBEEPWEBMIN0" != " " ]; then
+			echo "beep_webmin service is active..."
+		else
+			echo "beep_webmin service is NOT active..."
 		fi
 	fi
 
