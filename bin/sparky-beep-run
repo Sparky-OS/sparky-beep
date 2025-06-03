@@ -8,14 +8,15 @@
 PACKNETDATA=`apt-cache policy netdata | head -n2 | tail -n1 | grep [0-9]`
 
 if [ "$PACKNETDATA" != "" ]; then
-    CHECKBEEPNETDATA=`systemctl status beep_netdata | grep inactive`
-	if [ "$CHECKBEEPNETDATA" != " " ]; then
-		systemctl start beep_netdata
-		CHECKBEEPNETDATA0=`systemctl status beep_netdata | grep "Active: active"`
-		if [ "$CHECKBEEPNETDATA0" != " " ]; then
-			echo "beep_netdata service is active..."
-		else
-			echo "beep_netdata service is NOT active..."
+        CHECKBEEPNETDATA=`systemctl status beep_netdata | grep inactive`
+
+        if [ -n "$CHECKBEEPNETDATA" ]; then
+                systemctl start beep_netdata
+                CHECKBEEPNETDATA0=`systemctl status beep_netdata | grep "Active: active"`
+                if [ -n "$CHECKBEEPNETDATA0" ]; then
+                        echo "beep_netdata service is active..."
+                else
+                        echo "beep_netdata service is NOT active..."
 		fi
 	fi
 
@@ -33,7 +34,7 @@ if [ "$PACKSAMBA" != "" ]; then
   CHECKBEEPSAMBA=`systemctl status beep_samba | grep inactive`
 	CHECKSMBD=`systemctl status smbd | grep masked`
 	CHECKSAMBAADDC=`systemctl status samba-ad-dc | grep masked`
-	if [ "$CHECKBEEPSAMBA" != " " ]; then
+        if [ -n "$CHECKBEEPSAMBA" ]; then
 		if [ "$CHECKSMBD" = " " ]; then
 			systemctl stop smbd
 			systemctl disable smbd
@@ -45,12 +46,12 @@ if [ "$PACKSAMBA" != "" ]; then
 			systemctl start samba-ad-dc
 		fi
 		systemctl start beep_samba
-		CHECKBEEPSAMBA0=`systemctl status beep_samba | grep "Active: active"`
-		if [ "$CHECKBEEPSAMBA0" != " " ]; then
-			echo "beep_samba service is active..."
-		else
-			echo "beep_samba service is NOT active..."
-		fi
+                CHECKBEEPSAMBA0=`systemctl status beep_samba | grep "Active: active"`
+                if [ -n "$CHECKBEEPSAMBA0" ]; then
+                        echo "beep_samba service is active..."
+                else
+                        echo "beep_samba service is NOT active..."
+                fi
 	fi
 
 	# enable it if not enabled
