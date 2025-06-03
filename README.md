@@ -1,5 +1,5 @@
 Sparky Beep
-Provides beep support for a few services of sbserver edition.
+Provides beep support for a few services of server edition.
 
 Copyright (C) 2018-2020 Paweł Pijanowski & Daniel Campos Ramos
 
