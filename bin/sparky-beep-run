@@ -8,7 +8,7 @@
 PACKNETDATA=`apt-cache policy netdata | head -n2 | tail -n1 | grep [0-9]`
 
 if [ "$PACKNETDATA" != "" ]; then
-	CHECKBEEPNETDATA=`systemctl status beep_netdata | grep inacitve`
+        CHECKBEEPNETDATA=`systemctl status beep_netdata | grep inactive`
 
 	if [ "$CHECKBEEPNETDATA" != " " ]; then
 		systemctl start beep_netdata
@@ -31,7 +31,7 @@ fi
 PACKSAMBA=`apt-cache policy samba | head -n2 | tail -n1 | grep [0-9]`
 
 if [ "$PACKSAMBA" != "" ]; then
-	CHECKBEEPSAMBA=`systemctl status beep_samba | grep inacitve`
+        CHECKBEEPSAMBA=`systemctl status beep_samba | grep inactive`
 	CHECKSMBD=`systemctl status smbd | grep masked`
 	CHECKSAMBAADDC=`systemctl status samba-ad-dc | grep masked`
 	if [ "$CHECKBEEPSAMBA" != " " ]; then
@@ -62,7 +62,7 @@ if [ "$PACKSAMBA" != "" ]; then
 fi
 #####################################################################
 # check 3: beep_sys
-CHECKBEEPSYS=`systemctl status beep_sys | grep inacitve`
+CHECKBEEPSYS=`systemctl status beep_sys | grep inactive`
 if [ "$CHECKBEEPSYS" != " " ]; then
 	systemctl start beep_sys
 	CHECKBEEPSYS0=`systemctl status beep_sys | grep "Active: active"`
@@ -83,7 +83,7 @@ fi
 PACKWEBMIN=`apt-cache policy webmin | head -n2 | tail -n1 | grep [0-9]`
 
 if [ "$PACKWEBMIN" != "" ]; then
-	CHECKBEEPWEBMIN=`systemctl status beep_webmin | grep inacitve`
+        CHECKBEEPWEBMIN=`systemctl status beep_webmin | grep inactive`
 	if [ "$CHECKBEEPWEBMIN" != " " ]; then
 		systemctl start beep_webmin
 		CHECKBEEPWEBMIN0=`systemctl status beep_webmin | grep "Active: active"`
