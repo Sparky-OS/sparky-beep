@@ -31,7 +31,7 @@ fi
 PACKSAMBA=`apt-cache policy samba | head -n2 | tail -n1 | grep [0-9]`
 
 if [ "$PACKSAMBA" != "" ]; then
-        CHECKBEEPSAMBA=`systemctl status beep_samba | grep inactive`
+  CHECKBEEPSAMBA=`systemctl status beep_samba | grep inactive`
 	CHECKSMBD=`systemctl status smbd | grep masked`
 	CHECKSAMBAADDC=`systemctl status samba-ad-dc | grep masked`
         if [ -n "$CHECKBEEPSAMBA" ]; then
