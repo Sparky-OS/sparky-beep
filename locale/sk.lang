@@ -1,0 +1,199 @@
+# Slovak (Slovenčina) translations for Sparky Beep
+# Author: Sparky Beep Contributors
+# Last updated: 2025-11-20
+
+# Service status messages
+MSG_SERVICE_ACTIVE="služba %s je aktívna..."
+MSG_SERVICE_NOT_ACTIVE="služba %s NIE je aktívna..."
+MSG_SPARKY_STARTED="sparky-beep spustený"
+
+# Usage messages
+MSG_USAGE_BEEP_SYS="Použitie: /etc/init.d/beep_sys {start|stop|restart}"
+MSG_USAGE_BEEP_NETDATA="Použitie: /etc/init.d/beep_netdata {start|stop|restart}"
+MSG_USAGE_BEEP_SAMBA="Použitie: /etc/init.d/beep_samba {start|stop|restart}"
+MSG_USAGE_BEEP_WEBMIN="Použitie: /etc/init.d/beep_webmin {start|stop|restart}"
+
+# TUI/GUI - Main Menu
+MSG_MAIN_TITLE="Konfigurácia Sparky Beep"
+MSG_MAIN_SUBTITLE="Konfigurácia zvukových oznámení systémových služieb"
+MSG_MENU_SERVICE_SELECTION="Výber Služieb"
+MSG_MENU_TUNE_MANAGEMENT="Správa Melódií"
+MSG_MENU_SCHEDULE="Konfigurácia Plánovania"
+MSG_MENU_SETTINGS="Nastavenia"
+MSG_MENU_TEST="Test Zvukov"
+MSG_MENU_EXIT="Ukončiť"
+
+# TUI/GUI - Service Selection
+MSG_SERVICE_SELECT_TITLE="Vyberte Služby na Monitorovanie"
+MSG_SERVICE_SELECT_DESC="Vyberte, ktoré služby majú prehrávať zvukové oznámenia"
+MSG_SERVICE_AVAILABLE="Dostupné Služby"
+MSG_SERVICE_ENABLED="Povolené pre Oznámenia"
+MSG_SERVICE_DISABLED="Zakázané"
+MSG_SERVICE_NOT_INSTALLED="Neinštalované"
+MSG_SERVICE_TOGGLE="Prepnúť Službu"
+MSG_SERVICE_SELECT_ALL="Vybrať Všetko"
+MSG_SERVICE_DESELECT_ALL="Zrušiť Výber Všetkých"
+MSG_SERVICE_REFRESH="Obnoviť Zoznam"
+
+# TUI/GUI - Tune Management
+MSG_TUNE_TITLE="Správa Melódií"
+MSG_TUNE_SELECT="Vyberte Melódiu pre Udalosť"
+MSG_TUNE_SERVICE_LABEL="Služba: %s"
+MSG_TUNE_EVENT_START="Udalosť Spustenia"
+MSG_TUNE_EVENT_STOP="Udalosť Zastavenia"
+MSG_TUNE_EVENT_RESTART="Udalosť Reštartovania"
+MSG_TUNE_CURRENT="Aktuálne: %s"
+MSG_TUNE_PREVIEW="Náhľad"
+MSG_TUNE_APPLY="Použiť"
+MSG_TUNE_RESET="Obnoviť Predvolené"
+MSG_TUNE_CUSTOM="Vlastná Sekvencia Pípnutí"
+MSG_TUNE_LIBRARY="Dostupné Melódie"
+MSG_TUNE_NONE="[Tiché - Bez Pípnutia]"
+
+# TUI/GUI - Available Compositions
+MSG_COMPOSITION_C_SCALE="C Durová Stupnica"
+MSG_COMPOSITION_HAPPY_BIRTHDAY="Všetko Najlepšie"
+MSG_COMPOSITION_TWINKLE="Trblietaj Trblietaj Hviezdička"
+MSG_COMPOSITION_ODE_JOY="Óda na Radosť"
+MSG_COMPOSITION_STAR_WARS="Téma Star Wars"
+MSG_COMPOSITION_MARIO="Super Mario Bros"
+MSG_COMPOSITION_STARTUP="Úvodná Fanfára"
+MSG_COMPOSITION_SHUTDOWN="Melódia Vypnutia"
+MSG_COMPOSITION_ERROR="Upozornenie na Chybu"
+MSG_COMPOSITION_SUCCESS="Oznámenie Úspechu"
+MSG_COMPOSITION_IMPERIAL="Cisársky Pochod"
+
+# TUI/GUI - Schedule Configuration
+MSG_SCHEDULE_TITLE="Konfigurácia Časového Plánovania"
+MSG_SCHEDULE_DESC="Konfigurácia tichých hodín a vlastných plánov"
+MSG_SCHEDULE_ENABLE="Povoliť Plánovanie"
+MSG_SCHEDULE_DISABLE="Zakázať Plánovanie"
+MSG_SCHEDULE_QUIET_HOURS="Tiché Hodiny"
+MSG_SCHEDULE_QUIET_START="Čas Začiatku Ticha"
+MSG_SCHEDULE_QUIET_END="Čas Konca Ticha"
+MSG_SCHEDULE_WEEKDAYS="Aktívne Dni"
+MSG_SCHEDULE_MONDAY="Pondelok"
+MSG_SCHEDULE_TUESDAY="Utorok"
+MSG_SCHEDULE_WEDNESDAY="Streda"
+MSG_SCHEDULE_THURSDAY="Štvrtok"
+MSG_SCHEDULE_FRIDAY="Piatok"
+MSG_SCHEDULE_SATURDAY="Sobota"
+MSG_SCHEDULE_SUNDAY="Nedeľa"
+MSG_SCHEDULE_ADD_RULE="Pridať Pravidlo Plánu"
+MSG_SCHEDULE_REMOVE_RULE="Odstrániť Pravidlo"
+MSG_SCHEDULE_TIME_FORMAT="Formát času: HH:MM (24-hodinový)"
+
+# TUI/GUI - Settings
+MSG_SETTINGS_TITLE="Všeobecné Nastavenia"
+MSG_SETTINGS_BEEP_MODE="Režim Pípnutia"
+MSG_SETTINGS_MODE_BINARY="Binárny (Štandardný)"
+MSG_SETTINGS_MODE_TERNARY="Ternárny (Jemný)"
+MSG_SETTINGS_VOLUME="Úroveň Hlasitosti"
+MSG_SETTINGS_LANGUAGE="Jazyk"
+MSG_SETTINGS_AUTO_ENABLE="Automaticky povoliť služby"
+MSG_SETTINGS_LOG_EVENTS="Zaznamenávať udalosti pípnutia"
+MSG_SETTINGS_CONFIG_PATH="Konfiguračný súbor: %s"
+MSG_SETTINGS_SAVE="Uložiť Nastavenia"
+MSG_SETTINGS_RESTORE_DEFAULTS="Obnoviť Predvolené"
+
+# TUI/GUI - Test Sounds
+MSG_TEST_TITLE="Test Prehrávania Zvuku"
+MSG_TEST_DESC="Náhľad zvukov pípnutia a kompozícií"
+MSG_TEST_SERVICE_SELECT="Vyberte službu na testovanie"
+MSG_TEST_EVENT_SELECT="Vyberte typ udalosti"
+MSG_TEST_PLAY="Prehrať Testovací Zvuk"
+MSG_TEST_STOP="Zastaviť Prehrávanie"
+MSG_TEST_PLAYING="Prehráva sa: %s"
+
+# TUI/GUI - Common Actions
+MSG_BUTTON_OK="OK"
+MSG_BUTTON_CANCEL="Zrušiť"
+MSG_BUTTON_APPLY="Použiť"
+MSG_BUTTON_SAVE="Uložiť"
+MSG_BUTTON_BACK="Späť"
+MSG_BUTTON_NEXT="Ďalej"
+MSG_BUTTON_FINISH="Dokončiť"
+MSG_BUTTON_HELP="Pomoc"
+MSG_BUTTON_CLOSE="Zavrieť"
+MSG_BUTTON_YES="Áno"
+MSG_BUTTON_NO="Nie"
+
+# TUI/GUI - Messages and Notifications
+MSG_SAVE_SUCCESS="Konfigurácia úspešne uložená"
+MSG_SAVE_ERROR="Chyba pri ukladaní konfigurácie: %s"
+MSG_LOAD_ERROR="Chyba pri načítavaní konfigurácie: %s"
+MSG_APPLY_SUCCESS="Zmeny úspešne aplikované"
+MSG_APPLY_ERROR="Chyba pri aplikovaní zmien: %s"
+MSG_SERVICE_START_SUCCESS="Služba %s úspešne spustená"
+MSG_SERVICE_START_ERROR="Spustenie služby %s zlyhalo"
+MSG_SERVICE_STOP_SUCCESS="Služba %s úspešne zastavená"
+MSG_SERVICE_STOP_ERROR="Zastavenie služby %s zlyhalo"
+MSG_CONFIRM_EXIT="Ukončiť bez uloženia zmien?"
+MSG_CONFIRM_RESET="Obnoviť všetky nastavenia na predvolené hodnoty?"
+MSG_CONFIRM_DELETE="Odstrániť toto pravidlo plánu?"
+MSG_NO_SERVICES_FOUND="Nenašli sa žiadne kompatibilné služby"
+MSG_ROOT_REQUIRED="Pre túto operáciu sú potrebné oprávnenia root"
+MSG_PACKAGE_NOT_INSTALLED="Balík %s nie je nainštalovaný"
+MSG_BEEP_NOT_AVAILABLE="Nástroj na pípnutie nie je dostupný"
+MSG_INVALID_TIME_FORMAT="Neplatný formát času. Použite HH:MM"
+MSG_INVALID_INPUT="Neplatný vstup: %s"
+
+# TUI/GUI - Help and Information
+MSG_HELP_TITLE="Pomoc Sparky Beep"
+MSG_HELP_SERVICES="Vyberte, ktoré systémové služby spustia zvukové oznámenia pri spustení, zastavení alebo reštartovaní."
+MSG_HELP_TUNES="Priraďte rôzne melódie alebo vzory pípnutia každej udalosti služby (spustenie/zastavenie/reštart)."
+MSG_HELP_SCHEDULE="Nastavte tiché hodiny, keď sú pípnutia zakázané, alebo vytvorte vlastné plány pre konkrétne časy."
+MSG_HELP_SETTINGS="Nakonfigurujte režim pípnutia (binárny/ternárny), hlasitosť, jazyk a ďalšie globálne nastavenia."
+MSG_HELP_TEST="Pozrite si náhľad, ako budú znieť rôzne služby a udalosti pred aplikovaním zmien."
+
+# CLI Usage Messages
+MSG_CLI_USAGE="Použitie: %s [MOŽNOSTI]"
+MSG_CLI_DESCRIPTION="Sparky Beep - Správca zvukových oznámení systémových služieb"
+MSG_CLI_OPTIONS="Možnosti:"
+MSG_CLI_OPT_TUI="  -t, --tui           Spustiť textové používateľské rozhranie"
+MSG_CLI_OPT_GUI="  -g, --gui           Spustiť grafické používateľské rozhranie"
+MSG_CLI_OPT_CONFIG="  -c, --config SÚBOR  Použiť zadaný konfiguračný súbor"
+MSG_CLI_OPT_LIST="  -l, --list          Zoznam dostupných služieb"
+MSG_CLI_OPT_ENABLE="  -e, --enable SVC    Povoliť pípnutie pre službu"
+MSG_CLI_OPT_DISABLE="  -d, --disable SVC   Zakázať pípnutie pre službu"
+MSG_CLI_OPT_TEST="  --test SVC EVENT    Testovať pípnutie pre udalosť služby"
+MSG_CLI_OPT_HELP="  -h, --help          Zobraziť túto pomoc"
+MSG_CLI_OPT_VERSION="  -v, --version       Zobraziť informácie o verzii"
+
+# Configuration Manager Messages
+MSG_CONFIG_CREATED="Konfiguračný súbor vytvorený: %s"
+MSG_CONFIG_LOADED="Konfigurácia načítaná z: %s"
+MSG_CONFIG_BACKUP="Záloha konfigurácie vytvorená: %s"
+MSG_CONFIG_RESTORE="Konfigurácia obnovená zo zálohy"
+MSG_CONFIG_VALIDATE="Overovanie konfigurácie..."
+MSG_CONFIG_VALID="Konfigurácia je platná"
+MSG_CONFIG_INVALID="Overenie konfigurácie zlyhalo: %s"
+
+# Service Discovery Messages
+MSG_DISCOVERY_SCANNING="Vyhľadávanie dostupných služieb..."
+MSG_DISCOVERY_FOUND="Nájdených %d kompatibilných služieb"
+MSG_DISCOVERY_SERVICE="  - %s (%s)"
+MSG_DISCOVERY_COMPLETE="Vyhľadávanie služieb dokončené"
+
+# Schedule Messages
+MSG_SCHEDULE_ACTIVE="Plánovanie je aktívne - pípnutia môžu byť potlačené"
+MSG_SCHEDULE_QUIET_ACTIVE="Tiché hodiny aktívne (%s - %s)"
+MSG_SCHEDULE_RUNNING="Správca plánovania beží"
+MSG_SCHEDULE_STOPPED="Správca plánovania zastavený"
+
+# Error Messages
+MSG_ERROR_PERMISSION="Oprávnenie odmietnuté. Skúste spustiť so sudo."
+MSG_ERROR_CONFIG_READ="Nie je možné prečítať konfiguračný súbor: %s"
+MSG_ERROR_CONFIG_WRITE="Nie je možné zapísať konfiguračný súbor: %s"
+MSG_ERROR_SERVICE_NOT_FOUND="Služba nenájdená: %s"
+MSG_ERROR_TUNE_NOT_FOUND="Súbor melódie nenájdený: %s"
+MSG_ERROR_INVALID_OPTION="Neplatná možnosť: %s"
+MSG_ERROR_MISSING_ARG="Chýbajúci povinný argument pre: %s"
+MSG_ERROR_SYSTEMCTL="Príkaz systemctl zlyhal: %s"
+MSG_ERROR_DEPENDENCY="Požadovaná závislosť nie je nainštalovaná: %s"
+
+# Version and About
+MSG_VERSION="Sparky Beep verzia %s"
+MSG_COPYRIGHT="Copyright (C) 2018-2025 Paweł Pijanowski & Prispievatelia"
+MSG_LICENSE="Licencované pod GNU GPL v3"
+MSG_WEBSITE="https://github.com/sparkylinux/sparky-beep"

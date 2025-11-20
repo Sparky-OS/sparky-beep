@@ -115,28 +115,84 @@ Ternary:   ╭─╮         (smooth, musical)
 - **compositions/** - Pre-made musical compositions
 - **lib/notes.sh** - Musical note library with all frequencies
 
+Configuration Management (NEW!)
+-------------------------------
+Sparky Beep now includes **powerful configuration tools** for easy management:
+
+**🖥️ TUI (Text User Interface):**
+```bash
+sudo sparky-beep-config-tui   # Launch text interface
+```
+- Works in terminal/SSH sessions
+- Uses dialog/whiptail
+- Full keyboard navigation
+- Service selection, tune management, scheduling
+
+**🎨 GUI (Graphical User Interface):**
+```bash
+sparky-beep-config-gui         # Launch graphical interface
+```
+- Works in any desktop environment
+- Uses zenity/yad for compatibility
+- Point-and-click configuration
+- Preview sounds before applying
+
+**⚡ Unified CLI:**
+```bash
+sparky-beep-config            # Auto-detect TUI/GUI
+sparky-beep-config --list     # List available services
+sparky-beep-config --enable ssh       # Enable beep for SSH
+sparky-beep-config --disable netdata  # Disable beep for NetData
+sparky-beep-config --test ssh start   # Test SSH start beep
+```
+
+**Features:**
+- 🎯 **Service Discovery** - Automatically finds compatible services
+- 🎵 **Tune Management** - Assign melodies to each service event
+- ⏰ **Scheduling** - Configure quiet hours and time-based rules
+- 🌍 **Multi-language** - All interfaces support 26 languages
+- 💾 **Configuration Backup** - Automatic backup before changes
+- ✅ **Service Status** - Real-time service monitoring
+
+**Configuration File:**
+- Location: `/etc/sparky-beep/beep.conf`
+- User config: `~/.config/sparky-beep/beep.conf`
+- Automatic creation with sensible defaults
+- Human-readable INI format
+
 Internationalization (i18n)
 ---------------------------
-Sparky Beep supports **15 languages** with automatic detection based on your
-system's `LANG` environment variable:
+Sparky Beep supports **26 languages** with automatic detection based on your
+system's `LANG` environment variable - **Complete Debian i18n coverage!**
 
 | Language | Native Name | Code |
 |----------|-------------|------|
+| Arabic | العربية | ar |
+| Catalan | Català | ca |
 | Czech | Čeština | cs |
+| Danish | Dansk | da |
 | German | Deutsch | de |
+| Greek | Ελληνικά | el |
 | English | English | en (default) |
 | Spanish | Español | es |
+| Finnish | Suomi | fi |
 | French | Français | fr |
+| Hungarian | Magyar | hu |
 | Italian | Italiano | it |
 | Japanese | 日本語 | ja |
+| Korean | 한국어 | ko |
 | Dutch | Nederlands | nl |
 | Polish | Polski | pl |
 | Portuguese | Português | pt |
+| Portuguese (Brazil) | Português do Brasil | pt_BR |
+| Romanian | Română | ro |
 | Russian | Русский | ru |
+| Slovak | Slovenčina | sk |
 | Swedish | Svenska | sv |
 | Turkish | Türkçe | tr |
 | Ukrainian | Українська | uk |
 | Chinese (Simplified) | 简体中文 | zh_CN |
+| Chinese (Traditional) | 繁體中文 | zh_TW |
 
 **Usage:**
 ```bash

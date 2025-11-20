@@ -1,0 +1,199 @@
+# Catalan (Català) translations for Sparky Beep
+# Author: Sparky Beep Contributors
+# Last updated: 2025-11-20
+
+# Service status messages
+MSG_SERVICE_ACTIVE="el servei %s està actiu..."
+MSG_SERVICE_NOT_ACTIVE="el servei %s NO està actiu..."
+MSG_SPARKY_STARTED="sparky-beep iniciat"
+
+# Usage messages
+MSG_USAGE_BEEP_SYS="Ús: /etc/init.d/beep_sys {start|stop|restart}"
+MSG_USAGE_BEEP_NETDATA="Ús: /etc/init.d/beep_netdata {start|stop|restart}"
+MSG_USAGE_BEEP_SAMBA="Ús: /etc/init.d/beep_samba {start|stop|restart}"
+MSG_USAGE_BEEP_WEBMIN="Ús: /etc/init.d/beep_webmin {start|stop|restart}"
+
+# TUI/GUI - Main Menu
+MSG_MAIN_TITLE="Configuració de Sparky Beep"
+MSG_MAIN_SUBTITLE="Configura les notificacions sonores dels serveis del sistema"
+MSG_MENU_SERVICE_SELECTION="Selecció de serveis"
+MSG_MENU_TUNE_MANAGEMENT="Gestió de melodies"
+MSG_MENU_SCHEDULE="Configuració d'horaris"
+MSG_MENU_SETTINGS="Configuració"
+MSG_MENU_TEST="Provar sons"
+MSG_MENU_EXIT="Sortir"
+
+# TUI/GUI - Service Selection
+MSG_SERVICE_SELECT_TITLE="Selecciona els serveis a supervisar"
+MSG_SERVICE_SELECT_DESC="Tria quins serveis han de reproduir notificacions sonores"
+MSG_SERVICE_AVAILABLE="Serveis disponibles"
+MSG_SERVICE_ENABLED="Activat per a notificacions"
+MSG_SERVICE_DISABLED="Desactivat"
+MSG_SERVICE_NOT_INSTALLED="No instal·lat"
+MSG_SERVICE_TOGGLE="Commuta servei"
+MSG_SERVICE_SELECT_ALL="Selecciona tot"
+MSG_SERVICE_DESELECT_ALL="Desselecciona tot"
+MSG_SERVICE_REFRESH="Actualitza la llista"
+
+# TUI/GUI - Tune Management
+MSG_TUNE_TITLE="Gestió de melodies"
+MSG_TUNE_SELECT="Selecciona melodia per a l'esdeveniment"
+MSG_TUNE_SERVICE_LABEL="Servei: %s"
+MSG_TUNE_EVENT_START="Esdeveniment d'inici"
+MSG_TUNE_EVENT_STOP="Esdeveniment d'aturada"
+MSG_TUNE_EVENT_RESTART="Esdeveniment de reinici"
+MSG_TUNE_CURRENT="Actual: %s"
+MSG_TUNE_PREVIEW="Previsualitzar"
+MSG_TUNE_APPLY="Aplicar"
+MSG_TUNE_RESET="Restablir als valors per defecte"
+MSG_TUNE_CUSTOM="Seqüència de beeps personalitzada"
+MSG_TUNE_LIBRARY="Melodies disponibles"
+MSG_TUNE_NONE="[Silenciós - Sense beeps]"
+
+# TUI/GUI - Available Compositions
+MSG_COMPOSITION_C_SCALE="Escala de Do Major"
+MSG_COMPOSITION_HAPPY_BIRTHDAY="Moltes Felicitats"
+MSG_COMPOSITION_TWINKLE="Estel Esteleta"
+MSG_COMPOSITION_ODE_JOY="Oda a l'Alegria"
+MSG_COMPOSITION_STAR_WARS="Tema de Star Wars"
+MSG_COMPOSITION_MARIO="Super Mario Bros"
+MSG_COMPOSITION_STARTUP="Fanfàrria d'inici"
+MSG_COMPOSITION_SHUTDOWN="Melodia de tancament"
+MSG_COMPOSITION_ERROR="Alerta d'error"
+MSG_COMPOSITION_SUCCESS="Notificació d'èxit"
+MSG_COMPOSITION_IMPERIAL="Marxa Imperial"
+
+# TUI/GUI - Schedule Configuration
+MSG_SCHEDULE_TITLE="Configuració d'horaris"
+MSG_SCHEDULE_DESC="Configura les hores de silenci i horaris personalitzats"
+MSG_SCHEDULE_ENABLE="Habilita programació"
+MSG_SCHEDULE_DISABLE="Deshabilita programació"
+MSG_SCHEDULE_QUIET_HOURS="Hores de silenci"
+MSG_SCHEDULE_QUIET_START="Hora d'inici del silenci"
+MSG_SCHEDULE_QUIET_END="Hora de finalització del silenci"
+MSG_SCHEDULE_WEEKDAYS="Dies actius"
+MSG_SCHEDULE_MONDAY="Dilluns"
+MSG_SCHEDULE_TUESDAY="Dimarts"
+MSG_SCHEDULE_WEDNESDAY="Dimecres"
+MSG_SCHEDULE_THURSDAY="Dijous"
+MSG_SCHEDULE_FRIDAY="Divendres"
+MSG_SCHEDULE_SATURDAY="Dissabte"
+MSG_SCHEDULE_SUNDAY="Diumenge"
+MSG_SCHEDULE_ADD_RULE="Afegeix regla d'horari"
+MSG_SCHEDULE_REMOVE_RULE="Elimina regla"
+MSG_SCHEDULE_TIME_FORMAT="Format d'hora: HH:MM (24 hores)"
+
+# TUI/GUI - Settings
+MSG_SETTINGS_TITLE="Configuració general"
+MSG_SETTINGS_BEEP_MODE="Mode de beep"
+MSG_SETTINGS_MODE_BINARY="Binari (Estàndard)"
+MSG_SETTINGS_MODE_TERNARY="Ternari (Suau)"
+MSG_SETTINGS_VOLUME="Nivell de volum"
+MSG_SETTINGS_LANGUAGE="Idioma"
+MSG_SETTINGS_AUTO_ENABLE="Habilita serveis automàticament"
+MSG_SETTINGS_LOG_EVENTS="Registra esdeveniments de beeps"
+MSG_SETTINGS_CONFIG_PATH="Fitxer de configuració: %s"
+MSG_SETTINGS_SAVE="Desa configuració"
+MSG_SETTINGS_RESTORE_DEFAULTS="Restaura valors per defecte"
+
+# TUI/GUI - Test Sounds
+MSG_TEST_TITLE="Prova de reproducció de so"
+MSG_TEST_DESC="Previsualitza sons de beeps i composicions"
+MSG_TEST_SERVICE_SELECT="Selecciona servei per provar"
+MSG_TEST_EVENT_SELECT="Selecciona tipus d'esdeveniment"
+MSG_TEST_PLAY="Reprodueix so de prova"
+MSG_TEST_STOP="Atura reproducció"
+MSG_TEST_PLAYING="Reproduint: %s"
+
+# TUI/GUI - Common Actions
+MSG_BUTTON_OK="D'acord"
+MSG_BUTTON_CANCEL="Cancel·la"
+MSG_BUTTON_APPLY="Aplica"
+MSG_BUTTON_SAVE="Desa"
+MSG_BUTTON_BACK="Enrere"
+MSG_BUTTON_NEXT="Següent"
+MSG_BUTTON_FINISH="Finalitza"
+MSG_BUTTON_HELP="Ajuda"
+MSG_BUTTON_CLOSE="Tanca"
+MSG_BUTTON_YES="Sí"
+MSG_BUTTON_NO="No"
+
+# TUI/GUI - Messages and Notifications
+MSG_SAVE_SUCCESS="Configuració desada correctament"
+MSG_SAVE_ERROR="Error en desar la configuració: %s"
+MSG_LOAD_ERROR="Error en carregar la configuració: %s"
+MSG_APPLY_SUCCESS="Canvis aplicats correctament"
+MSG_APPLY_ERROR="Error en aplicar els canvis: %s"
+MSG_SERVICE_START_SUCCESS="Servei %s iniciat correctament"
+MSG_SERVICE_START_ERROR="Error en iniciar el servei %s"
+MSG_SERVICE_STOP_SUCCESS="Servei %s aturat correctament"
+MSG_SERVICE_STOP_ERROR="Error en aturar el servei %s"
+MSG_CONFIRM_EXIT="Sortir sense desar els canvis?"
+MSG_CONFIRM_RESET="Restablir tota la configuració als valors per defecte?"
+MSG_CONFIRM_DELETE="Eliminar aquesta regla d'horari?"
+MSG_NO_SERVICES_FOUND="No s'han trobat serveis compatibles"
+MSG_ROOT_REQUIRED="Es requereixen privilegis de root per a aquesta operació"
+MSG_PACKAGE_NOT_INSTALLED="El paquet %s no està instal·lat"
+MSG_BEEP_NOT_AVAILABLE="Utilitat de beep no disponible"
+MSG_INVALID_TIME_FORMAT="Format d'hora no vàlid. Usa HH:MM"
+MSG_INVALID_INPUT="Entrada no vàlida: %s"
+
+# TUI/GUI - Help and Information
+MSG_HELP_TITLE="Ajuda de Sparky Beep"
+MSG_HELP_SERVICES="Selecciona quins serveis del sistema activaran notificacions sonores quan s'iniciïn, s'aturin o es reiniciïn."
+MSG_HELP_TUNES="Assigna diferents melodies o patrons de beeps a cada esdeveniment de servei (inici/aturada/reinici)."
+MSG_HELP_SCHEDULE="Configura les hores de silenci quan els beeps estiguin deshabitats, o crea horaris personalitzats per a moments específics."
+MSG_HELP_SETTINGS="Configura el mode de beep (binari/ternari), volum, idioma i altres opcions globals."
+MSG_HELP_TEST="Previsualitza com sonaran diferents serveis i esdeveniments abans d'aplicar els canvis."
+
+# CLI Usage Messages
+MSG_CLI_USAGE="Ús: %s [OPCIONS]"
+MSG_CLI_DESCRIPTION="Sparky Beep - Gestor de notificacions sonores de serveis del sistema"
+MSG_CLI_OPTIONS="Opcions:"
+MSG_CLI_OPT_TUI="  -t, --tui           Llança interfície d'usuari de text"
+MSG_CLI_OPT_GUI="  -g, --gui           Llança interfície gràfica d'usuari"
+MSG_CLI_OPT_CONFIG="  -c, --config FITXER Usa el fitxer de configuració especificat"
+MSG_CLI_OPT_LIST="  -l, --list          Llista serveis disponibles"
+MSG_CLI_OPT_ENABLE="  -e, --enable SVC    Habilita beep per al servei"
+MSG_CLI_OPT_DISABLE="  -d, --disable SVC   Deshabilita beep per al servei"
+MSG_CLI_OPT_TEST="  --test SVC EVENT    Prova beep per a esdeveniment de servei"
+MSG_CLI_OPT_HELP="  -h, --help          Mostra aquest missatge d'ajuda"
+MSG_CLI_OPT_VERSION="  -v, --version       Mostra informació de versió"
+
+# Configuration Manager Messages
+MSG_CONFIG_CREATED="Fitxer de configuració creat: %s"
+MSG_CONFIG_LOADED="Configuració carregada de: %s"
+MSG_CONFIG_BACKUP="Còpia de seguretat de configuració creada: %s"
+MSG_CONFIG_RESTORE="Configuració restaurada de la còpia de seguretat"
+MSG_CONFIG_VALIDATE="Validant configuració..."
+MSG_CONFIG_VALID="La configuració és vàlida"
+MSG_CONFIG_INVALID="La validació de la configuració ha fallat: %s"
+
+# Service Discovery Messages
+MSG_DISCOVERY_SCANNING="Escanejant serveis disponibles..."
+MSG_DISCOVERY_FOUND="S'han trobat %d serveis compatibles"
+MSG_DISCOVERY_SERVICE="  - %s (%s)"
+MSG_DISCOVERY_COMPLETE="Descoberta de serveis completada"
+
+# Schedule Messages
+MSG_SCHEDULE_ACTIVE="L'horari està actiu - els beeps poden estar suprimits"
+MSG_SCHEDULE_QUIET_ACTIVE="Hores de silenci actives (%s - %s)"
+MSG_SCHEDULE_RUNNING="Gestor d'horaris en execució"
+MSG_SCHEDULE_STOPPED="Gestor d'horaris aturat"
+
+# Error Messages
+MSG_ERROR_PERMISSION="Permís denegat. Prova d'executar amb sudo."
+MSG_ERROR_CONFIG_READ="No es pot llegir el fitxer de configuració: %s"
+MSG_ERROR_CONFIG_WRITE="No es pot escriure al fitxer de configuració: %s"
+MSG_ERROR_SERVICE_NOT_FOUND="Servei no trobat: %s"
+MSG_ERROR_TUNE_NOT_FOUND="Fitxer de melodia no trobat: %s"
+MSG_ERROR_INVALID_OPTION="Opció no vàlida: %s"
+MSG_ERROR_MISSING_ARG="Falta un argument necessari per a: %s"
+MSG_ERROR_SYSTEMCTL="El comandament systemctl ha fallat: %s"
+MSG_ERROR_DEPENDENCY="Dependència necessària no instal·lada: %s"
+
+# Version and About
+MSG_VERSION="Sparky Beep versió %s"
+MSG_COPYRIGHT="Copyright (C) 2018-2025 Paweł Pijanowski i col·laboradors"
+MSG_LICENSE="Llicenciat sota GNU GPL v3"
+MSG_WEBSITE="https://github.com/sparkylinux/sparky-beep"

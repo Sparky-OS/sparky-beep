@@ -1,0 +1,524 @@
+#!/bin/bash
+#
+# Sparky Beep TUI Configuration Interface
+# Text-based user interface for configuring beep notifications
+# Uses dialog/whiptail for cross-platform compatibility
+# last update 2025/11/20
+#
+
+# Determine script directory
+SCRIPT_DIR="$(dirname "$(readlink -f "$0")")"
+LIB_DIR="$(dirname "$SCRIPT_DIR")/lib"
+LOCALE_DIR="$(dirname "$SCRIPT_DIR")/locale"
+
+# Source required libraries
+. "${LIB_DIR}/config.sh" || exit 1
+. "${LIB_DIR}/discovery.sh" || exit 1
+. "${LIB_DIR}/tunes.sh" || exit 1
+. "${LIB_DIR}/scheduler.sh" || exit 1
+. "${LOCALE_DIR}/i18n.sh" || exit 1
+
+# Detect dialog utility (prefer whiptail, fallback to dialog)
+DIALOG_CMD=""
+if command -v whiptail >/dev/null 2>&1; then
+    DIALOG_CMD="whiptail"
+elif command -v dialog >/dev/null 2>&1; then
+    DIALOG_CMD="dialog"
+else
+    echo "ERROR: Neither whiptail nor dialog is installed." >&2
+    echo "Please install one of: whiptail, dialog" >&2
+    exit 1
+fi
+
+# Dialog dimensions
+DIALOG_HEIGHT=20
+DIALOG_WIDTH=70
+
+# Temporary file for dialog output
+DIALOG_TEMP=$(mktemp)
+trap 'rm -f "$DIALOG_TEMP"' EXIT
+
+# Configuration changed flag
+CONFIG_CHANGED=0
+
+#
+# Function: dialog_msgbox
+# Description: Show a message box
+# Usage: dialog_msgbox <title> <message>
+#
+dialog_msgbox() {
+    local title="$1"
+    local message="$2"
+
+    $DIALOG_CMD --title "$title" \
+        --msgbox "$message" \
+        $DIALOG_HEIGHT $DIALOG_WIDTH
+}
+
+#
+# Function: dialog_yesno
+# Description: Show a yes/no dialog
+# Usage: dialog_yesno <title> <message>
+#
+dialog_yesno() {
+    local title="$1"
+    local message="$2"
+
+    $DIALOG_CMD --title "$title" \
+        --yesno "$message" \
+        $DIALOG_HEIGHT $DIALOG_WIDTH
+}
+
+#
+# Function: dialog_menu
+# Description: Show a menu
+# Usage: dialog_menu <title> <message> <options...>
+#
+dialog_menu() {
+    local title="$1"
+    local message="$2"
+    shift 2
+
+    $DIALOG_CMD --title "$title" \
+        --menu "$message" \
+        $DIALOG_HEIGHT $DIALOG_WIDTH 10 \
+        "$@" 2>"$DIALOG_TEMP"
+
+    local result=$?
+    if [ $result -eq 0 ]; then
+        cat "$DIALOG_TEMP"
+        return 0
+    fi
+    return 1
+}
+
+#
+# Function: dialog_checklist
+# Description: Show a checklist
+# Usage: dialog_checklist <title> <message> <options...>
+#
+dialog_checklist() {
+    local title="$1"
+    local message="$2"
+    shift 2
+
+    $DIALOG_CMD --title "$title" \
+        --checklist "$message" \
+        $DIALOG_HEIGHT $DIALOG_WIDTH 10 \
+        "$@" 2>"$DIALOG_TEMP"
+
+    local result=$?
+    if [ $result -eq 0 ]; then
+        cat "$DIALOG_TEMP"
+        return 0
+    fi
+    return 1
+}
+
+#
+# Function: dialog_inputbox
+# Description: Show an input box
+# Usage: dialog_inputbox <title> <message> [default]
+#
+dialog_inputbox() {
+    local title="$1"
+    local message="$2"
+    local default="$3"
+
+    $DIALOG_CMD --title "$title" \
+        --inputbox "$message" \
+        $DIALOG_HEIGHT $DIALOG_WIDTH \
+        "$default" 2>"$DIALOG_TEMP"
+
+    local result=$?
+    if [ $result -eq 0 ]; then
+        cat "$DIALOG_TEMP"
+        return 0
+    fi
+    return 1
+}
+
+#
+# Function: show_main_menu
+# Description: Show the main menu
+#
+show_main_menu() {
+    while true; do
+        local choice=$(dialog_menu \
+            "$(t MAIN_TITLE)" \
+            "$(t MAIN_SUBTITLE)" \
+            "1" "$(t MENU_SERVICE_SELECTION)" \
+            "2" "$(t MENU_TUNE_MANAGEMENT)" \
+            "3" "$(t MENU_SCHEDULE)" \
+            "4" "$(t MENU_SETTINGS)" \
+            "5" "$(t MENU_TEST)" \
+            "6" "$(t MENU_EXIT)")
+
+        case "$choice" in
+            1) show_service_selection ;;
+            2) show_tune_management ;;
+            3) show_schedule_config ;;
+            4) show_settings ;;
+            5) show_test_sounds ;;
+            6)
+                if [ $CONFIG_CHANGED -eq 1 ]; then
+                    if dialog_yesno "$(t BUTTON_SAVE)" "$(t CONFIRM_EXIT)"; then
+                        save_config
+                        break
+                    else
+                        break
+                    fi
+                else
+                    break
+                fi
+                ;;
+            *) break ;;
+        esac
+    done
+}
+
+#
+# Function: show_service_selection
+# Description: Show service selection menu
+#
+show_service_selection() {
+    # Discover services
+    discover_services
+
+    local options=()
+    for service in $(get_service_list); do
+        local status_text=""
+        if is_service_enabled "$service"; then
+            status_text="ON"
+        else
+            status_text="OFF"
+        fi
+
+        local description="${DISCOVERED_SERVICES[$service]}"
+        options+=("$service" "$description" "$status_text")
+    done
+
+    if [ ${#options[@]} -eq 0 ]; then
+        dialog_msgbox "$(t SERVICE_SELECT_TITLE)" "$(t MSG_NO_SERVICES_FOUND)"
+        return
+    fi
+
+    local selected=$(dialog_checklist \
+        "$(t SERVICE_SELECT_TITLE)" \
+        "$(t SERVICE_SELECT_DESC)" \
+        "${options[@]}")
+
+    if [ -n "$selected" ]; then
+        # Update service configuration
+        for service in $(get_service_list); do
+            if echo "$selected" | grep -q "\"$service\""; then
+                enable_service "$service"
+            else
+                disable_service "$service"
+            fi
+        done
+        CONFIG_CHANGED=1
+        dialog_msgbox "$(t BUTTON_SAVE)" "$(t APPLY_SUCCESS)"
+    fi
+}
+
+#
+# Function: show_tune_management
+# Description: Show tune management menu
+#
+show_tune_management() {
+    # First, select service
+    local options=()
+    for service in $(get_service_list); do
+        if is_service_enabled "$service"; then
+            options+=("$service" "")
+        fi
+    done
+
+    if [ ${#options[@]} -eq 0 ]; then
+        dialog_msgbox "$(t TUNE_TITLE)" "$(t MSG_NO_SERVICES_FOUND)"
+        return
+    fi
+
+    local service=$(dialog_menu \
+        "$(t TUNE_TITLE)" \
+        "$(t TUNE_SELECT)" \
+        "${options[@]}")
+
+    [ -z "$service" ] && return
+
+    # Show tune configuration for service
+    show_service_tune_config "$service"
+}
+
+#
+# Function: show_service_tune_config
+# Description: Configure tunes for a specific service
+#
+show_service_tune_config() {
+    local service="$1"
+
+    while true; do
+        local start_tune=$(get_service_tune "$service" "start")
+        local stop_tune=$(get_service_tune "$service" "stop")
+        local restart_tune=$(get_service_tune "$service" "restart")
+
+        local choice=$(dialog_menu \
+            "$(printf "$(t TUNE_SERVICE_LABEL)" "$service")" \
+            "$(t TUNE_SELECT)" \
+            "1" "$(t TUNE_EVENT_START) - $(printf "$(t TUNE_CURRENT)" "$start_tune")" \
+            "2" "$(t TUNE_EVENT_STOP) - $(printf "$(t TUNE_CURRENT)" "$stop_tune")" \
+            "3" "$(t TUNE_EVENT_RESTART) - $(printf "$(t TUNE_CURRENT)" "$restart_tune")" \
+            "4" "$(t BUTTON_BACK)")
+
+        case "$choice" in
+            1) select_tune_for_event "$service" "start" ;;
+            2) select_tune_for_event "$service" "stop" ;;
+            3) select_tune_for_event "$service" "restart" ;;
+            4) break ;;
+            *) break ;;
+        esac
+    done
+}
+
+#
+# Function: select_tune_for_event
+# Description: Select a tune for a service event
+#
+select_tune_for_event() {
+    local service="$1"
+    local event="$2"
+
+    # Build tune list
+    local options=()
+    for tune in $(get_tune_list); do
+        local description=$(get_tune_description "$tune")
+        options+=("$tune" "$description")
+    done
+
+    local selected=$(dialog_menu \
+        "$(t TUNE_SELECT)" \
+        "$(t TUNE_EVENT_START)" \
+        "${options[@]}")
+
+    if [ -n "$selected" ]; then
+        set_service_tune "$service" "$event" "$selected"
+        CONFIG_CHANGED=1
+
+        # Ask to preview
+        if dialog_yesno "$(t TUNE_PREVIEW)" "$(t TUNE_PREVIEW)?"; then
+            play_tune "$selected" "$BEEP_MODE"
+        fi
+    fi
+}
+
+#
+# Function: show_schedule_config
+# Description: Show schedule configuration menu
+#
+show_schedule_config() {
+    while true; do
+        local enabled_status="$(t SCHEDULE_DISABLE)"
+        if [ "$SCHEDULE_ENABLED" = "true" ]; then
+            enabled_status="$(t SCHEDULE_ENABLE)"
+        fi
+
+        local choice=$(dialog_menu \
+            "$(t SCHEDULE_TITLE)" \
+            "$(t SCHEDULE_DESC)" \
+            "1" "$enabled_status" \
+            "2" "$(t SCHEDULE_QUIET_HOURS) ($QUIET_HOURS_START - $QUIET_HOURS_END)" \
+            "3" "$(t SCHEDULE_ADD_RULE)" \
+            "4" "$(t MENU_EXIT)")
+
+        case "$choice" in
+            1) toggle_scheduling ;;
+            2) configure_quiet_hours ;;
+            3) add_new_schedule_rule ;;
+            4) break ;;
+            *) break ;;
+        esac
+    done
+}
+
+#
+# Function: toggle_scheduling
+# Description: Toggle scheduling on/off
+#
+toggle_scheduling() {
+    if [ "$SCHEDULE_ENABLED" = "true" ]; then
+        disable_scheduling
+        dialog_msgbox "$(t SCHEDULE_TITLE)" "$(t SCHEDULE_STOPPED)"
+    else
+        enable_scheduling
+        dialog_msgbox "$(t SCHEDULE_TITLE)" "$(t SCHEDULE_RUNNING)"
+    fi
+    CONFIG_CHANGED=1
+}
+
+#
+# Function: configure_quiet_hours
+# Description: Configure quiet hours
+#
+configure_quiet_hours() {
+    local start=$(dialog_inputbox \
+        "$(t SCHEDULE_QUIET_HOURS)" \
+        "$(t SCHEDULE_QUIET_START) $(t SCHEDULE_TIME_FORMAT)" \
+        "$QUIET_HOURS_START")
+
+    [ -z "$start" ] && return
+
+    local end=$(dialog_inputbox \
+        "$(t SCHEDULE_QUIET_HOURS)" \
+        "$(t SCHEDULE_QUIET_END) $(t SCHEDULE_TIME_FORMAT)" \
+        "$QUIET_HOURS_END")
+
+    [ -z "$end" ] && return
+
+    if set_quiet_hours "$start" "$end"; then
+        CONFIG_CHANGED=1
+        dialog_msgbox "$(t SCHEDULE_TITLE)" "$(t APPLY_SUCCESS)"
+    else
+        dialog_msgbox "$(t SCHEDULE_TITLE)" "$(t MSG_INVALID_TIME_FORMAT)"
+    fi
+}
+
+#
+# Function: add_new_schedule_rule
+# Description: Add a new schedule rule
+#
+add_new_schedule_rule() {
+    dialog_msgbox "$(t SCHEDULE_ADD_RULE)" "Feature coming soon!"
+}
+
+#
+# Function: show_settings
+# Description: Show general settings menu
+#
+show_settings() {
+    while true; do
+        local beep_mode_display="$(t SETTINGS_MODE_BINARY)"
+        if [ "$BEEP_MODE" = "ternary" ]; then
+            beep_mode_display="$(t SETTINGS_MODE_TERNARY)"
+        fi
+
+        local choice=$(dialog_menu \
+            "$(t SETTINGS_TITLE)" \
+            "$(t SETTINGS_TITLE)" \
+            "1" "$(t SETTINGS_BEEP_MODE): $beep_mode_display" \
+            "2" "$(t SETTINGS_LANGUAGE): $LANGUAGE_CODE" \
+            "3" "$(t SETTINGS_SAVE)" \
+            "4" "$(t BUTTON_BACK)")
+
+        case "$choice" in
+            1) toggle_beep_mode ;;
+            2) change_language ;;
+            3) save_config && dialog_msgbox "$(t SETTINGS_SAVE)" "$(t MSG_SAVE_SUCCESS)" ;;
+            4) break ;;
+            *) break ;;
+        esac
+    done
+}
+
+#
+# Function: toggle_beep_mode
+# Description: Toggle between binary and ternary beep modes
+#
+toggle_beep_mode() {
+    if [ "$BEEP_MODE" = "binary" ]; then
+        BEEP_MODE="ternary"
+    else
+        BEEP_MODE="binary"
+    fi
+    set_config_value "general" "beep_mode" "$BEEP_MODE"
+    CONFIG_CHANGED=1
+}
+
+#
+# Function: change_language
+# Description: Change interface language
+#
+change_language() {
+    local langs=("en" "English"
+                 "de" "Deutsch"
+                 "es" "Español"
+                 "fr" "Français"
+                 "it" "Italiano"
+                 "pl" "Polski"
+                 "ru" "Русский"
+                 "ja" "日本語"
+                 "zh_CN" "简体中文")
+
+    local selected=$(dialog_menu \
+        "$(t SETTINGS_LANGUAGE)" \
+        "$(t SETTINGS_LANGUAGE)" \
+        "${langs[@]}")
+
+    if [ -n "$selected" ]; then
+        LANGUAGE_CODE="$selected"
+        set_config_value "general" "language" "$selected"
+        CONFIG_CHANGED=1
+        export LANG="${selected}_XX.UTF-8"
+        . "${LOCALE_DIR}/i18n.sh"
+        dialog_msgbox "$(t SETTINGS_LANGUAGE)" "$(t APPLY_SUCCESS)"
+    fi
+}
+
+#
+# Function: show_test_sounds
+# Description: Show test sounds menu
+#
+show_test_sounds() {
+    # Build tune list
+    local options=()
+    for tune in $(get_tune_list); do
+        local description=$(get_tune_description "$tune")
+        options+=("$tune" "$description")
+    done
+
+    while true; do
+        local selected=$(dialog_menu \
+            "$(t MSG_TEST_TITLE)" \
+            "$(t MSG_TEST_DESC)" \
+            "${options[@]}" \
+            "back" "$(t BUTTON_BACK)")
+
+        if [ "$selected" = "back" ] || [ -z "$selected" ]; then
+            break
+        fi
+
+        play_tune "$selected" "$BEEP_MODE" || \
+            dialog_msgbox "$(t MSG_TEST_TITLE)" "$(printf "$(t MSG_ERROR_TUNE_NOT_FOUND)" "$selected")"
+    done
+}
+
+#
+# Main program
+#
+main() {
+    # Check for root if needed
+    # if [ "$(id -u)" -ne 0 ]; then
+    #     dialog_msgbox "$(t ERROR)" "$(t MSG_ROOT_REQUIRED)"
+    #     exit 1
+    # fi
+
+    # Initialize libraries
+    init_config
+    load_config
+    init_tune_library
+    discover_services
+
+    # Show main menu
+    show_main_menu
+
+    # Save on exit if changed
+    if [ $CONFIG_CHANGED -eq 1 ]; then
+        save_config
+    fi
+
+    # Clean up
+    rm -f "$DIALOG_TEMP"
+}
+
+# Run main program
+main "$@"

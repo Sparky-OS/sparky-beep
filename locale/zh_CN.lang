@@ -1,6 +1,6 @@
 # Chinese Simplified (简体中文) translations for Sparky Beep
 # Author: Sparky Beep Contributors
-# Last updated: 2025-01-20
+# Last updated: 2025-11-20
 
 # Service status messages
 MSG_SERVICE_ACTIVE="%s 服务正在运行..."
@@ -12,3 +12,188 @@ MSG_USAGE_BEEP_SYS="用法: /etc/init.d/beep_sys {start|stop|restart}"
 MSG_USAGE_BEEP_NETDATA="用法: /etc/init.d/beep_netdata {start|stop|restart}"
 MSG_USAGE_BEEP_SAMBA="用法: /etc/init.d/beep_samba {start|stop|restart}"
 MSG_USAGE_BEEP_WEBMIN="用法: /etc/init.d/beep_webmin {start|stop|restart}"
+
+# TUI/GUI - Main Menu
+MSG_MAIN_TITLE="Sparky Beep 配置"
+MSG_MAIN_SUBTITLE="配置系统服务声音通知"
+MSG_MENU_SERVICE_SELECTION="服务选择"
+MSG_MENU_TUNE_MANAGEMENT="旋律管理"
+MSG_MENU_SCHEDULE="计划配置"
+MSG_MENU_SETTINGS="设置"
+MSG_MENU_TEST="测试声音"
+MSG_MENU_EXIT="退出"
+
+# TUI/GUI - Service Selection
+MSG_SERVICE_SELECT_TITLE="选择要监控的服务"
+MSG_SERVICE_SELECT_DESC="选择哪些服务应该播放提示音通知"
+MSG_SERVICE_AVAILABLE="可用服务"
+MSG_SERVICE_ENABLED="已启用通知"
+MSG_SERVICE_DISABLED="已禁用"
+MSG_SERVICE_NOT_INSTALLED="未安装"
+MSG_SERVICE_TOGGLE="切换服务"
+MSG_SERVICE_SELECT_ALL="全选"
+MSG_SERVICE_DESELECT_ALL="全不选"
+MSG_SERVICE_REFRESH="刷新列表"
+
+# TUI/GUI - Tune Management
+MSG_TUNE_TITLE="旋律管理"
+MSG_TUNE_SELECT="为事件选择旋律"
+MSG_TUNE_SERVICE_LABEL="服务: %s"
+MSG_TUNE_EVENT_START="启动事件"
+MSG_TUNE_EVENT_STOP="停止事件"
+MSG_TUNE_EVENT_RESTART="重启事件"
+MSG_TUNE_CURRENT="当前: %s"
+MSG_TUNE_PREVIEW="预览"
+MSG_TUNE_APPLY="应用"
+MSG_TUNE_RESET="重置为默认"
+MSG_TUNE_CUSTOM="自定义提示音序列"
+MSG_TUNE_LIBRARY="可用旋律"
+MSG_TUNE_NONE="[静音 - 无提示音]"
+
+# TUI/GUI - Available Compositions
+MSG_COMPOSITION_C_SCALE="C大调音阶"
+MSG_COMPOSITION_HAPPY_BIRTHDAY="生日快乐"
+MSG_COMPOSITION_TWINKLE="小星星"
+MSG_COMPOSITION_ODE_JOY="欢乐颂"
+MSG_COMPOSITION_STAR_WARS="星球大战主题"
+MSG_COMPOSITION_MARIO="超级马里奥兄弟"
+MSG_COMPOSITION_STARTUP="启动号角"
+MSG_COMPOSITION_SHUTDOWN="关机旋律"
+MSG_COMPOSITION_ERROR="错误警告"
+MSG_COMPOSITION_SUCCESS="成功通知"
+MSG_COMPOSITION_IMPERIAL="帝国进行曲"
+
+# TUI/GUI - Schedule Configuration
+MSG_SCHEDULE_TITLE="基于时间的计划配置"
+MSG_SCHEDULE_DESC="配置静音时段和自定义计划"
+MSG_SCHEDULE_ENABLE="启用计划"
+MSG_SCHEDULE_DISABLE="禁用计划"
+MSG_SCHEDULE_QUIET_HOURS="静音时段"
+MSG_SCHEDULE_QUIET_START="静音开始时间"
+MSG_SCHEDULE_QUIET_END="静音结束时间"
+MSG_SCHEDULE_WEEKDAYS="活动天数"
+MSG_SCHEDULE_MONDAY="星期一"
+MSG_SCHEDULE_TUESDAY="星期二"
+MSG_SCHEDULE_WEDNESDAY="星期三"
+MSG_SCHEDULE_THURSDAY="星期四"
+MSG_SCHEDULE_FRIDAY="星期五"
+MSG_SCHEDULE_SATURDAY="星期六"
+MSG_SCHEDULE_SUNDAY="星期日"
+MSG_SCHEDULE_ADD_RULE="添加计划规则"
+MSG_SCHEDULE_REMOVE_RULE="删除规则"
+MSG_SCHEDULE_TIME_FORMAT="时间格式: HH:MM (24小时制)"
+
+# TUI/GUI - Settings
+MSG_SETTINGS_TITLE="常规设置"
+MSG_SETTINGS_BEEP_MODE="提示音模式"
+MSG_SETTINGS_MODE_BINARY="二进制 (标准)"
+MSG_SETTINGS_MODE_TERNARY="三进制 (平滑)"
+MSG_SETTINGS_VOLUME="音量级别"
+MSG_SETTINGS_LANGUAGE="语言"
+MSG_SETTINGS_AUTO_ENABLE="自动启用服务"
+MSG_SETTINGS_LOG_EVENTS="记录提示音事件"
+MSG_SETTINGS_CONFIG_PATH="配置文件: %s"
+MSG_SETTINGS_SAVE="保存设置"
+MSG_SETTINGS_RESTORE_DEFAULTS="恢复默认值"
+
+# TUI/GUI - Test Sounds
+MSG_TEST_TITLE="测试声音播放"
+MSG_TEST_DESC="预览提示音和音乐"
+MSG_TEST_SERVICE_SELECT="选择要测试的服务"
+MSG_TEST_EVENT_SELECT="选择事件类型"
+MSG_TEST_PLAY="播放测试声音"
+MSG_TEST_STOP="停止播放"
+MSG_TEST_PLAYING="正在播放: %s"
+
+# TUI/GUI - Common Actions
+MSG_BUTTON_OK="确定"
+MSG_BUTTON_CANCEL="取消"
+MSG_BUTTON_APPLY="应用"
+MSG_BUTTON_SAVE="保存"
+MSG_BUTTON_BACK="返回"
+MSG_BUTTON_NEXT="下一步"
+MSG_BUTTON_FINISH="完成"
+MSG_BUTTON_HELP="帮助"
+MSG_BUTTON_CLOSE="关闭"
+MSG_BUTTON_YES="是"
+MSG_BUTTON_NO="否"
+
+# TUI/GUI - Messages and Notifications
+MSG_SAVE_SUCCESS="配置已成功保存"
+MSG_SAVE_ERROR="保存配置时出错: %s"
+MSG_LOAD_ERROR="加载配置时出错: %s"
+MSG_APPLY_SUCCESS="更改已成功应用"
+MSG_APPLY_ERROR="应用更改时出错: %s"
+MSG_SERVICE_START_SUCCESS="服务 %s 已成功启动"
+MSG_SERVICE_START_ERROR="启动服务 %s 失败"
+MSG_SERVICE_STOP_SUCCESS="服务 %s 已成功停止"
+MSG_SERVICE_STOP_ERROR="停止服务 %s 失败"
+MSG_CONFIRM_EXIT="退出而不保存更改?"
+MSG_CONFIRM_RESET="将所有设置重置为默认值?"
+MSG_CONFIRM_DELETE="删除此计划规则?"
+MSG_NO_SERVICES_FOUND="未找到兼容的服务"
+MSG_ROOT_REQUIRED="此操作需要root权限"
+MSG_PACKAGE_NOT_INSTALLED="软件包 %s 未安装"
+MSG_BEEP_NOT_AVAILABLE="提示音工具不可用"
+MSG_INVALID_TIME_FORMAT="时间格式无效。请使用 HH:MM"
+MSG_INVALID_INPUT="输入无效: %s"
+
+# TUI/GUI - Help and Information
+MSG_HELP_TITLE="Sparky Beep 帮助"
+MSG_HELP_SERVICES="选择在启动、停止或重启时触发提示音通知的系统服务。"
+MSG_HELP_TUNES="为每个服务事件(启动/停止/重启)分配不同的旋律或提示音模式。"
+MSG_HELP_SCHEDULE="设置禁用提示音的静音时段，或为特定时间创建自定义计划。"
+MSG_HELP_SETTINGS="配置提示音模式(二进制/三进制)、音量、语言和其他全局设置。"
+MSG_HELP_TEST="在应用更改之前预览不同服务和事件的声音。"
+
+# CLI Usage Messages
+MSG_CLI_USAGE="用法: %s [选项]"
+MSG_CLI_DESCRIPTION="Sparky Beep - 系统服务声音通知管理器"
+MSG_CLI_OPTIONS="选项:"
+MSG_CLI_OPT_TUI="  -t, --tui           启动文本用户界面"
+MSG_CLI_OPT_GUI="  -g, --gui           启动图形用户界面"
+MSG_CLI_OPT_CONFIG="  -c, --config 文件   使用指定的配置文件"
+MSG_CLI_OPT_LIST="  -l, --list          列出可用服务"
+MSG_CLI_OPT_ENABLE="  -e, --enable SVC    为服务启用提示音"
+MSG_CLI_OPT_DISABLE="  -d, --disable SVC   为服务禁用提示音"
+MSG_CLI_OPT_TEST="  --test SVC EVENT    测试服务事件的提示音"
+MSG_CLI_OPT_HELP="  -h, --help          显示此帮助消息"
+MSG_CLI_OPT_VERSION="  -v, --version       显示版本信息"
+
+# Configuration Manager Messages
+MSG_CONFIG_CREATED="已创建配置文件: %s"
+MSG_CONFIG_LOADED="已从以下位置加载配置: %s"
+MSG_CONFIG_BACKUP="已创建配置备份: %s"
+MSG_CONFIG_RESTORE="已从备份恢复配置"
+MSG_CONFIG_VALIDATE="正在验证配置..."
+MSG_CONFIG_VALID="配置有效"
+MSG_CONFIG_INVALID="配置验证失败: %s"
+
+# Service Discovery Messages
+MSG_DISCOVERY_SCANNING="正在扫描可用服务..."
+MSG_DISCOVERY_FOUND="找到 %d 个兼容服务"
+MSG_DISCOVERY_SERVICE="  - %s (%s)"
+MSG_DISCOVERY_COMPLETE="服务发现完成"
+
+# Schedule Messages
+MSG_SCHEDULE_ACTIVE="计划处于活动状态 - 提示音可能被抑制"
+MSG_SCHEDULE_QUIET_ACTIVE="静音时段活动中 (%s - %s)"
+MSG_SCHEDULE_RUNNING="计划管理器正在运行"
+MSG_SCHEDULE_STOPPED="计划管理器已停止"
+
+# Error Messages
+MSG_ERROR_PERMISSION="权限被拒绝。请尝试使用 sudo 运行。"
+MSG_ERROR_CONFIG_READ="无法读取配置文件: %s"
+MSG_ERROR_CONFIG_WRITE="无法写入配置文件: %s"
+MSG_ERROR_SERVICE_NOT_FOUND="未找到服务: %s"
+MSG_ERROR_TUNE_NOT_FOUND="未找到旋律文件: %s"
+MSG_ERROR_INVALID_OPTION="选项无效: %s"
+MSG_ERROR_MISSING_ARG="缺少必需的参数: %s"
+MSG_ERROR_SYSTEMCTL="systemctl 命令失败: %s"
+MSG_ERROR_DEPENDENCY="未安装所需的依赖项: %s"
+
+# Version and About
+MSG_VERSION="Sparky Beep 版本 %s"
+MSG_COPYRIGHT="版权所有 (C) 2018-2025 Paweł Pijanowski 和贡献者"
+MSG_LICENSE="根据 GNU GPL v3 授权"
+MSG_WEBSITE="https://github.com/sparkylinux/sparky-beep"

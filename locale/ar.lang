@@ -1,0 +1,199 @@
+# Arabic (العربية) translations for Sparky Beep
+# Author: Sparky Beep Contributors
+# Last updated: 2025-11-20
+
+# Service status messages
+MSG_SERVICE_ACTIVE="الخدمة %s نشطة..."
+MSG_SERVICE_NOT_ACTIVE="الخدمة %s غير نشطة..."
+MSG_SPARKY_STARTED="تم تشغيل sparky-beep"
+
+# Usage messages
+MSG_USAGE_BEEP_SYS="الاستخدام: /etc/init.d/beep_sys {start|stop|restart}"
+MSG_USAGE_BEEP_NETDATA="الاستخدام: /etc/init.d/beep_netdata {start|stop|restart}"
+MSG_USAGE_BEEP_SAMBA="الاستخدام: /etc/init.d/beep_samba {start|stop|restart}"
+MSG_USAGE_BEEP_WEBMIN="الاستخدام: /etc/init.d/beep_webmin {start|stop|restart}"
+
+# TUI/GUI - Main Menu
+MSG_MAIN_TITLE="إعدادات Sparky Beep"
+MSG_MAIN_SUBTITLE="تكوين إشعارات الصوت لخدمات النظام"
+MSG_MENU_SERVICE_SELECTION="اختيار الخدمات"
+MSG_MENU_TUNE_MANAGEMENT="إدارة الألحان"
+MSG_MENU_SCHEDULE="إعدادات الجدول"
+MSG_MENU_SETTINGS="الإعدادات"
+MSG_MENU_TEST="اختبار الأصوات"
+MSG_MENU_EXIT="خروج"
+
+# TUI/GUI - Service Selection
+MSG_SERVICE_SELECT_TITLE="اختر الخدمات للمراقبة"
+MSG_SERVICE_SELECT_DESC="اختر الخدمات التي يجب أن تشغل إشعارات صوتية"
+MSG_SERVICE_AVAILABLE="الخدمات المتاحة"
+MSG_SERVICE_ENABLED="مفعل للإشعارات"
+MSG_SERVICE_DISABLED="معطل"
+MSG_SERVICE_NOT_INSTALLED="غير مثبت"
+MSG_SERVICE_TOGGLE="تبديل الخدمة"
+MSG_SERVICE_SELECT_ALL="تحديد الكل"
+MSG_SERVICE_DESELECT_ALL="إلغاء تحديد الكل"
+MSG_SERVICE_REFRESH="تحديث القائمة"
+
+# TUI/GUI - Tune Management
+MSG_TUNE_TITLE="إدارة الألحان"
+MSG_TUNE_SELECT="اختر لحناً للحدث"
+MSG_TUNE_SERVICE_LABEL="الخدمة: %s"
+MSG_TUNE_EVENT_START="حدث البدء"
+MSG_TUNE_EVENT_STOP="حدث الإيقاف"
+MSG_TUNE_EVENT_RESTART="حدث إعادة التشغيل"
+MSG_TUNE_CURRENT="الحالي: %s"
+MSG_TUNE_PREVIEW="معاينة"
+MSG_TUNE_APPLY="تطبيق"
+MSG_TUNE_RESET="إعادة تعيين إلى الافتراضي"
+MSG_TUNE_CUSTOM="تسلسل صفير مخصص"
+MSG_TUNE_LIBRARY="الألحان المتاحة"
+MSG_TUNE_NONE="[صامت - بدون صفير]"
+
+# TUI/GUI - Available Compositions
+MSG_COMPOSITION_C_SCALE="سلم دو الكبير"
+MSG_COMPOSITION_HAPPY_BIRTHDAY="عيد ميلاد سعيد"
+MSG_COMPOSITION_TWINKLE="تلألأ يا نجمة صغيرة"
+MSG_COMPOSITION_ODE_JOY="أنشودة الفرح"
+MSG_COMPOSITION_STAR_WARS="موضوع حرب النجوم"
+MSG_COMPOSITION_MARIO="سوبر ماريو"
+MSG_COMPOSITION_STARTUP="موسيقى البدء"
+MSG_COMPOSITION_SHUTDOWN="موسيقى الإيقاف"
+MSG_COMPOSITION_ERROR="تحذير خطأ"
+MSG_COMPOSITION_SUCCESS="إشعار نجاح"
+MSG_COMPOSITION_IMPERIAL="المسيرة الإمبراطورية"
+
+# TUI/GUI - Schedule Configuration
+MSG_SCHEDULE_TITLE="تكوين الجدول الزمني"
+MSG_SCHEDULE_DESC="تكوين ساعات الهدوء والجداول المخصصة"
+MSG_SCHEDULE_ENABLE="تمكين الجدولة"
+MSG_SCHEDULE_DISABLE="تعطيل الجدولة"
+MSG_SCHEDULE_QUIET_HOURS="ساعات الهدوء"
+MSG_SCHEDULE_QUIET_START="وقت بدء الهدوء"
+MSG_SCHEDULE_QUIET_END="وقت انتهاء الهدوء"
+MSG_SCHEDULE_WEEKDAYS="الأيام النشطة"
+MSG_SCHEDULE_MONDAY="الاثنين"
+MSG_SCHEDULE_TUESDAY="الثلاثاء"
+MSG_SCHEDULE_WEDNESDAY="الأربعاء"
+MSG_SCHEDULE_THURSDAY="الخميس"
+MSG_SCHEDULE_FRIDAY="الجمعة"
+MSG_SCHEDULE_SATURDAY="السبت"
+MSG_SCHEDULE_SUNDAY="الأحد"
+MSG_SCHEDULE_ADD_RULE="إضافة قاعدة جدول"
+MSG_SCHEDULE_REMOVE_RULE="إزالة القاعدة"
+MSG_SCHEDULE_TIME_FORMAT="صيغة الوقت: HH:MM (24 ساعة)"
+
+# TUI/GUI - Settings
+MSG_SETTINGS_TITLE="الإعدادات العامة"
+MSG_SETTINGS_BEEP_MODE="وضع الصفير"
+MSG_SETTINGS_MODE_BINARY="ثنائي (قياسي)"
+MSG_SETTINGS_MODE_TERNARY="ثلاثي (ناعم)"
+MSG_SETTINGS_VOLUME="مستوى الصوت"
+MSG_SETTINGS_LANGUAGE="اللغة"
+MSG_SETTINGS_AUTO_ENABLE="تمكين الخدمات تلقائياً"
+MSG_SETTINGS_LOG_EVENTS="تسجيل أحداث الصفير"
+MSG_SETTINGS_CONFIG_PATH="ملف التكوين: %s"
+MSG_SETTINGS_SAVE="حفظ الإعدادات"
+MSG_SETTINGS_RESTORE_DEFAULTS="استعادة الافتراضيات"
+
+# TUI/GUI - Test Sounds
+MSG_TEST_TITLE="اختبار تشغيل الصوت"
+MSG_TEST_DESC="معاينة الصفير والتراكيب"
+MSG_TEST_SERVICE_SELECT="اختر خدمة للاختبار"
+MSG_TEST_EVENT_SELECT="اختر نوع الحدث"
+MSG_TEST_PLAY="تشغيل صوت الاختبار"
+MSG_TEST_STOP="إيقاف التشغيل"
+MSG_TEST_PLAYING="جاري التشغيل: %s"
+
+# TUI/GUI - Common Actions
+MSG_BUTTON_OK="موافق"
+MSG_BUTTON_CANCEL="إلغاء"
+MSG_BUTTON_APPLY="تطبيق"
+MSG_BUTTON_SAVE="حفظ"
+MSG_BUTTON_BACK="رجوع"
+MSG_BUTTON_NEXT="التالي"
+MSG_BUTTON_FINISH="إنهاء"
+MSG_BUTTON_HELP="مساعدة"
+MSG_BUTTON_CLOSE="إغلاق"
+MSG_BUTTON_YES="نعم"
+MSG_BUTTON_NO="لا"
+
+# TUI/GUI - Messages and Notifications
+MSG_SAVE_SUCCESS="تم حفظ التكوين بنجاح"
+MSG_SAVE_ERROR="خطأ في حفظ التكوين: %s"
+MSG_LOAD_ERROR="خطأ في تحميل التكوين: %s"
+MSG_APPLY_SUCCESS="تم تطبيق التغييرات بنجاح"
+MSG_APPLY_ERROR="خطأ في تطبيق التغييرات: %s"
+MSG_SERVICE_START_SUCCESS="تم تشغيل الخدمة %s بنجاح"
+MSG_SERVICE_START_ERROR="فشل تشغيل الخدمة %s"
+MSG_SERVICE_STOP_SUCCESS="تم إيقاف الخدمة %s بنجاح"
+MSG_SERVICE_STOP_ERROR="فشل إيقاف الخدمة %s"
+MSG_CONFIRM_EXIT="الخروج بدون حفظ التغييرات؟"
+MSG_CONFIRM_RESET="إعادة تعيين جميع الإعدادات إلى القيم الافتراضية؟"
+MSG_CONFIRM_DELETE="حذف قاعدة الجدول هذه؟"
+MSG_NO_SERVICES_FOUND="لم يتم العثور على خدمات متوافقة"
+MSG_ROOT_REQUIRED="مطلوب امتيازات root لهذه العملية"
+MSG_PACKAGE_NOT_INSTALLED="الحزمة %s غير مثبتة"
+MSG_BEEP_NOT_AVAILABLE="أداة الصفير غير متوفرة"
+MSG_INVALID_TIME_FORMAT="صيغة وقت غير صالحة. استخدم HH:MM"
+MSG_INVALID_INPUT="إدخال غير صالح: %s"
+
+# TUI/GUI - Help and Information
+MSG_HELP_TITLE="مساعدة Sparky Beep"
+MSG_HELP_SERVICES="اختر خدمات النظام التي ستطلق إشعارات صوتية عند البدء أو الإيقاف أو إعادة التشغيل."
+MSG_HELP_TUNES="قم بتعيين ألحان أو أنماط صفير مختلفة لكل حدث خدمة (بدء/إيقاف/إعادة تشغيل)."
+MSG_HELP_SCHEDULE="حدد ساعات الهدوء عندما يتم تعطيل الصفير، أو أنشئ جداول مخصصة لأوقات محددة."
+MSG_HELP_SETTINGS="قم بتكوين وضع الصفير (ثنائي/ثلاثي)، الصوت، اللغة، والإعدادات العامة الأخرى."
+MSG_HELP_TEST="معاينة كيف ستبدو الخدمات والأحداث المختلفة قبل تطبيق التغييرات."
+
+# CLI Usage Messages
+MSG_CLI_USAGE="الاستخدام: %s [خيارات]"
+MSG_CLI_DESCRIPTION="Sparky Beep - مدير إشعارات الصوت لخدمات النظام"
+MSG_CLI_OPTIONS="الخيارات:"
+MSG_CLI_OPT_TUI="  -t, --tui           تشغيل واجهة المستخدم النصية"
+MSG_CLI_OPT_GUI="  -g, --gui           تشغيل واجهة المستخدم الرسومية"
+MSG_CLI_OPT_CONFIG="  -c, --config ملف   استخدام ملف التكوين المحدد"
+MSG_CLI_OPT_LIST="  -l, --list          عرض الخدمات المتاحة"
+MSG_CLI_OPT_ENABLE="  -e, --enable SVC    تمكين الصفير للخدمة"
+MSG_CLI_OPT_DISABLE="  -d, --disable SVC   تعطيل الصفير للخدمة"
+MSG_CLI_OPT_TEST="  --test SVC EVENT    اختبار الصفير لحدث الخدمة"
+MSG_CLI_OPT_HELP="  -h, --help          عرض رسالة المساعدة هذه"
+MSG_CLI_OPT_VERSION="  -v, --version       عرض معلومات الإصدار"
+
+# Configuration Manager Messages
+MSG_CONFIG_CREATED="تم إنشاء ملف التكوين: %s"
+MSG_CONFIG_LOADED="تم تحميل التكوين من: %s"
+MSG_CONFIG_BACKUP="تم إنشاء نسخة احتياطية للتكوين: %s"
+MSG_CONFIG_RESTORE="تم استعادة التكوين من النسخة الاحتياطية"
+MSG_CONFIG_VALIDATE="جاري التحقق من التكوين..."
+MSG_CONFIG_VALID="التكوين صالح"
+MSG_CONFIG_INVALID="فشل التحقق من التكوين: %s"
+
+# Service Discovery Messages
+MSG_DISCOVERY_SCANNING="جاري البحث عن الخدمات المتاحة..."
+MSG_DISCOVERY_FOUND="تم العثور على %d خدمات متوافقة"
+MSG_DISCOVERY_SERVICE="  - %s (%s)"
+MSG_DISCOVERY_COMPLETE="اكتمل اكتشاف الخدمات"
+
+# Schedule Messages
+MSG_SCHEDULE_ACTIVE="الجدول نشط - قد يتم قمع الصفير"
+MSG_SCHEDULE_QUIET_ACTIVE="ساعات الهدوء نشطة (%s - %s)"
+MSG_SCHEDULE_RUNNING="مدير الجدولة قيد التشغيل"
+MSG_SCHEDULE_STOPPED="تم إيقاف مدير الجدولة"
+
+# Error Messages
+MSG_ERROR_PERMISSION="تم رفض الإذن. حاول التشغيل باستخدام sudo."
+MSG_ERROR_CONFIG_READ="لا يمكن قراءة ملف التكوين: %s"
+MSG_ERROR_CONFIG_WRITE="لا يمكن الكتابة إلى ملف التكوين: %s"
+MSG_ERROR_SERVICE_NOT_FOUND="لم يتم العثور على الخدمة: %s"
+MSG_ERROR_TUNE_NOT_FOUND="لم يتم العثور على ملف اللحن: %s"
+MSG_ERROR_INVALID_OPTION="خيار غير صالح: %s"
+MSG_ERROR_MISSING_ARG="وسيطة مطلوبة مفقودة لـ: %s"
+MSG_ERROR_SYSTEMCTL="فشل أمر systemctl: %s"
+MSG_ERROR_DEPENDENCY="التبعية المطلوبة غير مثبتة: %s"
+
+# Version and About
+MSG_VERSION="Sparky Beep الإصدار %s"
+MSG_COPYRIGHT="حقوق النشر (C) 2018-2025 Paweł Pijanowski والمساهمون"
+MSG_LICENSE="مرخص بموجب GNU GPL v3"
+MSG_WEBSITE="https://github.com/sparkylinux/sparky-beep"

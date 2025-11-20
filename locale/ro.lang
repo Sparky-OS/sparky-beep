@@ -1,0 +1,199 @@
+# Romanian (Română) translations for Sparky Beep
+# Author: Sparky Beep Contributors
+# Last updated: 2025-11-20
+
+# Service status messages
+MSG_SERVICE_ACTIVE="serviciul %s este activ..."
+MSG_SERVICE_NOT_ACTIVE="serviciul %s NU este activ..."
+MSG_SPARKY_STARTED="sparky-beep a pornit"
+
+# Usage messages
+MSG_USAGE_BEEP_SYS="Utilizare: /etc/init.d/beep_sys {start|stop|restart}"
+MSG_USAGE_BEEP_NETDATA="Utilizare: /etc/init.d/beep_netdata {start|stop|restart}"
+MSG_USAGE_BEEP_SAMBA="Utilizare: /etc/init.d/beep_samba {start|stop|restart}"
+MSG_USAGE_BEEP_WEBMIN="Utilizare: /etc/init.d/beep_webmin {start|stop|restart}"
+
+# TUI/GUI - Main Menu
+MSG_MAIN_TITLE="Configurare Sparky Beep"
+MSG_MAIN_SUBTITLE="Configurați notificările sonore pentru serviciile sistemului"
+MSG_MENU_SERVICE_SELECTION="Selecție Servicii"
+MSG_MENU_TUNE_MANAGEMENT="Gestionare Melodii"
+MSG_MENU_SCHEDULE="Configurare Programare"
+MSG_MENU_SETTINGS="Setări"
+MSG_MENU_TEST="Testare Sunete"
+MSG_MENU_EXIT="Ieșire"
+
+# TUI/GUI - Service Selection
+MSG_SERVICE_SELECT_TITLE="Selectați Serviciile de Monitorizat"
+MSG_SERVICE_SELECT_DESC="Alegeți care servicii să redea notificări sonore"
+MSG_SERVICE_AVAILABLE="Servicii Disponibile"
+MSG_SERVICE_ENABLED="Activat pentru Notificări"
+MSG_SERVICE_DISABLED="Dezactivat"
+MSG_SERVICE_NOT_INSTALLED="Neinstalat"
+MSG_SERVICE_TOGGLE="Comutare Serviciu"
+MSG_SERVICE_SELECT_ALL="Selectare Toate"
+MSG_SERVICE_DESELECT_ALL="Deselectare Toate"
+MSG_SERVICE_REFRESH="Reîmprospătare Listă"
+
+# TUI/GUI - Tune Management
+MSG_TUNE_TITLE="Gestionare Melodii"
+MSG_TUNE_SELECT="Selectați Melodia pentru Eveniment"
+MSG_TUNE_SERVICE_LABEL="Serviciu: %s"
+MSG_TUNE_EVENT_START="Eveniment Pornire"
+MSG_TUNE_EVENT_STOP="Eveniment Oprire"
+MSG_TUNE_EVENT_RESTART="Eveniment Repornire"
+MSG_TUNE_CURRENT="Curent: %s"
+MSG_TUNE_PREVIEW="Previzualizare"
+MSG_TUNE_APPLY="Aplicare"
+MSG_TUNE_RESET="Resetare la Implicit"
+MSG_TUNE_CUSTOM="Secvență Beep Personalizată"
+MSG_TUNE_LIBRARY="Melodii Disponibile"
+MSG_TUNE_NONE="[Silențios - Fără Beep]"
+
+# TUI/GUI - Available Compositions
+MSG_COMPOSITION_C_SCALE="Scara Do Major"
+MSG_COMPOSITION_HAPPY_BIRTHDAY="La Mulți Ani"
+MSG_COMPOSITION_TWINKLE="Sclipește Sclipește Steluță"
+MSG_COMPOSITION_ODE_JOY="Oda Bucuriei"
+MSG_COMPOSITION_STAR_WARS="Tema Star Wars"
+MSG_COMPOSITION_MARIO="Super Mario Bros"
+MSG_COMPOSITION_STARTUP="Fanfară Pornire"
+MSG_COMPOSITION_SHUTDOWN="Melodie Oprire"
+MSG_COMPOSITION_ERROR="Alertă Eroare"
+MSG_COMPOSITION_SUCCESS="Notificare Succes"
+MSG_COMPOSITION_IMPERIAL="Marșul Imperial"
+
+# TUI/GUI - Schedule Configuration
+MSG_SCHEDULE_TITLE="Configurare Programare Bazată pe Timp"
+MSG_SCHEDULE_DESC="Configurați orele de liniște și programe personalizate"
+MSG_SCHEDULE_ENABLE="Activare Programare"
+MSG_SCHEDULE_DISABLE="Dezactivare Programare"
+MSG_SCHEDULE_QUIET_HOURS="Ore de Liniște"
+MSG_SCHEDULE_QUIET_START="Oră Începere Liniște"
+MSG_SCHEDULE_QUIET_END="Oră Terminare Liniște"
+MSG_SCHEDULE_WEEKDAYS="Zile Active"
+MSG_SCHEDULE_MONDAY="Luni"
+MSG_SCHEDULE_TUESDAY="Marți"
+MSG_SCHEDULE_WEDNESDAY="Miercuri"
+MSG_SCHEDULE_THURSDAY="Joi"
+MSG_SCHEDULE_FRIDAY="Vineri"
+MSG_SCHEDULE_SATURDAY="Sâmbătă"
+MSG_SCHEDULE_SUNDAY="Duminică"
+MSG_SCHEDULE_ADD_RULE="Adăugare Regulă Programare"
+MSG_SCHEDULE_REMOVE_RULE="Eliminare Regulă"
+MSG_SCHEDULE_TIME_FORMAT="Format oră: HH:MM (24 de ore)"
+
+# TUI/GUI - Settings
+MSG_SETTINGS_TITLE="Setări Generale"
+MSG_SETTINGS_BEEP_MODE="Mod Beep"
+MSG_SETTINGS_MODE_BINARY="Binar (Standard)"
+MSG_SETTINGS_MODE_TERNARY="Ternar (Neted)"
+MSG_SETTINGS_VOLUME="Nivel Volum"
+MSG_SETTINGS_LANGUAGE="Limbă"
+MSG_SETTINGS_AUTO_ENABLE="Auto-activare servicii"
+MSG_SETTINGS_LOG_EVENTS="Înregistrare evenimente beep"
+MSG_SETTINGS_CONFIG_PATH="Fișier configurație: %s"
+MSG_SETTINGS_SAVE="Salvare Setări"
+MSG_SETTINGS_RESTORE_DEFAULTS="Restaurare Implicite"
+
+# TUI/GUI - Test Sounds
+MSG_TEST_TITLE="Test Redare Sunet"
+MSG_TEST_DESC="Previzualizați sunete beep și compoziții"
+MSG_TEST_SERVICE_SELECT="Selectați serviciul de testat"
+MSG_TEST_EVENT_SELECT="Selectați tipul evenimentului"
+MSG_TEST_PLAY="Redare Sunet Test"
+MSG_TEST_STOP="Oprire Redare"
+MSG_TEST_PLAYING="Se redă: %s"
+
+# TUI/GUI - Common Actions
+MSG_BUTTON_OK="OK"
+MSG_BUTTON_CANCEL="Anulare"
+MSG_BUTTON_APPLY="Aplicare"
+MSG_BUTTON_SAVE="Salvare"
+MSG_BUTTON_BACK="Înapoi"
+MSG_BUTTON_NEXT="Următorul"
+MSG_BUTTON_FINISH="Finalizare"
+MSG_BUTTON_HELP="Ajutor"
+MSG_BUTTON_CLOSE="Închidere"
+MSG_BUTTON_YES="Da"
+MSG_BUTTON_NO="Nu"
+
+# TUI/GUI - Messages and Notifications
+MSG_SAVE_SUCCESS="Configurație salvată cu succes"
+MSG_SAVE_ERROR="Eroare la salvarea configurației: %s"
+MSG_LOAD_ERROR="Eroare la încărcarea configurației: %s"
+MSG_APPLY_SUCCESS="Modificări aplicate cu succes"
+MSG_APPLY_ERROR="Eroare la aplicarea modificărilor: %s"
+MSG_SERVICE_START_SUCCESS="Serviciul %s pornit cu succes"
+MSG_SERVICE_START_ERROR="Pornire serviciu %s eșuată"
+MSG_SERVICE_STOP_SUCCESS="Serviciul %s oprit cu succes"
+MSG_SERVICE_STOP_ERROR="Oprire serviciu %s eșuată"
+MSG_CONFIRM_EXIT="Ieșire fără salvarea modificărilor?"
+MSG_CONFIRM_RESET="Resetați toate setările la valorile implicite?"
+MSG_CONFIRM_DELETE="Ștergeți această regulă de programare?"
+MSG_NO_SERVICES_FOUND="Nu s-au găsit servicii compatibile"
+MSG_ROOT_REQUIRED="Sunt necesare privilegii root pentru această operațiune"
+MSG_PACKAGE_NOT_INSTALLED="Pachetul %s nu este instalat"
+MSG_BEEP_NOT_AVAILABLE="Utilitar beep indisponibil"
+MSG_INVALID_TIME_FORMAT="Format oră invalid. Utilizați HH:MM"
+MSG_INVALID_INPUT="Intrare invalidă: %s"
+
+# TUI/GUI - Help and Information
+MSG_HELP_TITLE="Ajutor Sparky Beep"
+MSG_HELP_SERVICES="Selectați care servicii de sistem vor declanșa notificări beep când pornesc, se opresc sau repornesc."
+MSG_HELP_TUNES="Atribuiți diferite melodii sau modele beep fiecărui eveniment de serviciu (pornire/oprire/repornire)."
+MSG_HELP_SCHEDULE="Setați ore de liniște când beep-urile sunt dezactivate, sau creați programe personalizate pentru anumite momente."
+MSG_HELP_SETTINGS="Configurați modul beep (binar/ternar), volumul, limba și alte setări globale."
+MSG_HELP_TEST="Previzualizați cum vor suna diferite servicii și evenimente înainte de aplicarea modificărilor."
+
+# CLI Usage Messages
+MSG_CLI_USAGE="Utilizare: %s [OPȚIUNI]"
+MSG_CLI_DESCRIPTION="Sparky Beep - Manager notificări sonore servicii sistem"
+MSG_CLI_OPTIONS="Opțiuni:"
+MSG_CLI_OPT_TUI="  -t, --tui           Lansare interfață utilizator text"
+MSG_CLI_OPT_GUI="  -g, --gui           Lansare interfață grafică utilizator"
+MSG_CLI_OPT_CONFIG="  -c, --config FIȘIER Utilizare fișier configurație specificat"
+MSG_CLI_OPT_LIST="  -l, --list          Listare servicii disponibile"
+MSG_CLI_OPT_ENABLE="  -e, --enable SVC    Activare beep pentru serviciu"
+MSG_CLI_OPT_DISABLE="  -d, --disable SVC   Dezactivare beep pentru serviciu"
+MSG_CLI_OPT_TEST="  --test SVC EVENT    Testare beep pentru eveniment serviciu"
+MSG_CLI_OPT_HELP="  -h, --help          Afișare mesaj ajutor"
+MSG_CLI_OPT_VERSION="  -v, --version       Afișare informații versiune"
+
+# Configuration Manager Messages
+MSG_CONFIG_CREATED="Fișier configurație creat: %s"
+MSG_CONFIG_LOADED="Configurație încărcată din: %s"
+MSG_CONFIG_BACKUP="Backup configurație creat: %s"
+MSG_CONFIG_RESTORE="Configurație restaurată din backup"
+MSG_CONFIG_VALIDATE="Validare configurație..."
+MSG_CONFIG_VALID="Configurația este validă"
+MSG_CONFIG_INVALID="Validare configurație eșuată: %s"
+
+# Service Discovery Messages
+MSG_DISCOVERY_SCANNING="Scanare servicii disponibile..."
+MSG_DISCOVERY_FOUND="S-au găsit %d servicii compatibile"
+MSG_DISCOVERY_SERVICE="  - %s (%s)"
+MSG_DISCOVERY_COMPLETE="Descoperire servicii completă"
+
+# Schedule Messages
+MSG_SCHEDULE_ACTIVE="Programarea este activă - beep-urile pot fi suprimate"
+MSG_SCHEDULE_QUIET_ACTIVE="Ore de liniște active (%s - %s)"
+MSG_SCHEDULE_RUNNING="Manager programare în execuție"
+MSG_SCHEDULE_STOPPED="Manager programare oprit"
+
+# Error Messages
+MSG_ERROR_PERMISSION="Permisiune refuzată. Încercați rularea cu sudo."
+MSG_ERROR_CONFIG_READ="Nu se poate citi fișierul de configurație: %s"
+MSG_ERROR_CONFIG_WRITE="Nu se poate scrie fișierul de configurație: %s"
+MSG_ERROR_SERVICE_NOT_FOUND="Serviciu negăsit: %s"
+MSG_ERROR_TUNE_NOT_FOUND="Fișier melodie negăsit: %s"
+MSG_ERROR_INVALID_OPTION="Opțiune invalidă: %s"
+MSG_ERROR_MISSING_ARG="Argument obligatoriu lipsă pentru: %s"
+MSG_ERROR_SYSTEMCTL="Comanda systemctl a eșuat: %s"
+MSG_ERROR_DEPENDENCY="Dependență necesară neinstalată: %s"
+
+# Version and About
+MSG_VERSION="Sparky Beep versiunea %s"
+MSG_COPYRIGHT="Drepturi de autor (C) 2018-2025 Paweł Pijanowski & Contribuitori"
+MSG_LICENSE="Licențiat sub GNU GPL v3"
+MSG_WEBSITE="https://github.com/sparkylinux/sparky-beep"

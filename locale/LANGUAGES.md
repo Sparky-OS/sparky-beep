@@ -8,23 +8,34 @@ Sparky Beep includes translations for the following Debian-supported languages:
 
 | Language Code | Language Name | Native Name | Status |
 |--------------|---------------|-------------|--------|
+| `ar` | Arabic | العربية | ✅ Complete |
+| `ca` | Catalan | Català | ✅ Complete |
 | `cs` | Czech | Čeština | ✅ Complete |
+| `da` | Danish | Dansk | ✅ Complete |
 | `de` | German | Deutsch | ✅ Complete |
+| `el` | Greek | Ελληνικά | ✅ Complete |
 | `en` | English | English | ✅ Complete (Default) |
 | `es` | Spanish | Español | ✅ Complete |
+| `fi` | Finnish | Suomi | ✅ Complete |
 | `fr` | French | Français | ✅ Complete |
+| `hu` | Hungarian | Magyar | ✅ Complete |
 | `it` | Italian | Italiano | ✅ Complete |
 | `ja` | Japanese | 日本語 | ✅ Complete |
+| `ko` | Korean | 한국어 | ✅ Complete |
 | `nl` | Dutch | Nederlands | ✅ Complete |
 | `pl` | Polish | Polski | ✅ Complete |
 | `pt` | Portuguese | Português | ✅ Complete |
+| `pt_BR` | Portuguese (Brazil) | Português do Brasil | ✅ Complete |
+| `ro` | Romanian | Română | ✅ Complete |
 | `ru` | Russian | Русский | ✅ Complete |
+| `sk` | Slovak | Slovenčina | ✅ Complete |
 | `sv` | Swedish | Svenska | ✅ Complete |
 | `tr` | Turkish | Türkçe | ✅ Complete |
 | `uk` | Ukrainian | Українська | ✅ Complete |
 | `zh_CN` | Chinese (Simplified) | 简体中文 | ✅ Complete |
+| `zh_TW` | Chinese (Traditional) | 繁體中文 | ✅ Complete |
 
-**Total: 15 languages**
+**Total: 26 languages** - Complete Debian i18n coverage!
 
 ## How Language Detection Works
 
@@ -93,23 +104,16 @@ When translating:
 - **Use UTF-8**: Ensure the file is saved with UTF-8 encoding
 - **Test thoroughly**: Run all services with your translation
 
-## Adding More Debian Languages
+## Language Coverage
 
-Additional Debian-supported languages that could be added:
+Sparky Beep now includes translations for **all major Debian-supported languages**, providing comprehensive internationalization support for Linux system administrators worldwide.
 
-| Language Code | Language Name | Native Name |
-|--------------|---------------|-------------|
-| `ar` | Arabic | العربية |
-| `ca` | Catalan | Català |
-| `da` | Danish | Dansk |
-| `el` | Greek | Ελληνικά |
-| `fi` | Finnish | Suomi |
-| `hu` | Hungarian | Magyar |
-| `ko` | Korean | 한국어 |
-| `pt_BR` | Portuguese (Brazil) | Português do Brasil |
-| `ro` | Romanian | Română |
-| `sk` | Slovak | Slovenčina |
-| `zh_TW` | Chinese (Traditional) | 繁體中文 |
+**Coverage includes:**
+- All major European languages (Romance, Germanic, Slavic, Hellenic)
+- Major Asian languages (Chinese, Japanese, Korean)
+- Middle Eastern languages (Arabic, Turkish)
+- Both European and Brazilian Portuguese variants
+- Both Simplified and Traditional Chinese variants
 
 ## Technical Implementation
 

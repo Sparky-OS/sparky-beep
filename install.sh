@@ -31,6 +31,9 @@ if [ "$1" = "uninstall" ]; then
 	# Remove executables
 	rm -f /usr/bin/sparky-beep-run
 	rm -f /usr/bin/sparky-beep-compose
+	rm -f /usr/bin/sparky-beep-config
+	rm -f /usr/bin/sparky-beep-config-tui
+	rm -f /usr/bin/sparky-beep-config-gui
 	rm -f /usr/bin/tbeep
 
 	# Remove shared data
@@ -40,6 +43,7 @@ if [ "$1" = "uninstall" ]; then
 
 	# Remove configuration
 	rm -f /etc/sparky-beep/beep.conf
+	rm -rf /etc/sparky-beep/backups
 	rmdir /etc/sparky-beep 2>/dev/null || true
 
 	#rm -f /etc/xdg/autostart/sparky-beep-run.desktop
@@ -53,6 +57,10 @@ else
 	# Install executables (skip .c source files)
 	cp bin/sparky-beep-run /usr/bin/
 	cp bin/sparky-beep-compose /usr/bin/
+	cp bin/sparky-beep-config /usr/bin/
+	cp bin/sparky-beep-config-tui /usr/bin/
+	cp bin/sparky-beep-config-gui /usr/bin/
+	chmod +x /usr/bin/sparky-beep-config*
 	[ -f bin/tbeep ] && cp bin/tbeep /usr/bin/ || true
 
 	# Install locale files
@@ -80,7 +88,19 @@ else
 	#cp etc/* /etc/xdg/autostart/
 
 	echo ""
+	echo "=========================================="
 	echo "Sparky Beep installation complete!"
+	echo "=========================================="
+	echo ""
+	echo "Configuration Tools:"
+	echo "  sparky-beep-config      - Auto-detect interface (TUI/GUI)"
+	echo "  sparky-beep-config-tui  - Text user interface"
+	echo "  sparky-beep-config-gui  - Graphical user interface"
+	echo ""
+	echo "Quick Commands:"
+	echo "  sparky-beep-config --list              - List available services"
+	echo "  sparky-beep-config --enable <service>  - Enable beep for service"
+	echo "  sparky-beep-config --test ssh start    - Test beep sound"
 	echo ""
 	echo "Optional: Compile and install ternary beep engine:"
 	echo "  make"

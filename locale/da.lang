@@ -1,0 +1,199 @@
+# Danish (Dansk) translations for Sparky Beep
+# Author: Sparky Beep Contributors
+# Last updated: 2025-11-20
+
+# Service status messages
+MSG_SERVICE_ACTIVE="%s tjeneste er aktiv..."
+MSG_SERVICE_NOT_ACTIVE="%s tjeneste er IKKE aktiv..."
+MSG_SPARKY_STARTED="sparky-beep startet"
+
+# Usage messages
+MSG_USAGE_BEEP_SYS="Brug: /etc/init.d/beep_sys {start|stop|restart}"
+MSG_USAGE_BEEP_NETDATA="Brug: /etc/init.d/beep_netdata {start|stop|restart}"
+MSG_USAGE_BEEP_SAMBA="Brug: /etc/init.d/beep_samba {start|stop|restart}"
+MSG_USAGE_BEEP_WEBMIN="Brug: /etc/init.d/beep_webmin {start|stop|restart}"
+
+# TUI/GUI - Main Menu
+MSG_MAIN_TITLE="Sparky Beep Konfiguration"
+MSG_MAIN_SUBTITLE="Konfigurer systemtjeneste lydnotifikationer"
+MSG_MENU_SERVICE_SELECTION="Tjeneste Valg"
+MSG_MENU_TUNE_MANAGEMENT="Melodi Håndtering"
+MSG_MENU_SCHEDULE="Tidsplan Konfiguration"
+MSG_MENU_SETTINGS="Indstillinger"
+MSG_MENU_TEST="Test Lyde"
+MSG_MENU_EXIT="Afslut"
+
+# TUI/GUI - Service Selection
+MSG_SERVICE_SELECT_TITLE="Vælg Tjenester til Overvågning"
+MSG_SERVICE_SELECT_DESC="Vælg hvilke tjenester der skal afspille bip-notifikationer"
+MSG_SERVICE_AVAILABLE="Tilgængelige Tjenester"
+MSG_SERVICE_ENABLED="Aktiveret til Notifikationer"
+MSG_SERVICE_DISABLED="Deaktiveret"
+MSG_SERVICE_NOT_INSTALLED="Ikke Installeret"
+MSG_SERVICE_TOGGLE="Skift Tjeneste"
+MSG_SERVICE_SELECT_ALL="Vælg Alle"
+MSG_SERVICE_DESELECT_ALL="Fravælg Alle"
+MSG_SERVICE_REFRESH="Opdater Liste"
+
+# TUI/GUI - Tune Management
+MSG_TUNE_TITLE="Melodi Håndtering"
+MSG_TUNE_SELECT="Vælg Melodi til Hændelse"
+MSG_TUNE_SERVICE_LABEL="Tjeneste: %s"
+MSG_TUNE_EVENT_START="Start Hændelse"
+MSG_TUNE_EVENT_STOP="Stop Hændelse"
+MSG_TUNE_EVENT_RESTART="Genstart Hændelse"
+MSG_TUNE_CURRENT="Nuværende: %s"
+MSG_TUNE_PREVIEW="Forhåndsvisning"
+MSG_TUNE_APPLY="Anvend"
+MSG_TUNE_RESET="Nulstil til Standard"
+MSG_TUNE_CUSTOM="Brugerdefineret Bip-Sekvens"
+MSG_TUNE_LIBRARY="Tilgængelige Melodier"
+MSG_TUNE_NONE="[Stille - Ingen Bip]"
+
+# TUI/GUI - Available Compositions
+MSG_COMPOSITION_C_SCALE="C-Dur Skala"
+MSG_COMPOSITION_HAPPY_BIRTHDAY="Tillykke med Fødselsdagen"
+MSG_COMPOSITION_TWINKLE="Glimt Glimt Lille Stjerne"
+MSG_COMPOSITION_ODE_JOY="Ode til Glæden"
+MSG_COMPOSITION_STAR_WARS="Star Wars Tema"
+MSG_COMPOSITION_MARIO="Super Mario Bros"
+MSG_COMPOSITION_STARTUP="Opstart Fanfare"
+MSG_COMPOSITION_SHUTDOWN="Nedlukning Melodi"
+MSG_COMPOSITION_ERROR="Fejlalarm"
+MSG_COMPOSITION_SUCCESS="Succes Notifikation"
+MSG_COMPOSITION_IMPERIAL="Imperial March"
+
+# TUI/GUI - Schedule Configuration
+MSG_SCHEDULE_TITLE="Tidsbaseret Tidsplan Konfiguration"
+MSG_SCHEDULE_DESC="Konfigurer stille timer og brugerdefinerede tidsplaner"
+MSG_SCHEDULE_ENABLE="Aktiver Planlægning"
+MSG_SCHEDULE_DISABLE="Deaktiver Planlægning"
+MSG_SCHEDULE_QUIET_HOURS="Stille Timer"
+MSG_SCHEDULE_QUIET_START="Stille Start Tid"
+MSG_SCHEDULE_QUIET_END="Stille Slut Tid"
+MSG_SCHEDULE_WEEKDAYS="Aktive Dage"
+MSG_SCHEDULE_MONDAY="Mandag"
+MSG_SCHEDULE_TUESDAY="Tirsdag"
+MSG_SCHEDULE_WEDNESDAY="Onsdag"
+MSG_SCHEDULE_THURSDAY="Torsdag"
+MSG_SCHEDULE_FRIDAY="Fredag"
+MSG_SCHEDULE_SATURDAY="Lørdag"
+MSG_SCHEDULE_SUNDAY="Søndag"
+MSG_SCHEDULE_ADD_RULE="Tilføj Tidsplan Regel"
+MSG_SCHEDULE_REMOVE_RULE="Fjern Regel"
+MSG_SCHEDULE_TIME_FORMAT="Tidsformat: TT:MM (24-timers)"
+
+# TUI/GUI - Settings
+MSG_SETTINGS_TITLE="Generelle Indstillinger"
+MSG_SETTINGS_BEEP_MODE="Bip-Tilstand"
+MSG_SETTINGS_MODE_BINARY="Binær (Standard)"
+MSG_SETTINGS_MODE_TERNARY="Ternær (Blød)"
+MSG_SETTINGS_VOLUME="Lydstyrke Niveau"
+MSG_SETTINGS_LANGUAGE="Sprog"
+MSG_SETTINGS_AUTO_ENABLE="Auto-aktiver tjenester"
+MSG_SETTINGS_LOG_EVENTS="Log bip-hændelser"
+MSG_SETTINGS_CONFIG_PATH="Konfigurationsfil: %s"
+MSG_SETTINGS_SAVE="Gem Indstillinger"
+MSG_SETTINGS_RESTORE_DEFAULTS="Gendan Standarder"
+
+# TUI/GUI - Test Sounds
+MSG_TEST_TITLE="Test Lyd Afspilning"
+MSG_TEST_DESC="Forhåndsvis bip-lyde og kompositioner"
+MSG_TEST_SERVICE_SELECT="Vælg tjeneste til test"
+MSG_TEST_EVENT_SELECT="Vælg hændelsestype"
+MSG_TEST_PLAY="Afspil Test Lyd"
+MSG_TEST_STOP="Stop Afspilning"
+MSG_TEST_PLAYING="Afspiller: %s"
+
+# TUI/GUI - Common Actions
+MSG_BUTTON_OK="OK"
+MSG_BUTTON_CANCEL="Annuller"
+MSG_BUTTON_APPLY="Anvend"
+MSG_BUTTON_SAVE="Gem"
+MSG_BUTTON_BACK="Tilbage"
+MSG_BUTTON_NEXT="Næste"
+MSG_BUTTON_FINISH="Afslut"
+MSG_BUTTON_HELP="Hjælp"
+MSG_BUTTON_CLOSE="Luk"
+MSG_BUTTON_YES="Ja"
+MSG_BUTTON_NO="Nej"
+
+# TUI/GUI - Messages and Notifications
+MSG_SAVE_SUCCESS="Konfiguration gemt succesfuldt"
+MSG_SAVE_ERROR="Fejl ved gemning af konfiguration: %s"
+MSG_LOAD_ERROR="Fejl ved indlæsning af konfiguration: %s"
+MSG_APPLY_SUCCESS="Ændringer anvendt succesfuldt"
+MSG_APPLY_ERROR="Fejl ved anvendelse af ændringer: %s"
+MSG_SERVICE_START_SUCCESS="Tjeneste %s startet succesfuldt"
+MSG_SERVICE_START_ERROR="Kunne ikke starte tjeneste %s"
+MSG_SERVICE_STOP_SUCCESS="Tjeneste %s stoppet succesfuldt"
+MSG_SERVICE_STOP_ERROR="Kunne ikke stoppe tjeneste %s"
+MSG_CONFIRM_EXIT="Afslut uden at gemme ændringer?"
+MSG_CONFIRM_RESET="Nulstil alle indstillinger til standarder?"
+MSG_CONFIRM_DELETE="Slet denne tidsplan regel?"
+MSG_NO_SERVICES_FOUND="Ingen kompatible tjenester fundet"
+MSG_ROOT_REQUIRED="Root privilegier kræves til denne handling"
+MSG_PACKAGE_NOT_INSTALLED="Pakke %s er ikke installeret"
+MSG_BEEP_NOT_AVAILABLE="Bip værktøj ikke tilgængeligt"
+MSG_INVALID_TIME_FORMAT="Ugyldigt tidsformat. Brug TT:MM"
+MSG_INVALID_INPUT="Ugyldig input: %s"
+
+# TUI/GUI - Help and Information
+MSG_HELP_TITLE="Sparky Beep Hjælp"
+MSG_HELP_SERVICES="Vælg hvilke systemtjenester der vil udløse bip-notifikationer når de starter, stopper eller genstarter."
+MSG_HELP_TUNES="Tildel forskellige melodier eller bip-mønstre til hver tjenestehændelse (start/stop/genstart)."
+MSG_HELP_SCHEDULE="Indstil stille timer hvor bip er deaktiveret, eller opret brugerdefinerede tidsplaner for specifikke tidspunkter."
+MSG_HELP_SETTINGS="Konfigurer bip-tilstand (binær/ternær), lydstyrke, sprog og andre globale indstillinger."
+MSG_HELP_TEST="Forhåndsvis hvordan forskellige tjenester og hændelser vil lyde før anvendelse af ændringer."
+
+# CLI Usage Messages
+MSG_CLI_USAGE="Brug: %s [INDSTILLINGER]"
+MSG_CLI_DESCRIPTION="Sparky Beep - Systemtjeneste lyd notifikations håndtering"
+MSG_CLI_OPTIONS="Indstillinger:"
+MSG_CLI_OPT_TUI="  -t, --tui           Start tekst brugergrænseflade"
+MSG_CLI_OPT_GUI="  -g, --gui           Start grafisk brugergrænseflade"
+MSG_CLI_OPT_CONFIG="  -c, --config FIL    Brug angivet konfigurationsfil"
+MSG_CLI_OPT_LIST="  -l, --list          Vis tilgængelige tjenester"
+MSG_CLI_OPT_ENABLE="  -e, --enable SVC    Aktiver bip for tjeneste"
+MSG_CLI_OPT_DISABLE="  -d, --disable SVC   Deaktiver bip for tjeneste"
+MSG_CLI_OPT_TEST="  --test SVC EVENT    Test bip for tjenestehændelse"
+MSG_CLI_OPT_HELP="  -h, --help          Vis denne hjælpebesked"
+MSG_CLI_OPT_VERSION="  -v, --version       Vis versionsinformation"
+
+# Configuration Manager Messages
+MSG_CONFIG_CREATED="Konfigurationsfil oprettet: %s"
+MSG_CONFIG_LOADED="Konfiguration indlæst fra: %s"
+MSG_CONFIG_BACKUP="Konfiguration backup oprettet: %s"
+MSG_CONFIG_RESTORE="Konfiguration gendannet fra backup"
+MSG_CONFIG_VALIDATE="Validerer konfiguration..."
+MSG_CONFIG_VALID="Konfiguration er gyldig"
+MSG_CONFIG_INVALID="Konfigurationsvalidering fejlede: %s"
+
+# Service Discovery Messages
+MSG_DISCOVERY_SCANNING="Scanner efter tilgængelige tjenester..."
+MSG_DISCOVERY_FOUND="Fandt %d kompatible tjenester"
+MSG_DISCOVERY_SERVICE="  - %s (%s)"
+MSG_DISCOVERY_COMPLETE="Tjeneste opdagelse fuldført"
+
+# Schedule Messages
+MSG_SCHEDULE_ACTIVE="Tidsplan er aktiv - bip kan være undertrykt"
+MSG_SCHEDULE_QUIET_ACTIVE="Stille timer aktive (%s - %s)"
+MSG_SCHEDULE_RUNNING="Tidsplan håndtering kører"
+MSG_SCHEDULE_STOPPED="Tidsplan håndtering stoppet"
+
+# Error Messages
+MSG_ERROR_PERMISSION="Adgang nægtet. Prøv at køre med sudo."
+MSG_ERROR_CONFIG_READ="Kan ikke læse konfigurationsfil: %s"
+MSG_ERROR_CONFIG_WRITE="Kan ikke skrive konfigurationsfil: %s"
+MSG_ERROR_SERVICE_NOT_FOUND="Tjeneste ikke fundet: %s"
+MSG_ERROR_TUNE_NOT_FOUND="Melodifil ikke fundet: %s"
+MSG_ERROR_INVALID_OPTION="Ugyldig indstilling: %s"
+MSG_ERROR_MISSING_ARG="Manglende påkrævet argument til: %s"
+MSG_ERROR_SYSTEMCTL="systemctl kommando fejlede: %s"
+MSG_ERROR_DEPENDENCY="Påkrævet afhængighed ikke installeret: %s"
+
+# Version and About
+MSG_VERSION="Sparky Beep version %s"
+MSG_COPYRIGHT="Copyright (C) 2018-2025 Paweł Pijanowski & Bidragydere"
+MSG_LICENSE="Licenseret under GNU GPL v3"
+MSG_WEBSITE="https://github.com/sparkylinux/sparky-beep"

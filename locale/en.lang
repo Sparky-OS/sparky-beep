@@ -1,6 +1,6 @@
 # English translations for Sparky Beep
 # Author: Sparky Beep Contributors
-# Last updated: 2025-01-20
+# Last updated: 2025-11-20
 
 # Service status messages
 MSG_SERVICE_ACTIVE="%s service is active..."
@@ -12,3 +12,188 @@ MSG_USAGE_BEEP_SYS="Use: /etc/init.d/beep_sys {start|stop|restart}"
 MSG_USAGE_BEEP_NETDATA="Use: /etc/init.d/beep_netdata {start|stop|restart}"
 MSG_USAGE_BEEP_SAMBA="Use: /etc/init.d/beep_samba {start|stop|restart}"
 MSG_USAGE_BEEP_WEBMIN="Use: /etc/init.d/beep_webmin {start|stop|restart}"
+
+# TUI/GUI - Main Menu
+MSG_MAIN_TITLE="Sparky Beep Configuration"
+MSG_MAIN_SUBTITLE="Configure system service sound notifications"
+MSG_MENU_SERVICE_SELECTION="Service Selection"
+MSG_MENU_TUNE_MANAGEMENT="Tune Management"
+MSG_MENU_SCHEDULE="Schedule Configuration"
+MSG_MENU_SETTINGS="Settings"
+MSG_MENU_TEST="Test Sounds"
+MSG_MENU_EXIT="Exit"
+
+# TUI/GUI - Service Selection
+MSG_SERVICE_SELECT_TITLE="Select Services to Monitor"
+MSG_SERVICE_SELECT_DESC="Choose which services should play beep notifications"
+MSG_SERVICE_AVAILABLE="Available Services"
+MSG_SERVICE_ENABLED="Enabled for Notifications"
+MSG_SERVICE_DISABLED="Disabled"
+MSG_SERVICE_NOT_INSTALLED="Not Installed"
+MSG_SERVICE_TOGGLE="Toggle Service"
+MSG_SERVICE_SELECT_ALL="Select All"
+MSG_SERVICE_DESELECT_ALL="Deselect All"
+MSG_SERVICE_REFRESH="Refresh List"
+
+# TUI/GUI - Tune Management
+MSG_TUNE_TITLE="Tune Management"
+MSG_TUNE_SELECT="Select Tune for Event"
+MSG_TUNE_SERVICE_LABEL="Service: %s"
+MSG_TUNE_EVENT_START="Start Event"
+MSG_TUNE_EVENT_STOP="Stop Event"
+MSG_TUNE_EVENT_RESTART="Restart Event"
+MSG_TUNE_CURRENT="Current: %s"
+MSG_TUNE_PREVIEW="Preview"
+MSG_TUNE_APPLY="Apply"
+MSG_TUNE_RESET="Reset to Default"
+MSG_TUNE_CUSTOM="Custom Beep Sequence"
+MSG_TUNE_LIBRARY="Available Melodies"
+MSG_TUNE_NONE="[Silent - No Beep]"
+
+# TUI/GUI - Available Compositions
+MSG_COMPOSITION_C_SCALE="C Major Scale"
+MSG_COMPOSITION_HAPPY_BIRTHDAY="Happy Birthday"
+MSG_COMPOSITION_TWINKLE="Twinkle Twinkle Little Star"
+MSG_COMPOSITION_ODE_JOY="Ode to Joy"
+MSG_COMPOSITION_STAR_WARS="Star Wars Theme"
+MSG_COMPOSITION_MARIO="Super Mario Bros"
+MSG_COMPOSITION_STARTUP="Startup Fanfare"
+MSG_COMPOSITION_SHUTDOWN="Shutdown Melody"
+MSG_COMPOSITION_ERROR="Error Alert"
+MSG_COMPOSITION_SUCCESS="Success Notification"
+MSG_COMPOSITION_IMPERIAL="Imperial March"
+
+# TUI/GUI - Schedule Configuration
+MSG_SCHEDULE_TITLE="Time-Based Schedule Configuration"
+MSG_SCHEDULE_DESC="Configure quiet hours and custom schedules"
+MSG_SCHEDULE_ENABLE="Enable Scheduling"
+MSG_SCHEDULE_DISABLE="Disable Scheduling"
+MSG_SCHEDULE_QUIET_HOURS="Quiet Hours"
+MSG_SCHEDULE_QUIET_START="Quiet Start Time"
+MSG_SCHEDULE_QUIET_END="Quiet End Time"
+MSG_SCHEDULE_WEEKDAYS="Active Days"
+MSG_SCHEDULE_MONDAY="Monday"
+MSG_SCHEDULE_TUESDAY="Tuesday"
+MSG_SCHEDULE_WEDNESDAY="Wednesday"
+MSG_SCHEDULE_THURSDAY="Thursday"
+MSG_SCHEDULE_FRIDAY="Friday"
+MSG_SCHEDULE_SATURDAY="Saturday"
+MSG_SCHEDULE_SUNDAY="Sunday"
+MSG_SCHEDULE_ADD_RULE="Add Schedule Rule"
+MSG_SCHEDULE_REMOVE_RULE="Remove Rule"
+MSG_SCHEDULE_TIME_FORMAT="Time format: HH:MM (24-hour)"
+
+# TUI/GUI - Settings
+MSG_SETTINGS_TITLE="General Settings"
+MSG_SETTINGS_BEEP_MODE="Beep Mode"
+MSG_SETTINGS_MODE_BINARY="Binary (Standard)"
+MSG_SETTINGS_MODE_TERNARY="Ternary (Smooth)"
+MSG_SETTINGS_VOLUME="Volume Level"
+MSG_SETTINGS_LANGUAGE="Language"
+MSG_SETTINGS_AUTO_ENABLE="Auto-enable services"
+MSG_SETTINGS_LOG_EVENTS="Log beep events"
+MSG_SETTINGS_CONFIG_PATH="Configuration file: %s"
+MSG_SETTINGS_SAVE="Save Settings"
+MSG_SETTINGS_RESTORE_DEFAULTS="Restore Defaults"
+
+# TUI/GUI - Test Sounds
+MSG_TEST_TITLE="Test Sound Playback"
+MSG_TEST_DESC="Preview beep sounds and compositions"
+MSG_TEST_SERVICE_SELECT="Select service to test"
+MSG_TEST_EVENT_SELECT="Select event type"
+MSG_TEST_PLAY="Play Test Sound"
+MSG_TEST_STOP="Stop Playback"
+MSG_TEST_PLAYING="Playing: %s"
+
+# TUI/GUI - Common Actions
+MSG_BUTTON_OK="OK"
+MSG_BUTTON_CANCEL="Cancel"
+MSG_BUTTON_APPLY="Apply"
+MSG_BUTTON_SAVE="Save"
+MSG_BUTTON_BACK="Back"
+MSG_BUTTON_NEXT="Next"
+MSG_BUTTON_FINISH="Finish"
+MSG_BUTTON_HELP="Help"
+MSG_BUTTON_CLOSE="Close"
+MSG_BUTTON_YES="Yes"
+MSG_BUTTON_NO="No"
+
+# TUI/GUI - Messages and Notifications
+MSG_SAVE_SUCCESS="Configuration saved successfully"
+MSG_SAVE_ERROR="Error saving configuration: %s"
+MSG_LOAD_ERROR="Error loading configuration: %s"
+MSG_APPLY_SUCCESS="Changes applied successfully"
+MSG_APPLY_ERROR="Error applying changes: %s"
+MSG_SERVICE_START_SUCCESS="Service %s started successfully"
+MSG_SERVICE_START_ERROR="Failed to start service %s"
+MSG_SERVICE_STOP_SUCCESS="Service %s stopped successfully"
+MSG_SERVICE_STOP_ERROR="Failed to stop service %s"
+MSG_CONFIRM_EXIT="Exit without saving changes?"
+MSG_CONFIRM_RESET="Reset all settings to defaults?"
+MSG_CONFIRM_DELETE="Delete this schedule rule?"
+MSG_NO_SERVICES_FOUND="No compatible services found"
+MSG_ROOT_REQUIRED="Root privileges required for this operation"
+MSG_PACKAGE_NOT_INSTALLED="Package %s is not installed"
+MSG_BEEP_NOT_AVAILABLE="Beep utility not available"
+MSG_INVALID_TIME_FORMAT="Invalid time format. Use HH:MM"
+MSG_INVALID_INPUT="Invalid input: %s"
+
+# TUI/GUI - Help and Information
+MSG_HELP_TITLE="Sparky Beep Help"
+MSG_HELP_SERVICES="Select which system services will trigger beep notifications when they start, stop, or restart."
+MSG_HELP_TUNES="Assign different melodies or beep patterns to each service event (start/stop/restart)."
+MSG_HELP_SCHEDULE="Set quiet hours when beeps are disabled, or create custom schedules for specific times."
+MSG_HELP_SETTINGS="Configure beep mode (binary/ternary), volume, language, and other global settings."
+MSG_HELP_TEST="Preview how different services and events will sound before applying changes."
+
+# CLI Usage Messages
+MSG_CLI_USAGE="Usage: %s [OPTIONS]"
+MSG_CLI_DESCRIPTION="Sparky Beep - System service sound notification manager"
+MSG_CLI_OPTIONS="Options:"
+MSG_CLI_OPT_TUI="  -t, --tui           Launch text user interface"
+MSG_CLI_OPT_GUI="  -g, --gui           Launch graphical user interface"
+MSG_CLI_OPT_CONFIG="  -c, --config FILE   Use specified configuration file"
+MSG_CLI_OPT_LIST="  -l, --list          List available services"
+MSG_CLI_OPT_ENABLE="  -e, --enable SVC    Enable beep for service"
+MSG_CLI_OPT_DISABLE="  -d, --disable SVC   Disable beep for service"
+MSG_CLI_OPT_TEST="  --test SVC EVENT    Test beep for service event"
+MSG_CLI_OPT_HELP="  -h, --help          Show this help message"
+MSG_CLI_OPT_VERSION="  -v, --version       Show version information"
+
+# Configuration Manager Messages
+MSG_CONFIG_CREATED="Configuration file created: %s"
+MSG_CONFIG_LOADED="Configuration loaded from: %s"
+MSG_CONFIG_BACKUP="Configuration backup created: %s"
+MSG_CONFIG_RESTORE="Configuration restored from backup"
+MSG_CONFIG_VALIDATE="Validating configuration..."
+MSG_CONFIG_VALID="Configuration is valid"
+MSG_CONFIG_INVALID="Configuration validation failed: %s"
+
+# Service Discovery Messages
+MSG_DISCOVERY_SCANNING="Scanning for available services..."
+MSG_DISCOVERY_FOUND="Found %d compatible services"
+MSG_DISCOVERY_SERVICE="  - %s (%s)"
+MSG_DISCOVERY_COMPLETE="Service discovery complete"
+
+# Schedule Messages
+MSG_SCHEDULE_ACTIVE="Schedule is active - beeps may be suppressed"
+MSG_SCHEDULE_QUIET_ACTIVE="Quiet hours active (%s - %s)"
+MSG_SCHEDULE_RUNNING="Schedule manager running"
+MSG_SCHEDULE_STOPPED="Schedule manager stopped"
+
+# Error Messages
+MSG_ERROR_PERMISSION="Permission denied. Try running with sudo."
+MSG_ERROR_CONFIG_READ="Cannot read configuration file: %s"
+MSG_ERROR_CONFIG_WRITE="Cannot write configuration file: %s"
+MSG_ERROR_SERVICE_NOT_FOUND="Service not found: %s"
+MSG_ERROR_TUNE_NOT_FOUND="Tune file not found: %s"
+MSG_ERROR_INVALID_OPTION="Invalid option: %s"
+MSG_ERROR_MISSING_ARG="Missing required argument for: %s"
+MSG_ERROR_SYSTEMCTL="systemctl command failed: %s"
+MSG_ERROR_DEPENDENCY="Required dependency not installed: %s"
+
+# Version and About
+MSG_VERSION="Sparky Beep version %s"
+MSG_COPYRIGHT="Copyright (C) 2018-2025 Paweł Pijanowski & Contributors"
+MSG_LICENSE="Licensed under GNU GPL v3"
+MSG_WEBSITE="https://github.com/sparkylinux/sparky-beep"

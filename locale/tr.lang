@@ -1,6 +1,6 @@
 # Turkish (Türkçe) translations for Sparky Beep
 # Author: Sparky Beep Contributors
-# Last updated: 2025-01-20
+# Last updated: 2025-11-20
 
 # Service status messages
 MSG_SERVICE_ACTIVE="%s hizmeti etkin..."
@@ -12,3 +12,188 @@ MSG_USAGE_BEEP_SYS="Kullanım: /etc/init.d/beep_sys {start|stop|restart}"
 MSG_USAGE_BEEP_NETDATA="Kullanım: /etc/init.d/beep_netdata {start|stop|restart}"
 MSG_USAGE_BEEP_SAMBA="Kullanım: /etc/init.d/beep_samba {start|stop|restart}"
 MSG_USAGE_BEEP_WEBMIN="Kullanım: /etc/init.d/beep_webmin {start|stop|restart}"
+
+# TUI/GUI - Main Menu
+MSG_MAIN_TITLE="Sparky Beep Yapılandırması"
+MSG_MAIN_SUBTITLE="Sistem hizmeti ses bildirimlerini yapılandır"
+MSG_MENU_SERVICE_SELECTION="Hizmet Seçimi"
+MSG_MENU_TUNE_MANAGEMENT="Melodi Yönetimi"
+MSG_MENU_SCHEDULE="Zamanlama Yapılandırması"
+MSG_MENU_SETTINGS="Ayarlar"
+MSG_MENU_TEST="Sesleri Test Et"
+MSG_MENU_EXIT="Çıkış"
+
+# TUI/GUI - Service Selection
+MSG_SERVICE_SELECT_TITLE="İzlenecek Hizmetleri Seç"
+MSG_SERVICE_SELECT_DESC="Hangi hizmetlerin bip bildirimleri çalacağını seçin"
+MSG_SERVICE_AVAILABLE="Kullanılabilir Hizmetler"
+MSG_SERVICE_ENABLED="Bildirimler için Etkin"
+MSG_SERVICE_DISABLED="Devre Dışı"
+MSG_SERVICE_NOT_INSTALLED="Kurulu Değil"
+MSG_SERVICE_TOGGLE="Hizmeti Değiştir"
+MSG_SERVICE_SELECT_ALL="Tümünü Seç"
+MSG_SERVICE_DESELECT_ALL="Tüm Seçimi Kaldır"
+MSG_SERVICE_REFRESH="Listeyi Yenile"
+
+# TUI/GUI - Tune Management
+MSG_TUNE_TITLE="Melodi Yönetimi"
+MSG_TUNE_SELECT="Olay için Melodi Seç"
+MSG_TUNE_SERVICE_LABEL="Hizmet: %s"
+MSG_TUNE_EVENT_START="Başlatma Olayı"
+MSG_TUNE_EVENT_STOP="Durdurma Olayı"
+MSG_TUNE_EVENT_RESTART="Yeniden Başlatma Olayı"
+MSG_TUNE_CURRENT="Geçerli: %s"
+MSG_TUNE_PREVIEW="Önizleme"
+MSG_TUNE_APPLY="Uygula"
+MSG_TUNE_RESET="Varsayılana Sıfırla"
+MSG_TUNE_CUSTOM="Özel Bip Dizisi"
+MSG_TUNE_LIBRARY="Kullanılabilir Melodiler"
+MSG_TUNE_NONE="[Sessiz - Bip Yok]"
+
+# TUI/GUI - Available Compositions
+MSG_COMPOSITION_C_SCALE="Do Majör Gamı"
+MSG_COMPOSITION_HAPPY_BIRTHDAY="Doğum Günün Kutlu Olsun"
+MSG_COMPOSITION_TWINKLE="Pırıl Pırıl Küçük Yıldız"
+MSG_COMPOSITION_ODE_JOY="Neşeye Ode"
+MSG_COMPOSITION_STAR_WARS="Star Wars Teması"
+MSG_COMPOSITION_MARIO="Super Mario Bros"
+MSG_COMPOSITION_STARTUP="Başlangıç Fanfarı"
+MSG_COMPOSITION_SHUTDOWN="Kapanış Melodisi"
+MSG_COMPOSITION_ERROR="Hata Uyarısı"
+MSG_COMPOSITION_SUCCESS="Başarı Bildirimi"
+MSG_COMPOSITION_IMPERIAL="İmparatorluk Marşı"
+
+# TUI/GUI - Schedule Configuration
+MSG_SCHEDULE_TITLE="Zamana Dayalı Zamanlama Yapılandırması"
+MSG_SCHEDULE_DESC="Sessiz saatleri ve özel zamanlamaları yapılandır"
+MSG_SCHEDULE_ENABLE="Zamanlamayı Etkinleştir"
+MSG_SCHEDULE_DISABLE="Zamanlamayı Devre Dışı Bırak"
+MSG_SCHEDULE_QUIET_HOURS="Sessiz Saatler"
+MSG_SCHEDULE_QUIET_START="Sessiz Başlangıç Zamanı"
+MSG_SCHEDULE_QUIET_END="Sessiz Bitiş Zamanı"
+MSG_SCHEDULE_WEEKDAYS="Etkin Günler"
+MSG_SCHEDULE_MONDAY="Pazartesi"
+MSG_SCHEDULE_TUESDAY="Salı"
+MSG_SCHEDULE_WEDNESDAY="Çarşamba"
+MSG_SCHEDULE_THURSDAY="Perşembe"
+MSG_SCHEDULE_FRIDAY="Cuma"
+MSG_SCHEDULE_SATURDAY="Cumartesi"
+MSG_SCHEDULE_SUNDAY="Pazar"
+MSG_SCHEDULE_ADD_RULE="Zamanlama Kuralı Ekle"
+MSG_SCHEDULE_REMOVE_RULE="Kuralı Kaldır"
+MSG_SCHEDULE_TIME_FORMAT="Zaman formatı: SS:DD (24 saat)"
+
+# TUI/GUI - Settings
+MSG_SETTINGS_TITLE="Genel Ayarlar"
+MSG_SETTINGS_BEEP_MODE="Bip Modu"
+MSG_SETTINGS_MODE_BINARY="İkili (Standart)"
+MSG_SETTINGS_MODE_TERNARY="Üçlü (Yumuşak)"
+MSG_SETTINGS_VOLUME="Ses Seviyesi"
+MSG_SETTINGS_LANGUAGE="Dil"
+MSG_SETTINGS_AUTO_ENABLE="Hizmetleri otomatik etkinleştir"
+MSG_SETTINGS_LOG_EVENTS="Bip olaylarını günlüğe kaydet"
+MSG_SETTINGS_CONFIG_PATH="Yapılandırma dosyası: %s"
+MSG_SETTINGS_SAVE="Ayarları Kaydet"
+MSG_SETTINGS_RESTORE_DEFAULTS="Varsayılanlara Geri Dön"
+
+# TUI/GUI - Test Sounds
+MSG_TEST_TITLE="Ses Çalma Testi"
+MSG_TEST_DESC="Bip ve kompozisyonları önizle"
+MSG_TEST_SERVICE_SELECT="Test edilecek hizmeti seç"
+MSG_TEST_EVENT_SELECT="Olay türünü seç"
+MSG_TEST_PLAY="Test Sesini Çal"
+MSG_TEST_STOP="Çalmayı Durdur"
+MSG_TEST_PLAYING="Çalıyor: %s"
+
+# TUI/GUI - Common Actions
+MSG_BUTTON_OK="Tamam"
+MSG_BUTTON_CANCEL="İptal"
+MSG_BUTTON_APPLY="Uygula"
+MSG_BUTTON_SAVE="Kaydet"
+MSG_BUTTON_BACK="Geri"
+MSG_BUTTON_NEXT="İleri"
+MSG_BUTTON_FINISH="Bitir"
+MSG_BUTTON_HELP="Yardım"
+MSG_BUTTON_CLOSE="Kapat"
+MSG_BUTTON_YES="Evet"
+MSG_BUTTON_NO="Hayır"
+
+# TUI/GUI - Messages and Notifications
+MSG_SAVE_SUCCESS="Yapılandırma başarıyla kaydedildi"
+MSG_SAVE_ERROR="Yapılandırma kaydetme hatası: %s"
+MSG_LOAD_ERROR="Yapılandırma yükleme hatası: %s"
+MSG_APPLY_SUCCESS="Değişiklikler başarıyla uygulandı"
+MSG_APPLY_ERROR="Değişiklik uygulama hatası: %s"
+MSG_SERVICE_START_SUCCESS="Hizmet %s başarıyla başlatıldı"
+MSG_SERVICE_START_ERROR="Hizmet %s başlatılamadı"
+MSG_SERVICE_STOP_SUCCESS="Hizmet %s başarıyla durduruldu"
+MSG_SERVICE_STOP_ERROR="Hizmet %s durdurulamadı"
+MSG_CONFIRM_EXIT="Değişiklikleri kaydetmeden çık?"
+MSG_CONFIRM_RESET="Tüm ayarları varsayılana sıfırla?"
+MSG_CONFIRM_DELETE="Bu zamanlama kuralını sil?"
+MSG_NO_SERVICES_FOUND="Uyumlu hizmet bulunamadı"
+MSG_ROOT_REQUIRED="Bu işlem için root yetkileri gerekli"
+MSG_PACKAGE_NOT_INSTALLED="%s paketi kurulu değil"
+MSG_BEEP_NOT_AVAILABLE="Bip yardımcı programı kullanılamıyor"
+MSG_INVALID_TIME_FORMAT="Geçersiz zaman formatı. SS:DD kullanın"
+MSG_INVALID_INPUT="Geçersiz giriş: %s"
+
+# TUI/GUI - Help and Information
+MSG_HELP_TITLE="Sparky Beep Yardım"
+MSG_HELP_SERVICES="Başlatıldığında, durdurulduğunda veya yeniden başlatıldığında bip bildirimleri tetikleyecek sistem hizmetlerini seçin."
+MSG_HELP_TUNES="Her hizmet olayına (başlatma/durdurma/yeniden başlatma) farklı melodiler veya bip desenler atayın."
+MSG_HELP_SCHEDULE="Biplerin devre dışı olduğu sessiz saatleri ayarlayın veya belirli zamanlar için özel zamanlamalar oluşturun."
+MSG_HELP_SETTINGS="Bip modunu (ikili/üçlü), ses seviyesini, dili ve diğer genel ayarları yapılandırın."
+MSG_HELP_TEST="Değişiklikleri uygulamadan önce farklı hizmetlerin ve olayların nasıl ses çıkaracağını önizleyin."
+
+# CLI Usage Messages
+MSG_CLI_USAGE="Kullanım: %s [SEÇENEKLER]"
+MSG_CLI_DESCRIPTION="Sparky Beep - Sistem hizmeti ses bildirimi yöneticisi"
+MSG_CLI_OPTIONS="Seçenekler:"
+MSG_CLI_OPT_TUI="  -t, --tui           Metin kullanıcı arayüzünü başlat"
+MSG_CLI_OPT_GUI="  -g, --gui           Grafik kullanıcı arayüzünü başlat"
+MSG_CLI_OPT_CONFIG="  -c, --config DOSYA  Belirtilen yapılandırma dosyasını kullan"
+MSG_CLI_OPT_LIST="  -l, --list          Kullanılabilir hizmetleri listele"
+MSG_CLI_OPT_ENABLE="  -e, --enable SVC    Hizmet için bipi etkinleştir"
+MSG_CLI_OPT_DISABLE="  -d, --disable SVC   Hizmet için bipi devre dışı bırak"
+MSG_CLI_OPT_TEST="  --test SVC EVENT    Hizmet olayı için bipi test et"
+MSG_CLI_OPT_HELP="  -h, --help          Bu yardım mesajını göster"
+MSG_CLI_OPT_VERSION="  -v, --version       Sürüm bilgilerini göster"
+
+# Configuration Manager Messages
+MSG_CONFIG_CREATED="Yapılandırma dosyası oluşturuldu: %s"
+MSG_CONFIG_LOADED="Yapılandırma yüklendi: %s"
+MSG_CONFIG_BACKUP="Yapılandırma yedeği oluşturuldu: %s"
+MSG_CONFIG_RESTORE="Yapılandırma yedekten geri yüklendi"
+MSG_CONFIG_VALIDATE="Yapılandırma doğrulanıyor..."
+MSG_CONFIG_VALID="Yapılandırma geçerli"
+MSG_CONFIG_INVALID="Yapılandırma doğrulaması başarısız: %s"
+
+# Service Discovery Messages
+MSG_DISCOVERY_SCANNING="Kullanılabilir hizmetler taranıyor..."
+MSG_DISCOVERY_FOUND="%d uyumlu hizmet bulundu"
+MSG_DISCOVERY_SERVICE="  - %s (%s)"
+MSG_DISCOVERY_COMPLETE="Hizmet keşfi tamamlandı"
+
+# Schedule Messages
+MSG_SCHEDULE_ACTIVE="Zamanlama etkin - bipler bastırılabilir"
+MSG_SCHEDULE_QUIET_ACTIVE="Sessiz saatler etkin (%s - %s)"
+MSG_SCHEDULE_RUNNING="Zamanlama yöneticisi çalışıyor"
+MSG_SCHEDULE_STOPPED="Zamanlama yöneticisi durduruldu"
+
+# Error Messages
+MSG_ERROR_PERMISSION="İzin reddedildi. sudo ile çalıştırmayı deneyin."
+MSG_ERROR_CONFIG_READ="Yapılandırma dosyası okunamıyor: %s"
+MSG_ERROR_CONFIG_WRITE="Yapılandırma dosyasına yazılamıyor: %s"
+MSG_ERROR_SERVICE_NOT_FOUND="Hizmet bulunamadı: %s"
+MSG_ERROR_TUNE_NOT_FOUND="Melodi dosyası bulunamadı: %s"
+MSG_ERROR_INVALID_OPTION="Geçersiz seçenek: %s"
+MSG_ERROR_MISSING_ARG="Eksik gerekli argüman: %s"
+MSG_ERROR_SYSTEMCTL="systemctl komutu başarısız: %s"
+MSG_ERROR_DEPENDENCY="Gerekli bağımlılık kurulu değil: %s"
+
+# Version and About
+MSG_VERSION="Sparky Beep sürüm %s"
+MSG_COPYRIGHT="Telif Hakkı (C) 2018-2025 Paweł Pijanowski ve Katkıda Bulunanlar"
+MSG_LICENSE="GNU GPL v3 altında lisanslanmıştır"
+MSG_WEBSITE="https://github.com/sparkylinux/sparky-beep"

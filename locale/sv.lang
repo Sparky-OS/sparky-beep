@@ -1,6 +1,6 @@
 # Swedish (Svenska) translations for Sparky Beep
 # Author: Sparky Beep Contributors
-# Last updated: 2025-01-20
+# Last updated: 2025-11-20
 
 # Service status messages
 MSG_SERVICE_ACTIVE="%s tjänsten är aktiv..."
@@ -12,3 +12,188 @@ MSG_USAGE_BEEP_SYS="Användning: /etc/init.d/beep_sys {start|stop|restart}"
 MSG_USAGE_BEEP_NETDATA="Användning: /etc/init.d/beep_netdata {start|stop|restart}"
 MSG_USAGE_BEEP_SAMBA="Användning: /etc/init.d/beep_samba {start|stop|restart}"
 MSG_USAGE_BEEP_WEBMIN="Användning: /etc/init.d/beep_webmin {start|stop|restart}"
+
+# TUI/GUI - Main Menu
+MSG_MAIN_TITLE="Sparky Beep Konfiguration"
+MSG_MAIN_SUBTITLE="Konfigurera systemtjänsters ljudaviseringar"
+MSG_MENU_SERVICE_SELECTION="Tjänstval"
+MSG_MENU_TUNE_MANAGEMENT="Melodihantering"
+MSG_MENU_SCHEDULE="Schemaläggning"
+MSG_MENU_SETTINGS="Inställningar"
+MSG_MENU_TEST="Testa Ljud"
+MSG_MENU_EXIT="Avsluta"
+
+# TUI/GUI - Service Selection
+MSG_SERVICE_SELECT_TITLE="Välj Tjänster att Övervaka"
+MSG_SERVICE_SELECT_DESC="Välj vilka tjänster som ska spela ljudaviseringar"
+MSG_SERVICE_AVAILABLE="Tillgängliga Tjänster"
+MSG_SERVICE_ENABLED="Aktiverad för Aviseringar"
+MSG_SERVICE_DISABLED="Inaktiverad"
+MSG_SERVICE_NOT_INSTALLED="Ej Installerad"
+MSG_SERVICE_TOGGLE="Växla Tjänst"
+MSG_SERVICE_SELECT_ALL="Välj Alla"
+MSG_SERVICE_DESELECT_ALL="Avmarkera Alla"
+MSG_SERVICE_REFRESH="Uppdatera Lista"
+
+# TUI/GUI - Tune Management
+MSG_TUNE_TITLE="Melodihantering"
+MSG_TUNE_SELECT="Välj Melodi för Händelse"
+MSG_TUNE_SERVICE_LABEL="Tjänst: %s"
+MSG_TUNE_EVENT_START="Starthändelse"
+MSG_TUNE_EVENT_STOP="Stopphändelse"
+MSG_TUNE_EVENT_RESTART="Omstartshändelse"
+MSG_TUNE_CURRENT="Nuvarande: %s"
+MSG_TUNE_PREVIEW="Förhandsvisning"
+MSG_TUNE_APPLY="Tillämpa"
+MSG_TUNE_RESET="Återställ till Standard"
+MSG_TUNE_CUSTOM="Anpassad Pipsignal"
+MSG_TUNE_LIBRARY="Tillgängliga Melodier"
+MSG_TUNE_NONE="[Tyst - Inget Pip]"
+
+# TUI/GUI - Available Compositions
+MSG_COMPOSITION_C_SCALE="C-dur Skala"
+MSG_COMPOSITION_HAPPY_BIRTHDAY="Grattis på Födelsedagen"
+MSG_COMPOSITION_TWINKLE="Blinka Lilla Stjärna"
+MSG_COMPOSITION_ODE_JOY="Ode till Glädjen"
+MSG_COMPOSITION_STAR_WARS="Star Wars Tema"
+MSG_COMPOSITION_MARIO="Super Mario Bros"
+MSG_COMPOSITION_STARTUP="Uppstartsfanfar"
+MSG_COMPOSITION_SHUTDOWN="Avstängningsmelodi"
+MSG_COMPOSITION_ERROR="Felvarning"
+MSG_COMPOSITION_SUCCESS="Framgångsavisering"
+MSG_COMPOSITION_IMPERIAL="Imperial March"
+
+# TUI/GUI - Schedule Configuration
+MSG_SCHEDULE_TITLE="Tidsbaserad Schemaläggning"
+MSG_SCHEDULE_DESC="Konfigurera tysta timmar och anpassade scheman"
+MSG_SCHEDULE_ENABLE="Aktivera Schemaläggning"
+MSG_SCHEDULE_DISABLE="Inaktivera Schemaläggning"
+MSG_SCHEDULE_QUIET_HOURS="Tysta Timmar"
+MSG_SCHEDULE_QUIET_START="Tyst Starttid"
+MSG_SCHEDULE_QUIET_END="Tyst Sluttid"
+MSG_SCHEDULE_WEEKDAYS="Aktiva Dagar"
+MSG_SCHEDULE_MONDAY="Måndag"
+MSG_SCHEDULE_TUESDAY="Tisdag"
+MSG_SCHEDULE_WEDNESDAY="Onsdag"
+MSG_SCHEDULE_THURSDAY="Torsdag"
+MSG_SCHEDULE_FRIDAY="Fredag"
+MSG_SCHEDULE_SATURDAY="Lördag"
+MSG_SCHEDULE_SUNDAY="Söndag"
+MSG_SCHEDULE_ADD_RULE="Lägg till Schemaregel"
+MSG_SCHEDULE_REMOVE_RULE="Ta bort Regel"
+MSG_SCHEDULE_TIME_FORMAT="Tidsformat: TT:MM (24-timmar)"
+
+# TUI/GUI - Settings
+MSG_SETTINGS_TITLE="Allmänna Inställningar"
+MSG_SETTINGS_BEEP_MODE="Pipläge"
+MSG_SETTINGS_MODE_BINARY="Binärt (Standard)"
+MSG_SETTINGS_MODE_TERNARY="Ternärt (Mjukt)"
+MSG_SETTINGS_VOLUME="Volymnivå"
+MSG_SETTINGS_LANGUAGE="Språk"
+MSG_SETTINGS_AUTO_ENABLE="Aktivera tjänster automatiskt"
+MSG_SETTINGS_LOG_EVENTS="Logga piphändelser"
+MSG_SETTINGS_CONFIG_PATH="Konfigurationsfil: %s"
+MSG_SETTINGS_SAVE="Spara Inställningar"
+MSG_SETTINGS_RESTORE_DEFAULTS="Återställ Standardvärden"
+
+# TUI/GUI - Test Sounds
+MSG_TEST_TITLE="Testa Ljuduppspelning"
+MSG_TEST_DESC="Förhandsvisning av pip och kompositioner"
+MSG_TEST_SERVICE_SELECT="Välj tjänst att testa"
+MSG_TEST_EVENT_SELECT="Välj händelsetyp"
+MSG_TEST_PLAY="Spela Testljud"
+MSG_TEST_STOP="Stoppa Uppspelning"
+MSG_TEST_PLAYING="Spelar: %s"
+
+# TUI/GUI - Common Actions
+MSG_BUTTON_OK="OK"
+MSG_BUTTON_CANCEL="Avbryt"
+MSG_BUTTON_APPLY="Tillämpa"
+MSG_BUTTON_SAVE="Spara"
+MSG_BUTTON_BACK="Tillbaka"
+MSG_BUTTON_NEXT="Nästa"
+MSG_BUTTON_FINISH="Slutför"
+MSG_BUTTON_HELP="Hjälp"
+MSG_BUTTON_CLOSE="Stäng"
+MSG_BUTTON_YES="Ja"
+MSG_BUTTON_NO="Nej"
+
+# TUI/GUI - Messages and Notifications
+MSG_SAVE_SUCCESS="Konfiguration sparad"
+MSG_SAVE_ERROR="Fel vid sparande av konfiguration: %s"
+MSG_LOAD_ERROR="Fel vid laddning av konfiguration: %s"
+MSG_APPLY_SUCCESS="Ändringar tillämpade"
+MSG_APPLY_ERROR="Fel vid tillämpning av ändringar: %s"
+MSG_SERVICE_START_SUCCESS="Tjänst %s startad"
+MSG_SERVICE_START_ERROR="Misslyckades starta tjänst %s"
+MSG_SERVICE_STOP_SUCCESS="Tjänst %s stoppad"
+MSG_SERVICE_STOP_ERROR="Misslyckades stoppa tjänst %s"
+MSG_CONFIRM_EXIT="Avsluta utan att spara ändringar?"
+MSG_CONFIRM_RESET="Återställ alla inställningar till standardvärden?"
+MSG_CONFIRM_DELETE="Ta bort denna schemaregel?"
+MSG_NO_SERVICES_FOUND="Inga kompatibla tjänster hittades"
+MSG_ROOT_REQUIRED="Root-behörighet krävs för denna åtgärd"
+MSG_PACKAGE_NOT_INSTALLED="Paketet %s är inte installerat"
+MSG_BEEP_NOT_AVAILABLE="Pipverktyg inte tillgängligt"
+MSG_INVALID_TIME_FORMAT="Ogiltigt tidsformat. Använd TT:MM"
+MSG_INVALID_INPUT="Ogiltig inmatning: %s"
+
+# TUI/GUI - Help and Information
+MSG_HELP_TITLE="Sparky Beep Hjälp"
+MSG_HELP_SERVICES="Välj vilka systemtjänster som ska utlösa ljudaviseringar när de startar, stoppar eller startar om."
+MSG_HELP_TUNES="Tilldela olika melodier eller pipmönster till varje tjänstehändelse (start/stopp/omstart)."
+MSG_HELP_SCHEDULE="Ställ in tysta timmar när pip är inaktiverat, eller skapa anpassade scheman för specifika tider."
+MSG_HELP_SETTINGS="Konfigurera pipläge (binärt/ternärt), volym, språk och andra globala inställningar."
+MSG_HELP_TEST="Förhandsvisning av hur olika tjänster och händelser låter innan du tillämpar ändringar."
+
+# CLI Usage Messages
+MSG_CLI_USAGE="Användning: %s [ALTERNATIV]"
+MSG_CLI_DESCRIPTION="Sparky Beep - Systemtjänsters ljudaviseringshanterare"
+MSG_CLI_OPTIONS="Alternativ:"
+MSG_CLI_OPT_TUI="  -t, --tui           Starta textanvändargränssnitt"
+MSG_CLI_OPT_GUI="  -g, --gui           Starta grafiskt användargränssnitt"
+MSG_CLI_OPT_CONFIG="  -c, --config FIL    Använd angiven konfigurationsfil"
+MSG_CLI_OPT_LIST="  -l, --list          Lista tillgängliga tjänster"
+MSG_CLI_OPT_ENABLE="  -e, --enable SVC    Aktivera pip för tjänst"
+MSG_CLI_OPT_DISABLE="  -d, --disable SVC   Inaktivera pip för tjänst"
+MSG_CLI_OPT_TEST="  --test SVC EVENT    Testa pip för tjänstehändelse"
+MSG_CLI_OPT_HELP="  -h, --help          Visa detta hjälpmeddelande"
+MSG_CLI_OPT_VERSION="  -v, --version       Visa versionsinformation"
+
+# Configuration Manager Messages
+MSG_CONFIG_CREATED="Konfigurationsfil skapad: %s"
+MSG_CONFIG_LOADED="Konfiguration laddad från: %s"
+MSG_CONFIG_BACKUP="Konfigurationssäkerhetskopia skapad: %s"
+MSG_CONFIG_RESTORE="Konfiguration återställd från säkerhetskopia"
+MSG_CONFIG_VALIDATE="Validerar konfiguration..."
+MSG_CONFIG_VALID="Konfigurationen är giltig"
+MSG_CONFIG_INVALID="Konfigurationsvalidering misslyckades: %s"
+
+# Service Discovery Messages
+MSG_DISCOVERY_SCANNING="Söker efter tillgängliga tjänster..."
+MSG_DISCOVERY_FOUND="Hittade %d kompatibla tjänster"
+MSG_DISCOVERY_SERVICE="  - %s (%s)"
+MSG_DISCOVERY_COMPLETE="Tjänstupptäckt slutförd"
+
+# Schedule Messages
+MSG_SCHEDULE_ACTIVE="Schema är aktivt - pip kan undertryckas"
+MSG_SCHEDULE_QUIET_ACTIVE="Tysta timmar aktiva (%s - %s)"
+MSG_SCHEDULE_RUNNING="Schemahanterare körs"
+MSG_SCHEDULE_STOPPED="Schemahanterare stoppad"
+
+# Error Messages
+MSG_ERROR_PERMISSION="Åtkomst nekad. Försök köra med sudo."
+MSG_ERROR_CONFIG_READ="Kan inte läsa konfigurationsfil: %s"
+MSG_ERROR_CONFIG_WRITE="Kan inte skriva konfigurationsfil: %s"
+MSG_ERROR_SERVICE_NOT_FOUND="Tjänst hittades inte: %s"
+MSG_ERROR_TUNE_NOT_FOUND="Melodifil hittades inte: %s"
+MSG_ERROR_INVALID_OPTION="Ogiltigt alternativ: %s"
+MSG_ERROR_MISSING_ARG="Saknat obligatoriskt argument för: %s"
+MSG_ERROR_SYSTEMCTL="systemctl-kommandot misslyckades: %s"
+MSG_ERROR_DEPENDENCY="Nödvändigt beroende inte installerat: %s"
+
+# Version and About
+MSG_VERSION="Sparky Beep version %s"
+MSG_COPYRIGHT="Copyright (C) 2018-2025 Paweł Pijanowski och Bidragsgivare"
+MSG_LICENSE="Licensierad under GNU GPL v3"
+MSG_WEBSITE="https://github.com/sparkylinux/sparky-beep"

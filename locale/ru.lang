@@ -1,6 +1,6 @@
 # Russian (Русский) translations for Sparky Beep
 # Author: Sparky Beep Contributors
-# Last updated: 2025-01-20
+# Last updated: 2025-11-20
 
 # Service status messages
 MSG_SERVICE_ACTIVE="сервис %s активен..."
@@ -12,3 +12,188 @@ MSG_USAGE_BEEP_SYS="Использование: /etc/init.d/beep_sys {start|stop
 MSG_USAGE_BEEP_NETDATA="Использование: /etc/init.d/beep_netdata {start|stop|restart}"
 MSG_USAGE_BEEP_SAMBA="Использование: /etc/init.d/beep_samba {start|stop|restart}"
 MSG_USAGE_BEEP_WEBMIN="Использование: /etc/init.d/beep_webmin {start|stop|restart}"
+
+# TUI/GUI - Main Menu
+MSG_MAIN_TITLE="Конфигурация Sparky Beep"
+MSG_MAIN_SUBTITLE="Настройка звуковых уведомлений системных служб"
+MSG_MENU_SERVICE_SELECTION="Выбор Служб"
+MSG_MENU_TUNE_MANAGEMENT="Управление Мелодиями"
+MSG_MENU_SCHEDULE="Настройка Расписания"
+MSG_MENU_SETTINGS="Настройки"
+MSG_MENU_TEST="Тестировать Звуки"
+MSG_MENU_EXIT="Выход"
+
+# TUI/GUI - Service Selection
+MSG_SERVICE_SELECT_TITLE="Выберите Службы для Мониторинга"
+MSG_SERVICE_SELECT_DESC="Выберите, какие службы должны воспроизводить звуковые уведомления"
+MSG_SERVICE_AVAILABLE="Доступные Службы"
+MSG_SERVICE_ENABLED="Включено для Уведомлений"
+MSG_SERVICE_DISABLED="Отключено"
+MSG_SERVICE_NOT_INSTALLED="Не Установлено"
+MSG_SERVICE_TOGGLE="Переключить Службу"
+MSG_SERVICE_SELECT_ALL="Выбрать Все"
+MSG_SERVICE_DESELECT_ALL="Снять Все"
+MSG_SERVICE_REFRESH="Обновить Список"
+
+# TUI/GUI - Tune Management
+MSG_TUNE_TITLE="Управление Мелодиями"
+MSG_TUNE_SELECT="Выбрать Мелодию для События"
+MSG_TUNE_SERVICE_LABEL="Служба: %s"
+MSG_TUNE_EVENT_START="Событие Запуска"
+MSG_TUNE_EVENT_STOP="Событие Остановки"
+MSG_TUNE_EVENT_RESTART="Событие Перезапуска"
+MSG_TUNE_CURRENT="Текущая: %s"
+MSG_TUNE_PREVIEW="Предпросмотр"
+MSG_TUNE_APPLY="Применить"
+MSG_TUNE_RESET="Сбросить по Умолчанию"
+MSG_TUNE_CUSTOM="Пользовательская Последовательность Сигналов"
+MSG_TUNE_LIBRARY="Доступные Мелодии"
+MSG_TUNE_NONE="[Тишина - Без Сигнала]"
+
+# TUI/GUI - Available Compositions
+MSG_COMPOSITION_C_SCALE="Гамма До Мажор"
+MSG_COMPOSITION_HAPPY_BIRTHDAY="С Днём Рождения"
+MSG_COMPOSITION_TWINKLE="Маленькая Звёздочка"
+MSG_COMPOSITION_ODE_JOY="Ода к Радости"
+MSG_COMPOSITION_STAR_WARS="Тема Звёздных Войн"
+MSG_COMPOSITION_MARIO="Супер Марио"
+MSG_COMPOSITION_STARTUP="Фанфары Запуска"
+MSG_COMPOSITION_SHUTDOWN="Мелодия Выключения"
+MSG_COMPOSITION_ERROR="Предупреждение об Ошибке"
+MSG_COMPOSITION_SUCCESS="Уведомление об Успехе"
+MSG_COMPOSITION_IMPERIAL="Имперский Марш"
+
+# TUI/GUI - Schedule Configuration
+MSG_SCHEDULE_TITLE="Настройка Расписания по Времени"
+MSG_SCHEDULE_DESC="Настройте тихие часы и пользовательские расписания"
+MSG_SCHEDULE_ENABLE="Включить Расписание"
+MSG_SCHEDULE_DISABLE="Отключить Расписание"
+MSG_SCHEDULE_QUIET_HOURS="Тихие Часы"
+MSG_SCHEDULE_QUIET_START="Время Начала Тишины"
+MSG_SCHEDULE_QUIET_END="Время Окончания Тишины"
+MSG_SCHEDULE_WEEKDAYS="Активные Дни"
+MSG_SCHEDULE_MONDAY="Понедельник"
+MSG_SCHEDULE_TUESDAY="Вторник"
+MSG_SCHEDULE_WEDNESDAY="Среда"
+MSG_SCHEDULE_THURSDAY="Четверг"
+MSG_SCHEDULE_FRIDAY="Пятница"
+MSG_SCHEDULE_SATURDAY="Суббота"
+MSG_SCHEDULE_SUNDAY="Воскресенье"
+MSG_SCHEDULE_ADD_RULE="Добавить Правило Расписания"
+MSG_SCHEDULE_REMOVE_RULE="Удалить Правило"
+MSG_SCHEDULE_TIME_FORMAT="Формат времени: ЧЧ:ММ (24-часовой)"
+
+# TUI/GUI - Settings
+MSG_SETTINGS_TITLE="Общие Настройки"
+MSG_SETTINGS_BEEP_MODE="Режим Сигнала"
+MSG_SETTINGS_MODE_BINARY="Бинарный (Стандартный)"
+MSG_SETTINGS_MODE_TERNARY="Тернарный (Плавный)"
+MSG_SETTINGS_VOLUME="Уровень Громкости"
+MSG_SETTINGS_LANGUAGE="Язык"
+MSG_SETTINGS_AUTO_ENABLE="Автоматически включать службы"
+MSG_SETTINGS_LOG_EVENTS="Регистрировать события сигналов"
+MSG_SETTINGS_CONFIG_PATH="Файл конфигурации: %s"
+MSG_SETTINGS_SAVE="Сохранить Настройки"
+MSG_SETTINGS_RESTORE_DEFAULTS="Восстановить По Умолчанию"
+
+# TUI/GUI - Test Sounds
+MSG_TEST_TITLE="Тестирование Воспроизведения Звука"
+MSG_TEST_DESC="Предпросмотр сигналов и композиций"
+MSG_TEST_SERVICE_SELECT="Выберите службу для тестирования"
+MSG_TEST_EVENT_SELECT="Выберите тип события"
+MSG_TEST_PLAY="Воспроизвести Тестовый Звук"
+MSG_TEST_STOP="Остановить Воспроизведение"
+MSG_TEST_PLAYING="Воспроизведение: %s"
+
+# TUI/GUI - Common Actions
+MSG_BUTTON_OK="ОК"
+MSG_BUTTON_CANCEL="Отмена"
+MSG_BUTTON_APPLY="Применить"
+MSG_BUTTON_SAVE="Сохранить"
+MSG_BUTTON_BACK="Назад"
+MSG_BUTTON_NEXT="Далее"
+MSG_BUTTON_FINISH="Завершить"
+MSG_BUTTON_HELP="Справка"
+MSG_BUTTON_CLOSE="Закрыть"
+MSG_BUTTON_YES="Да"
+MSG_BUTTON_NO="Нет"
+
+# TUI/GUI - Messages and Notifications
+MSG_SAVE_SUCCESS="Конфигурация успешно сохранена"
+MSG_SAVE_ERROR="Ошибка сохранения конфигурации: %s"
+MSG_LOAD_ERROR="Ошибка загрузки конфигурации: %s"
+MSG_APPLY_SUCCESS="Изменения успешно применены"
+MSG_APPLY_ERROR="Ошибка применения изменений: %s"
+MSG_SERVICE_START_SUCCESS="Служба %s успешно запущена"
+MSG_SERVICE_START_ERROR="Не удалось запустить службу %s"
+MSG_SERVICE_STOP_SUCCESS="Служба %s успешно остановлена"
+MSG_SERVICE_STOP_ERROR="Не удалось остановить службу %s"
+MSG_CONFIRM_EXIT="Выйти без сохранения изменений?"
+MSG_CONFIRM_RESET="Сбросить все настройки на значения по умолчанию?"
+MSG_CONFIRM_DELETE="Удалить это правило расписания?"
+MSG_NO_SERVICES_FOUND="Совместимые службы не найдены"
+MSG_ROOT_REQUIRED="Для этой операции требуются права root"
+MSG_PACKAGE_NOT_INSTALLED="Пакет %s не установлен"
+MSG_BEEP_NOT_AVAILABLE="Утилита сигнала недоступна"
+MSG_INVALID_TIME_FORMAT="Неверный формат времени. Используйте ЧЧ:ММ"
+MSG_INVALID_INPUT="Неверный ввод: %s"
+
+# TUI/GUI - Help and Information
+MSG_HELP_TITLE="Справка Sparky Beep"
+MSG_HELP_SERVICES="Выберите, какие системные службы будут запускать звуковые уведомления при запуске, остановке или перезапуске."
+MSG_HELP_TUNES="Назначьте различные мелодии или шаблоны сигналов для каждого события службы (запуск/остановка/перезапуск)."
+MSG_HELP_SCHEDULE="Установите тихие часы, когда сигналы отключены, или создайте пользовательские расписания для определённых времен."
+MSG_HELP_SETTINGS="Настройте режим сигнала (бинарный/тернарный), громкость, язык и другие глобальные параметры."
+MSG_HELP_TEST="Предпросмотрите, как будут звучать различные службы и события перед применением изменений."
+
+# CLI Usage Messages
+MSG_CLI_USAGE="Использование: %s [ОПЦИИ]"
+MSG_CLI_DESCRIPTION="Sparky Beep - Менеджер звуковых уведомлений системных служб"
+MSG_CLI_OPTIONS="Опции:"
+MSG_CLI_OPT_TUI="  -t, --tui           Запустить текстовый пользовательский интерфейс"
+MSG_CLI_OPT_GUI="  -g, --gui           Запустить графический пользовательский интерфейс"
+MSG_CLI_OPT_CONFIG="  -c, --config ФАЙЛ   Использовать указанный файл конфигурации"
+MSG_CLI_OPT_LIST="  -l, --list          Показать доступные службы"
+MSG_CLI_OPT_ENABLE="  -e, --enable SVC    Включить сигнал для службы"
+MSG_CLI_OPT_DISABLE="  -d, --disable SVC   Отключить сигнал для службы"
+MSG_CLI_OPT_TEST="  --test SVC EVENT    Тестировать сигнал для события службы"
+MSG_CLI_OPT_HELP="  -h, --help          Показать это справочное сообщение"
+MSG_CLI_OPT_VERSION="  -v, --version       Показать информацию о версии"
+
+# Configuration Manager Messages
+MSG_CONFIG_CREATED="Файл конфигурации создан: %s"
+MSG_CONFIG_LOADED="Конфигурация загружена из: %s"
+MSG_CONFIG_BACKUP="Создана резервная копия конфигурации: %s"
+MSG_CONFIG_RESTORE="Конфигурация восстановлена из резервной копии"
+MSG_CONFIG_VALIDATE="Проверка конфигурации..."
+MSG_CONFIG_VALID="Конфигурация действительна"
+MSG_CONFIG_INVALID="Проверка конфигурации не удалась: %s"
+
+# Service Discovery Messages
+MSG_DISCOVERY_SCANNING="Поиск доступных служб..."
+MSG_DISCOVERY_FOUND="Найдено %d совместимых служб"
+MSG_DISCOVERY_SERVICE="  - %s (%s)"
+MSG_DISCOVERY_COMPLETE="Обнаружение служб завершено"
+
+# Schedule Messages
+MSG_SCHEDULE_ACTIVE="Расписание активно - сигналы могут быть подавлены"
+MSG_SCHEDULE_QUIET_ACTIVE="Тихие часы активны (%s - %s)"
+MSG_SCHEDULE_RUNNING="Менеджер расписания работает"
+MSG_SCHEDULE_STOPPED="Менеджер расписания остановлен"
+
+# Error Messages
+MSG_ERROR_PERMISSION="Доступ запрещён. Попробуйте запустить с sudo."
+MSG_ERROR_CONFIG_READ="Не удаётся прочитать файл конфигурации: %s"
+MSG_ERROR_CONFIG_WRITE="Не удаётся записать файл конфигурации: %s"
+MSG_ERROR_SERVICE_NOT_FOUND="Служба не найдена: %s"
+MSG_ERROR_TUNE_NOT_FOUND="Файл мелодии не найден: %s"
+MSG_ERROR_INVALID_OPTION="Неверная опция: %s"
+MSG_ERROR_MISSING_ARG="Отсутствует обязательный аргумент для: %s"
+MSG_ERROR_SYSTEMCTL="Команда systemctl не выполнена: %s"
+MSG_ERROR_DEPENDENCY="Требуемая зависимость не установлена: %s"
+
+# Version and About
+MSG_VERSION="Sparky Beep версия %s"
+MSG_COPYRIGHT="Copyright (C) 2018-2025 Paweł Pijanowski и Участники"
+MSG_LICENSE="Лицензировано под GNU GPL v3"
+MSG_WEBSITE="https://github.com/sparkylinux/sparky-beep"

@@ -1,0 +1,199 @@
+# Korean (한국어) translations for Sparky Beep
+# Author: Sparky Beep Contributors
+# Last updated: 2025-11-20
+
+# Service status messages
+MSG_SERVICE_ACTIVE="%s 서비스가 활성화되었습니다..."
+MSG_SERVICE_NOT_ACTIVE="%s 서비스가 활성화되지 않았습니다..."
+MSG_SPARKY_STARTED="sparky-beep가 시작되었습니다"
+
+# Usage messages
+MSG_USAGE_BEEP_SYS="사용법: /etc/init.d/beep_sys {start|stop|restart}"
+MSG_USAGE_BEEP_NETDATA="사용법: /etc/init.d/beep_netdata {start|stop|restart}"
+MSG_USAGE_BEEP_SAMBA="사용법: /etc/init.d/beep_samba {start|stop|restart}"
+MSG_USAGE_BEEP_WEBMIN="사용법: /etc/init.d/beep_webmin {start|stop|restart}"
+
+# TUI/GUI - Main Menu
+MSG_MAIN_TITLE="Sparky Beep 설정"
+MSG_MAIN_SUBTITLE="시스템 서비스 소리 알림 설정"
+MSG_MENU_SERVICE_SELECTION="서비스 선택"
+MSG_MENU_TUNE_MANAGEMENT="멜로디 관리"
+MSG_MENU_SCHEDULE="일정 설정"
+MSG_MENU_SETTINGS="설정"
+MSG_MENU_TEST="소리 테스트"
+MSG_MENU_EXIT="종료"
+
+# TUI/GUI - Service Selection
+MSG_SERVICE_SELECT_TITLE="모니터링할 서비스 선택"
+MSG_SERVICE_SELECT_DESC="비프 알림을 재생할 서비스를 선택하세요"
+MSG_SERVICE_AVAILABLE="사용 가능한 서비스"
+MSG_SERVICE_ENABLED="알림 활성화됨"
+MSG_SERVICE_DISABLED="비활성화됨"
+MSG_SERVICE_NOT_INSTALLED="설치되지 않음"
+MSG_SERVICE_TOGGLE="서비스 전환"
+MSG_SERVICE_SELECT_ALL="전체 선택"
+MSG_SERVICE_DESELECT_ALL="전체 선택 해제"
+MSG_SERVICE_REFRESH="목록 새로고침"
+
+# TUI/GUI - Tune Management
+MSG_TUNE_TITLE="멜로디 관리"
+MSG_TUNE_SELECT="이벤트에 대한 멜로디 선택"
+MSG_TUNE_SERVICE_LABEL="서비스: %s"
+MSG_TUNE_EVENT_START="시작 이벤트"
+MSG_TUNE_EVENT_STOP="중지 이벤트"
+MSG_TUNE_EVENT_RESTART="재시작 이벤트"
+MSG_TUNE_CURRENT="현재: %s"
+MSG_TUNE_PREVIEW="미리보기"
+MSG_TUNE_APPLY="적용"
+MSG_TUNE_RESET="기본값으로 재설정"
+MSG_TUNE_CUSTOM="사용자 정의 비프 시퀀스"
+MSG_TUNE_LIBRARY="사용 가능한 멜로디"
+MSG_TUNE_NONE="[무음 - 비프 없음]"
+
+# TUI/GUI - Available Compositions
+MSG_COMPOSITION_C_SCALE="C 장조 음계"
+MSG_COMPOSITION_HAPPY_BIRTHDAY="생일 축하합니다"
+MSG_COMPOSITION_TWINKLE="반짝반짝 작은 별"
+MSG_COMPOSITION_ODE_JOY="환희의 송가"
+MSG_COMPOSITION_STAR_WARS="스타워즈 테마"
+MSG_COMPOSITION_MARIO="슈퍼 마리오 브라더스"
+MSG_COMPOSITION_STARTUP="시작 팡파르"
+MSG_COMPOSITION_SHUTDOWN="종료 멜로디"
+MSG_COMPOSITION_ERROR="오류 경고"
+MSG_COMPOSITION_SUCCESS="성공 알림"
+MSG_COMPOSITION_IMPERIAL="제국의 행진"
+
+# TUI/GUI - Schedule Configuration
+MSG_SCHEDULE_TITLE="시간 기반 일정 설정"
+MSG_SCHEDULE_DESC="무음 시간 및 사용자 정의 일정 설정"
+MSG_SCHEDULE_ENABLE="일정 활성화"
+MSG_SCHEDULE_DISABLE="일정 비활성화"
+MSG_SCHEDULE_QUIET_HOURS="무음 시간"
+MSG_SCHEDULE_QUIET_START="무음 시작 시간"
+MSG_SCHEDULE_QUIET_END="무음 종료 시간"
+MSG_SCHEDULE_WEEKDAYS="활성 요일"
+MSG_SCHEDULE_MONDAY="월요일"
+MSG_SCHEDULE_TUESDAY="화요일"
+MSG_SCHEDULE_WEDNESDAY="수요일"
+MSG_SCHEDULE_THURSDAY="목요일"
+MSG_SCHEDULE_FRIDAY="금요일"
+MSG_SCHEDULE_SATURDAY="토요일"
+MSG_SCHEDULE_SUNDAY="일요일"
+MSG_SCHEDULE_ADD_RULE="일정 규칙 추가"
+MSG_SCHEDULE_REMOVE_RULE="규칙 제거"
+MSG_SCHEDULE_TIME_FORMAT="시간 형식: HH:MM (24시간)"
+
+# TUI/GUI - Settings
+MSG_SETTINGS_TITLE="일반 설정"
+MSG_SETTINGS_BEEP_MODE="비프 모드"
+MSG_SETTINGS_MODE_BINARY="바이너리 (표준)"
+MSG_SETTINGS_MODE_TERNARY="터너리 (부드러움)"
+MSG_SETTINGS_VOLUME="볼륨 레벨"
+MSG_SETTINGS_LANGUAGE="언어"
+MSG_SETTINGS_AUTO_ENABLE="서비스 자동 활성화"
+MSG_SETTINGS_LOG_EVENTS="비프 이벤트 로그"
+MSG_SETTINGS_CONFIG_PATH="설정 파일: %s"
+MSG_SETTINGS_SAVE="설정 저장"
+MSG_SETTINGS_RESTORE_DEFAULTS="기본값 복원"
+
+# TUI/GUI - Test Sounds
+MSG_TEST_TITLE="소리 재생 테스트"
+MSG_TEST_DESC="비프 소리 및 작곡 미리보기"
+MSG_TEST_SERVICE_SELECT="테스트할 서비스 선택"
+MSG_TEST_EVENT_SELECT="이벤트 유형 선택"
+MSG_TEST_PLAY="테스트 소리 재생"
+MSG_TEST_STOP="재생 중지"
+MSG_TEST_PLAYING="재생 중: %s"
+
+# TUI/GUI - Common Actions
+MSG_BUTTON_OK="확인"
+MSG_BUTTON_CANCEL="취소"
+MSG_BUTTON_APPLY="적용"
+MSG_BUTTON_SAVE="저장"
+MSG_BUTTON_BACK="뒤로"
+MSG_BUTTON_NEXT="다음"
+MSG_BUTTON_FINISH="완료"
+MSG_BUTTON_HELP="도움말"
+MSG_BUTTON_CLOSE="닫기"
+MSG_BUTTON_YES="예"
+MSG_BUTTON_NO="아니오"
+
+# TUI/GUI - Messages and Notifications
+MSG_SAVE_SUCCESS="설정이 성공적으로 저장되었습니다"
+MSG_SAVE_ERROR="설정 저장 오류: %s"
+MSG_LOAD_ERROR="설정 로드 오류: %s"
+MSG_APPLY_SUCCESS="변경 사항이 성공적으로 적용되었습니다"
+MSG_APPLY_ERROR="변경 사항 적용 오류: %s"
+MSG_SERVICE_START_SUCCESS="서비스 %s이(가) 성공적으로 시작되었습니다"
+MSG_SERVICE_START_ERROR="서비스 %s 시작 실패"
+MSG_SERVICE_STOP_SUCCESS="서비스 %s이(가) 성공적으로 중지되었습니다"
+MSG_SERVICE_STOP_ERROR="서비스 %s 중지 실패"
+MSG_CONFIRM_EXIT="변경 사항을 저장하지 않고 종료하시겠습니까?"
+MSG_CONFIRM_RESET="모든 설정을 기본값으로 재설정하시겠습니까?"
+MSG_CONFIRM_DELETE="이 일정 규칙을 삭제하시겠습니까?"
+MSG_NO_SERVICES_FOUND="호환 가능한 서비스를 찾을 수 없습니다"
+MSG_ROOT_REQUIRED="이 작업에는 루트 권한이 필요합니다"
+MSG_PACKAGE_NOT_INSTALLED="패키지 %s이(가) 설치되지 않았습니다"
+MSG_BEEP_NOT_AVAILABLE="비프 유틸리티를 사용할 수 없습니다"
+MSG_INVALID_TIME_FORMAT="잘못된 시간 형식입니다. HH:MM을 사용하세요"
+MSG_INVALID_INPUT="잘못된 입력: %s"
+
+# TUI/GUI - Help and Information
+MSG_HELP_TITLE="Sparky Beep 도움말"
+MSG_HELP_SERVICES="시작, 중지 또는 재시작할 때 비프 알림을 트리거할 시스템 서비스를 선택하세요."
+MSG_HELP_TUNES="각 서비스 이벤트(시작/중지/재시작)에 다른 멜로디 또는 비프 패턴을 할당하세요."
+MSG_HELP_SCHEDULE="비프가 비활성화되는 무음 시간을 설정하거나 특정 시간에 대한 사용자 정의 일정을 만드세요."
+MSG_HELP_SETTINGS="비프 모드(바이너리/터너리), 볼륨, 언어 및 기타 전역 설정을 구성하세요."
+MSG_HELP_TEST="변경 사항을 적용하기 전에 다양한 서비스와 이벤트가 어떻게 들리는지 미리 들어보세요."
+
+# CLI Usage Messages
+MSG_CLI_USAGE="사용법: %s [옵션]"
+MSG_CLI_DESCRIPTION="Sparky Beep - 시스템 서비스 소리 알림 관리자"
+MSG_CLI_OPTIONS="옵션:"
+MSG_CLI_OPT_TUI="  -t, --tui           텍스트 사용자 인터페이스 실행"
+MSG_CLI_OPT_GUI="  -g, --gui           그래픽 사용자 인터페이스 실행"
+MSG_CLI_OPT_CONFIG="  -c, --config 파일   지정된 설정 파일 사용"
+MSG_CLI_OPT_LIST="  -l, --list          사용 가능한 서비스 목록"
+MSG_CLI_OPT_ENABLE="  -e, --enable SVC    서비스에 대한 비프 활성화"
+MSG_CLI_OPT_DISABLE="  -d, --disable SVC   서비스에 대한 비프 비활성화"
+MSG_CLI_OPT_TEST="  --test SVC EVENT    서비스 이벤트에 대한 비프 테스트"
+MSG_CLI_OPT_HELP="  -h, --help          이 도움말 메시지 표시"
+MSG_CLI_OPT_VERSION="  -v, --version       버전 정보 표시"
+
+# Configuration Manager Messages
+MSG_CONFIG_CREATED="설정 파일이 생성되었습니다: %s"
+MSG_CONFIG_LOADED="설정이 로드되었습니다: %s"
+MSG_CONFIG_BACKUP="설정 백업이 생성되었습니다: %s"
+MSG_CONFIG_RESTORE="백업에서 설정이 복원되었습니다"
+MSG_CONFIG_VALIDATE="설정 검증 중..."
+MSG_CONFIG_VALID="설정이 유효합니다"
+MSG_CONFIG_INVALID="설정 검증 실패: %s"
+
+# Service Discovery Messages
+MSG_DISCOVERY_SCANNING="사용 가능한 서비스 검색 중..."
+MSG_DISCOVERY_FOUND="%d개의 호환 가능한 서비스를 찾았습니다"
+MSG_DISCOVERY_SERVICE="  - %s (%s)"
+MSG_DISCOVERY_COMPLETE="서비스 검색 완료"
+
+# Schedule Messages
+MSG_SCHEDULE_ACTIVE="일정이 활성화되어 있습니다 - 비프가 억제될 수 있습니다"
+MSG_SCHEDULE_QUIET_ACTIVE="무음 시간 활성화됨 (%s - %s)"
+MSG_SCHEDULE_RUNNING="일정 관리자 실행 중"
+MSG_SCHEDULE_STOPPED="일정 관리자 중지됨"
+
+# Error Messages
+MSG_ERROR_PERMISSION="권한이 거부되었습니다. sudo로 실행해 보세요."
+MSG_ERROR_CONFIG_READ="설정 파일을 읽을 수 없습니다: %s"
+MSG_ERROR_CONFIG_WRITE="설정 파일을 쓸 수 없습니다: %s"
+MSG_ERROR_SERVICE_NOT_FOUND="서비스를 찾을 수 없습니다: %s"
+MSG_ERROR_TUNE_NOT_FOUND="멜로디 파일을 찾을 수 없습니다: %s"
+MSG_ERROR_INVALID_OPTION="잘못된 옵션: %s"
+MSG_ERROR_MISSING_ARG="필수 인수가 누락되었습니다: %s"
+MSG_ERROR_SYSTEMCTL="systemctl 명령 실패: %s"
+MSG_ERROR_DEPENDENCY="필수 종속성이 설치되지 않았습니다: %s"
+
+# Version and About
+MSG_VERSION="Sparky Beep 버전 %s"
+MSG_COPYRIGHT="저작권 (C) 2018-2025 Paweł Pijanowski & 기여자"
+MSG_LICENSE="GNU GPL v3에 따라 라이선스됨"
+MSG_WEBSITE="https://github.com/sparkylinux/sparky-beep"
