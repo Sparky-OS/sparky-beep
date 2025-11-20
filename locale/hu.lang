@@ -1,0 +1,199 @@
+# Hungarian (Magyar) translations for Sparky Beep
+# Author: Sparky Beep Contributors
+# Last updated: 2025-11-20
+
+# Service status messages
+MSG_SERVICE_ACTIVE="%s szolgáltatás aktív..."
+MSG_SERVICE_NOT_ACTIVE="%s szolgáltatás NEM aktív..."
+MSG_SPARKY_STARTED="sparky-beep elindítva"
+
+# Usage messages
+MSG_USAGE_BEEP_SYS="Használat: /etc/init.d/beep_sys {start|stop|restart}"
+MSG_USAGE_BEEP_NETDATA="Használat: /etc/init.d/beep_netdata {start|stop|restart}"
+MSG_USAGE_BEEP_SAMBA="Használat: /etc/init.d/beep_samba {start|stop|restart}"
+MSG_USAGE_BEEP_WEBMIN="Használat: /etc/init.d/beep_webmin {start|stop|restart}"
+
+# TUI/GUI - Main Menu
+MSG_MAIN_TITLE="Sparky Beep Konfiguráció"
+MSG_MAIN_SUBTITLE="Rendszerszolgáltatás hangértesítések beállítása"
+MSG_MENU_SERVICE_SELECTION="Szolgáltatás Kiválasztás"
+MSG_MENU_TUNE_MANAGEMENT="Dallam Kezelés"
+MSG_MENU_SCHEDULE="Ütemezés Beállítása"
+MSG_MENU_SETTINGS="Beállítások"
+MSG_MENU_TEST="Hangok Tesztelése"
+MSG_MENU_EXIT="Kilépés"
+
+# TUI/GUI - Service Selection
+MSG_SERVICE_SELECT_TITLE="Válassza ki a Felügyelendő Szolgáltatásokat"
+MSG_SERVICE_SELECT_DESC="Válassza ki, mely szolgáltatások játsszanak sípolási értesítéseket"
+MSG_SERVICE_AVAILABLE="Elérhető Szolgáltatások"
+MSG_SERVICE_ENABLED="Értesítésekhez Engedélyezve"
+MSG_SERVICE_DISABLED="Letiltva"
+MSG_SERVICE_NOT_INSTALLED="Nincs Telepítve"
+MSG_SERVICE_TOGGLE="Szolgáltatás Váltása"
+MSG_SERVICE_SELECT_ALL="Összes Kiválasztása"
+MSG_SERVICE_DESELECT_ALL="Összes Kijelölés Törlése"
+MSG_SERVICE_REFRESH="Lista Frissítése"
+
+# TUI/GUI - Tune Management
+MSG_TUNE_TITLE="Dallam Kezelés"
+MSG_TUNE_SELECT="Válasszon Dallamot az Eseményhez"
+MSG_TUNE_SERVICE_LABEL="Szolgáltatás: %s"
+MSG_TUNE_EVENT_START="Indítási Esemény"
+MSG_TUNE_EVENT_STOP="Leállítási Esemény"
+MSG_TUNE_EVENT_RESTART="Újraindítási Esemény"
+MSG_TUNE_CURRENT="Jelenlegi: %s"
+MSG_TUNE_PREVIEW="Előnézet"
+MSG_TUNE_APPLY="Alkalmaz"
+MSG_TUNE_RESET="Alapértelmezés Visszaállítása"
+MSG_TUNE_CUSTOM="Egyéni Sípolási Szekvencia"
+MSG_TUNE_LIBRARY="Elérhető Dallamok"
+MSG_TUNE_NONE="[Néma - Nincs Sípolás]"
+
+# TUI/GUI - Available Compositions
+MSG_COMPOSITION_C_SCALE="C-dúr Skála"
+MSG_COMPOSITION_HAPPY_BIRTHDAY="Boldog Születésnapot"
+MSG_COMPOSITION_TWINKLE="Csillagok Csillagok"
+MSG_COMPOSITION_ODE_JOY="Örömóda"
+MSG_COMPOSITION_STAR_WARS="Star Wars Téma"
+MSG_COMPOSITION_MARIO="Super Mario Bros"
+MSG_COMPOSITION_STARTUP="Indítási Fanfár"
+MSG_COMPOSITION_SHUTDOWN="Leállítási Dallam"
+MSG_COMPOSITION_ERROR="Hibaértesítés"
+MSG_COMPOSITION_SUCCESS="Sikeres Értesítés"
+MSG_COMPOSITION_IMPERIAL="Birodalmi Menetelés"
+
+# TUI/GUI - Schedule Configuration
+MSG_SCHEDULE_TITLE="Időalapú Ütemezés Beállítása"
+MSG_SCHEDULE_DESC="Csendes órák és egyéni ütemezések beállítása"
+MSG_SCHEDULE_ENABLE="Ütemezés Engedélyezése"
+MSG_SCHEDULE_DISABLE="Ütemezés Letiltása"
+MSG_SCHEDULE_QUIET_HOURS="Csendes Órák"
+MSG_SCHEDULE_QUIET_START="Csend Kezdési Ideje"
+MSG_SCHEDULE_QUIET_END="Csend Befejezési Ideje"
+MSG_SCHEDULE_WEEKDAYS="Aktív Napok"
+MSG_SCHEDULE_MONDAY="Hétfő"
+MSG_SCHEDULE_TUESDAY="Kedd"
+MSG_SCHEDULE_WEDNESDAY="Szerda"
+MSG_SCHEDULE_THURSDAY="Csütörtök"
+MSG_SCHEDULE_FRIDAY="Péntek"
+MSG_SCHEDULE_SATURDAY="Szombat"
+MSG_SCHEDULE_SUNDAY="Vasárnap"
+MSG_SCHEDULE_ADD_RULE="Ütemezési Szabály Hozzáadása"
+MSG_SCHEDULE_REMOVE_RULE="Szabály Eltávolítása"
+MSG_SCHEDULE_TIME_FORMAT="Időformátum: ÓÓ:PP (24 órás)"
+
+# TUI/GUI - Settings
+MSG_SETTINGS_TITLE="Általános Beállítások"
+MSG_SETTINGS_BEEP_MODE="Sípolási Mód"
+MSG_SETTINGS_MODE_BINARY="Bináris (Szabványos)"
+MSG_SETTINGS_MODE_TERNARY="Ternáris (Lágy)"
+MSG_SETTINGS_VOLUME="Hangerő Szint"
+MSG_SETTINGS_LANGUAGE="Nyelv"
+MSG_SETTINGS_AUTO_ENABLE="Szolgáltatások automatikus engedélyezése"
+MSG_SETTINGS_LOG_EVENTS="Sípolási események naplózása"
+MSG_SETTINGS_CONFIG_PATH="Konfigurációs fájl: %s"
+MSG_SETTINGS_SAVE="Beállítások Mentése"
+MSG_SETTINGS_RESTORE_DEFAULTS="Alapértelmezések Visszaállítása"
+
+# TUI/GUI - Test Sounds
+MSG_TEST_TITLE="Hang Lejátszás Tesztelése"
+MSG_TEST_DESC="Sípolási hangok és kompozíciók előnézete"
+MSG_TEST_SERVICE_SELECT="Válasszon szolgáltatást a teszteléshez"
+MSG_TEST_EVENT_SELECT="Válassza ki az esemény típusát"
+MSG_TEST_PLAY="Teszthang Lejátszása"
+MSG_TEST_STOP="Lejátszás Leállítása"
+MSG_TEST_PLAYING="Lejátszás: %s"
+
+# TUI/GUI - Common Actions
+MSG_BUTTON_OK="OK"
+MSG_BUTTON_CANCEL="Mégse"
+MSG_BUTTON_APPLY="Alkalmaz"
+MSG_BUTTON_SAVE="Mentés"
+MSG_BUTTON_BACK="Vissza"
+MSG_BUTTON_NEXT="Következő"
+MSG_BUTTON_FINISH="Befejezés"
+MSG_BUTTON_HELP="Súgó"
+MSG_BUTTON_CLOSE="Bezárás"
+MSG_BUTTON_YES="Igen"
+MSG_BUTTON_NO="Nem"
+
+# TUI/GUI - Messages and Notifications
+MSG_SAVE_SUCCESS="Konfiguráció sikeresen mentve"
+MSG_SAVE_ERROR="Hiba a konfiguráció mentése során: %s"
+MSG_LOAD_ERROR="Hiba a konfiguráció betöltése során: %s"
+MSG_APPLY_SUCCESS="Változtatások sikeresen alkalmazva"
+MSG_APPLY_ERROR="Hiba a változtatások alkalmazása során: %s"
+MSG_SERVICE_START_SUCCESS="%s szolgáltatás sikeresen elindítva"
+MSG_SERVICE_START_ERROR="Nem sikerült elindítani a %s szolgáltatást"
+MSG_SERVICE_STOP_SUCCESS="%s szolgáltatás sikeresen leállítva"
+MSG_SERVICE_STOP_ERROR="Nem sikerült leállítani a %s szolgáltatást"
+MSG_CONFIRM_EXIT="Kilépés a változtatások mentése nélkül?"
+MSG_CONFIRM_RESET="Minden beállítás visszaállítása az alapértelmezettre?"
+MSG_CONFIRM_DELETE="Törli ezt az ütemezési szabályt?"
+MSG_NO_SERVICES_FOUND="Nem találhatók kompatibilis szolgáltatások"
+MSG_ROOT_REQUIRED="Root jogosultság szükséges ehhez a művelethez"
+MSG_PACKAGE_NOT_INSTALLED="A %s csomag nincs telepítve"
+MSG_BEEP_NOT_AVAILABLE="Sípolási segédprogram nem elérhető"
+MSG_INVALID_TIME_FORMAT="Érvénytelen időformátum. Használja az ÓÓ:PP formátumot"
+MSG_INVALID_INPUT="Érvénytelen bemenet: %s"
+
+# TUI/GUI - Help and Information
+MSG_HELP_TITLE="Sparky Beep Súgó"
+MSG_HELP_SERVICES="Válassza ki, mely rendszerszolgáltatások indítsanak sípolási értesítéseket indításkor, leállításkor vagy újraindításkor."
+MSG_HELP_TUNES="Rendeljen különböző dallamokat vagy sípolási mintákat minden szolgáltatáseseményhez (indítás/leállítás/újraindítás)."
+MSG_HELP_SCHEDULE="Állítson be csendes órákat, amikor a sípolások le vannak tiltva, vagy hozzon létre egyéni ütemezéseket meghatározott időpontokra."
+MSG_HELP_SETTINGS="Konfigurálja a sípolási módot (bináris/ternáris), hangerőt, nyelvet és más globális beállításokat."
+MSG_HELP_TEST="Hallgassa meg előre, hogyan fognak szólni a különböző szolgáltatások és események a változtatások alkalmazása előtt."
+
+# CLI Usage Messages
+MSG_CLI_USAGE="Használat: %s [OPCIÓK]"
+MSG_CLI_DESCRIPTION="Sparky Beep - Rendszerszolgáltatás hangértesítés kezelő"
+MSG_CLI_OPTIONS="Opciók:"
+MSG_CLI_OPT_TUI="  -t, --tui           Szöveges felhasználói felület indítása"
+MSG_CLI_OPT_GUI="  -g, --gui           Grafikus felhasználói felület indítása"
+MSG_CLI_OPT_CONFIG="  -c, --config FÁJL   Megadott konfigurációs fájl használata"
+MSG_CLI_OPT_LIST="  -l, --list          Elérhető szolgáltatások listázása"
+MSG_CLI_OPT_ENABLE="  -e, --enable SVC    Sípolás engedélyezése a szolgáltatáshoz"
+MSG_CLI_OPT_DISABLE="  -d, --disable SVC   Sípolás letiltása a szolgáltatáshoz"
+MSG_CLI_OPT_TEST="  --test SVC EVENT    Sípolás tesztelése szolgáltatáseseményhez"
+MSG_CLI_OPT_HELP="  -h, --help          Súgó üzenet megjelenítése"
+MSG_CLI_OPT_VERSION="  -v, --version       Verziószám megjelenítése"
+
+# Configuration Manager Messages
+MSG_CONFIG_CREATED="Konfigurációs fájl létrehozva: %s"
+MSG_CONFIG_LOADED="Konfiguráció betöltve innen: %s"
+MSG_CONFIG_BACKUP="Konfiguráció biztonsági másolat létrehozva: %s"
+MSG_CONFIG_RESTORE="Konfiguráció visszaállítva a biztonsági másolatból"
+MSG_CONFIG_VALIDATE="Konfiguráció ellenőrzése..."
+MSG_CONFIG_VALID="A konfiguráció érvényes"
+MSG_CONFIG_INVALID="A konfiguráció ellenőrzése sikertelen: %s"
+
+# Service Discovery Messages
+MSG_DISCOVERY_SCANNING="Elérhető szolgáltatások keresése..."
+MSG_DISCOVERY_FOUND="%d kompatibilis szolgáltatás találva"
+MSG_DISCOVERY_SERVICE="  - %s (%s)"
+MSG_DISCOVERY_COMPLETE="Szolgáltatás felderítés befejezve"
+
+# Schedule Messages
+MSG_SCHEDULE_ACTIVE="Ütemezés aktív - a sípolások elnémíthatók"
+MSG_SCHEDULE_QUIET_ACTIVE="Csendes órák aktívak (%s - %s)"
+MSG_SCHEDULE_RUNNING="Ütemezéskezelő fut"
+MSG_SCHEDULE_STOPPED="Ütemezéskezelő leállítva"
+
+# Error Messages
+MSG_ERROR_PERMISSION="Hozzáférés megtagadva. Próbálja sudo-val futtatni."
+MSG_ERROR_CONFIG_READ="Nem olvasható a konfigurációs fájl: %s"
+MSG_ERROR_CONFIG_WRITE="Nem írható a konfigurációs fájl: %s"
+MSG_ERROR_SERVICE_NOT_FOUND="Szolgáltatás nem található: %s"
+MSG_ERROR_TUNE_NOT_FOUND="Dallamfájl nem található: %s"
+MSG_ERROR_INVALID_OPTION="Érvénytelen opció: %s"
+MSG_ERROR_MISSING_ARG="Hiányzó szükséges argumentum: %s"
+MSG_ERROR_SYSTEMCTL="systemctl parancs sikertelen: %s"
+MSG_ERROR_DEPENDENCY="Szükséges függőség nincs telepítve: %s"
+
+# Version and About
+MSG_VERSION="Sparky Beep verzió %s"
+MSG_COPYRIGHT="Szerzői jog (C) 2018-2025 Paweł Pijanowski és Közreműködők"
+MSG_LICENSE="Licensz: GNU GPL v3"
+MSG_WEBSITE="https://github.com/sparkylinux/sparky-beep"

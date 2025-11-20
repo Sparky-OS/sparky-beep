@@ -1,6 +1,6 @@
 # Japanese (日本語) translations for Sparky Beep
 # Author: Sparky Beep Contributors
-# Last updated: 2025-01-20
+# Last updated: 2025-11-20
 
 # Service status messages
 MSG_SERVICE_ACTIVE="%s サービスは稼働中です..."
@@ -12,3 +12,188 @@ MSG_USAGE_BEEP_SYS="使い方: /etc/init.d/beep_sys {start|stop|restart}"
 MSG_USAGE_BEEP_NETDATA="使い方: /etc/init.d/beep_netdata {start|stop|restart}"
 MSG_USAGE_BEEP_SAMBA="使い方: /etc/init.d/beep_samba {start|stop|restart}"
 MSG_USAGE_BEEP_WEBMIN="使い方: /etc/init.d/beep_webmin {start|stop|restart}"
+
+# TUI/GUI - Main Menu
+MSG_MAIN_TITLE="Sparky Beep 設定"
+MSG_MAIN_SUBTITLE="システムサービスのサウンド通知を設定"
+MSG_MENU_SERVICE_SELECTION="サービス選択"
+MSG_MENU_TUNE_MANAGEMENT="メロディ管理"
+MSG_MENU_SCHEDULE="スケジュール設定"
+MSG_MENU_SETTINGS="設定"
+MSG_MENU_TEST="サウンドテスト"
+MSG_MENU_EXIT="終了"
+
+# TUI/GUI - Service Selection
+MSG_SERVICE_SELECT_TITLE="監視するサービスを選択"
+MSG_SERVICE_SELECT_DESC="ビープ通知を再生するサービスを選択してください"
+MSG_SERVICE_AVAILABLE="利用可能なサービス"
+MSG_SERVICE_ENABLED="通知が有効"
+MSG_SERVICE_DISABLED="無効"
+MSG_SERVICE_NOT_INSTALLED="インストールされていません"
+MSG_SERVICE_TOGGLE="サービスを切り替え"
+MSG_SERVICE_SELECT_ALL="すべて選択"
+MSG_SERVICE_DESELECT_ALL="すべて選択解除"
+MSG_SERVICE_REFRESH="リストを更新"
+
+# TUI/GUI - Tune Management
+MSG_TUNE_TITLE="メロディ管理"
+MSG_TUNE_SELECT="イベントのメロディを選択"
+MSG_TUNE_SERVICE_LABEL="サービス: %s"
+MSG_TUNE_EVENT_START="開始イベント"
+MSG_TUNE_EVENT_STOP="停止イベント"
+MSG_TUNE_EVENT_RESTART="再起動イベント"
+MSG_TUNE_CURRENT="現在: %s"
+MSG_TUNE_PREVIEW="プレビュー"
+MSG_TUNE_APPLY="適用"
+MSG_TUNE_RESET="デフォルトにリセット"
+MSG_TUNE_CUSTOM="カスタムビープシーケンス"
+MSG_TUNE_LIBRARY="利用可能なメロディ"
+MSG_TUNE_NONE="[サイレント - ビープなし]"
+
+# TUI/GUI - Available Compositions
+MSG_COMPOSITION_C_SCALE="ハ長調音階"
+MSG_COMPOSITION_HAPPY_BIRTHDAY="ハッピーバースデー"
+MSG_COMPOSITION_TWINKLE="きらきら星"
+MSG_COMPOSITION_ODE_JOY="歓喜の歌"
+MSG_COMPOSITION_STAR_WARS="スターウォーズのテーマ"
+MSG_COMPOSITION_MARIO="スーパーマリオブラザーズ"
+MSG_COMPOSITION_STARTUP="起動ファンファーレ"
+MSG_COMPOSITION_SHUTDOWN="シャットダウンメロディ"
+MSG_COMPOSITION_ERROR="エラー警告"
+MSG_COMPOSITION_SUCCESS="成功通知"
+MSG_COMPOSITION_IMPERIAL="帝国のマーチ"
+
+# TUI/GUI - Schedule Configuration
+MSG_SCHEDULE_TITLE="時間ベースのスケジュール設定"
+MSG_SCHEDULE_DESC="静音時間とカスタムスケジュールを設定"
+MSG_SCHEDULE_ENABLE="スケジューリングを有効化"
+MSG_SCHEDULE_DISABLE="スケジューリングを無効化"
+MSG_SCHEDULE_QUIET_HOURS="静音時間"
+MSG_SCHEDULE_QUIET_START="静音開始時刻"
+MSG_SCHEDULE_QUIET_END="静音終了時刻"
+MSG_SCHEDULE_WEEKDAYS="有効な曜日"
+MSG_SCHEDULE_MONDAY="月曜日"
+MSG_SCHEDULE_TUESDAY="火曜日"
+MSG_SCHEDULE_WEDNESDAY="水曜日"
+MSG_SCHEDULE_THURSDAY="木曜日"
+MSG_SCHEDULE_FRIDAY="金曜日"
+MSG_SCHEDULE_SATURDAY="土曜日"
+MSG_SCHEDULE_SUNDAY="日曜日"
+MSG_SCHEDULE_ADD_RULE="スケジュールルールを追加"
+MSG_SCHEDULE_REMOVE_RULE="ルールを削除"
+MSG_SCHEDULE_TIME_FORMAT="時刻形式: HH:MM (24時間)"
+
+# TUI/GUI - Settings
+MSG_SETTINGS_TITLE="一般設定"
+MSG_SETTINGS_BEEP_MODE="ビープモード"
+MSG_SETTINGS_MODE_BINARY="バイナリ（標準）"
+MSG_SETTINGS_MODE_TERNARY="ターナリー（スムーズ）"
+MSG_SETTINGS_VOLUME="音量レベル"
+MSG_SETTINGS_LANGUAGE="言語"
+MSG_SETTINGS_AUTO_ENABLE="サービスを自動有効化"
+MSG_SETTINGS_LOG_EVENTS="ビープイベントをログ"
+MSG_SETTINGS_CONFIG_PATH="設定ファイル: %s"
+MSG_SETTINGS_SAVE="設定を保存"
+MSG_SETTINGS_RESTORE_DEFAULTS="デフォルトに戻す"
+
+# TUI/GUI - Test Sounds
+MSG_TEST_TITLE="サウンド再生テスト"
+MSG_TEST_DESC="ビープとコンポジションのプレビュー"
+MSG_TEST_SERVICE_SELECT="テストするサービスを選択"
+MSG_TEST_EVENT_SELECT="イベントタイプを選択"
+MSG_TEST_PLAY="テストサウンドを再生"
+MSG_TEST_STOP="再生を停止"
+MSG_TEST_PLAYING="再生中: %s"
+
+# TUI/GUI - Common Actions
+MSG_BUTTON_OK="OK"
+MSG_BUTTON_CANCEL="キャンセル"
+MSG_BUTTON_APPLY="適用"
+MSG_BUTTON_SAVE="保存"
+MSG_BUTTON_BACK="戻る"
+MSG_BUTTON_NEXT="次へ"
+MSG_BUTTON_FINISH="完了"
+MSG_BUTTON_HELP="ヘルプ"
+MSG_BUTTON_CLOSE="閉じる"
+MSG_BUTTON_YES="はい"
+MSG_BUTTON_NO="いいえ"
+
+# TUI/GUI - Messages and Notifications
+MSG_SAVE_SUCCESS="設定が正常に保存されました"
+MSG_SAVE_ERROR="設定の保存エラー: %s"
+MSG_LOAD_ERROR="設定の読み込みエラー: %s"
+MSG_APPLY_SUCCESS="変更が正常に適用されました"
+MSG_APPLY_ERROR="変更の適用エラー: %s"
+MSG_SERVICE_START_SUCCESS="サービス %s が正常に開始されました"
+MSG_SERVICE_START_ERROR="サービス %s の開始に失敗しました"
+MSG_SERVICE_STOP_SUCCESS="サービス %s が正常に停止されました"
+MSG_SERVICE_STOP_ERROR="サービス %s の停止に失敗しました"
+MSG_CONFIRM_EXIT="変更を保存せずに終了しますか？"
+MSG_CONFIRM_RESET="すべての設定をデフォルトにリセットしますか？"
+MSG_CONFIRM_DELETE="このスケジュールルールを削除しますか？"
+MSG_NO_SERVICES_FOUND="互換性のあるサービスが見つかりません"
+MSG_ROOT_REQUIRED="この操作にはrootアクセス権限が必要です"
+MSG_PACKAGE_NOT_INSTALLED="パッケージ %s はインストールされていません"
+MSG_BEEP_NOT_AVAILABLE="ビープユーティリティが利用できません"
+MSG_INVALID_TIME_FORMAT="無効な時刻形式です。HH:MM を使用してください"
+MSG_INVALID_INPUT="無効な入力: %s"
+
+# TUI/GUI - Help and Information
+MSG_HELP_TITLE="Sparky Beep ヘルプ"
+MSG_HELP_SERVICES="開始、停止、または再起動時にビープ通知をトリガーするシステムサービスを選択します。"
+MSG_HELP_TUNES="各サービスイベント（開始/停止/再起動）に異なるメロディやビープパターンを割り当てます。"
+MSG_HELP_SCHEDULE="ビープが無効になる静音時間を設定するか、特定の時間のカスタムスケジュールを作成します。"
+MSG_HELP_SETTINGS="ビープモード（バイナリ/ターナリー）、音量、言語、その他のグローバル設定を構成します。"
+MSG_HELP_TEST="変更を適用する前に、さまざまなサービスやイベントがどのように聞こえるかをプレビューします。"
+
+# CLI Usage Messages
+MSG_CLI_USAGE="使用法: %s [オプション]"
+MSG_CLI_DESCRIPTION="Sparky Beep - システムサービスサウンド通知マネージャー"
+MSG_CLI_OPTIONS="オプション:"
+MSG_CLI_OPT_TUI="  -t, --tui           テキストユーザーインターフェースを起動"
+MSG_CLI_OPT_GUI="  -g, --gui           グラフィカルユーザーインターフェースを起動"
+MSG_CLI_OPT_CONFIG="  -c, --config FILE   指定された設定ファイルを使用"
+MSG_CLI_OPT_LIST="  -l, --list          利用可能なサービスを一覧表示"
+MSG_CLI_OPT_ENABLE="  -e, --enable SVC    サービスのビープを有効化"
+MSG_CLI_OPT_DISABLE="  -d, --disable SVC   サービスのビープを無効化"
+MSG_CLI_OPT_TEST="  --test SVC EVENT    サービスイベントのビープをテスト"
+MSG_CLI_OPT_HELP="  -h, --help          このヘルプメッセージを表示"
+MSG_CLI_OPT_VERSION="  -v, --version       バージョン情報を表示"
+
+# Configuration Manager Messages
+MSG_CONFIG_CREATED="設定ファイルが作成されました: %s"
+MSG_CONFIG_LOADED="設定が読み込まれました: %s"
+MSG_CONFIG_BACKUP="設定バックアップが作成されました: %s"
+MSG_CONFIG_RESTORE="設定がバックアップから復元されました"
+MSG_CONFIG_VALIDATE="設定を検証中..."
+MSG_CONFIG_VALID="設定は有効です"
+MSG_CONFIG_INVALID="設定の検証に失敗しました: %s"
+
+# Service Discovery Messages
+MSG_DISCOVERY_SCANNING="利用可能なサービスをスキャン中..."
+MSG_DISCOVERY_FOUND="%d 個の互換性のあるサービスが見つかりました"
+MSG_DISCOVERY_SERVICE="  - %s (%s)"
+MSG_DISCOVERY_COMPLETE="サービス検出が完了しました"
+
+# Schedule Messages
+MSG_SCHEDULE_ACTIVE="スケジュールがアクティブです - ビープが抑制される場合があります"
+MSG_SCHEDULE_QUIET_ACTIVE="静音時間がアクティブです (%s - %s)"
+MSG_SCHEDULE_RUNNING="スケジュールマネージャーが実行中です"
+MSG_SCHEDULE_STOPPED="スケジュールマネージャーが停止しました"
+
+# Error Messages
+MSG_ERROR_PERMISSION="アクセスが拒否されました。sudo で実行してみてください。"
+MSG_ERROR_CONFIG_READ="設定ファイルを読み取れません: %s"
+MSG_ERROR_CONFIG_WRITE="設定ファイルに書き込めません: %s"
+MSG_ERROR_SERVICE_NOT_FOUND="サービスが見つかりません: %s"
+MSG_ERROR_TUNE_NOT_FOUND="メロディファイルが見つかりません: %s"
+MSG_ERROR_INVALID_OPTION="無効なオプション: %s"
+MSG_ERROR_MISSING_ARG="必要な引数がありません: %s"
+MSG_ERROR_SYSTEMCTL="systemctl コマンドが失敗しました: %s"
+MSG_ERROR_DEPENDENCY="必要な依存関係がインストールされていません: %s"
+
+# Version and About
+MSG_VERSION="Sparky Beep バージョン %s"
+MSG_COPYRIGHT="Copyright (C) 2018-2025 Paweł Pijanowski および貢献者"
+MSG_LICENSE="GNU GPL v3 の下でライセンスされています"
+MSG_WEBSITE="https://github.com/sparkylinux/sparky-beep"

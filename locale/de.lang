@@ -1,6 +1,6 @@
 # German (Deutsch) translations for Sparky Beep
 # Author: Sparky Beep Contributors
-# Last updated: 2025-01-20
+# Last updated: 2025-11-20
 
 # Service status messages
 MSG_SERVICE_ACTIVE="%s-Dienst ist aktiv..."
@@ -12,3 +12,188 @@ MSG_USAGE_BEEP_SYS="Verwendung: /etc/init.d/beep_sys {start|stop|restart}"
 MSG_USAGE_BEEP_NETDATA="Verwendung: /etc/init.d/beep_netdata {start|stop|restart}"
 MSG_USAGE_BEEP_SAMBA="Verwendung: /etc/init.d/beep_samba {start|stop|restart}"
 MSG_USAGE_BEEP_WEBMIN="Verwendung: /etc/init.d/beep_webmin {start|stop|restart}"
+
+# TUI/GUI - Main Menu
+MSG_MAIN_TITLE="Sparky Beep Konfiguration"
+MSG_MAIN_SUBTITLE="Systemdienst-Tonbenachrichtigungen konfigurieren"
+MSG_MENU_SERVICE_SELECTION="Dienstauswahl"
+MSG_MENU_TUNE_MANAGEMENT="Melodieverwaltung"
+MSG_MENU_SCHEDULE="Zeitplanungskonfiguration"
+MSG_MENU_SETTINGS="Einstellungen"
+MSG_MENU_TEST="Töne testen"
+MSG_MENU_EXIT="Beenden"
+
+# TUI/GUI - Service Selection
+MSG_SERVICE_SELECT_TITLE="Zu überwachende Dienste auswählen"
+MSG_SERVICE_SELECT_DESC="Wählen Sie, welche Dienste Signaltonbenachrichtigungen abspielen sollen"
+MSG_SERVICE_AVAILABLE="Verfügbare Dienste"
+MSG_SERVICE_ENABLED="Für Benachrichtigungen aktiviert"
+MSG_SERVICE_DISABLED="Deaktiviert"
+MSG_SERVICE_NOT_INSTALLED="Nicht installiert"
+MSG_SERVICE_TOGGLE="Dienst umschalten"
+MSG_SERVICE_SELECT_ALL="Alle auswählen"
+MSG_SERVICE_DESELECT_ALL="Alle abwählen"
+MSG_SERVICE_REFRESH="Liste aktualisieren"
+
+# TUI/GUI - Tune Management
+MSG_TUNE_TITLE="Melodieverwaltung"
+MSG_TUNE_SELECT="Melodie für Ereignis auswählen"
+MSG_TUNE_SERVICE_LABEL="Dienst: %s"
+MSG_TUNE_EVENT_START="Start-Ereignis"
+MSG_TUNE_EVENT_STOP="Stopp-Ereignis"
+MSG_TUNE_EVENT_RESTART="Neustart-Ereignis"
+MSG_TUNE_CURRENT="Aktuell: %s"
+MSG_TUNE_PREVIEW="Vorschau"
+MSG_TUNE_APPLY="Anwenden"
+MSG_TUNE_RESET="Auf Standard zurücksetzen"
+MSG_TUNE_CUSTOM="Benutzerdefinierte Signaltonsequenz"
+MSG_TUNE_LIBRARY="Verfügbare Melodien"
+MSG_TUNE_NONE="[Stumm - Kein Signalton]"
+
+# TUI/GUI - Available Compositions
+MSG_COMPOSITION_C_SCALE="C-Dur-Tonleiter"
+MSG_COMPOSITION_HAPPY_BIRTHDAY="Happy Birthday"
+MSG_COMPOSITION_TWINKLE="Morgen kommt der Weihnachtsmann"
+MSG_COMPOSITION_ODE_JOY="Ode an die Freude"
+MSG_COMPOSITION_STAR_WARS="Star Wars Thema"
+MSG_COMPOSITION_MARIO="Super Mario Bros"
+MSG_COMPOSITION_STARTUP="Startfanfare"
+MSG_COMPOSITION_SHUTDOWN="Herunterfahren-Melodie"
+MSG_COMPOSITION_ERROR="Fehlerwarnung"
+MSG_COMPOSITION_SUCCESS="Erfolgsbenachrichtigung"
+MSG_COMPOSITION_IMPERIAL="Imperialer Marsch"
+
+# TUI/GUI - Schedule Configuration
+MSG_SCHEDULE_TITLE="Zeitbasierte Zeitplanungskonfiguration"
+MSG_SCHEDULE_DESC="Ruhezeiten und benutzerdefinierte Zeitpläne konfigurieren"
+MSG_SCHEDULE_ENABLE="Zeitplanung aktivieren"
+MSG_SCHEDULE_DISABLE="Zeitplanung deaktivieren"
+MSG_SCHEDULE_QUIET_HOURS="Ruhezeiten"
+MSG_SCHEDULE_QUIET_START="Ruhezeit-Beginn"
+MSG_SCHEDULE_QUIET_END="Ruhezeit-Ende"
+MSG_SCHEDULE_WEEKDAYS="Aktive Tage"
+MSG_SCHEDULE_MONDAY="Montag"
+MSG_SCHEDULE_TUESDAY="Dienstag"
+MSG_SCHEDULE_WEDNESDAY="Mittwoch"
+MSG_SCHEDULE_THURSDAY="Donnerstag"
+MSG_SCHEDULE_FRIDAY="Freitag"
+MSG_SCHEDULE_SATURDAY="Samstag"
+MSG_SCHEDULE_SUNDAY="Sonntag"
+MSG_SCHEDULE_ADD_RULE="Zeitplanungsregel hinzufügen"
+MSG_SCHEDULE_REMOVE_RULE="Regel entfernen"
+MSG_SCHEDULE_TIME_FORMAT="Zeitformat: HH:MM (24-Stunden)"
+
+# TUI/GUI - Settings
+MSG_SETTINGS_TITLE="Allgemeine Einstellungen"
+MSG_SETTINGS_BEEP_MODE="Signalton-Modus"
+MSG_SETTINGS_MODE_BINARY="Binär (Standard)"
+MSG_SETTINGS_MODE_TERNARY="Ternär (Sanft)"
+MSG_SETTINGS_VOLUME="Lautstärkepegel"
+MSG_SETTINGS_LANGUAGE="Sprache"
+MSG_SETTINGS_AUTO_ENABLE="Dienste automatisch aktivieren"
+MSG_SETTINGS_LOG_EVENTS="Signalton-Ereignisse protokollieren"
+MSG_SETTINGS_CONFIG_PATH="Konfigurationsdatei: %s"
+MSG_SETTINGS_SAVE="Einstellungen speichern"
+MSG_SETTINGS_RESTORE_DEFAULTS="Standards wiederherstellen"
+
+# TUI/GUI - Test Sounds
+MSG_TEST_TITLE="Tonwiedergabe testen"
+MSG_TEST_DESC="Signaaltöne und Kompositionen in der Vorschau anzeigen"
+MSG_TEST_SERVICE_SELECT="Zu testenden Dienst auswählen"
+MSG_TEST_EVENT_SELECT="Ereignistyp auswählen"
+MSG_TEST_PLAY="Testton abspielen"
+MSG_TEST_STOP="Wiedergabe stoppen"
+MSG_TEST_PLAYING="Wird abgespielt: %s"
+
+# TUI/GUI - Common Actions
+MSG_BUTTON_OK="OK"
+MSG_BUTTON_CANCEL="Abbrechen"
+MSG_BUTTON_APPLY="Anwenden"
+MSG_BUTTON_SAVE="Speichern"
+MSG_BUTTON_BACK="Zurück"
+MSG_BUTTON_NEXT="Weiter"
+MSG_BUTTON_FINISH="Fertig"
+MSG_BUTTON_HELP="Hilfe"
+MSG_BUTTON_CLOSE="Schließen"
+MSG_BUTTON_YES="Ja"
+MSG_BUTTON_NO="Nein"
+
+# TUI/GUI - Messages and Notifications
+MSG_SAVE_SUCCESS="Konfiguration erfolgreich gespeichert"
+MSG_SAVE_ERROR="Fehler beim Speichern der Konfiguration: %s"
+MSG_LOAD_ERROR="Fehler beim Laden der Konfiguration: %s"
+MSG_APPLY_SUCCESS="Änderungen erfolgreich angewendet"
+MSG_APPLY_ERROR="Fehler beim Anwenden der Änderungen: %s"
+MSG_SERVICE_START_SUCCESS="Dienst %s erfolgreich gestartet"
+MSG_SERVICE_START_ERROR="Dienst %s konnte nicht gestartet werden"
+MSG_SERVICE_STOP_SUCCESS="Dienst %s erfolgreich gestoppt"
+MSG_SERVICE_STOP_ERROR="Dienst %s konnte nicht gestoppt werden"
+MSG_CONFIRM_EXIT="Beenden ohne Änderungen zu speichern?"
+MSG_CONFIRM_RESET="Alle Einstellungen auf Standardwerte zurücksetzen?"
+MSG_CONFIRM_DELETE="Diese Zeitplanungsregel löschen?"
+MSG_NO_SERVICES_FOUND="Keine kompatiblen Dienste gefunden"
+MSG_ROOT_REQUIRED="Root-Rechte für diesen Vorgang erforderlich"
+MSG_PACKAGE_NOT_INSTALLED="Paket %s ist nicht installiert"
+MSG_BEEP_NOT_AVAILABLE="Signalton-Dienstprogramm nicht verfügbar"
+MSG_INVALID_TIME_FORMAT="Ungültiges Zeitformat. Verwenden Sie HH:MM"
+MSG_INVALID_INPUT="Ungültige Eingabe: %s"
+
+# TUI/GUI - Help and Information
+MSG_HELP_TITLE="Sparky Beep Hilfe"
+MSG_HELP_SERVICES="Wählen Sie aus, welche Systemdienste Signaltonbenachrichtigungen auslösen sollen, wenn sie starten, stoppen oder neu starten."
+MSG_HELP_TUNES="Weisen Sie jedem Dienstereignis (Start/Stopp/Neustart) verschiedene Melodien oder Signatonmuster zu."
+MSG_HELP_SCHEDULE="Legen Sie Ruhezeiten fest, in denen Signaaltöne deaktiviert sind, oder erstellen Sie benutzerdefinierte Zeitpläne für bestimmte Zeiten."
+MSG_HELP_SETTINGS="Konfigurieren Sie den Signalton-Modus (binär/ternär), Lautstärke, Sprache und andere globale Einstellungen."
+MSG_HELP_TEST="Zeigen Sie eine Vorschau an, wie verschiedene Dienste und Ereignisse klingen werden, bevor Sie Änderungen anwenden."
+
+# CLI Usage Messages
+MSG_CLI_USAGE="Verwendung: %s [OPTIONEN]"
+MSG_CLI_DESCRIPTION="Sparky Beep - Systemdienst-Tonbenachrichtigungsmanager"
+MSG_CLI_OPTIONS="Optionen:"
+MSG_CLI_OPT_TUI="  -t, --tui           Textbenutzeroberfläche starten"
+MSG_CLI_OPT_GUI="  -g, --gui           Grafische Benutzeroberfläche starten"
+MSG_CLI_OPT_CONFIG="  -c, --config DATEI  Angegebene Konfigurationsdatei verwenden"
+MSG_CLI_OPT_LIST="  -l, --list          Verfügbare Dienste auflisten"
+MSG_CLI_OPT_ENABLE="  -e, --enable SVC    Signalton für Dienst aktivieren"
+MSG_CLI_OPT_DISABLE="  -d, --disable SVC   Signalton für Dienst deaktivieren"
+MSG_CLI_OPT_TEST="  --test SVC EVENT    Signalton für Dienstereignis testen"
+MSG_CLI_OPT_HELP="  -h, --help          Diese Hilfemeldung anzeigen"
+MSG_CLI_OPT_VERSION="  -v, --version       Versionsinformationen anzeigen"
+
+# Configuration Manager Messages
+MSG_CONFIG_CREATED="Konfigurationsdatei erstellt: %s"
+MSG_CONFIG_LOADED="Konfiguration geladen von: %s"
+MSG_CONFIG_BACKUP="Konfigurationssicherung erstellt: %s"
+MSG_CONFIG_RESTORE="Konfiguration aus Sicherung wiederhergestellt"
+MSG_CONFIG_VALIDATE="Konfiguration wird validiert..."
+MSG_CONFIG_VALID="Konfiguration ist gültig"
+MSG_CONFIG_INVALID="Konfigurationsvalidierung fehlgeschlagen: %s"
+
+# Service Discovery Messages
+MSG_DISCOVERY_SCANNING="Nach verfügbaren Diensten wird gesucht..."
+MSG_DISCOVERY_FOUND="%d kompatible Dienste gefunden"
+MSG_DISCOVERY_SERVICE="  - %s (%s)"
+MSG_DISCOVERY_COMPLETE="Dienstsuche abgeschlossen"
+
+# Schedule Messages
+MSG_SCHEDULE_ACTIVE="Zeitplanung ist aktiv - Signaaltöne können unterdrückt werden"
+MSG_SCHEDULE_QUIET_ACTIVE="Ruhezeiten aktiv (%s - %s)"
+MSG_SCHEDULE_RUNNING="Zeitplanungsmanager läuft"
+MSG_SCHEDULE_STOPPED="Zeitplanungsmanager gestoppt"
+
+# Error Messages
+MSG_ERROR_PERMISSION="Zugriff verweigert. Versuchen Sie es mit sudo."
+MSG_ERROR_CONFIG_READ="Konfigurationsdatei kann nicht gelesen werden: %s"
+MSG_ERROR_CONFIG_WRITE="Konfigurationsdatei kann nicht geschrieben werden: %s"
+MSG_ERROR_SERVICE_NOT_FOUND="Dienst nicht gefunden: %s"
+MSG_ERROR_TUNE_NOT_FOUND="Melodiedatei nicht gefunden: %s"
+MSG_ERROR_INVALID_OPTION="Ungültige Option: %s"
+MSG_ERROR_MISSING_ARG="Fehlendes erforderliches Argument für: %s"
+MSG_ERROR_SYSTEMCTL="systemctl-Befehl fehlgeschlagen: %s"
+MSG_ERROR_DEPENDENCY="Erforderliche Abhängigkeit nicht installiert: %s"
+
+# Version and About
+MSG_VERSION="Sparky Beep Version %s"
+MSG_COPYRIGHT="Copyright (C) 2018-2025 Paweł Pijanowski & Mitwirkende"
+MSG_LICENSE="Lizenziert unter GNU GPL v3"
+MSG_WEBSITE="https://github.com/sparkylinux/sparky-beep"

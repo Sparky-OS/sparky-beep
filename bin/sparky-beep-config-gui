@@ -1,0 +1,549 @@
+#!/bin/bash
+#
+# Sparky Beep GUI Configuration Interface
+# Graphical user interface for configuring beep notifications
+# Uses zenity/yad for cross-DE compatibility
+# last update 2025/11/20
+#
+
+# Determine script directory
+SCRIPT_DIR="$(dirname "$(readlink -f "$0")")"
+LIB_DIR="$(dirname "$SCRIPT_DIR")/lib"
+LOCALE_DIR="$(dirname "$SCRIPT_DIR")/locale"
+
+# Source required libraries
+. "${LIB_DIR}/config.sh" || exit 1
+. "${LIB_DIR}/discovery.sh" || exit 1
+. "${LIB_DIR}/tunes.sh" || exit 1
+. "${LIB_DIR}/scheduler.sh" || exit 1
+. "${LOCALE_DIR}/i18n.sh" || exit 1
+
+# Detect GUI utility (prefer yad, fallback to zenity)
+GUI_CMD=""
+if command -v yad >/dev/null 2>&1; then
+    GUI_CMD="yad"
+    GUI_TYPE="yad"
+elif command -v zenity >/dev/null 2>&1; then
+    GUI_CMD="zenity"
+    GUI_TYPE="zenity"
+else
+    echo "ERROR: Neither yad nor zenity is installed." >&2
+    echo "Please install one of: yad, zenity" >&2
+    exit 1
+fi
+
+# Configuration changed flag
+CONFIG_CHANGED=0
+
+#
+# Function: gui_info
+# Description: Show an information dialog
+# Usage: gui_info <title> <message>
+#
+gui_info() {
+    local title="$1"
+    local message="$2"
+
+    if [ "$GUI_TYPE" = "yad" ]; then
+        yad --info --title="$title" --text="$message" --width=400
+    else
+        zenity --info --title="$title" --text="$message" --width=400
+    fi
+}
+
+#
+# Function: gui_error
+# Description: Show an error dialog
+# Usage: gui_error <title> <message>
+#
+gui_error() {
+    local title="$1"
+    local message="$2"
+
+    if [ "$GUI_TYPE" = "yad" ]; then
+        yad --error --title="$title" --text="$message" --width=400
+    else
+        zenity --error --title="$title" --text="$message" --width=400
+    fi
+}
+
+#
+# Function: gui_question
+# Description: Show a yes/no question dialog
+# Usage: gui_question <title> <message>
+#
+gui_question() {
+    local title="$1"
+    local message="$2"
+
+    if [ "$GUI_TYPE" = "yad" ]; then
+        yad --question --title="$title" --text="$message" --width=400
+    else
+        zenity --question --title="$title" --text="$message" --width=400
+    fi
+}
+
+#
+# Function: gui_list
+# Description: Show a list selection dialog
+# Usage: gui_list <title> <columns...> <rows...>
+#
+gui_list() {
+    local title="$1"
+    shift
+
+    if [ "$GUI_TYPE" = "yad" ]; then
+        yad --list --title="$title" --width=600 --height=400 "$@"
+    else
+        zenity --list --title="$title" --width=600 --height=400 "$@"
+    fi
+}
+
+#
+# Function: gui_entry
+# Description: Show an entry dialog
+# Usage: gui_entry <title> <text> [default]
+#
+gui_entry() {
+    local title="$1"
+    local text="$2"
+    local default="$3"
+
+    if [ "$GUI_TYPE" = "yad" ]; then
+        yad --entry --title="$title" --text="$text" --entry-text="$default" --width=400
+    else
+        zenity --entry --title="$title" --text="$text" --entry-text="$default" --width=400
+    fi
+}
+
+#
+# Function: gui_checklist
+# Description: Show a checklist dialog
+# Usage: gui_checklist <title> <text> <columns...> <rows...>
+#
+gui_checklist() {
+    local title="$1"
+    local text="$2"
+    shift 2
+
+    if [ "$GUI_TYPE" = "yad" ]; then
+        yad --list --checklist --title="$title" --text="$text" \
+            --width=600 --height=400 --print-column=2 "$@"
+    else
+        zenity --list --checklist --title="$title" --text="$text" \
+            --width=600 --height=400 --print-column=2 "$@"
+    fi
+}
+
+#
+# Function: show_main_window
+# Description: Show the main configuration window
+#
+show_main_window() {
+    while true; do
+        if [ "$GUI_TYPE" = "yad" ]; then
+            local choice=$(yad --list --title="$(t MAIN_TITLE)" \
+                --text="$(t MAIN_SUBTITLE)" \
+                --column="Option" --column="Description" \
+                --width=600 --height=400 --hide-column=1 \
+                "1" "$(t MENU_SERVICE_SELECTION)" \
+                "2" "$(t MENU_TUNE_MANAGEMENT)" \
+                "3" "$(t MENU_SCHEDULE)" \
+                "4" "$(t MENU_SETTINGS)" \
+                "5" "$(t MENU_TEST)" \
+                "6" "$(t MENU_EXIT)")
+        else
+            local choice=$(zenity --list --title="$(t MAIN_TITLE)" \
+                --text="$(t MAIN_SUBTITLE)" \
+                --column="ID" --column="Option" \
+                --width=600 --height=400 --hide-column=1 \
+                "1" "$(t MENU_SERVICE_SELECTION)" \
+                "2" "$(t MENU_TUNE_MANAGEMENT)" \
+                "3" "$(t MENU_SCHEDULE)" \
+                "4" "$(t MENU_SETTINGS)" \
+                "5" "$(t MENU_TEST)" \
+                "6" "$(t MENU_EXIT)")
+        fi
+
+        # Extract just the number
+        choice=$(echo "$choice" | cut -d'|' -f1)
+
+        case "$choice" in
+            1) show_service_selection ;;
+            2) show_tune_management ;;
+            3) show_schedule_config ;;
+            4) show_settings ;;
+            5) show_test_sounds ;;
+            6)
+                if [ $CONFIG_CHANGED -eq 1 ]; then
+                    if gui_question "$(t BUTTON_SAVE)" "$(t CONFIRM_EXIT)"; then
+                        save_config
+                        break
+                    else
+                        break
+                    fi
+                else
+                    break
+                fi
+                ;;
+            *) break ;;
+        esac
+    done
+}
+
+#
+# Function: show_service_selection
+# Description: Show service selection window
+#
+show_service_selection() {
+    # Discover services
+    discover_services
+
+    local options=()
+    for service in $(get_service_list); do
+        local checked="FALSE"
+        if is_service_enabled "$service"; then
+            checked="TRUE"
+        fi
+
+        local description="${DISCOVERED_SERVICES[$service]}"
+        local status="${SERVICE_STATUS[$service]}"
+        options+=("$checked" "$service" "$description" "$status")
+    done
+
+    if [ ${#options[@]} -eq 0 ]; then
+        gui_info "$(t SERVICE_SELECT_TITLE)" "$(t MSG_NO_SERVICES_FOUND)"
+        return
+    fi
+
+    local selected=$(gui_checklist \
+        "$(t SERVICE_SELECT_TITLE)" \
+        "$(t SERVICE_SELECT_DESC)" \
+        --column="Enable" --column="Service" --column="Package" --column="Status" \
+        "${options[@]}")
+
+    if [ -n "$selected" ]; then
+        # Update service configuration
+        for service in $(get_service_list); do
+            if echo "$selected" | grep -q "$service"; then
+                enable_service "$service"
+            else
+                disable_service "$service"
+            fi
+        done
+        CONFIG_CHANGED=1
+        gui_info "$(t BUTTON_SAVE)" "$(t APPLY_SUCCESS)"
+    fi
+}
+
+#
+# Function: show_tune_management
+# Description: Show tune management window
+#
+show_tune_management() {
+    # First, select service
+    local options=()
+    for service in $(get_service_list); do
+        if is_service_enabled "$service"; then
+            options+=("FALSE" "$service" "${DISCOVERED_SERVICES[$service]}")
+        fi
+    done
+
+    if [ ${#options[@]} -eq 0 ]; then
+        gui_info "$(t TUNE_TITLE)" "$(t MSG_NO_SERVICES_FOUND)"
+        return
+    fi
+
+    local service=$(gui_list \
+        "$(t TUNE_TITLE)" \
+        --radiolist \
+        --column="Select" --column="Service" --column="Package" \
+        "${options[@]}")
+
+    # Extract service name
+    service=$(echo "$service" | cut -d'|' -f2)
+
+    if [ -n "$service" ]; then
+        show_service_tune_config "$service"
+    fi
+}
+
+#
+# Function: show_service_tune_config
+# Description: Configure tunes for a specific service
+#
+show_service_tune_config() {
+    local service="$1"
+
+    # Get current tunes
+    local start_tune=$(get_service_tune "$service" "start")
+    local stop_tune=$(get_service_tune "$service" "stop")
+    local restart_tune=$(get_service_tune "$service" "restart")
+
+    if [ "$GUI_TYPE" = "yad" ]; then
+        local result=$(yad --form --title="$(printf "$(t TUNE_SERVICE_LABEL)" "$service")" \
+            --field="$(t TUNE_EVENT_START):CB" "$start_tune" \
+            --field="$(t TUNE_EVENT_STOP):CB" "$stop_tune" \
+            --field="$(t TUNE_EVENT_RESTART):CB" "$restart_tune" \
+            --width=500 \
+            "$(get_tune_list | tr '\n' '!')")
+
+        if [ -n "$result" ]; then
+            IFS='|' read -r new_start new_stop new_restart <<< "$result"
+            set_service_tune "$service" "start" "$new_start"
+            set_service_tune "$service" "stop" "$new_stop"
+            set_service_tune "$service" "restart" "$new_restart"
+            CONFIG_CHANGED=1
+            gui_info "$(t TUNE_TITLE)" "$(t APPLY_SUCCESS)"
+        fi
+    else
+        # Zenity doesn't support combo boxes in forms, so use sequential entry
+        for event in start stop restart; do
+            local current_tune=$(get_service_tune "$service" "$event")
+            select_tune_for_event "$service" "$event"
+        done
+    fi
+}
+
+#
+# Function: select_tune_for_event
+# Description: Select a tune for a service event (Zenity fallback)
+#
+select_tune_for_event() {
+    local service="$1"
+    local event="$2"
+
+    # Build tune list
+    local options=()
+    local current_tune=$(get_service_tune "$service" "$event")
+
+    for tune in $(get_tune_list); do
+        local checked="FALSE"
+        if [ "$tune" = "$current_tune" ]; then
+            checked="TRUE"
+        fi
+        local description=$(get_tune_description "$tune")
+        options+=("$checked" "$tune" "$description")
+    done
+
+    local selected=$(gui_list \
+        "$(printf "$(t TUNE_EVENT_START)" | sed "s/Start/$event/i")" \
+        --radiolist \
+        --column="Select" --column="Tune" --column="Description" \
+        "${options[@]}")
+
+    # Extract tune name
+    selected=$(echo "$selected" | cut -d'|' -f2)
+
+    if [ -n "$selected" ]; then
+        set_service_tune "$service" "$event" "$selected"
+        CONFIG_CHANGED=1
+
+        # Ask to preview
+        if gui_question "$(t TUNE_PREVIEW)" "$(t TUNE_PREVIEW)?"; then
+            play_tune "$selected" "$BEEP_MODE"
+        fi
+    fi
+}
+
+#
+# Function: show_schedule_config
+# Description: Show schedule configuration window
+#
+show_schedule_config() {
+    local enabled_check="FALSE"
+    if [ "$SCHEDULE_ENABLED" = "true" ]; then
+        enabled_check="TRUE"
+    fi
+
+    if [ "$GUI_TYPE" = "yad" ]; then
+        local result=$(yad --form --title="$(t SCHEDULE_TITLE)" \
+            --text="$(t SCHEDULE_DESC)" \
+            --field="$(t SCHEDULE_ENABLE):CHK" "$enabled_check" \
+            --field="$(t SCHEDULE_QUIET_START):TXT" "$QUIET_HOURS_START" \
+            --field="$(t SCHEDULE_QUIET_END):TXT" "$QUIET_HOURS_END" \
+            --width=500)
+
+        if [ -n "$result" ]; then
+            IFS='|' read -r new_enabled new_start new_end <<< "$result"
+
+            if [ "$new_enabled" = "TRUE" ]; then
+                enable_scheduling
+            else
+                disable_scheduling
+            fi
+
+            if set_quiet_hours "$new_start" "$new_end"; then
+                CONFIG_CHANGED=1
+                gui_info "$(t SCHEDULE_TITLE)" "$(t APPLY_SUCCESS)"
+            else
+                gui_error "$(t SCHEDULE_TITLE)" "$(t MSG_INVALID_TIME_FORMAT)"
+            fi
+        fi
+    else
+        # Zenity implementation
+        configure_quiet_hours_zenity
+    fi
+}
+
+#
+# Function: configure_quiet_hours_zenity
+# Description: Configure quiet hours using Zenity
+#
+configure_quiet_hours_zenity() {
+    # Toggle scheduling
+    if [ "$SCHEDULE_ENABLED" = "true" ]; then
+        if gui_question "$(t SCHEDULE_TITLE)" "$(t SCHEDULE_DISABLE)?"; then
+            disable_scheduling
+            CONFIG_CHANGED=1
+        fi
+    else
+        if gui_question "$(t SCHEDULE_TITLE)" "$(t SCHEDULE_ENABLE)?"; then
+            enable_scheduling
+            CONFIG_CHANGED=1
+        fi
+    fi
+
+    # Set quiet hours
+    local start=$(gui_entry "$(t SCHEDULE_QUIET_HOURS)" \
+        "$(t SCHEDULE_QUIET_START) $(t SCHEDULE_TIME_FORMAT)" \
+        "$QUIET_HOURS_START")
+
+    if [ -n "$start" ]; then
+        local end=$(gui_entry "$(t SCHEDULE_QUIET_HOURS)" \
+            "$(t SCHEDULE_QUIET_END) $(t SCHEDULE_TIME_FORMAT)" \
+            "$QUIET_HOURS_END")
+
+        if [ -n "$end" ]; then
+            if set_quiet_hours "$start" "$end"; then
+                CONFIG_CHANGED=1
+                gui_info "$(t SCHEDULE_TITLE)" "$(t APPLY_SUCCESS)"
+            else
+                gui_error "$(t SCHEDULE_TITLE)" "$(t MSG_INVALID_TIME_FORMAT)"
+            fi
+        fi
+    fi
+}
+
+#
+# Function: show_settings
+# Description: Show general settings window
+#
+show_settings() {
+    local binary_check="FALSE"
+    local ternary_check="FALSE"
+
+    if [ "$BEEP_MODE" = "binary" ]; then
+        binary_check="TRUE"
+    else
+        ternary_check="TRUE"
+    fi
+
+    if [ "$GUI_TYPE" = "yad" ]; then
+        local result=$(yad --form --title="$(t SETTINGS_TITLE)" \
+            --field="$(t SETTINGS_BEEP_MODE):CB" "$BEEP_MODE!binary!ternary" \
+            --field="$(t SETTINGS_LANGUAGE):CB" "$LANGUAGE_CODE!en!de!es!fr!it!pl!ru!ja!zh_CN" \
+            --width=500)
+
+        if [ -n "$result" ]; then
+            IFS='|' read -r new_mode new_lang <<< "$result"
+
+            BEEP_MODE="$new_mode"
+            set_config_value "general" "beep_mode" "$new_mode"
+
+            if [ -n "$new_lang" ] && [ "$new_lang" != "$LANGUAGE_CODE" ]; then
+                LANGUAGE_CODE="$new_lang"
+                set_config_value "general" "language" "$new_lang"
+                export LANG="${new_lang}_XX.UTF-8"
+                . "${LOCALE_DIR}/i18n.sh"
+            fi
+
+            CONFIG_CHANGED=1
+            gui_info "$(t SETTINGS_TITLE)" "$(t APPLY_SUCCESS)"
+        fi
+    else
+        # Zenity settings
+        show_settings_zenity
+    fi
+}
+
+#
+# Function: show_settings_zenity
+# Description: Show settings using Zenity
+#
+show_settings_zenity() {
+    # Select beep mode
+    local new_mode=$(gui_list "$(t SETTINGS_BEEP_MODE)" \
+        --radiolist \
+        --column="Select" --column="Mode" --column="Description" \
+        "$([ "$BEEP_MODE" = "binary" ] && echo TRUE || echo FALSE)" "binary" "$(t SETTINGS_MODE_BINARY)" \
+        "$([ "$BEEP_MODE" = "ternary" ] && echo TRUE || echo FALSE)" "ternary" "$(t SETTINGS_MODE_TERNARY)")
+
+    new_mode=$(echo "$new_mode" | cut -d'|' -f2)
+
+    if [ -n "$new_mode" ]; then
+        BEEP_MODE="$new_mode"
+        set_config_value "general" "beep_mode" "$new_mode"
+        CONFIG_CHANGED=1
+    fi
+
+    # Save config
+    if [ $CONFIG_CHANGED -eq 1 ]; then
+        save_config
+        gui_info "$(t SETTINGS_TITLE)" "$(t MSG_SAVE_SUCCESS)"
+    fi
+}
+
+#
+# Function: show_test_sounds
+# Description: Show test sounds window
+#
+show_test_sounds() {
+    # Build tune list
+    local options=()
+    for tune in $(get_tune_list); do
+        local description=$(get_tune_description "$tune")
+        local category="${TUNE_CATEGORIES[$tune]}"
+        options+=("FALSE" "$tune" "$description" "$category")
+    done
+
+    while true; do
+        local selected=$(gui_list \
+            "$(t MSG_TEST_TITLE)" \
+            --radiolist \
+            --column="Play" --column="Tune" --column="Description" --column="Category" \
+            "${options[@]}")
+
+        # Extract tune name
+        selected=$(echo "$selected" | cut -d'|' -f2)
+
+        if [ -z "$selected" ]; then
+            break
+        fi
+
+        play_tune "$selected" "$BEEP_MODE" || \
+            gui_error "$(t MSG_TEST_TITLE)" "$(printf "$(t MSG_ERROR_TUNE_NOT_FOUND)" "$selected")"
+    done
+}
+
+#
+# Main program
+#
+main() {
+    # Initialize libraries
+    init_config
+    load_config
+    init_tune_library
+    discover_services
+
+    # Show main window
+    show_main_window
+
+    # Save on exit if changed
+    if [ $CONFIG_CHANGED -eq 1 ]; then
+        save_config
+    fi
+}
+
+# Run main program
+main "$@"

@@ -1,0 +1,199 @@
+# Greek (Ελληνικά) translations for Sparky Beep
+# Author: Sparky Beep Contributors
+# Last updated: 2025-11-20
+
+# Service status messages
+MSG_SERVICE_ACTIVE="η υπηρεσία %s είναι ενεργή..."
+MSG_SERVICE_NOT_ACTIVE="η υπηρεσία %s ΔΕΝ είναι ενεργή..."
+MSG_SPARKY_STARTED="το sparky-beep ξεκίνησε"
+
+# Usage messages
+MSG_USAGE_BEEP_SYS="Χρήση: /etc/init.d/beep_sys {start|stop|restart}"
+MSG_USAGE_BEEP_NETDATA="Χρήση: /etc/init.d/beep_netdata {start|stop|restart}"
+MSG_USAGE_BEEP_SAMBA="Χρήση: /etc/init.d/beep_samba {start|stop|restart}"
+MSG_USAGE_BEEP_WEBMIN="Χρήση: /etc/init.d/beep_webmin {start|stop|restart}"
+
+# TUI/GUI - Main Menu
+MSG_MAIN_TITLE="Διαμόρφωση Sparky Beep"
+MSG_MAIN_SUBTITLE="Ρύθμιση ειδοποιήσεων ήχου υπηρεσιών συστήματος"
+MSG_MENU_SERVICE_SELECTION="Επιλογή Υπηρεσιών"
+MSG_MENU_TUNE_MANAGEMENT="Διαχείριση Μελωδιών"
+MSG_MENU_SCHEDULE="Διαμόρφωση Χρονοπρογραμματισμού"
+MSG_MENU_SETTINGS="Ρυθμίσεις"
+MSG_MENU_TEST="Δοκιμή Ήχων"
+MSG_MENU_EXIT="Έξοδος"
+
+# TUI/GUI - Service Selection
+MSG_SERVICE_SELECT_TITLE="Επιλέξτε Υπηρεσίες προς Παρακολούθηση"
+MSG_SERVICE_SELECT_DESC="Επιλέξτε ποιες υπηρεσίες θα αναπαράγουν ειδοποιήσεις beep"
+MSG_SERVICE_AVAILABLE="Διαθέσιμες Υπηρεσίες"
+MSG_SERVICE_ENABLED="Ενεργοποιημένο για Ειδοποιήσεις"
+MSG_SERVICE_DISABLED="Απενεργοποιημένο"
+MSG_SERVICE_NOT_INSTALLED="Δεν είναι Εγκατεστημένο"
+MSG_SERVICE_TOGGLE="Εναλλαγή Υπηρεσίας"
+MSG_SERVICE_SELECT_ALL="Επιλογή Όλων"
+MSG_SERVICE_DESELECT_ALL="Αποεπιλογή Όλων"
+MSG_SERVICE_REFRESH="Ανανέωση Λίστας"
+
+# TUI/GUI - Tune Management
+MSG_TUNE_TITLE="Διαχείριση Μελωδιών"
+MSG_TUNE_SELECT="Επιλέξτε Μελωδία για Συμβάν"
+MSG_TUNE_SERVICE_LABEL="Υπηρεσία: %s"
+MSG_TUNE_EVENT_START="Συμβάν Εκκίνησης"
+MSG_TUNE_EVENT_STOP="Συμβάν Διακοπής"
+MSG_TUNE_EVENT_RESTART="Συμβάν Επανεκκίνησης"
+MSG_TUNE_CURRENT="Τρέχον: %s"
+MSG_TUNE_PREVIEW="Προεπισκόπηση"
+MSG_TUNE_APPLY="Εφαρμογή"
+MSG_TUNE_RESET="Επαναφορά στην Προεπιλογή"
+MSG_TUNE_CUSTOM="Προσαρμοσμένη Ακολουθία Beep"
+MSG_TUNE_LIBRARY="Διαθέσιμες Μελωδίες"
+MSG_TUNE_NONE="[Σιωπηλό - Χωρίς Beep]"
+
+# TUI/GUI - Available Compositions
+MSG_COMPOSITION_C_SCALE="Κλίμακα Ντο Μείζονα"
+MSG_COMPOSITION_HAPPY_BIRTHDAY="Χρόνια Πολλά"
+MSG_COMPOSITION_TWINKLE="Λάμψε Λάμψε Αστεράκι"
+MSG_COMPOSITION_ODE_JOY="Ύμνος στη Χαρά"
+MSG_COMPOSITION_STAR_WARS="Θέμα Star Wars"
+MSG_COMPOSITION_MARIO="Super Mario Bros"
+MSG_COMPOSITION_STARTUP="Φανφάρα Εκκίνησης"
+MSG_COMPOSITION_SHUTDOWN="Μελωδία Τερματισμού"
+MSG_COMPOSITION_ERROR="Ειδοποίηση Σφάλματος"
+MSG_COMPOSITION_SUCCESS="Ειδοποίηση Επιτυχίας"
+MSG_COMPOSITION_IMPERIAL="Αυτοκρατορική Πορεία"
+
+# TUI/GUI - Schedule Configuration
+MSG_SCHEDULE_TITLE="Διαμόρφωση Χρονοπρογραμματισμού με Βάση την Ώρα"
+MSG_SCHEDULE_DESC="Διαμορφώστε ήσυχες ώρες και προσαρμοσμένα χρονοδιαγράμματα"
+MSG_SCHEDULE_ENABLE="Ενεργοποίηση Χρονοπρογραμματισμού"
+MSG_SCHEDULE_DISABLE="Απενεργοποίηση Χρονοπρογραμματισμού"
+MSG_SCHEDULE_QUIET_HOURS="Ήσυχες Ώρες"
+MSG_SCHEDULE_QUIET_START="Ώρα Έναρξης Ησυχίας"
+MSG_SCHEDULE_QUIET_END="Ώρα Λήξης Ησυχίας"
+MSG_SCHEDULE_WEEKDAYS="Ενεργές Ημέρες"
+MSG_SCHEDULE_MONDAY="Δευτέρα"
+MSG_SCHEDULE_TUESDAY="Τρίτη"
+MSG_SCHEDULE_WEDNESDAY="Τετάρτη"
+MSG_SCHEDULE_THURSDAY="Πέμπτη"
+MSG_SCHEDULE_FRIDAY="Παρασκευή"
+MSG_SCHEDULE_SATURDAY="Σάββατο"
+MSG_SCHEDULE_SUNDAY="Κυριακή"
+MSG_SCHEDULE_ADD_RULE="Προσθήκη Κανόνα Χρονοδιαγράμματος"
+MSG_SCHEDULE_REMOVE_RULE="Αφαίρεση Κανόνα"
+MSG_SCHEDULE_TIME_FORMAT="Μορφή ώρας: ΩΩ:ΛΛ (24ωρο)"
+
+# TUI/GUI - Settings
+MSG_SETTINGS_TITLE="Γενικές Ρυθμίσεις"
+MSG_SETTINGS_BEEP_MODE="Λειτουργία Beep"
+MSG_SETTINGS_MODE_BINARY="Δυαδική (Τυπική)"
+MSG_SETTINGS_MODE_TERNARY="Τριαδική (Ομαλή)"
+MSG_SETTINGS_VOLUME="Επίπεδο Έντασης"
+MSG_SETTINGS_LANGUAGE="Γλώσσα"
+MSG_SETTINGS_AUTO_ENABLE="Αυτόματη ενεργοποίηση υπηρεσιών"
+MSG_SETTINGS_LOG_EVENTS="Καταγραφή συμβάντων beep"
+MSG_SETTINGS_CONFIG_PATH="Αρχείο διαμόρφωσης: %s"
+MSG_SETTINGS_SAVE="Αποθήκευση Ρυθμίσεων"
+MSG_SETTINGS_RESTORE_DEFAULTS="Επαναφορά Προεπιλογών"
+
+# TUI/GUI - Test Sounds
+MSG_TEST_TITLE="Δοκιμή Αναπαραγωγής Ήχου"
+MSG_TEST_DESC="Προεπισκόπηση ήχων beep και συνθέσεων"
+MSG_TEST_SERVICE_SELECT="Επιλέξτε υπηρεσία για δοκιμή"
+MSG_TEST_EVENT_SELECT="Επιλέξτε τύπο συμβάντος"
+MSG_TEST_PLAY="Αναπαραγωγή Ήχου Δοκιμής"
+MSG_TEST_STOP="Διακοπή Αναπαραγωγής"
+MSG_TEST_PLAYING="Αναπαραγωγή: %s"
+
+# TUI/GUI - Common Actions
+MSG_BUTTON_OK="Εντάξει"
+MSG_BUTTON_CANCEL="Ακύρωση"
+MSG_BUTTON_APPLY="Εφαρμογή"
+MSG_BUTTON_SAVE="Αποθήκευση"
+MSG_BUTTON_BACK="Πίσω"
+MSG_BUTTON_NEXT="Επόμενο"
+MSG_BUTTON_FINISH="Ολοκλήρωση"
+MSG_BUTTON_HELP="Βοήθεια"
+MSG_BUTTON_CLOSE="Κλείσιμο"
+MSG_BUTTON_YES="Ναι"
+MSG_BUTTON_NO="Όχι"
+
+# TUI/GUI - Messages and Notifications
+MSG_SAVE_SUCCESS="Η διαμόρφωση αποθηκεύτηκε με επιτυχία"
+MSG_SAVE_ERROR="Σφάλμα κατά την αποθήκευση της διαμόρφωσης: %s"
+MSG_LOAD_ERROR="Σφάλμα κατά τη φόρτωση της διαμόρφωσης: %s"
+MSG_APPLY_SUCCESS="Οι αλλαγές εφαρμόστηκαν με επιτυχία"
+MSG_APPLY_ERROR="Σφάλμα κατά την εφαρμογή των αλλαγών: %s"
+MSG_SERVICE_START_SUCCESS="Η υπηρεσία %s ξεκίνησε με επιτυχία"
+MSG_SERVICE_START_ERROR="Αποτυχία εκκίνησης της υπηρεσίας %s"
+MSG_SERVICE_STOP_SUCCESS="Η υπηρεσία %s διακόπηκε με επιτυχία"
+MSG_SERVICE_STOP_ERROR="Αποτυχία διακοπής της υπηρεσίας %s"
+MSG_CONFIRM_EXIT="Έξοδος χωρίς αποθήκευση των αλλαγών;"
+MSG_CONFIRM_RESET="Επαναφορά όλων των ρυθμίσεων στις προεπιλογές;"
+MSG_CONFIRM_DELETE="Διαγραφή αυτού του κανόνα χρονοδιαγράμματος;"
+MSG_NO_SERVICES_FOUND="Δεν βρέθηκαν συμβατές υπηρεσίες"
+MSG_ROOT_REQUIRED="Απαιτούνται δικαιώματα root για αυτή τη λειτουργία"
+MSG_PACKAGE_NOT_INSTALLED="Το πακέτο %s δεν είναι εγκατεστημένο"
+MSG_BEEP_NOT_AVAILABLE="Το εργαλείο beep δεν είναι διαθέσιμο"
+MSG_INVALID_TIME_FORMAT="Μη έγκυρη μορφή ώρας. Χρησιμοποιήστε ΩΩ:ΛΛ"
+MSG_INVALID_INPUT="Μη έγκυρη είσοδος: %s"
+
+# TUI/GUI - Help and Information
+MSG_HELP_TITLE="Βοήθεια Sparky Beep"
+MSG_HELP_SERVICES="Επιλέξτε ποιες υπηρεσίες συστήματος θα ενεργοποιούν ειδοποιήσεις beep όταν εκκινούν, διακόπτονται ή επανεκκινούνται."
+MSG_HELP_TUNES="Αναθέστε διαφορετικές μελωδίες ή μοτίβα beep σε κάθε συμβάν υπηρεσίας (εκκίνηση/διακοπή/επανεκκίνηση)."
+MSG_HELP_SCHEDULE="Ορίστε ήσυχες ώρες όταν τα beep είναι απενεργοποιημένα, ή δημιουργήστε προσαρμοσμένα χρονοδιαγράμματα για συγκεκριμένες ώρες."
+MSG_HELP_SETTINGS="Ρυθμίστε τη λειτουργία beep (δυαδική/τριαδική), την ένταση, τη γλώσσα και άλλες καθολικές ρυθμίσεις."
+MSG_HELP_TEST="Προεπισκοπήστε πώς θα ακούγονται διαφορετικές υπηρεσίες και συμβάντα πριν την εφαρμογή των αλλαγών."
+
+# CLI Usage Messages
+MSG_CLI_USAGE="Χρήση: %s [ΕΠΙΛΟΓΕΣ]"
+MSG_CLI_DESCRIPTION="Sparky Beep - Διαχειριστής ειδοποιήσεων ήχου υπηρεσιών συστήματος"
+MSG_CLI_OPTIONS="Επιλογές:"
+MSG_CLI_OPT_TUI="  -t, --tui           Εκκίνηση διεπαφής χρήστη κειμένου"
+MSG_CLI_OPT_GUI="  -g, --gui           Εκκίνηση γραφικής διεπαφής χρήστη"
+MSG_CLI_OPT_CONFIG="  -c, --config ΑΡΧΕΙΟ Χρήση καθορισμένου αρχείου διαμόρφωσης"
+MSG_CLI_OPT_LIST="  -l, --list          Λίστα διαθέσιμων υπηρεσιών"
+MSG_CLI_OPT_ENABLE="  -e, --enable SVC    Ενεργοποίηση beep για υπηρεσία"
+MSG_CLI_OPT_DISABLE="  -d, --disable SVC   Απενεργοποίηση beep για υπηρεσία"
+MSG_CLI_OPT_TEST="  --test SVC EVENT    Δοκιμή beep για συμβάν υπηρεσίας"
+MSG_CLI_OPT_HELP="  -h, --help          Εμφάνιση αυτού του μηνύματος βοήθειας"
+MSG_CLI_OPT_VERSION="  -v, --version       Εμφάνιση πληροφοριών έκδοσης"
+
+# Configuration Manager Messages
+MSG_CONFIG_CREATED="Δημιουργήθηκε αρχείο διαμόρφωσης: %s"
+MSG_CONFIG_LOADED="Φορτώθηκε διαμόρφωση από: %s"
+MSG_CONFIG_BACKUP="Δημιουργήθηκε αντίγραφο ασφαλείας διαμόρφωσης: %s"
+MSG_CONFIG_RESTORE="Επαναφέρθηκε διαμόρφωση από αντίγραφο ασφαλείας"
+MSG_CONFIG_VALIDATE="Επικύρωση διαμόρφωσης..."
+MSG_CONFIG_VALID="Η διαμόρφωση είναι έγκυρη"
+MSG_CONFIG_INVALID="Η επικύρωση της διαμόρφωσης απέτυχε: %s"
+
+# Service Discovery Messages
+MSG_DISCOVERY_SCANNING="Σάρωση για διαθέσιμες υπηρεσίες..."
+MSG_DISCOVERY_FOUND="Βρέθηκαν %d συμβατές υπηρεσίες"
+MSG_DISCOVERY_SERVICE="  - %s (%s)"
+MSG_DISCOVERY_COMPLETE="Ολοκληρώθηκε η ανακάλυψη υπηρεσιών"
+
+# Schedule Messages
+MSG_SCHEDULE_ACTIVE="Το χρονοδιάγραμμα είναι ενεργό - τα beep μπορεί να καταστέλλονται"
+MSG_SCHEDULE_QUIET_ACTIVE="Ήσυχες ώρες ενεργές (%s - %s)"
+MSG_SCHEDULE_RUNNING="Ο διαχειριστής χρονοδιαγράμματος εκτελείται"
+MSG_SCHEDULE_STOPPED="Ο διαχειριστής χρονοδιαγράμματος σταμάτησε"
+
+# Error Messages
+MSG_ERROR_PERMISSION="Άρνηση δικαιωμάτων. Δοκιμάστε να εκτελέσετε με sudo."
+MSG_ERROR_CONFIG_READ="Δεν είναι δυνατή η ανάγνωση του αρχείου διαμόρφωσης: %s"
+MSG_ERROR_CONFIG_WRITE="Δεν είναι δυνατή η εγγραφή στο αρχείο διαμόρφωσης: %s"
+MSG_ERROR_SERVICE_NOT_FOUND="Η υπηρεσία δεν βρέθηκε: %s"
+MSG_ERROR_TUNE_NOT_FOUND="Το αρχείο μελωδίας δεν βρέθηκε: %s"
+MSG_ERROR_INVALID_OPTION="Μη έγκυρη επιλογή: %s"
+MSG_ERROR_MISSING_ARG="Λείπει απαιτούμενο όρισμα για: %s"
+MSG_ERROR_SYSTEMCTL="Η εντολή systemctl απέτυχε: %s"
+MSG_ERROR_DEPENDENCY="Η απαιτούμενη εξάρτηση δεν είναι εγκατεστημένη: %s"
+
+# Version and About
+MSG_VERSION="Sparky Beep έκδοση %s"
+MSG_COPYRIGHT="Πνευματικά Δικαιώματα (C) 2018-2025 Paweł Pijanowski & Συνεισφέροντες"
+MSG_LICENSE="Αδειοδοτημένο υπό GNU GPL v3"
+MSG_WEBSITE="https://github.com/sparkylinux/sparky-beep"

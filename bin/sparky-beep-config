@@ -1,0 +1,317 @@
+#!/bin/bash
+#
+# Sparky Beep Configuration Interface
+# Unified command-line interface for TUI/GUI and direct configuration
+# last update 2025/11/20
+#
+
+# Determine script directory
+SCRIPT_DIR="$(dirname "$(readlink -f "$0")")"
+LIB_DIR="$(dirname "$SCRIPT_DIR")/lib"
+LOCALE_DIR="$(dirname "$SCRIPT_DIR")/locale"
+
+# Source required libraries
+. "${LIB_DIR}/config.sh" 2>/dev/null || exit 1
+. "${LIB_DIR}/discovery.sh" 2>/dev/null || exit 1
+. "${LIB_DIR}/tunes.sh" 2>/dev/null || exit 1
+. "${LIB_DIR}/scheduler.sh" 2>/dev/null || exit 1
+. "${LOCALE_DIR}/i18n.sh" 2>/dev/null || exit 1
+
+VERSION="0.2.0"
+
+#
+# Function: show_usage
+# Description: Show usage information
+#
+show_usage() {
+    cat << EOF
+$(printf "$(t MSG_CLI_USAGE)" "$0")
+$(t MSG_CLI_DESCRIPTION)
+
+$(t MSG_CLI_OPTIONS)
+$(t MSG_CLI_OPT_TUI)
+$(t MSG_CLI_OPT_GUI)
+$(t MSG_CLI_OPT_CONFIG)
+$(t MSG_CLI_OPT_LIST)
+$(t MSG_CLI_OPT_ENABLE)
+$(t MSG_CLI_OPT_DISABLE)
+$(t MSG_CLI_OPT_TEST)
+$(t MSG_CLI_OPT_HELP)
+$(t MSG_CLI_OPT_VERSION)
+
+Examples:
+  $0 --tui                    # Launch text interface
+  $0 --gui                    # Launch graphical interface
+  $0 --list                   # List available services
+  $0 --enable ssh             # Enable beep for SSH service
+  $0 --disable netdata        # Disable beep for NetData service
+  $0 --test ssh start         # Test SSH start beep
+
+EOF
+}
+
+#
+# Function: show_version
+# Description: Show version information
+#
+show_version() {
+    printf "$(t MSG_VERSION)\n" "$VERSION"
+    echo "$(t MSG_COPYRIGHT)"
+    echo "$(t MSG_LICENSE)"
+    echo "$(t MSG_WEBSITE)"
+}
+
+#
+# Function: launch_tui
+# Description: Launch text user interface
+#
+launch_tui() {
+    local tui_script="${SCRIPT_DIR}/sparky-beep-config-tui"
+
+    if [ -x "$tui_script" ]; then
+        exec "$tui_script" "$@"
+    else
+        echo "ERROR: TUI script not found or not executable: $tui_script" >&2
+        exit 1
+    fi
+}
+
+#
+# Function: launch_gui
+# Description: Launch graphical user interface
+#
+launch_gui() {
+    local gui_script="${SCRIPT_DIR}/sparky-beep-config-gui"
+
+    # Check if running in graphical environment
+    if [ -z "$DISPLAY" ] && [ -z "$WAYLAND_DISPLAY" ]; then
+        echo "ERROR: No graphical display detected. Use --tui for text interface." >&2
+        exit 1
+    fi
+
+    if [ -x "$gui_script" ]; then
+        exec "$gui_script" "$@"
+    else
+        echo "ERROR: GUI script not found or not executable: $gui_script" >&2
+        exit 1
+    fi
+}
+
+#
+# Function: list_services
+# Description: List all available services
+#
+list_services() {
+    echo "$(t MSG_DISCOVERY_SCANNING)"
+    discover_services
+    echo ""
+
+    printf "%-20s %-20s %-10s %-10s %-10s\n" \
+        "Service" "Package" "Status" "Installed" "Beep"
+    printf "%-20s %-20s %-10s %-10s %-10s\n" \
+        "-------" "-------" "------" "---------" "----"
+
+    for service in $(get_service_list); do
+        local package="${DISCOVERED_SERVICES[$service]}"
+        local status="${SERVICE_STATUS[$service]}"
+        local installed="${SERVICE_PACKAGE[$service]}"
+        local has_beep="no"
+
+        if has_beep_service "$service"; then
+            has_beep="yes"
+        fi
+
+        printf "%-20s %-20s %-10s %-10s %-10s\n" \
+            "$service" \
+            "$package" \
+            "$status" \
+            "$installed" \
+            "$has_beep"
+    done
+
+    echo ""
+    printf "$(t MSG_DISCOVERY_FOUND)\n" "$(get_service_list | wc -l)"
+}
+
+#
+# Function: enable_service_cli
+# Description: Enable beep for a service via CLI
+#
+enable_service_cli() {
+    local service="$1"
+
+    init_config
+    load_config
+
+    # Check if service exists
+    discover_services
+    if [ -z "${DISCOVERED_SERVICES[$service]}" ]; then
+        printf "$(t MSG_ERROR_SERVICE_NOT_FOUND)\n" "$service" >&2
+        exit 1
+    fi
+
+    enable_service "$service"
+    save_config
+
+    printf "$(t MSG_SERVICE_START_SUCCESS)\n" "$service"
+}
+
+#
+# Function: disable_service_cli
+# Description: Disable beep for a service via CLI
+#
+disable_service_cli() {
+    local service="$1"
+
+    init_config
+    load_config
+
+    # Check if service exists
+    discover_services
+    if [ -z "${DISCOVERED_SERVICES[$service]}" ]; then
+        printf "$(t MSG_ERROR_SERVICE_NOT_FOUND)\n" "$service" >&2
+        exit 1
+    fi
+
+    disable_service "$service"
+    save_config
+
+    printf "$(t MSG_SERVICE_STOP_SUCCESS)\n" "$service"
+}
+
+#
+# Function: test_beep_cli
+# Description: Test a beep for a service event via CLI
+#
+test_beep_cli() {
+    local service="$1"
+    local event="$2"
+
+    init_config
+    load_config
+    init_tune_library
+
+    # Validate event
+    if [ "$event" != "start" ] && [ "$event" != "stop" ] && [ "$event" != "restart" ]; then
+        echo "ERROR: Invalid event. Must be: start, stop, or restart" >&2
+        exit 1
+    fi
+
+    # Get tune for service/event
+    local tune=$(get_service_tune "$service" "$event")
+
+    if [ -z "$tune" ] || [ "$tune" = "default" ]; then
+        echo "Playing default beep for $service $event event..."
+        tune="default"
+    else
+        echo "Playing tune '$tune' for $service $event event..."
+    fi
+
+    # Play the tune
+    if play_tune "$tune" "$BEEP_MODE"; then
+        echo "Test completed successfully"
+    else
+        echo "ERROR: Failed to play tune" >&2
+        exit 1
+    fi
+}
+
+#
+# Function: auto_detect_interface
+# Description: Automatically detect and launch appropriate interface
+#
+auto_detect_interface() {
+    # If graphical environment detected, use GUI
+    if [ -n "$DISPLAY" ] || [ -n "$WAYLAND_DISPLAY" ]; then
+        # Check if GUI tools are available
+        if command -v yad >/dev/null 2>&1 || command -v zenity >/dev/null 2>&1; then
+            launch_gui "$@"
+            return
+        fi
+    fi
+
+    # Fallback to TUI
+    if command -v whiptail >/dev/null 2>&1 || command -v dialog >/dev/null 2>&1; then
+        launch_tui "$@"
+        return
+    fi
+
+    # No interface available
+    echo "ERROR: No user interface available." >&2
+    echo "Please install one of:" >&2
+    echo "  - whiptail or dialog (for text interface)" >&2
+    echo "  - yad or zenity (for graphical interface)" >&2
+    exit 1
+}
+
+#
+# Main program
+#
+main() {
+    # Parse command line arguments
+    case "${1:-}" in
+        -h|--help)
+            show_usage
+            exit 0
+            ;;
+        -v|--version)
+            show_version
+            exit 0
+            ;;
+        -t|--tui)
+            shift
+            launch_tui "$@"
+            ;;
+        -g|--gui)
+            shift
+            launch_gui "$@"
+            ;;
+        -l|--list)
+            list_services
+            ;;
+        -e|--enable)
+            if [ -z "$2" ]; then
+                printf "$(t MSG_ERROR_MISSING_ARG)\n" "--enable" >&2
+                exit 1
+            fi
+            enable_service_cli "$2"
+            ;;
+        -d|--disable)
+            if [ -z "$2" ]; then
+                printf "$(t MSG_ERROR_MISSING_ARG)\n" "--disable" >&2
+                exit 1
+            fi
+            disable_service_cli "$2"
+            ;;
+        --test)
+            if [ -z "$2" ] || [ -z "$3" ]; then
+                printf "$(t MSG_ERROR_MISSING_ARG)\n" "--test" >&2
+                echo "Usage: $0 --test <service> <event>" >&2
+                exit 1
+            fi
+            test_beep_cli "$2" "$3"
+            ;;
+        -c|--config)
+            if [ -z "$2" ]; then
+                printf "$(t MSG_ERROR_MISSING_ARG)\n" "--config" >&2
+                exit 1
+            fi
+            export CONFIG_PATH="$2"
+            shift 2
+            main "$@"
+            ;;
+        "")
+            # No arguments - auto-detect interface
+            auto_detect_interface
+            ;;
+        *)
+            printf "$(t MSG_ERROR_INVALID_OPTION)\n" "$1" >&2
+            echo ""
+            show_usage
+            exit 1
+            ;;
+    esac
+}
+
+# Run main program
+main "$@"

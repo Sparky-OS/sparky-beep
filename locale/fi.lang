@@ -1,0 +1,199 @@
+# Finnish (Suomi) translations for Sparky Beep
+# Author: Sparky Beep Contributors
+# Last updated: 2025-11-20
+
+# Service status messages
+MSG_SERVICE_ACTIVE="%s palvelu on aktiivinen..."
+MSG_SERVICE_NOT_ACTIVE="%s palvelu EI ole aktiivinen..."
+MSG_SPARKY_STARTED="sparky-beep käynnistetty"
+
+# Usage messages
+MSG_USAGE_BEEP_SYS="Käyttö: /etc/init.d/beep_sys {start|stop|restart}"
+MSG_USAGE_BEEP_NETDATA="Käyttö: /etc/init.d/beep_netdata {start|stop|restart}"
+MSG_USAGE_BEEP_SAMBA="Käyttö: /etc/init.d/beep_samba {start|stop|restart}"
+MSG_USAGE_BEEP_WEBMIN="Käyttö: /etc/init.d/beep_webmin {start|stop|restart}"
+
+# TUI/GUI - Main Menu
+MSG_MAIN_TITLE="Sparky Beep Asetukset"
+MSG_MAIN_SUBTITLE="Määritä järjestelmäpalveluiden äänilmoitukset"
+MSG_MENU_SERVICE_SELECTION="Palveluiden Valinta"
+MSG_MENU_TUNE_MANAGEMENT="Sävelmien Hallinta"
+MSG_MENU_SCHEDULE="Aikataulun Määritys"
+MSG_MENU_SETTINGS="Asetukset"
+MSG_MENU_TEST="Testaa Ääniä"
+MSG_MENU_EXIT="Poistu"
+
+# TUI/GUI - Service Selection
+MSG_SERVICE_SELECT_TITLE="Valitse Valvottavat Palvelut"
+MSG_SERVICE_SELECT_DESC="Valitse mitkä palvelut soittavat piippausilmoituksia"
+MSG_SERVICE_AVAILABLE="Saatavilla Olevat Palvelut"
+MSG_SERVICE_ENABLED="Käytössä Ilmoituksia Varten"
+MSG_SERVICE_DISABLED="Pois Käytöstä"
+MSG_SERVICE_NOT_INSTALLED="Ei Asennettu"
+MSG_SERVICE_TOGGLE="Vaihda Palvelu"
+MSG_SERVICE_SELECT_ALL="Valitse Kaikki"
+MSG_SERVICE_DESELECT_ALL="Poista Kaikki Valinnat"
+MSG_SERVICE_REFRESH="Päivitä Lista"
+
+# TUI/GUI - Tune Management
+MSG_TUNE_TITLE="Sävelmien Hallinta"
+MSG_TUNE_SELECT="Valitse Sävelmä Tapahtumalle"
+MSG_TUNE_SERVICE_LABEL="Palvelu: %s"
+MSG_TUNE_EVENT_START="Käynnistämistapahtuma"
+MSG_TUNE_EVENT_STOP="Pysäytystapahtuma"
+MSG_TUNE_EVENT_RESTART="Uudelleenkäynnistystapahtuma"
+MSG_TUNE_CURRENT="Nykyinen: %s"
+MSG_TUNE_PREVIEW="Esikatselu"
+MSG_TUNE_APPLY="Käytä"
+MSG_TUNE_RESET="Palauta Oletukset"
+MSG_TUNE_CUSTOM="Mukautettu Piippaussekvenssi"
+MSG_TUNE_LIBRARY="Saatavilla Olevat Sävelmät"
+MSG_TUNE_NONE="[Hiljainen - Ei Piippausta]"
+
+# TUI/GUI - Available Compositions
+MSG_COMPOSITION_C_SCALE="C-Duuriasteikko"
+MSG_COMPOSITION_HAPPY_BIRTHDAY="Hyvää Syntymäpäivää"
+MSG_COMPOSITION_TWINKLE="Tuiki Tuiki Tähtönen"
+MSG_COMPOSITION_ODE_JOY="Ilolaulu"
+MSG_COMPOSITION_STAR_WARS="Star Wars -teema"
+MSG_COMPOSITION_MARIO="Super Mario Bros"
+MSG_COMPOSITION_STARTUP="Käynnistysfanfaari"
+MSG_COMPOSITION_SHUTDOWN="Sammutussävelmä"
+MSG_COMPOSITION_ERROR="Virhevaroitus"
+MSG_COMPOSITION_SUCCESS="Onnistumismuistutus"
+MSG_COMPOSITION_IMPERIAL="Keisarillinen Marssi"
+
+# TUI/GUI - Schedule Configuration
+MSG_SCHEDULE_TITLE="Aikapohjainen Aikataulun Määritys"
+MSG_SCHEDULE_DESC="Määritä hiljaiset tunnit ja mukautetut aikataulut"
+MSG_SCHEDULE_ENABLE="Ota Ajastus Käyttöön"
+MSG_SCHEDULE_DISABLE="Poista Ajastus Käytöstä"
+MSG_SCHEDULE_QUIET_HOURS="Hiljaiset Tunnit"
+MSG_SCHEDULE_QUIET_START="Hiljaisuuden Alkamisaika"
+MSG_SCHEDULE_QUIET_END="Hiljaisuuden Päättymisaika"
+MSG_SCHEDULE_WEEKDAYS="Aktiiviset Päivät"
+MSG_SCHEDULE_MONDAY="Maanantai"
+MSG_SCHEDULE_TUESDAY="Tiistai"
+MSG_SCHEDULE_WEDNESDAY="Keskiviikko"
+MSG_SCHEDULE_THURSDAY="Torstai"
+MSG_SCHEDULE_FRIDAY="Perjantai"
+MSG_SCHEDULE_SATURDAY="Lauantai"
+MSG_SCHEDULE_SUNDAY="Sunnuntai"
+MSG_SCHEDULE_ADD_RULE="Lisää Aikataulusääntö"
+MSG_SCHEDULE_REMOVE_RULE="Poista Sääntö"
+MSG_SCHEDULE_TIME_FORMAT="Aikamuoto: TT:MM (24-tuntinen)"
+
+# TUI/GUI - Settings
+MSG_SETTINGS_TITLE="Yleiset Asetukset"
+MSG_SETTINGS_BEEP_MODE="Piippaustila"
+MSG_SETTINGS_MODE_BINARY="Binaarinen (Vakio)"
+MSG_SETTINGS_MODE_TERNARY="Ternäärinen (Pehmeä)"
+MSG_SETTINGS_VOLUME="Äänenvoimakkuus"
+MSG_SETTINGS_LANGUAGE="Kieli"
+MSG_SETTINGS_AUTO_ENABLE="Ota palvelut automaattisesti käyttöön"
+MSG_SETTINGS_LOG_EVENTS="Kirjaa piippaukset"
+MSG_SETTINGS_CONFIG_PATH="Asetustiedosto: %s"
+MSG_SETTINGS_SAVE="Tallenna Asetukset"
+MSG_SETTINGS_RESTORE_DEFAULTS="Palauta Oletukset"
+
+# TUI/GUI - Test Sounds
+MSG_TEST_TITLE="Äänien Testaus"
+MSG_TEST_DESC="Esikuuntele piippaukssia ja sävellyksiä"
+MSG_TEST_SERVICE_SELECT="Valitse palvelu testattavaksi"
+MSG_TEST_EVENT_SELECT="Valitse tapahtuman tyyppi"
+MSG_TEST_PLAY="Soita Testiääni"
+MSG_TEST_STOP="Pysäytä Toisto"
+MSG_TEST_PLAYING="Toistetaan: %s"
+
+# TUI/GUI - Common Actions
+MSG_BUTTON_OK="OK"
+MSG_BUTTON_CANCEL="Peruuta"
+MSG_BUTTON_APPLY="Käytä"
+MSG_BUTTON_SAVE="Tallenna"
+MSG_BUTTON_BACK="Takaisin"
+MSG_BUTTON_NEXT="Seuraava"
+MSG_BUTTON_FINISH="Valmis"
+MSG_BUTTON_HELP="Ohje"
+MSG_BUTTON_CLOSE="Sulje"
+MSG_BUTTON_YES="Kyllä"
+MSG_BUTTON_NO="Ei"
+
+# TUI/GUI - Messages and Notifications
+MSG_SAVE_SUCCESS="Asetukset tallennettu onnistuneesti"
+MSG_SAVE_ERROR="Virhe asetusten tallentamisessa: %s"
+MSG_LOAD_ERROR="Virhe asetusten lataamisessa: %s"
+MSG_APPLY_SUCCESS="Muutokset otettu käyttöön onnistuneesti"
+MSG_APPLY_ERROR="Virhe muutosten käyttöönotossa: %s"
+MSG_SERVICE_START_SUCCESS="Palvelu %s käynnistetty onnistuneesti"
+MSG_SERVICE_START_ERROR="Palvelun %s käynnistys epäonnistui"
+MSG_SERVICE_STOP_SUCCESS="Palvelu %s pysäytetty onnistuneesti"
+MSG_SERVICE_STOP_ERROR="Palvelun %s pysäytys epäonnistui"
+MSG_CONFIRM_EXIT="Poistu tallentamatta muutoksia?"
+MSG_CONFIRM_RESET="Palauta kaikki asetukset oletusarvoihin?"
+MSG_CONFIRM_DELETE="Poista tämä aikataulusääntö?"
+MSG_NO_SERVICES_FOUND="Yhteensopivia palveluita ei löytynyt"
+MSG_ROOT_REQUIRED="Pääkäyttäjäoikeudet vaaditaan tälle toiminnolle"
+MSG_PACKAGE_NOT_INSTALLED="Paketti %s ei ole asennettu"
+MSG_BEEP_NOT_AVAILABLE="Piippaustyökalu ei ole saatavilla"
+MSG_INVALID_TIME_FORMAT="Virheellinen aikamuoto. Käytä TT:MM"
+MSG_INVALID_INPUT="Virheellinen syöte: %s"
+
+# TUI/GUI - Help and Information
+MSG_HELP_TITLE="Sparky Beep Ohje"
+MSG_HELP_SERVICES="Valitse mitkä järjestelmäpalvelut laukaisevat piippausilmoituksia käynnistyessään, pysähtyessään tai uudelleenkäynnistyessään."
+MSG_HELP_TUNES="Määritä eri sävelmät tai piippauskuviot kullekin palvelutapahtumalle (käynnistys/pysäytys/uudelleenkäynnistys)."
+MSG_HELP_SCHEDULE="Aseta hiljaiset tunnit jolloin piippaukset ovat poissa käytöstä, tai luo mukautetut aikataulut tietyille ajoille."
+MSG_HELP_SETTINGS="Määritä piippaustila (binaarinen/ternäärinen), äänenvoimakkuus, kieli ja muut yleiset asetukset."
+MSG_HELP_TEST="Esikuuntele miltä eri palvelut ja tapahtumat kuulostavat ennen muutosten käyttöönottoa."
+
+# CLI Usage Messages
+MSG_CLI_USAGE="Käyttö: %s [VALITSIMET]"
+MSG_CLI_DESCRIPTION="Sparky Beep - Järjestelmäpalveluiden äänilmoitusten hallinta"
+MSG_CLI_OPTIONS="Valitsimet:"
+MSG_CLI_OPT_TUI="  -t, --tui           Käynnistä tekstipohjainen käyttöliittymä"
+MSG_CLI_OPT_GUI="  -g, --gui           Käynnistä graafinen käyttöliittymä"
+MSG_CLI_OPT_CONFIG="  -c, --config TIEDOSTO Käytä määriteltyä asetustiedostoa"
+MSG_CLI_OPT_LIST="  -l, --list          Listaa saatavilla olevat palvelut"
+MSG_CLI_OPT_ENABLE="  -e, --enable SVC    Ota piippaus käyttöön palvelulle"
+MSG_CLI_OPT_DISABLE="  -d, --disable SVC   Poista piippaus käytöstä palvelulta"
+MSG_CLI_OPT_TEST="  --test SVC EVENT    Testaa piippaus palvelutapahtumalle"
+MSG_CLI_OPT_HELP="  -h, --help          Näytä tämä ohjeilmoitus"
+MSG_CLI_OPT_VERSION="  -v, --version       Näytä versiotiedot"
+
+# Configuration Manager Messages
+MSG_CONFIG_CREATED="Asetustiedosto luotu: %s"
+MSG_CONFIG_LOADED="Asetukset ladattu: %s"
+MSG_CONFIG_BACKUP="Asetusten varmuuskopio luotu: %s"
+MSG_CONFIG_RESTORE="Asetukset palautettu varmuuskopiosta"
+MSG_CONFIG_VALIDATE="Vahvistetaan asetuksia..."
+MSG_CONFIG_VALID="Asetukset ovat kelvolliset"
+MSG_CONFIG_INVALID="Asetusten vahvistaminen epäonnistui: %s"
+
+# Service Discovery Messages
+MSG_DISCOVERY_SCANNING="Etsitään saatavilla olevia palveluita..."
+MSG_DISCOVERY_FOUND="Löytyi %d yhteensopivaa palvelua"
+MSG_DISCOVERY_SERVICE="  - %s (%s)"
+MSG_DISCOVERY_COMPLETE="Palveluiden etsintä valmis"
+
+# Schedule Messages
+MSG_SCHEDULE_ACTIVE="Aikataulu on aktiivinen - piippaukset saattavat olla estetty"
+MSG_SCHEDULE_QUIET_ACTIVE="Hiljaiset tunnit aktiivisina (%s - %s)"
+MSG_SCHEDULE_RUNNING="Aikatauluhallinta käynnissä"
+MSG_SCHEDULE_STOPPED="Aikatauluhallinta pysäytetty"
+
+# Error Messages
+MSG_ERROR_PERMISSION="Käyttöoikeus evätty. Yritä ajaa sudo-komennolla."
+MSG_ERROR_CONFIG_READ="Asetustiedostoa ei voi lukea: %s"
+MSG_ERROR_CONFIG_WRITE="Asetustiedostoon ei voi kirjoittaa: %s"
+MSG_ERROR_SERVICE_NOT_FOUND="Palvelua ei löydy: %s"
+MSG_ERROR_TUNE_NOT_FOUND="Sävelmätiedostoa ei löydy: %s"
+MSG_ERROR_INVALID_OPTION="Virheellinen valitsin: %s"
+MSG_ERROR_MISSING_ARG="Puuttuva vaadittu argumentti: %s"
+MSG_ERROR_SYSTEMCTL="systemctl-komento epäonnistui: %s"
+MSG_ERROR_DEPENDENCY="Vaadittu riippuvuus ei ole asennettu: %s"
+
+# Version and About
+MSG_VERSION="Sparky Beep versio %s"
+MSG_COPYRIGHT="Tekijänoikeudet (C) 2018-2025 Paweł Pijanowski & Avustajat"
+MSG_LICENSE="Lisensoitu GNU GPL v3:n alaisena"
+MSG_WEBSITE="https://github.com/sparkylinux/sparky-beep"

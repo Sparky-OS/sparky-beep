@@ -1,6 +1,6 @@
 # Dutch (Nederlands) translations for Sparky Beep
 # Author: Sparky Beep Contributors
-# Last updated: 2025-01-20
+# Last updated: 2025-11-20
 
 # Service status messages
 MSG_SERVICE_ACTIVE="%s service is actief..."
@@ -12,3 +12,188 @@ MSG_USAGE_BEEP_SYS="Gebruik: /etc/init.d/beep_sys {start|stop|restart}"
 MSG_USAGE_BEEP_NETDATA="Gebruik: /etc/init.d/beep_netdata {start|stop|restart}"
 MSG_USAGE_BEEP_SAMBA="Gebruik: /etc/init.d/beep_samba {start|stop|restart}"
 MSG_USAGE_BEEP_WEBMIN="Gebruik: /etc/init.d/beep_webmin {start|stop|restart}"
+
+# TUI/GUI - Main Menu
+MSG_MAIN_TITLE="Sparky Beep Configuratie"
+MSG_MAIN_SUBTITLE="Systeemservice geluidsnotificaties configureren"
+MSG_MENU_SERVICE_SELECTION="Service Selectie"
+MSG_MENU_TUNE_MANAGEMENT="Melodie Beheer"
+MSG_MENU_SCHEDULE="Schema Configuratie"
+MSG_MENU_SETTINGS="Instellingen"
+MSG_MENU_TEST="Geluiden Testen"
+MSG_MENU_EXIT="Afsluiten"
+
+# TUI/GUI - Service Selection
+MSG_SERVICE_SELECT_TITLE="Selecteer Services om te Monitoren"
+MSG_SERVICE_SELECT_DESC="Kies welke services piepnotificaties moeten afspelen"
+MSG_SERVICE_AVAILABLE="Beschikbare Services"
+MSG_SERVICE_ENABLED="Ingeschakeld voor Notificaties"
+MSG_SERVICE_DISABLED="Uitgeschakeld"
+MSG_SERVICE_NOT_INSTALLED="Niet Geïnstalleerd"
+MSG_SERVICE_TOGGLE="Service Wisselen"
+MSG_SERVICE_SELECT_ALL="Alles Selecteren"
+MSG_SERVICE_DESELECT_ALL="Alles Deselecteren"
+MSG_SERVICE_REFRESH="Lijst Verversen"
+
+# TUI/GUI - Tune Management
+MSG_TUNE_TITLE="Melodie Beheer"
+MSG_TUNE_SELECT="Selecteer Melodie voor Gebeurtenis"
+MSG_TUNE_SERVICE_LABEL="Service: %s"
+MSG_TUNE_EVENT_START="Start Gebeurtenis"
+MSG_TUNE_EVENT_STOP="Stop Gebeurtenis"
+MSG_TUNE_EVENT_RESTART="Herstart Gebeurtenis"
+MSG_TUNE_CURRENT="Huidig: %s"
+MSG_TUNE_PREVIEW="Voorbeeld"
+MSG_TUNE_APPLY="Toepassen"
+MSG_TUNE_RESET="Standaard Herstellen"
+MSG_TUNE_CUSTOM="Aangepaste Piep Reeks"
+MSG_TUNE_LIBRARY="Beschikbare Melodieën"
+MSG_TUNE_NONE="[Stil - Geen Piep]"
+
+# TUI/GUI - Available Compositions
+MSG_COMPOSITION_C_SCALE="C Majeur Toonladder"
+MSG_COMPOSITION_HAPPY_BIRTHDAY="Lang Zal Ze Leven"
+MSG_COMPOSITION_TWINKLE="Twinkle Twinkle Little Star"
+MSG_COMPOSITION_ODE_JOY="Ode aan de Vreugde"
+MSG_COMPOSITION_STAR_WARS="Star Wars Thema"
+MSG_COMPOSITION_MARIO="Super Mario Bros"
+MSG_COMPOSITION_STARTUP="Opstart Fanfare"
+MSG_COMPOSITION_SHUTDOWN="Afsluit Melodie"
+MSG_COMPOSITION_ERROR="Fout Waarschuwing"
+MSG_COMPOSITION_SUCCESS="Succes Notificatie"
+MSG_COMPOSITION_IMPERIAL="Keizerlijke Mars"
+
+# TUI/GUI - Schedule Configuration
+MSG_SCHEDULE_TITLE="Tijdgebaseerde Schema Configuratie"
+MSG_SCHEDULE_DESC="Configureer stille uren en aangepaste schema's"
+MSG_SCHEDULE_ENABLE="Planning Inschakelen"
+MSG_SCHEDULE_DISABLE="Planning Uitschakelen"
+MSG_SCHEDULE_QUIET_HOURS="Stille Uren"
+MSG_SCHEDULE_QUIET_START="Stille Start Tijd"
+MSG_SCHEDULE_QUIET_END="Stille Eind Tijd"
+MSG_SCHEDULE_WEEKDAYS="Actieve Dagen"
+MSG_SCHEDULE_MONDAY="Maandag"
+MSG_SCHEDULE_TUESDAY="Dinsdag"
+MSG_SCHEDULE_WEDNESDAY="Woensdag"
+MSG_SCHEDULE_THURSDAY="Donderdag"
+MSG_SCHEDULE_FRIDAY="Vrijdag"
+MSG_SCHEDULE_SATURDAY="Zaterdag"
+MSG_SCHEDULE_SUNDAY="Zondag"
+MSG_SCHEDULE_ADD_RULE="Schema Regel Toevoegen"
+MSG_SCHEDULE_REMOVE_RULE="Regel Verwijderen"
+MSG_SCHEDULE_TIME_FORMAT="Tijdformaat: UU:MM (24-uurs)"
+
+# TUI/GUI - Settings
+MSG_SETTINGS_TITLE="Algemene Instellingen"
+MSG_SETTINGS_BEEP_MODE="Piep Modus"
+MSG_SETTINGS_MODE_BINARY="Binair (Standaard)"
+MSG_SETTINGS_MODE_TERNARY="Ternair (Soepel)"
+MSG_SETTINGS_VOLUME="Volume Niveau"
+MSG_SETTINGS_LANGUAGE="Taal"
+MSG_SETTINGS_AUTO_ENABLE="Services automatisch inschakelen"
+MSG_SETTINGS_LOG_EVENTS="Piep gebeurtenissen loggen"
+MSG_SETTINGS_CONFIG_PATH="Configuratiebestand: %s"
+MSG_SETTINGS_SAVE="Instellingen Opslaan"
+MSG_SETTINGS_RESTORE_DEFAULTS="Standaardwaarden Herstellen"
+
+# TUI/GUI - Test Sounds
+MSG_TEST_TITLE="Geluid Afspelen Testen"
+MSG_TEST_DESC="Voorbeeld van piepen en composities"
+MSG_TEST_SERVICE_SELECT="Selecteer service om te testen"
+MSG_TEST_EVENT_SELECT="Selecteer gebeurtenistype"
+MSG_TEST_PLAY="Test Geluid Afspelen"
+MSG_TEST_STOP="Afspelen Stoppen"
+MSG_TEST_PLAYING="Aan het afspelen: %s"
+
+# TUI/GUI - Common Actions
+MSG_BUTTON_OK="OK"
+MSG_BUTTON_CANCEL="Annuleren"
+MSG_BUTTON_APPLY="Toepassen"
+MSG_BUTTON_SAVE="Opslaan"
+MSG_BUTTON_BACK="Terug"
+MSG_BUTTON_NEXT="Volgende"
+MSG_BUTTON_FINISH="Voltooien"
+MSG_BUTTON_HELP="Help"
+MSG_BUTTON_CLOSE="Sluiten"
+MSG_BUTTON_YES="Ja"
+MSG_BUTTON_NO="Nee"
+
+# TUI/GUI - Messages and Notifications
+MSG_SAVE_SUCCESS="Configuratie succesvol opgeslagen"
+MSG_SAVE_ERROR="Fout bij opslaan configuratie: %s"
+MSG_LOAD_ERROR="Fout bij laden configuratie: %s"
+MSG_APPLY_SUCCESS="Wijzigingen succesvol toegepast"
+MSG_APPLY_ERROR="Fout bij toepassen wijzigingen: %s"
+MSG_SERVICE_START_SUCCESS="Service %s succesvol gestart"
+MSG_SERVICE_START_ERROR="Service %s starten mislukt"
+MSG_SERVICE_STOP_SUCCESS="Service %s succesvol gestopt"
+MSG_SERVICE_STOP_ERROR="Service %s stoppen mislukt"
+MSG_CONFIRM_EXIT="Afsluiten zonder wijzigingen op te slaan?"
+MSG_CONFIRM_RESET="Alle instellingen naar standaardwaarden herstellen?"
+MSG_CONFIRM_DELETE="Deze schema regel verwijderen?"
+MSG_NO_SERVICES_FOUND="Geen compatibele services gevonden"
+MSG_ROOT_REQUIRED="Root privileges vereist voor deze bewerking"
+MSG_PACKAGE_NOT_INSTALLED="Pakket %s is niet geïnstalleerd"
+MSG_BEEP_NOT_AVAILABLE="Piep hulpmiddel niet beschikbaar"
+MSG_INVALID_TIME_FORMAT="Ongeldig tijdformaat. Gebruik UU:MM"
+MSG_INVALID_INPUT="Ongeldige invoer: %s"
+
+# TUI/GUI - Help and Information
+MSG_HELP_TITLE="Sparky Beep Help"
+MSG_HELP_SERVICES="Selecteer welke systeemservices piepnotificaties activeren wanneer ze starten, stoppen of herstarten."
+MSG_HELP_TUNES="Wijs verschillende melodieën of pieppatronen toe aan elke service gebeurtenis (start/stop/herstart)."
+MSG_HELP_SCHEDULE="Stel stille uren in wanneer piepen zijn uitgeschakeld, of maak aangepaste schema's voor specifieke tijden."
+MSG_HELP_SETTINGS="Configureer piep modus (binair/ternair), volume, taal en andere globale instellingen."
+MSG_HELP_TEST="Voorbeeld van hoe verschillende services en gebeurtenissen zullen klinken voordat u wijzigingen toepast."
+
+# CLI Usage Messages
+MSG_CLI_USAGE="Gebruik: %s [OPTIES]"
+MSG_CLI_DESCRIPTION="Sparky Beep - Systeemservice geluidsnotificatie beheerder"
+MSG_CLI_OPTIONS="Opties:"
+MSG_CLI_OPT_TUI="  -t, --tui           Start tekst gebruikersinterface"
+MSG_CLI_OPT_GUI="  -g, --gui           Start grafische gebruikersinterface"
+MSG_CLI_OPT_CONFIG="  -c, --config BESTAND Gebruik opgegeven configuratiebestand"
+MSG_CLI_OPT_LIST="  -l, --list          Lijst beschikbare services"
+MSG_CLI_OPT_ENABLE="  -e, --enable SVC    Schakel piep in voor service"
+MSG_CLI_OPT_DISABLE="  -d, --disable SVC   Schakel piep uit voor service"
+MSG_CLI_OPT_TEST="  --test SVC EVENT    Test piep voor service gebeurtenis"
+MSG_CLI_OPT_HELP="  -h, --help          Toon dit helpbericht"
+MSG_CLI_OPT_VERSION="  -v, --version       Toon versie-informatie"
+
+# Configuration Manager Messages
+MSG_CONFIG_CREATED="Configuratiebestand aangemaakt: %s"
+MSG_CONFIG_LOADED="Configuratie geladen van: %s"
+MSG_CONFIG_BACKUP="Configuratie backup aangemaakt: %s"
+MSG_CONFIG_RESTORE="Configuratie hersteld van backup"
+MSG_CONFIG_VALIDATE="Configuratie valideren..."
+MSG_CONFIG_VALID="Configuratie is geldig"
+MSG_CONFIG_INVALID="Configuratie validatie mislukt: %s"
+
+# Service Discovery Messages
+MSG_DISCOVERY_SCANNING="Scannen naar beschikbare services..."
+MSG_DISCOVERY_FOUND="%d compatibele services gevonden"
+MSG_DISCOVERY_SERVICE="  - %s (%s)"
+MSG_DISCOVERY_COMPLETE="Service ontdekking voltooid"
+
+# Schedule Messages
+MSG_SCHEDULE_ACTIVE="Schema is actief - piepen kunnen worden onderdrukt"
+MSG_SCHEDULE_QUIET_ACTIVE="Stille uren actief (%s - %s)"
+MSG_SCHEDULE_RUNNING="Schema beheerder actief"
+MSG_SCHEDULE_STOPPED="Schema beheerder gestopt"
+
+# Error Messages
+MSG_ERROR_PERMISSION="Toegang geweigerd. Probeer uit te voeren met sudo."
+MSG_ERROR_CONFIG_READ="Kan configuratiebestand niet lezen: %s"
+MSG_ERROR_CONFIG_WRITE="Kan niet schrijven naar configuratiebestand: %s"
+MSG_ERROR_SERVICE_NOT_FOUND="Service niet gevonden: %s"
+MSG_ERROR_TUNE_NOT_FOUND="Melodiebestand niet gevonden: %s"
+MSG_ERROR_INVALID_OPTION="Ongeldige optie: %s"
+MSG_ERROR_MISSING_ARG="Ontbrekend vereist argument voor: %s"
+MSG_ERROR_SYSTEMCTL="systemctl commando mislukt: %s"
+MSG_ERROR_DEPENDENCY="Vereiste afhankelijkheid niet geïnstalleerd: %s"
+
+# Version and About
+MSG_VERSION="Sparky Beep versie %s"
+MSG_COPYRIGHT="Copyright (C) 2018-2025 Paweł Pijanowski & Bijdragers"
+MSG_LICENSE="Gelicenseerd onder GNU GPL v3"
+MSG_WEBSITE="https://github.com/sparkylinux/sparky-beep"

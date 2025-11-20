@@ -1,4 +1,78 @@
 -------------------------------------------------------------------------------
+  Version 0.2.0 (2025-11-20)
+-------------------------------------------------------------------------------
+  MAJOR UPDATE: Configuration Management & Extended Multilingual Support
+
+  NEW FEATURES - Configuration Management:
+  * Added TUI (Text User Interface) for easy configuration via dialog/whiptail
+  * Added GUI (Graphical User Interface) via zenity/yad - works in any DE
+  * Added unified CLI interface (sparky-beep-config) with command-line options
+  * Implemented comprehensive service discovery system
+  * Added tune/melody library management with 10+ built-in melodies
+  * Implemented time-based scheduling with quiet hours support
+  * Configuration file support: /etc/sparky-beep/beep.conf
+  * Automatic configuration backup system for safety
+  * Service enable/disable management via TUI/GUI/CLI
+  * Custom tune assignment for each service event (start/stop/restart)
+  * Schedule rules for time-based beep control
+  * Weekday-specific schedule support
+
+  NEW FEATURES - User Interfaces:
+  * sparky-beep-config - Auto-detects TUI/GUI based on environment
+  * sparky-beep-config --list - List all available services
+  * sparky-beep-config --enable <service> - Enable beep for service
+  * sparky-beep-config --disable <service> - Disable beep for service
+  * sparky-beep-config --test <service> <event> - Test beep sounds
+  * Full keyboard navigation in TUI
+  * Point-and-click configuration in GUI
+  * Preview sounds before applying changes
+  * Real-time service status monitoring
+
+  INTERNATIONALIZATION - Expanded from 15 to 26 languages:
+  * Added 11 new language translations:
+    - Arabic (ar)
+    - Catalan (ca)
+    - Danish (da)
+    - Greek (el)
+    - Finnish (fi)
+    - Hungarian (hu)
+    - Korean (ko)
+    - Portuguese Brazil (pt_BR)
+    - Romanian (ro)
+    - Slovak (sk)
+    - Traditional Chinese (zh_TW)
+  * Updated all 15 existing languages with 160+ new UI strings
+  * Complete Debian i18n language coverage
+  * Professional system administration terminology in all languages
+  * All TUI/GUI/CLI interfaces fully translated
+
+  NEW LIBRARIES:
+  * lib/config.sh - Configuration file management
+  * lib/discovery.sh - System service discovery
+  * lib/tunes.sh - Tune library management
+  * lib/scheduler.sh - Time-based scheduling
+
+  NEW BINARIES:
+  * bin/sparky-beep-config - Unified configuration interface
+  * bin/sparky-beep-config-tui - Text user interface
+  * bin/sparky-beep-config-gui - Graphical user interface
+
+  IMPROVEMENTS:
+  * Enhanced install.sh with new components
+  * Better user feedback and error messages
+  * Cross-desktop environment GUI compatibility
+  * Comprehensive multi-language help system
+  * Professional translations for all 26 languages
+  * Human-readable INI configuration format
+  * Service template generation for new beep services
+
+  DOCUMENTATION:
+  * Updated LANGUAGES.md for 26 language support
+  * Enhanced README.md with configuration management section
+  * Updated installation instructions
+  * Added configuration examples and usage guides
+
+-------------------------------------------------------------------------------
   Version 0.1.11 (2019-02-23)
 -------------------------------------------------------------------------------
   * Moved netdata, samba, webmin from dependency to suggests

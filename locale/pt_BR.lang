@@ -1,0 +1,199 @@
+# Brazilian Portuguese (Português Brasileiro) translations for Sparky Beep
+# Author: Sparky Beep Contributors
+# Last updated: 2025-11-20
+
+# Service status messages
+MSG_SERVICE_ACTIVE="serviço %s está ativo..."
+MSG_SERVICE_NOT_ACTIVE="serviço %s NÃO está ativo..."
+MSG_SPARKY_STARTED="sparky-beep iniciado"
+
+# Usage messages
+MSG_USAGE_BEEP_SYS="Uso: /etc/init.d/beep_sys {start|stop|restart}"
+MSG_USAGE_BEEP_NETDATA="Uso: /etc/init.d/beep_netdata {start|stop|restart}"
+MSG_USAGE_BEEP_SAMBA="Uso: /etc/init.d/beep_samba {start|stop|restart}"
+MSG_USAGE_BEEP_WEBMIN="Uso: /etc/init.d/beep_webmin {start|stop|restart}"
+
+# TUI/GUI - Main Menu
+MSG_MAIN_TITLE="Configuração do Sparky Beep"
+MSG_MAIN_SUBTITLE="Configure notificações sonoras de serviços do sistema"
+MSG_MENU_SERVICE_SELECTION="Seleção de Serviços"
+MSG_MENU_TUNE_MANAGEMENT="Gerenciamento de Melodias"
+MSG_MENU_SCHEDULE="Configuração de Agendamento"
+MSG_MENU_SETTINGS="Configurações"
+MSG_MENU_TEST="Testar Sons"
+MSG_MENU_EXIT="Sair"
+
+# TUI/GUI - Service Selection
+MSG_SERVICE_SELECT_TITLE="Selecionar Serviços para Monitorar"
+MSG_SERVICE_SELECT_DESC="Escolha quais serviços devem reproduzir notificações sonoras"
+MSG_SERVICE_AVAILABLE="Serviços Disponíveis"
+MSG_SERVICE_ENABLED="Habilitado para Notificações"
+MSG_SERVICE_DISABLED="Desabilitado"
+MSG_SERVICE_NOT_INSTALLED="Não Instalado"
+MSG_SERVICE_TOGGLE="Alternar Serviço"
+MSG_SERVICE_SELECT_ALL="Selecionar Todos"
+MSG_SERVICE_DESELECT_ALL="Desmarcar Todos"
+MSG_SERVICE_REFRESH="Atualizar Lista"
+
+# TUI/GUI - Tune Management
+MSG_TUNE_TITLE="Gerenciamento de Melodias"
+MSG_TUNE_SELECT="Selecionar Melodia para Evento"
+MSG_TUNE_SERVICE_LABEL="Serviço: %s"
+MSG_TUNE_EVENT_START="Evento de Início"
+MSG_TUNE_EVENT_STOP="Evento de Parada"
+MSG_TUNE_EVENT_RESTART="Evento de Reinício"
+MSG_TUNE_CURRENT="Atual: %s"
+MSG_TUNE_PREVIEW="Visualizar"
+MSG_TUNE_APPLY="Aplicar"
+MSG_TUNE_RESET="Restaurar Padrão"
+MSG_TUNE_CUSTOM="Sequência de Bipes Personalizada"
+MSG_TUNE_LIBRARY="Melodias Disponíveis"
+MSG_TUNE_NONE="[Silencioso - Sem Bipe]"
+
+# TUI/GUI - Available Compositions
+MSG_COMPOSITION_C_SCALE="Escala de Dó Maior"
+MSG_COMPOSITION_HAPPY_BIRTHDAY="Parabéns a Você"
+MSG_COMPOSITION_TWINKLE="Brilha Brilha Estrelinha"
+MSG_COMPOSITION_ODE_JOY="Ode à Alegria"
+MSG_COMPOSITION_STAR_WARS="Tema de Star Wars"
+MSG_COMPOSITION_MARIO="Super Mario Bros"
+MSG_COMPOSITION_STARTUP="Fanfarra de Inicialização"
+MSG_COMPOSITION_SHUTDOWN="Melodia de Desligamento"
+MSG_COMPOSITION_ERROR="Alerta de Erro"
+MSG_COMPOSITION_SUCCESS="Notificação de Sucesso"
+MSG_COMPOSITION_IMPERIAL="Marcha Imperial"
+
+# TUI/GUI - Schedule Configuration
+MSG_SCHEDULE_TITLE="Configuração de Agendamento Baseado em Horário"
+MSG_SCHEDULE_DESC="Configure horários silenciosos e agendamentos personalizados"
+MSG_SCHEDULE_ENABLE="Habilitar Agendamento"
+MSG_SCHEDULE_DISABLE="Desabilitar Agendamento"
+MSG_SCHEDULE_QUIET_HOURS="Horários Silenciosos"
+MSG_SCHEDULE_QUIET_START="Horário de Início do Silêncio"
+MSG_SCHEDULE_QUIET_END="Horário de Fim do Silêncio"
+MSG_SCHEDULE_WEEKDAYS="Dias Ativos"
+MSG_SCHEDULE_MONDAY="Segunda-feira"
+MSG_SCHEDULE_TUESDAY="Terça-feira"
+MSG_SCHEDULE_WEDNESDAY="Quarta-feira"
+MSG_SCHEDULE_THURSDAY="Quinta-feira"
+MSG_SCHEDULE_FRIDAY="Sexta-feira"
+MSG_SCHEDULE_SATURDAY="Sábado"
+MSG_SCHEDULE_SUNDAY="Domingo"
+MSG_SCHEDULE_ADD_RULE="Adicionar Regra de Agendamento"
+MSG_SCHEDULE_REMOVE_RULE="Remover Regra"
+MSG_SCHEDULE_TIME_FORMAT="Formato de horário: HH:MM (24 horas)"
+
+# TUI/GUI - Settings
+MSG_SETTINGS_TITLE="Configurações Gerais"
+MSG_SETTINGS_BEEP_MODE="Modo de Bipe"
+MSG_SETTINGS_MODE_BINARY="Binário (Padrão)"
+MSG_SETTINGS_MODE_TERNARY="Ternário (Suave)"
+MSG_SETTINGS_VOLUME="Nível de Volume"
+MSG_SETTINGS_LANGUAGE="Idioma"
+MSG_SETTINGS_AUTO_ENABLE="Habilitar serviços automaticamente"
+MSG_SETTINGS_LOG_EVENTS="Registrar eventos de bipe"
+MSG_SETTINGS_CONFIG_PATH="Arquivo de configuração: %s"
+MSG_SETTINGS_SAVE="Salvar Configurações"
+MSG_SETTINGS_RESTORE_DEFAULTS="Restaurar Padrões"
+
+# TUI/GUI - Test Sounds
+MSG_TEST_TITLE="Teste de Reprodução de Som"
+MSG_TEST_DESC="Visualizar sons de bipe e composições"
+MSG_TEST_SERVICE_SELECT="Selecione serviço para testar"
+MSG_TEST_EVENT_SELECT="Selecione tipo de evento"
+MSG_TEST_PLAY="Reproduzir Som de Teste"
+MSG_TEST_STOP="Parar Reprodução"
+MSG_TEST_PLAYING="Reproduzindo: %s"
+
+# TUI/GUI - Common Actions
+MSG_BUTTON_OK="OK"
+MSG_BUTTON_CANCEL="Cancelar"
+MSG_BUTTON_APPLY="Aplicar"
+MSG_BUTTON_SAVE="Salvar"
+MSG_BUTTON_BACK="Voltar"
+MSG_BUTTON_NEXT="Próximo"
+MSG_BUTTON_FINISH="Finalizar"
+MSG_BUTTON_HELP="Ajuda"
+MSG_BUTTON_CLOSE="Fechar"
+MSG_BUTTON_YES="Sim"
+MSG_BUTTON_NO="Não"
+
+# TUI/GUI - Messages and Notifications
+MSG_SAVE_SUCCESS="Configuração salva com sucesso"
+MSG_SAVE_ERROR="Erro ao salvar configuração: %s"
+MSG_LOAD_ERROR="Erro ao carregar configuração: %s"
+MSG_APPLY_SUCCESS="Alterações aplicadas com sucesso"
+MSG_APPLY_ERROR="Erro ao aplicar alterações: %s"
+MSG_SERVICE_START_SUCCESS="Serviço %s iniciado com sucesso"
+MSG_SERVICE_START_ERROR="Falha ao iniciar serviço %s"
+MSG_SERVICE_STOP_SUCCESS="Serviço %s parado com sucesso"
+MSG_SERVICE_STOP_ERROR="Falha ao parar serviço %s"
+MSG_CONFIRM_EXIT="Sair sem salvar alterações?"
+MSG_CONFIRM_RESET="Restaurar todas as configurações para os padrões?"
+MSG_CONFIRM_DELETE="Excluir esta regra de agendamento?"
+MSG_NO_SERVICES_FOUND="Nenhum serviço compatível encontrado"
+MSG_ROOT_REQUIRED="Privilégios de root necessários para esta operação"
+MSG_PACKAGE_NOT_INSTALLED="Pacote %s não está instalado"
+MSG_BEEP_NOT_AVAILABLE="Utilitário de bipe não disponível"
+MSG_INVALID_TIME_FORMAT="Formato de horário inválido. Use HH:MM"
+MSG_INVALID_INPUT="Entrada inválida: %s"
+
+# TUI/GUI - Help and Information
+MSG_HELP_TITLE="Ajuda do Sparky Beep"
+MSG_HELP_SERVICES="Selecione quais serviços do sistema irão acionar notificações sonoras quando iniciarem, pararem ou reiniciarem."
+MSG_HELP_TUNES="Atribua diferentes melodias ou padrões de bipe para cada evento de serviço (início/parada/reinício)."
+MSG_HELP_SCHEDULE="Defina horários silenciosos quando os bipes estão desabilitados, ou crie agendamentos personalizados para horários específicos."
+MSG_HELP_SETTINGS="Configure o modo de bipe (binário/ternário), volume, idioma e outras configurações globais."
+MSG_HELP_TEST="Visualize como diferentes serviços e eventos soarão antes de aplicar as alterações."
+
+# CLI Usage Messages
+MSG_CLI_USAGE="Uso: %s [OPÇÕES]"
+MSG_CLI_DESCRIPTION="Sparky Beep - Gerenciador de notificações sonoras de serviços do sistema"
+MSG_CLI_OPTIONS="Opções:"
+MSG_CLI_OPT_TUI="  -t, --tui           Iniciar interface de usuário de texto"
+MSG_CLI_OPT_GUI="  -g, --gui           Iniciar interface gráfica de usuário"
+MSG_CLI_OPT_CONFIG="  -c, --config ARQUIVO Usar arquivo de configuração especificado"
+MSG_CLI_OPT_LIST="  -l, --list          Listar serviços disponíveis"
+MSG_CLI_OPT_ENABLE="  -e, --enable SVC    Habilitar bipe para serviço"
+MSG_CLI_OPT_DISABLE="  -d, --disable SVC   Desabilitar bipe para serviço"
+MSG_CLI_OPT_TEST="  --test SVC EVENT    Testar bipe para evento de serviço"
+MSG_CLI_OPT_HELP="  -h, --help          Mostrar esta mensagem de ajuda"
+MSG_CLI_OPT_VERSION="  -v, --version       Mostrar informações de versão"
+
+# Configuration Manager Messages
+MSG_CONFIG_CREATED="Arquivo de configuração criado: %s"
+MSG_CONFIG_LOADED="Configuração carregada de: %s"
+MSG_CONFIG_BACKUP="Backup de configuração criado: %s"
+MSG_CONFIG_RESTORE="Configuração restaurada do backup"
+MSG_CONFIG_VALIDATE="Validando configuração..."
+MSG_CONFIG_VALID="Configuração é válida"
+MSG_CONFIG_INVALID="Validação de configuração falhou: %s"
+
+# Service Discovery Messages
+MSG_DISCOVERY_SCANNING="Procurando serviços disponíveis..."
+MSG_DISCOVERY_FOUND="Encontrados %d serviços compatíveis"
+MSG_DISCOVERY_SERVICE="  - %s (%s)"
+MSG_DISCOVERY_COMPLETE="Descoberta de serviços completa"
+
+# Schedule Messages
+MSG_SCHEDULE_ACTIVE="Agendamento está ativo - bipes podem ser suprimidos"
+MSG_SCHEDULE_QUIET_ACTIVE="Horários silenciosos ativos (%s - %s)"
+MSG_SCHEDULE_RUNNING="Gerenciador de agendamento em execução"
+MSG_SCHEDULE_STOPPED="Gerenciador de agendamento parado"
+
+# Error Messages
+MSG_ERROR_PERMISSION="Permissão negada. Tente executar com sudo."
+MSG_ERROR_CONFIG_READ="Não é possível ler arquivo de configuração: %s"
+MSG_ERROR_CONFIG_WRITE="Não é possível escrever arquivo de configuração: %s"
+MSG_ERROR_SERVICE_NOT_FOUND="Serviço não encontrado: %s"
+MSG_ERROR_TUNE_NOT_FOUND="Arquivo de melodia não encontrado: %s"
+MSG_ERROR_INVALID_OPTION="Opção inválida: %s"
+MSG_ERROR_MISSING_ARG="Argumento obrigatório ausente para: %s"
+MSG_ERROR_SYSTEMCTL="Comando systemctl falhou: %s"
+MSG_ERROR_DEPENDENCY="Dependência necessária não instalada: %s"
+
+# Version and About
+MSG_VERSION="Sparky Beep versão %s"
+MSG_COPYRIGHT="Copyright (C) 2018-2025 Paweł Pijanowski e Colaboradores"
+MSG_LICENSE="Licenciado sob GNU GPL v3"
+MSG_WEBSITE="https://github.com/sparkylinux/sparky-beep"

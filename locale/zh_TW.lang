@@ -1,0 +1,199 @@
+# Traditional Chinese (繁體中文) translations for Sparky Beep
+# Author: Sparky Beep Contributors
+# Last updated: 2025-11-20
+
+# Service status messages
+MSG_SERVICE_ACTIVE="%s 服務已啟動..."
+MSG_SERVICE_NOT_ACTIVE="%s 服務未啟動..."
+MSG_SPARKY_STARTED="sparky-beep 已啟動"
+
+# Usage messages
+MSG_USAGE_BEEP_SYS="用法: /etc/init.d/beep_sys {start|stop|restart}"
+MSG_USAGE_BEEP_NETDATA="用法: /etc/init.d/beep_netdata {start|stop|restart}"
+MSG_USAGE_BEEP_SAMBA="用法: /etc/init.d/beep_samba {start|stop|restart}"
+MSG_USAGE_BEEP_WEBMIN="用法: /etc/init.d/beep_webmin {start|stop|restart}"
+
+# TUI/GUI - Main Menu
+MSG_MAIN_TITLE="Sparky Beep 設定"
+MSG_MAIN_SUBTITLE="設定系統服務聲音通知"
+MSG_MENU_SERVICE_SELECTION="服務選擇"
+MSG_MENU_TUNE_MANAGEMENT="旋律管理"
+MSG_MENU_SCHEDULE="排程設定"
+MSG_MENU_SETTINGS="設定"
+MSG_MENU_TEST="測試聲音"
+MSG_MENU_EXIT="離開"
+
+# TUI/GUI - Service Selection
+MSG_SERVICE_SELECT_TITLE="選擇要監控的服務"
+MSG_SERVICE_SELECT_DESC="選擇要播放提示音通知的服務"
+MSG_SERVICE_AVAILABLE="可用服務"
+MSG_SERVICE_ENABLED="已啟用通知"
+MSG_SERVICE_DISABLED="已停用"
+MSG_SERVICE_NOT_INSTALLED="未安裝"
+MSG_SERVICE_TOGGLE="切換服務"
+MSG_SERVICE_SELECT_ALL="全選"
+MSG_SERVICE_DESELECT_ALL="取消全選"
+MSG_SERVICE_REFRESH="重新整理清單"
+
+# TUI/GUI - Tune Management
+MSG_TUNE_TITLE="旋律管理"
+MSG_TUNE_SELECT="為事件選擇旋律"
+MSG_TUNE_SERVICE_LABEL="服務: %s"
+MSG_TUNE_EVENT_START="啟動事件"
+MSG_TUNE_EVENT_STOP="停止事件"
+MSG_TUNE_EVENT_RESTART="重新啟動事件"
+MSG_TUNE_CURRENT="目前: %s"
+MSG_TUNE_PREVIEW="預覽"
+MSG_TUNE_APPLY="套用"
+MSG_TUNE_RESET="重設為預設值"
+MSG_TUNE_CUSTOM="自訂提示音序列"
+MSG_TUNE_LIBRARY="可用旋律"
+MSG_TUNE_NONE="[靜音 - 無提示音]"
+
+# TUI/GUI - Available Compositions
+MSG_COMPOSITION_C_SCALE="C大調音階"
+MSG_COMPOSITION_HAPPY_BIRTHDAY="生日快樂"
+MSG_COMPOSITION_TWINKLE="一閃一閃小星星"
+MSG_COMPOSITION_ODE_JOY="歡樂頌"
+MSG_COMPOSITION_STAR_WARS="星際大戰主題曲"
+MSG_COMPOSITION_MARIO="超級瑪利歐兄弟"
+MSG_COMPOSITION_STARTUP="啟動號角"
+MSG_COMPOSITION_SHUTDOWN="關機旋律"
+MSG_COMPOSITION_ERROR="錯誤警報"
+MSG_COMPOSITION_SUCCESS="成功通知"
+MSG_COMPOSITION_IMPERIAL="帝國進行曲"
+
+# TUI/GUI - Schedule Configuration
+MSG_SCHEDULE_TITLE="基於時間的排程設定"
+MSG_SCHEDULE_DESC="設定靜音時段和自訂排程"
+MSG_SCHEDULE_ENABLE="啟用排程"
+MSG_SCHEDULE_DISABLE="停用排程"
+MSG_SCHEDULE_QUIET_HOURS="靜音時段"
+MSG_SCHEDULE_QUIET_START="靜音開始時間"
+MSG_SCHEDULE_QUIET_END="靜音結束時間"
+MSG_SCHEDULE_WEEKDAYS="啟用日期"
+MSG_SCHEDULE_MONDAY="星期一"
+MSG_SCHEDULE_TUESDAY="星期二"
+MSG_SCHEDULE_WEDNESDAY="星期三"
+MSG_SCHEDULE_THURSDAY="星期四"
+MSG_SCHEDULE_FRIDAY="星期五"
+MSG_SCHEDULE_SATURDAY="星期六"
+MSG_SCHEDULE_SUNDAY="星期日"
+MSG_SCHEDULE_ADD_RULE="新增排程規則"
+MSG_SCHEDULE_REMOVE_RULE="移除規則"
+MSG_SCHEDULE_TIME_FORMAT="時間格式: HH:MM (24小時制)"
+
+# TUI/GUI - Settings
+MSG_SETTINGS_TITLE="一般設定"
+MSG_SETTINGS_BEEP_MODE="提示音模式"
+MSG_SETTINGS_MODE_BINARY="二進位 (標準)"
+MSG_SETTINGS_MODE_TERNARY="三進位 (柔和)"
+MSG_SETTINGS_VOLUME="音量等級"
+MSG_SETTINGS_LANGUAGE="語言"
+MSG_SETTINGS_AUTO_ENABLE="自動啟用服務"
+MSG_SETTINGS_LOG_EVENTS="記錄提示音事件"
+MSG_SETTINGS_CONFIG_PATH="設定檔: %s"
+MSG_SETTINGS_SAVE="儲存設定"
+MSG_SETTINGS_RESTORE_DEFAULTS="還原預設值"
+
+# TUI/GUI - Test Sounds
+MSG_TEST_TITLE="測試聲音播放"
+MSG_TEST_DESC="預覽提示音和作曲"
+MSG_TEST_SERVICE_SELECT="選擇要測試的服務"
+MSG_TEST_EVENT_SELECT="選擇事件類型"
+MSG_TEST_PLAY="播放測試聲音"
+MSG_TEST_STOP="停止播放"
+MSG_TEST_PLAYING="正在播放: %s"
+
+# TUI/GUI - Common Actions
+MSG_BUTTON_OK="確定"
+MSG_BUTTON_CANCEL="取消"
+MSG_BUTTON_APPLY="套用"
+MSG_BUTTON_SAVE="儲存"
+MSG_BUTTON_BACK="返回"
+MSG_BUTTON_NEXT="下一步"
+MSG_BUTTON_FINISH="完成"
+MSG_BUTTON_HELP="說明"
+MSG_BUTTON_CLOSE="關閉"
+MSG_BUTTON_YES="是"
+MSG_BUTTON_NO="否"
+
+# TUI/GUI - Messages and Notifications
+MSG_SAVE_SUCCESS="設定已成功儲存"
+MSG_SAVE_ERROR="儲存設定時發生錯誤: %s"
+MSG_LOAD_ERROR="載入設定時發生錯誤: %s"
+MSG_APPLY_SUCCESS="變更已成功套用"
+MSG_APPLY_ERROR="套用變更時發生錯誤: %s"
+MSG_SERVICE_START_SUCCESS="服務 %s 已成功啟動"
+MSG_SERVICE_START_ERROR="啟動服務 %s 失敗"
+MSG_SERVICE_STOP_SUCCESS="服務 %s 已成功停止"
+MSG_SERVICE_STOP_ERROR="停止服務 %s 失敗"
+MSG_CONFIRM_EXIT="不儲存變更即離開?"
+MSG_CONFIRM_RESET="將所有設定重設為預設值?"
+MSG_CONFIRM_DELETE="刪除這個排程規則?"
+MSG_NO_SERVICES_FOUND="找不到相容的服務"
+MSG_ROOT_REQUIRED="此操作需要 root 權限"
+MSG_PACKAGE_NOT_INSTALLED="套件 %s 未安裝"
+MSG_BEEP_NOT_AVAILABLE="提示音工具無法使用"
+MSG_INVALID_TIME_FORMAT="時間格式無效。請使用 HH:MM"
+MSG_INVALID_INPUT="無效的輸入: %s"
+
+# TUI/GUI - Help and Information
+MSG_HELP_TITLE="Sparky Beep 說明"
+MSG_HELP_SERVICES="選擇當系統服務啟動、停止或重新啟動時觸發提示音通知的服務。"
+MSG_HELP_TUNES="為每個服務事件(啟動/停止/重新啟動)指定不同的旋律或提示音模式。"
+MSG_HELP_SCHEDULE="設定提示音停用的靜音時段，或為特定時間建立自訂排程。"
+MSG_HELP_SETTINGS="設定提示音模式(二進位/三進位)、音量、語言和其他全域設定。"
+MSG_HELP_TEST="在套用變更之前預覽不同服務和事件的聲音效果。"
+
+# CLI Usage Messages
+MSG_CLI_USAGE="用法: %s [選項]"
+MSG_CLI_DESCRIPTION="Sparky Beep - 系統服務聲音通知管理器"
+MSG_CLI_OPTIONS="選項:"
+MSG_CLI_OPT_TUI="  -t, --tui           啟動文字使用者介面"
+MSG_CLI_OPT_GUI="  -g, --gui           啟動圖形使用者介面"
+MSG_CLI_OPT_CONFIG="  -c, --config 檔案   使用指定的設定檔"
+MSG_CLI_OPT_LIST="  -l, --list          列出可用服務"
+MSG_CLI_OPT_ENABLE="  -e, --enable SVC    為服務啟用提示音"
+MSG_CLI_OPT_DISABLE="  -d, --disable SVC   為服務停用提示音"
+MSG_CLI_OPT_TEST="  --test SVC EVENT    測試服務事件的提示音"
+MSG_CLI_OPT_HELP="  -h, --help          顯示此說明訊息"
+MSG_CLI_OPT_VERSION="  -v, --version       顯示版本資訊"
+
+# Configuration Manager Messages
+MSG_CONFIG_CREATED="已建立設定檔: %s"
+MSG_CONFIG_LOADED="已載入設定: %s"
+MSG_CONFIG_BACKUP="已建立設定備份: %s"
+MSG_CONFIG_RESTORE="已從備份還原設定"
+MSG_CONFIG_VALIDATE="正在驗證設定..."
+MSG_CONFIG_VALID="設定有效"
+MSG_CONFIG_INVALID="設定驗證失敗: %s"
+
+# Service Discovery Messages
+MSG_DISCOVERY_SCANNING="正在掃描可用服務..."
+MSG_DISCOVERY_FOUND="找到 %d 個相容服務"
+MSG_DISCOVERY_SERVICE="  - %s (%s)"
+MSG_DISCOVERY_COMPLETE="服務掃描完成"
+
+# Schedule Messages
+MSG_SCHEDULE_ACTIVE="排程已啟用 - 提示音可能會被禁止"
+MSG_SCHEDULE_QUIET_ACTIVE="靜音時段啟用中 (%s - %s)"
+MSG_SCHEDULE_RUNNING="排程管理器執行中"
+MSG_SCHEDULE_STOPPED="排程管理器已停止"
+
+# Error Messages
+MSG_ERROR_PERMISSION="權限被拒絕。請嘗試使用 sudo 執行。"
+MSG_ERROR_CONFIG_READ="無法讀取設定檔: %s"
+MSG_ERROR_CONFIG_WRITE="無法寫入設定檔: %s"
+MSG_ERROR_SERVICE_NOT_FOUND="找不到服務: %s"
+MSG_ERROR_TUNE_NOT_FOUND="找不到旋律檔案: %s"
+MSG_ERROR_INVALID_OPTION="無效的選項: %s"
+MSG_ERROR_MISSING_ARG="缺少必要參數: %s"
+MSG_ERROR_SYSTEMCTL="systemctl 命令失敗: %s"
+MSG_ERROR_DEPENDENCY="未安裝必要的相依套件: %s"
+
+# Version and About
+MSG_VERSION="Sparky Beep 版本 %s"
+MSG_COPYRIGHT="版權所有 (C) 2018-2025 Paweł Pijanowski 與貢獻者"
+MSG_LICENSE="授權於 GNU GPL v3"
+MSG_WEBSITE="https://github.com/sparkylinux/sparky-beep"

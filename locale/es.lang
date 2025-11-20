@@ -1,6 +1,6 @@
 # Spanish (Español) translations for Sparky Beep
 # Author: Sparky Beep Contributors
-# Last updated: 2025-01-20
+# Last updated: 2025-11-20
 
 # Service status messages
 MSG_SERVICE_ACTIVE="el servicio %s está activo..."
@@ -12,3 +12,188 @@ MSG_USAGE_BEEP_SYS="Uso: /etc/init.d/beep_sys {start|stop|restart}"
 MSG_USAGE_BEEP_NETDATA="Uso: /etc/init.d/beep_netdata {start|stop|restart}"
 MSG_USAGE_BEEP_SAMBA="Uso: /etc/init.d/beep_samba {start|stop|restart}"
 MSG_USAGE_BEEP_WEBMIN="Uso: /etc/init.d/beep_webmin {start|stop|restart}"
+
+# TUI/GUI - Main Menu
+MSG_MAIN_TITLE="Configuración de Sparky Beep"
+MSG_MAIN_SUBTITLE="Configurar notificaciones sonoras de servicios del sistema"
+MSG_MENU_SERVICE_SELECTION="Selección de Servicios"
+MSG_MENU_TUNE_MANAGEMENT="Gestión de Melodías"
+MSG_MENU_SCHEDULE="Configuración de Horarios"
+MSG_MENU_SETTINGS="Configuración"
+MSG_MENU_TEST="Probar Sonidos"
+MSG_MENU_EXIT="Salir"
+
+# TUI/GUI - Service Selection
+MSG_SERVICE_SELECT_TITLE="Seleccionar Servicios para Monitorear"
+MSG_SERVICE_SELECT_DESC="Elija qué servicios deben reproducir notificaciones de pitido"
+MSG_SERVICE_AVAILABLE="Servicios Disponibles"
+MSG_SERVICE_ENABLED="Habilitado para Notificaciones"
+MSG_SERVICE_DISABLED="Deshabilitado"
+MSG_SERVICE_NOT_INSTALLED="No Instalado"
+MSG_SERVICE_TOGGLE="Alternar Servicio"
+MSG_SERVICE_SELECT_ALL="Seleccionar Todo"
+MSG_SERVICE_DESELECT_ALL="Deseleccionar Todo"
+MSG_SERVICE_REFRESH="Actualizar Lista"
+
+# TUI/GUI - Tune Management
+MSG_TUNE_TITLE="Gestión de Melodías"
+MSG_TUNE_SELECT="Seleccionar Melodía para Evento"
+MSG_TUNE_SERVICE_LABEL="Servicio: %s"
+MSG_TUNE_EVENT_START="Evento de Inicio"
+MSG_TUNE_EVENT_STOP="Evento de Parada"
+MSG_TUNE_EVENT_RESTART="Evento de Reinicio"
+MSG_TUNE_CURRENT="Actual: %s"
+MSG_TUNE_PREVIEW="Vista Previa"
+MSG_TUNE_APPLY="Aplicar"
+MSG_TUNE_RESET="Restablecer a Predeterminado"
+MSG_TUNE_CUSTOM="Secuencia de Pitido Personalizada"
+MSG_TUNE_LIBRARY="Melodías Disponibles"
+MSG_TUNE_NONE="[Silencio - Sin Pitido]"
+
+# TUI/GUI - Available Compositions
+MSG_COMPOSITION_C_SCALE="Escala de Do Mayor"
+MSG_COMPOSITION_HAPPY_BIRTHDAY="Cumpleaños Feliz"
+MSG_COMPOSITION_TWINKLE="Estrellita Dónde Estás"
+MSG_COMPOSITION_ODE_JOY="Oda a la Alegría"
+MSG_COMPOSITION_STAR_WARS="Tema de Star Wars"
+MSG_COMPOSITION_MARIO="Super Mario Bros"
+MSG_COMPOSITION_STARTUP="Fanfarria de Inicio"
+MSG_COMPOSITION_SHUTDOWN="Melodía de Apagado"
+MSG_COMPOSITION_ERROR="Alerta de Error"
+MSG_COMPOSITION_SUCCESS="Notificación de Éxito"
+MSG_COMPOSITION_IMPERIAL="Marcha Imperial"
+
+# TUI/GUI - Schedule Configuration
+MSG_SCHEDULE_TITLE="Configuración de Horarios"
+MSG_SCHEDULE_DESC="Configurar horas de silencio y horarios personalizados"
+MSG_SCHEDULE_ENABLE="Habilitar Programación"
+MSG_SCHEDULE_DISABLE="Deshabilitar Programación"
+MSG_SCHEDULE_QUIET_HOURS="Horas de Silencio"
+MSG_SCHEDULE_QUIET_START="Hora de Inicio de Silencio"
+MSG_SCHEDULE_QUIET_END="Hora de Fin de Silencio"
+MSG_SCHEDULE_WEEKDAYS="Días Activos"
+MSG_SCHEDULE_MONDAY="Lunes"
+MSG_SCHEDULE_TUESDAY="Martes"
+MSG_SCHEDULE_WEDNESDAY="Miércoles"
+MSG_SCHEDULE_THURSDAY="Jueves"
+MSG_SCHEDULE_FRIDAY="Viernes"
+MSG_SCHEDULE_SATURDAY="Sábado"
+MSG_SCHEDULE_SUNDAY="Domingo"
+MSG_SCHEDULE_ADD_RULE="Agregar Regla de Horario"
+MSG_SCHEDULE_REMOVE_RULE="Eliminar Regla"
+MSG_SCHEDULE_TIME_FORMAT="Formato de hora: HH:MM (24 horas)"
+
+# TUI/GUI - Settings
+MSG_SETTINGS_TITLE="Configuración General"
+MSG_SETTINGS_BEEP_MODE="Modo de Pitido"
+MSG_SETTINGS_MODE_BINARY="Binario (Estándar)"
+MSG_SETTINGS_MODE_TERNARY="Ternario (Suave)"
+MSG_SETTINGS_VOLUME="Nivel de Volumen"
+MSG_SETTINGS_LANGUAGE="Idioma"
+MSG_SETTINGS_AUTO_ENABLE="Habilitar servicios automáticamente"
+MSG_SETTINGS_LOG_EVENTS="Registrar eventos de pitido"
+MSG_SETTINGS_CONFIG_PATH="Archivo de configuración: %s"
+MSG_SETTINGS_SAVE="Guardar Configuración"
+MSG_SETTINGS_RESTORE_DEFAULTS="Restaurar Valores Predeterminados"
+
+# TUI/GUI - Test Sounds
+MSG_TEST_TITLE="Prueba de Reproducción de Sonido"
+MSG_TEST_DESC="Vista previa de pitidos y composiciones"
+MSG_TEST_SERVICE_SELECT="Seleccionar servicio para probar"
+MSG_TEST_EVENT_SELECT="Seleccionar tipo de evento"
+MSG_TEST_PLAY="Reproducir Sonido de Prueba"
+MSG_TEST_STOP="Detener Reproducción"
+MSG_TEST_PLAYING="Reproduciendo: %s"
+
+# TUI/GUI - Common Actions
+MSG_BUTTON_OK="Aceptar"
+MSG_BUTTON_CANCEL="Cancelar"
+MSG_BUTTON_APPLY="Aplicar"
+MSG_BUTTON_SAVE="Guardar"
+MSG_BUTTON_BACK="Atrás"
+MSG_BUTTON_NEXT="Siguiente"
+MSG_BUTTON_FINISH="Finalizar"
+MSG_BUTTON_HELP="Ayuda"
+MSG_BUTTON_CLOSE="Cerrar"
+MSG_BUTTON_YES="Sí"
+MSG_BUTTON_NO="No"
+
+# TUI/GUI - Messages and Notifications
+MSG_SAVE_SUCCESS="Configuración guardada correctamente"
+MSG_SAVE_ERROR="Error al guardar la configuración: %s"
+MSG_LOAD_ERROR="Error al cargar la configuración: %s"
+MSG_APPLY_SUCCESS="Cambios aplicados correctamente"
+MSG_APPLY_ERROR="Error al aplicar cambios: %s"
+MSG_SERVICE_START_SUCCESS="Servicio %s iniciado correctamente"
+MSG_SERVICE_START_ERROR="Error al iniciar el servicio %s"
+MSG_SERVICE_STOP_SUCCESS="Servicio %s detenido correctamente"
+MSG_SERVICE_STOP_ERROR="Error al detener el servicio %s"
+MSG_CONFIRM_EXIT="¿Salir sin guardar cambios?"
+MSG_CONFIRM_RESET="¿Restablecer toda la configuración a valores predeterminados?"
+MSG_CONFIRM_DELETE="¿Eliminar esta regla de horario?"
+MSG_NO_SERVICES_FOUND="No se encontraron servicios compatibles"
+MSG_ROOT_REQUIRED="Se requieren privilegios de root para esta operación"
+MSG_PACKAGE_NOT_INSTALLED="El paquete %s no está instalado"
+MSG_BEEP_NOT_AVAILABLE="Utilidad de pitido no disponible"
+MSG_INVALID_TIME_FORMAT="Formato de hora no válido. Use HH:MM"
+MSG_INVALID_INPUT="Entrada no válida: %s"
+
+# TUI/GUI - Help and Information
+MSG_HELP_TITLE="Ayuda de Sparky Beep"
+MSG_HELP_SERVICES="Seleccione qué servicios del sistema activarán notificaciones de pitido cuando inicien, se detengan o reinicien."
+MSG_HELP_TUNES="Asigne diferentes melodías o patrones de pitido a cada evento de servicio (inicio/parada/reinicio)."
+MSG_HELP_SCHEDULE="Establezca horas de silencio cuando los pitidos estén deshabilitados, o cree horarios personalizados para momentos específicos."
+MSG_HELP_SETTINGS="Configure el modo de pitido (binario/ternario), volumen, idioma y otras configuraciones globales."
+MSG_HELP_TEST="Vista previa de cómo sonarán diferentes servicios y eventos antes de aplicar cambios."
+
+# CLI Usage Messages
+MSG_CLI_USAGE="Uso: %s [OPCIONES]"
+MSG_CLI_DESCRIPTION="Sparky Beep - Gestor de notificaciones sonoras de servicios del sistema"
+MSG_CLI_OPTIONS="Opciones:"
+MSG_CLI_OPT_TUI="  -t, --tui           Iniciar interfaz de usuario de texto"
+MSG_CLI_OPT_GUI="  -g, --gui           Iniciar interfaz gráfica de usuario"
+MSG_CLI_OPT_CONFIG="  -c, --config ARCHIVO Usar archivo de configuración especificado"
+MSG_CLI_OPT_LIST="  -l, --list          Listar servicios disponibles"
+MSG_CLI_OPT_ENABLE="  -e, --enable SVC    Habilitar pitido para servicio"
+MSG_CLI_OPT_DISABLE="  -d, --disable SVC   Deshabilitar pitido para servicio"
+MSG_CLI_OPT_TEST="  --test SVC EVENT    Probar pitido para evento de servicio"
+MSG_CLI_OPT_HELP="  -h, --help          Mostrar este mensaje de ayuda"
+MSG_CLI_OPT_VERSION="  -v, --version       Mostrar información de versión"
+
+# Configuration Manager Messages
+MSG_CONFIG_CREATED="Archivo de configuración creado: %s"
+MSG_CONFIG_LOADED="Configuración cargada desde: %s"
+MSG_CONFIG_BACKUP="Copia de seguridad de configuración creada: %s"
+MSG_CONFIG_RESTORE="Configuración restaurada desde copia de seguridad"
+MSG_CONFIG_VALIDATE="Validando configuración..."
+MSG_CONFIG_VALID="La configuración es válida"
+MSG_CONFIG_INVALID="La validación de configuración falló: %s"
+
+# Service Discovery Messages
+MSG_DISCOVERY_SCANNING="Buscando servicios disponibles..."
+MSG_DISCOVERY_FOUND="Se encontraron %d servicios compatibles"
+MSG_DISCOVERY_SERVICE="  - %s (%s)"
+MSG_DISCOVERY_COMPLETE="Búsqueda de servicios completada"
+
+# Schedule Messages
+MSG_SCHEDULE_ACTIVE="La programación está activa - los pitidos pueden suprimirse"
+MSG_SCHEDULE_QUIET_ACTIVE="Horas de silencio activas (%s - %s)"
+MSG_SCHEDULE_RUNNING="Gestor de programación en ejecución"
+MSG_SCHEDULE_STOPPED="Gestor de programación detenido"
+
+# Error Messages
+MSG_ERROR_PERMISSION="Permiso denegado. Intente ejecutar con sudo."
+MSG_ERROR_CONFIG_READ="No se puede leer el archivo de configuración: %s"
+MSG_ERROR_CONFIG_WRITE="No se puede escribir el archivo de configuración: %s"
+MSG_ERROR_SERVICE_NOT_FOUND="Servicio no encontrado: %s"
+MSG_ERROR_TUNE_NOT_FOUND="Archivo de melodía no encontrado: %s"
+MSG_ERROR_INVALID_OPTION="Opción no válida: %s"
+MSG_ERROR_MISSING_ARG="Falta argumento requerido para: %s"
+MSG_ERROR_SYSTEMCTL="El comando systemctl falló: %s"
+MSG_ERROR_DEPENDENCY="Dependencia requerida no instalada: %s"
+
+# Version and About
+MSG_VERSION="Sparky Beep versión %s"
+MSG_COPYRIGHT="Copyright (C) 2018-2025 Paweł Pijanowski y Colaboradores"
+MSG_LICENSE="Licenciado bajo GNU GPL v3"
+MSG_WEBSITE="https://github.com/sparkylinux/sparky-beep"
