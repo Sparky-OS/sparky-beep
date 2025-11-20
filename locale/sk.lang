@@ -197,3 +197,122 @@ MSG_VERSION="Sparky Beep verzia %s"
 MSG_COPYRIGHT="Copyright (C) 2018-2025 Paweł Pijanowski & Prispievatelia"
 MSG_LICENSE="Licencované pod GNU GPL v3"
 MSG_WEBSITE="https://github.com/sparkylinux/sparky-beep"
+
+# Composer - Main Menu
+MSG_COMPOSER_TITLE="Hudobný skladateľ"
+MSG_COMPOSER_SUBTITLE="Vytváranie hudobných kompozícií s pípaním"
+MSG_COMPOSER_NEW="Nová kompozícia"
+MSG_COMPOSER_OPEN="Otvoriť kompozíciu"
+MSG_COMPOSER_SAVE="Uložiť kompozíciu"
+MSG_COMPOSER_SAVE_AS="Uložiť ako..."
+MSG_COMPOSER_PLAY="Prehrať kompozíciu"
+MSG_COMPOSER_EXPORT="Exportovať do skriptu"
+MSG_COMPOSER_IMPORT="Importovať zo súboru"
+MSG_COMPOSER_CLEAR="Vymazať kompozíciu"
+
+# Composer - Editor
+MSG_COMPOSER_EDITOR_TITLE="Editor kompozícií"
+MSG_COMPOSER_ADD_NOTE="Pridať nótu"
+MSG_COMPOSER_ADD_REST="Pridať pauzu"
+MSG_COMPOSER_DELETE_NOTE="Vymazať nótu"
+MSG_COMPOSER_EDIT_NOTE="Upraviť nótu"
+MSG_COMPOSER_SET_TEMPO="Nastaviť tempo"
+MSG_COMPOSER_CURRENT_TEMPO="Aktuálne tempo: %d BPM"
+MSG_COMPOSER_INSERT="Vložiť"
+MSG_COMPOSER_APPEND="Pripojiť"
+MSG_COMPOSER_MOVE_UP="Posunúť nahor"
+MSG_COMPOSER_MOVE_DOWN="Posunúť nadol"
+
+# Composer - Note Selection
+MSG_COMPOSER_NOTE_SELECT="Vybrať nótu"
+MSG_COMPOSER_NOTE_LABEL="Nóta:"
+MSG_COMPOSER_OCTAVE_LABEL="Oktáva:"
+MSG_COMPOSER_DURATION_LABEL="Dĺžka:"
+MSG_COMPOSER_DURATION_WHOLE="Celá nóta"
+MSG_COMPOSER_DURATION_HALF="Polovičná nóta"
+MSG_COMPOSER_DURATION_QUARTER="Štvrťová nóta"
+MSG_COMPOSER_DURATION_EIGHTH="Osminová nóta"
+MSG_COMPOSER_DURATION_SIXTEENTH="Šestnástinová nóta"
+MSG_COMPOSER_PREVIEW_NOTE="Náhľad nóty"
+
+# Composer - File Operations
+MSG_COMPOSER_FILENAME="Názov súboru:"
+MSG_COMPOSER_DESCRIPTION="Popis:"
+MSG_COMPOSER_CATEGORY="Kategória:"
+MSG_COMPOSER_FILE_EXISTS="Súbor už existuje. Prepísať?"
+MSG_COMPOSER_UNSAVED_CHANGES="Máte neuložené zmeny. Pokračovať?"
+MSG_COMPOSER_LOAD_SUCCESS="Kompozícia načítaná: %s"
+MSG_COMPOSER_SAVE_SUCCESS="Kompozícia uložená: %s"
+MSG_COMPOSER_EXPORT_SUCCESS="Exportované do: %s"
+
+# Composer - Playback
+MSG_COMPOSER_PLAYING="Prehrávanie kompozície..."
+MSG_COMPOSER_STOPPED="Prehrávanie zastavené"
+MSG_COMPOSER_PAUSED="Prehrávanie pozastavené"
+MSG_COMPOSER_EMPTY="Kompozícia je prázdna"
+
+# Player - Main Menu
+MSG_PLAYER_TITLE="Hudobný prehrávač"
+MSG_PLAYER_SUBTITLE="Prehrávanie hudobných kompozícií s pípaním"
+MSG_PLAYER_BROWSE="Prehľadávať kompozície"
+MSG_PLAYER_PLAYLIST="Spravovať playlist"
+MSG_PLAYER_NOW_PLAYING="Práve hrá"
+MSG_PLAYER_SETTINGS="Nastavenia prehrávača"
+
+# Player - Playback Controls
+MSG_PLAYER_PLAY="Prehrať"
+MSG_PLAYER_PAUSE="Pauza"
+MSG_PLAYER_STOP="Zastaviť"
+MSG_PLAYER_NEXT="Ďalší"
+MSG_PLAYER_PREVIOUS="Predchádzajúci"
+MSG_PLAYER_REPEAT="Opakovať"
+MSG_PLAYER_SHUFFLE="Náhodne"
+MSG_PLAYER_REPEAT_OFF="Opakovanie: vypnuté"
+MSG_PLAYER_REPEAT_ONE="Opakovanie: jeden"
+MSG_PLAYER_REPEAT_ALL="Opakovanie: všetko"
+MSG_PLAYER_SHUFFLE_OFF="Náhodne: vypnuté"
+MSG_PLAYER_SHUFFLE_ON="Náhodne: zapnuté"
+
+# Player - Composition Browser
+MSG_PLAYER_BROWSER_TITLE="Prehľadávať kompozície"
+MSG_PLAYER_CATEGORY_ALL="Všetky kompozície"
+MSG_PLAYER_CATEGORY_BUILTIN="Zabudované melódie"
+MSG_PLAYER_CATEGORY_SYSTEM="Systémové zvuky"
+MSG_PLAYER_CATEGORY_MUSICAL="Hudobné skladby"
+MSG_PLAYER_CATEGORY_USER="Užívateľské kompozície"
+MSG_PLAYER_FILTER="Filter:"
+MSG_PLAYER_SORT_NAME="Zoradiť podľa názvu"
+MSG_PLAYER_SORT_DATE="Zoradiť podľa dátumu"
+MSG_PLAYER_SORT_CATEGORY="Zoradiť podľa kategórie"
+
+# Player - Playlist
+MSG_PLAYER_PLAYLIST_TITLE="Správa playlistu"
+MSG_PLAYER_PLAYLIST_EMPTY="Playlist je prázdny"
+MSG_PLAYER_PLAYLIST_ADD="Pridať do playlistu"
+MSG_PLAYER_PLAYLIST_REMOVE="Odstrániť z playlistu"
+MSG_PLAYER_PLAYLIST_CLEAR="Vymazať playlist"
+MSG_PLAYER_PLAYLIST_SAVE="Uložiť playlist"
+MSG_PLAYER_PLAYLIST_LOAD="Načítať playlist"
+MSG_PLAYER_PLAYLIST_ITEMS="%d položiek v playliste"
+
+# Player - Now Playing
+MSG_PLAYER_NP_TITLE="Práve hrá: %s"
+MSG_PLAYER_NP_COMPOSER="Skladateľ: %s"
+MSG_PLAYER_NP_CATEGORY="Kategória: %s"
+MSG_PLAYER_NP_DURATION="Dĺžka: %s"
+MSG_PLAYER_NP_TEMPO="Tempo: %d BPM"
+MSG_PLAYER_NP_NOTES="%d nôt"
+MSG_PLAYER_NP_NOTHING="Nič sa neprehráva"
+
+# Player - Settings
+MSG_PLAYER_SETTINGS_TITLE="Nastavenia prehrávača"
+MSG_PLAYER_AUTO_PLAY="Automaticky prehrať ďalší"
+MSG_PLAYER_SHOW_NOTIFICATIONS="Zobraziť oznámenia"
+MSG_PLAYER_DEFAULT_TEMPO="Predvolené tempo: %d BPM"
+
+# Player - Messages
+MSG_PLAYER_LOAD_ERROR="Chyba pri načítaní kompozície: %s"
+MSG_PLAYER_PLAY_ERROR="Chyba pri prehrávaní kompozície: %s"
+MSG_PLAYER_NO_COMPOSITIONS="Nenašli sa žiadne kompozície"
+MSG_PLAYER_ADDED_TO_PLAYLIST="Pridané do playlistu: %s"
+MSG_PLAYER_REMOVED_FROM_PLAYLIST="Odstránené z playlistu: %s"

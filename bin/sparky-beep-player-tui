@@ -1,0 +1,634 @@
+#!/bin/bash
+#
+# Sparky Beep Player TUI
+# Interactive text-based music player for beep compositions
+# Uses dialog/whiptail for user interface
+# last update 2025/11/20
+#
+
+# Determine script directory
+SCRIPT_DIR="$(dirname "$(readlink -f "$0")")"
+LIB_DIR="$(dirname "$SCRIPT_DIR")/lib"
+LOCALE_DIR="$(dirname "$SCRIPT_DIR")/locale"
+COMPOSITIONS_DIR="$(dirname "$SCRIPT_DIR")/compositions"
+
+# Source required libraries
+. "${LIB_DIR}/notes.sh" || exit 1
+. "${LIB_DIR}/config.sh" || exit 1
+. "${LIB_DIR}/tunes.sh" || exit 1
+. "${LOCALE_DIR}/i18n.sh" || exit 1
+
+# Detect dialog utility (prefer whiptail, fallback to dialog)
+DIALOG_CMD=""
+if command -v whiptail >/dev/null 2>&1; then
+    DIALOG_CMD="whiptail"
+elif command -v dialog >/dev/null 2>&1; then
+    DIALOG_CMD="dialog"
+else
+    echo "ERROR: Neither whiptail nor dialog is installed." >&2
+    echo "Please install one of: whiptail, dialog" >&2
+    exit 1
+fi
+
+# Dialog dimensions
+DIALOG_HEIGHT=20
+DIALOG_WIDTH=70
+DIALOG_LIST_HEIGHT=12
+
+# Temporary file for dialog output
+DIALOG_TEMP=$(mktemp)
+trap 'rm -f "$DIALOG_TEMP"' EXIT
+
+# Player state
+declare -a PLAYLIST
+CURRENT_INDEX=-1
+REPEAT_MODE="off"  # off, one, all
+SHUFFLE_MODE="off"  # off, on
+PLAYING=0
+
+# User compositions directory
+USER_COMPOSITIONS_DIR="${HOME}/.local/share/sparky-beep/compositions"
+USER_PLAYLISTS_DIR="${HOME}/.local/share/sparky-beep/playlists"
+SYSTEM_TUNES_DIR="/usr/share/sparky-beep/compositions"
+
+mkdir -p "$USER_COMPOSITIONS_DIR"
+mkdir -p "$USER_PLAYLISTS_DIR"
+
+#
+# Function: dialog_msgbox
+# Description: Show a message box
+# Usage: dialog_msgbox <title> <message>
+#
+dialog_msgbox() {
+    local title="$1"
+    local message="$2"
+
+    $DIALOG_CMD --title "$title" \
+        --msgbox "$message" \
+        $DIALOG_HEIGHT $DIALOG_WIDTH
+}
+
+#
+# Function: dialog_yesno
+# Description: Show a yes/no dialog
+# Usage: dialog_yesno <title> <message>
+#
+dialog_yesno() {
+    local title="$1"
+    local message="$2"
+
+    $DIALOG_CMD --title "$title" \
+        --yesno "$message" \
+        $DIALOG_HEIGHT $DIALOG_WIDTH
+}
+
+#
+# Function: dialog_menu
+# Description: Show a menu
+# Usage: dialog_menu <title> <message> <options...>
+#
+dialog_menu() {
+    local title="$1"
+    local message="$2"
+    shift 2
+
+    $DIALOG_CMD --title "$title" \
+        --menu "$message" \
+        $DIALOG_HEIGHT $DIALOG_WIDTH $DIALOG_LIST_HEIGHT \
+        "$@" 2>"$DIALOG_TEMP"
+
+    local result=$?
+    if [ $result -eq 0 ]; then
+        cat "$DIALOG_TEMP"
+        return 0
+    fi
+    return 1
+}
+
+#
+# Function: dialog_inputbox
+# Description: Show an input box
+# Usage: dialog_inputbox <title> <message> [default]
+#
+dialog_inputbox() {
+    local title="$1"
+    local message="$2"
+    local default="$3"
+
+    $DIALOG_CMD --title "$title" \
+        --inputbox "$message" \
+        $DIALOG_HEIGHT $DIALOG_WIDTH \
+        "$default" 2>"$DIALOG_TEMP"
+
+    local result=$?
+    if [ $result -eq 0 ]; then
+        cat "$DIALOG_TEMP"
+        return 0
+    fi
+    return 1
+}
+
+#
+# Function: show_main_menu
+# Description: Show the main player menu
+#
+show_main_menu() {
+    while true; do
+        local playlist_count=${#PLAYLIST[@]}
+        local status_line=""
+
+        if [ $CURRENT_INDEX -ge 0 ] && [ $CURRENT_INDEX -lt $playlist_count ]; then
+            local current_file="${PLAYLIST[$CURRENT_INDEX]}"
+            status_line="$(t PLAYER_NOW_PLAYING): $(basename "$current_file" .beepmusic)"
+        else
+            status_line="$(t PLAYER_NP_NOTHING)"
+        fi
+
+        status_line="$status_line | $(printf "$(t PLAYER_PLAYLIST_ITEMS)" "$playlist_count")"
+
+        local choice=$(dialog_menu \
+            "$(t PLAYER_TITLE)" \
+            "$status_line" \
+            "1" "$(t PLAYER_BROWSE)" \
+            "2" "$(t PLAYER_PLAYLIST)" \
+            "3" "$(t PLAYER_PLAY)" \
+            "4" "$(t PLAYER_NEXT)" \
+            "5" "$(t PLAYER_PREVIOUS)" \
+            "6" "$(t PLAYER_STOP)" \
+            "7" "$(t PLAYER_REPEAT): $(get_repeat_status)" \
+            "8" "$(t PLAYER_SHUFFLE): $(get_shuffle_status)" \
+            "9" "$(t PLAYER_SETTINGS)" \
+            "10" "$(t MENU_EXIT)")
+
+        case "$choice" in
+            1) browse_compositions ;;
+            2) manage_playlist ;;
+            3) play_current ;;
+            4) play_next ;;
+            5) play_previous ;;
+            6) stop_playback ;;
+            7) toggle_repeat ;;
+            8) toggle_shuffle ;;
+            9) show_settings ;;
+            10) break ;;
+            *) break ;;
+        esac
+    done
+}
+
+#
+# Function: get_repeat_status
+# Description: Get repeat mode status text
+#
+get_repeat_status() {
+    case "$REPEAT_MODE" in
+        off) echo "$(t PLAYER_REPEAT_OFF)" ;;
+        one) echo "$(t PLAYER_REPEAT_ONE)" ;;
+        all) echo "$(t PLAYER_REPEAT_ALL)" ;;
+    esac
+}
+
+#
+# Function: get_shuffle_status
+# Description: Get shuffle mode status text
+#
+get_shuffle_status() {
+    case "$SHUFFLE_MODE" in
+        off) echo "$(t PLAYER_SHUFFLE_OFF)" ;;
+        on) echo "$(t PLAYER_SHUFFLE_ON)" ;;
+    esac
+}
+
+#
+# Function: browse_compositions
+# Description: Browse and select compositions
+#
+browse_compositions() {
+    # Build list of available compositions
+    local options=()
+
+    # Scan all directories
+    for dir in "$COMPOSITIONS_DIR" "$USER_COMPOSITIONS_DIR" "$SYSTEM_TUNES_DIR"; do
+        [ ! -d "$dir" ] && continue
+
+        while IFS= read -r -d '' file; do
+            local basename=$(basename "$file" .beepmusic)
+            local desc=$(grep "^# Description:" "$file" 2>/dev/null | sed 's/^# Description: //' || echo "$basename")
+            options+=("$file" "$desc")
+        done < <(find "$dir" -name "*.beepmusic" -type f -print0 2>/dev/null | sort -z)
+    done
+
+    if [ ${#options[@]} -eq 0 ]; then
+        dialog_msgbox "$(t PLAYER_BROWSE)" "$(t PLAYER_NO_COMPOSITIONS)"
+        return
+    fi
+
+    local selected=$(dialog_menu \
+        "$(t PLAYER_BROWSER_TITLE)" \
+        "$(t PLAYER_BROWSE)" \
+        "${options[@]}")
+
+    if [ -n "$selected" ] && [ -f "$selected" ]; then
+        # Ask what to do
+        local action=$(dialog_menu \
+            "$(t PLAYER_BROWSER_TITLE)" \
+            "$(basename "$selected" .beepmusic)" \
+            "1" "$(t PLAYER_PLAY)" \
+            "2" "$(t PLAYER_PLAYLIST_ADD)")
+
+        case "$action" in
+            1)
+                PLAYLIST=("$selected")
+                CURRENT_INDEX=0
+                play_current
+                ;;
+            2)
+                add_to_playlist "$selected"
+                ;;
+        esac
+    fi
+}
+
+#
+# Function: manage_playlist
+# Description: Manage playlist
+#
+manage_playlist() {
+    while true; do
+        local playlist_count=${#PLAYLIST[@]}
+
+        if [ $playlist_count -eq 0 ]; then
+            local choice=$(dialog_menu \
+                "$(t PLAYER_PLAYLIST_TITLE)" \
+                "$(t PLAYER_PLAYLIST_EMPTY)" \
+                "1" "$(t PLAYER_PLAYLIST_LOAD)" \
+                "2" "$(t BUTTON_BACK)")
+
+            case "$choice" in
+                1) load_playlist ;;
+                2) break ;;
+                *) break ;;
+            esac
+        else
+            local choice=$(dialog_menu \
+                "$(t PLAYER_PLAYLIST_TITLE)" \
+                "$(printf "$(t PLAYER_PLAYLIST_ITEMS)" "$playlist_count")" \
+                "1" "$(t PLAYER_PLAYLIST_TITLE)" \
+                "2" "$(t PLAYER_PLAYLIST_CLEAR)" \
+                "3" "$(t PLAYER_PLAYLIST_SAVE)" \
+                "4" "$(t PLAYER_PLAYLIST_LOAD)" \
+                "5" "$(t PLAYER_PLAYLIST_REMOVE)" \
+                "6" "$(t BUTTON_BACK)")
+
+            case "$choice" in
+                1) show_playlist ;;
+                2) clear_playlist ;;
+                3) save_playlist ;;
+                4) load_playlist ;;
+                5) remove_from_playlist ;;
+                6) break ;;
+                *) break ;;
+            esac
+        fi
+    done
+}
+
+#
+# Function: show_playlist
+# Description: Show playlist contents
+#
+show_playlist() {
+    local options=()
+    local index=0
+
+    for file in "${PLAYLIST[@]}"; do
+        local marker=""
+        [ $index -eq $CURRENT_INDEX ] && marker="▶ "
+        options+=("$index" "$marker$(basename "$file" .beepmusic)")
+        index=$((index + 1))
+    done
+
+    dialog_menu \
+        "$(t PLAYER_PLAYLIST_TITLE)" \
+        "$(printf "$(t PLAYER_PLAYLIST_ITEMS)" "${#PLAYLIST[@]}")" \
+        "${options[@]}" >/dev/null
+}
+
+#
+# Function: add_to_playlist
+# Description: Add composition to playlist
+#
+add_to_playlist() {
+    local file="$1"
+
+    PLAYLIST+=("$file")
+    dialog_msgbox "$(t PLAYER_PLAYLIST_TITLE)" "$(printf "$(t PLAYER_ADDED_TO_PLAYLIST)" "$(basename "$file" .beepmusic)")"
+}
+
+#
+# Function: remove_from_playlist
+# Description: Remove item from playlist
+#
+remove_from_playlist() {
+    if [ ${#PLAYLIST[@]} -eq 0 ]; then
+        return
+    fi
+
+    local options=()
+    local index=0
+
+    for file in "${PLAYLIST[@]}"; do
+        options+=("$index" "$(basename "$file" .beepmusic)")
+        index=$((index + 1))
+    done
+
+    local selected=$(dialog_menu \
+        "$(t PLAYER_PLAYLIST_REMOVE)" \
+        "$(t PLAYER_PLAYLIST_REMOVE)" \
+        "${options[@]}")
+
+    if [ -n "$selected" ]; then
+        # Create new array without the selected item
+        local new_playlist=()
+        local i=0
+        for file in "${PLAYLIST[@]}"; do
+            if [ $i -ne "$selected" ]; then
+                new_playlist+=("$file")
+            fi
+            i=$((i + 1))
+        done
+
+        PLAYLIST=("${new_playlist[@]}")
+
+        # Adjust current index
+        if [ $CURRENT_INDEX -ge ${#PLAYLIST[@]} ]; then
+            CURRENT_INDEX=$((${#PLAYLIST[@]} - 1))
+        fi
+
+        dialog_msgbox "$(t PLAYER_PLAYLIST_TITLE)" "$(t PLAYER_REMOVED_FROM_PLAYLIST)"
+    fi
+}
+
+#
+# Function: clear_playlist
+# Description: Clear entire playlist
+#
+clear_playlist() {
+    if dialog_yesno "$(t PLAYER_PLAYLIST_CLEAR)" "$(t PLAYER_PLAYLIST_CLEAR)?"; then
+        PLAYLIST=()
+        CURRENT_INDEX=-1
+        PLAYING=0
+    fi
+}
+
+#
+# Function: save_playlist
+# Description: Save playlist to file
+#
+save_playlist() {
+    if [ ${#PLAYLIST[@]} -eq 0 ]; then
+        dialog_msgbox "$(t PLAYER_PLAYLIST_SAVE)" "$(t PLAYER_PLAYLIST_EMPTY)"
+        return
+    fi
+
+    local filename=$(dialog_inputbox \
+        "$(t PLAYER_PLAYLIST_SAVE)" \
+        "$(t COMPOSER_FILENAME)" \
+        "playlist.m3u")
+
+    [ -z "$filename" ] && return
+
+    # Add .m3u extension if not present
+    [[ "$filename" != *.m3u ]] && filename="${filename}.m3u"
+
+    local filepath="${USER_PLAYLISTS_DIR}/${filename}"
+
+    # Write playlist
+    {
+        echo "#EXTM3U"
+        for file in "${PLAYLIST[@]}"; do
+            echo "$file"
+        done
+    } > "$filepath"
+
+    dialog_msgbox "$(t PLAYER_PLAYLIST_SAVE)" "$(printf "$(t COMPOSER_SAVE_SUCCESS)" "$filename")"
+}
+
+#
+# Function: load_playlist
+# Description: Load playlist from file
+#
+load_playlist() {
+    # Find playlist files
+    local options=()
+
+    while IFS= read -r -d '' file; do
+        local basename=$(basename "$file")
+        options+=("$file" "$basename")
+    done < <(find "$USER_PLAYLISTS_DIR" -name "*.m3u" -type f -print0 2>/dev/null)
+
+    if [ ${#options[@]} -eq 0 ]; then
+        dialog_msgbox "$(t PLAYER_PLAYLIST_LOAD)" "$(t PLAYER_NO_COMPOSITIONS)"
+        return
+    fi
+
+    local selected=$(dialog_menu \
+        "$(t PLAYER_PLAYLIST_LOAD)" \
+        "$(t PLAYER_PLAYLIST_LOAD)" \
+        "${options[@]}")
+
+    if [ -n "$selected" ] && [ -f "$selected" ]; then
+        # Load playlist
+        PLAYLIST=()
+        while IFS= read -r line; do
+            # Skip comments and empty lines
+            [[ "$line" =~ ^#.*$ ]] && continue
+            [[ -z "$line" ]] && continue
+
+            # Add to playlist if file exists
+            if [ -f "$line" ]; then
+                PLAYLIST+=("$line")
+            fi
+        done < "$selected"
+
+        CURRENT_INDEX=0
+        dialog_msgbox "$(t PLAYER_PLAYLIST_LOAD)" "$(printf "$(t COMPOSER_LOAD_SUCCESS)" "$(basename "$selected")")"
+    fi
+}
+
+#
+# Function: play_current
+# Description: Play current composition
+#
+play_current() {
+    if [ ${#PLAYLIST[@]} -eq 0 ]; then
+        dialog_msgbox "$(t PLAYER_PLAY)" "$(t PLAYER_PLAYLIST_EMPTY)"
+        return
+    fi
+
+    if [ $CURRENT_INDEX -lt 0 ]; then
+        CURRENT_INDEX=0
+    fi
+
+    if [ $CURRENT_INDEX -ge ${#PLAYLIST[@]} ]; then
+        CURRENT_INDEX=0
+    fi
+
+    local file="${PLAYLIST[$CURRENT_INDEX]}"
+
+    if [ ! -f "$file" ]; then
+        dialog_msgbox "$(t PLAYER_PLAY)" "$(printf "$(t PLAYER_LOAD_ERROR)" "$(basename "$file")")"
+        return
+    fi
+
+    local compose_cmd="${SCRIPT_DIR}/sparky-beep-compose"
+
+    dialog_msgbox "$(t PLAYER_PLAY)" "$(printf "$(t PLAYER_NP_TITLE)" "$(basename "$file" .beepmusic)")"
+
+    PLAYING=1
+    $compose_cmd "$file" -p 2>/dev/null
+    PLAYING=0
+
+    # Auto-advance based on repeat mode
+    if [ "$REPEAT_MODE" = "one" ]; then
+        # Stay on current track
+        return
+    elif [ "$REPEAT_MODE" = "all" ] || [ $CURRENT_INDEX -lt $((${#PLAYLIST[@]} - 1)) ]; then
+        play_next
+    fi
+}
+
+#
+# Function: play_next
+# Description: Play next composition
+#
+play_next() {
+    if [ ${#PLAYLIST[@]} -eq 0 ]; then
+        return
+    fi
+
+    if [ "$SHUFFLE_MODE" = "on" ]; then
+        CURRENT_INDEX=$((RANDOM % ${#PLAYLIST[@]}))
+    else
+        CURRENT_INDEX=$((CURRENT_INDEX + 1))
+        if [ $CURRENT_INDEX -ge ${#PLAYLIST[@]} ]; then
+            if [ "$REPEAT_MODE" = "all" ]; then
+                CURRENT_INDEX=0
+            else
+                CURRENT_INDEX=$((${#PLAYLIST[@]} - 1))
+                return
+            fi
+        fi
+    fi
+
+    play_current
+}
+
+#
+# Function: play_previous
+# Description: Play previous composition
+#
+play_previous() {
+    if [ ${#PLAYLIST[@]} -eq 0 ]; then
+        return
+    fi
+
+    if [ "$SHUFFLE_MODE" = "on" ]; then
+        CURRENT_INDEX=$((RANDOM % ${#PLAYLIST[@]}))
+    else
+        CURRENT_INDEX=$((CURRENT_INDEX - 1))
+        if [ $CURRENT_INDEX -lt 0 ]; then
+            if [ "$REPEAT_MODE" = "all" ]; then
+                CURRENT_INDEX=$((${#PLAYLIST[@]} - 1))
+            else
+                CURRENT_INDEX=0
+                return
+            fi
+        fi
+    fi
+
+    play_current
+}
+
+#
+# Function: stop_playback
+# Description: Stop current playback
+#
+stop_playback() {
+    PLAYING=0
+    # Kill any running beep processes
+    pkill -f "sparky-beep-compose" 2>/dev/null || true
+    pkill beep 2>/dev/null || true
+    pkill tbeep 2>/dev/null || true
+
+    dialog_msgbox "$(t PLAYER_STOP)" "$(t COMPOSER_STOPPED)"
+}
+
+#
+# Function: toggle_repeat
+# Description: Toggle repeat mode
+#
+toggle_repeat() {
+    case "$REPEAT_MODE" in
+        off) REPEAT_MODE="one" ;;
+        one) REPEAT_MODE="all" ;;
+        all) REPEAT_MODE="off" ;;
+    esac
+}
+
+#
+# Function: toggle_shuffle
+# Description: Toggle shuffle mode
+#
+toggle_shuffle() {
+    case "$SHUFFLE_MODE" in
+        off) SHUFFLE_MODE="on" ;;
+        on) SHUFFLE_MODE="off" ;;
+    esac
+}
+
+#
+# Function: show_settings
+# Description: Show player settings
+#
+show_settings() {
+    local choice=$(dialog_menu \
+        "$(t PLAYER_SETTINGS_TITLE)" \
+        "$(t PLAYER_SETTINGS_TITLE)" \
+        "1" "$(t PLAYER_REPEAT): $(get_repeat_status)" \
+        "2" "$(t PLAYER_SHUFFLE): $(get_shuffle_status)" \
+        "3" "$(t SETTINGS_BEEP_MODE): $BEEP_MODE" \
+        "4" "$(t BUTTON_BACK)")
+
+    case "$choice" in
+        1) toggle_repeat ;;
+        2) toggle_shuffle ;;
+        3)
+            if [ "$BEEP_MODE" = "binary" ]; then
+                BEEP_MODE="ternary"
+            else
+                BEEP_MODE="binary"
+            fi
+            ;;
+        4) return ;;
+    esac
+}
+
+#
+# Main program
+#
+main() {
+    # Initialize libraries
+    init_config 2>/dev/null || true
+    load_config 2>/dev/null || true
+    init_tune_library 2>/dev/null || true
+
+    # Show main menu
+    show_main_menu
+
+    # Clean up
+    rm -f "$DIALOG_TEMP"
+}
+
+# Run main program
+main "$@"

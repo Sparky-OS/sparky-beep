@@ -197,3 +197,122 @@ MSG_VERSION="Sparky Beep versio %s"
 MSG_COPYRIGHT="Tekijänoikeudet (C) 2018-2025 Paweł Pijanowski & Avustajat"
 MSG_LICENSE="Lisensoitu GNU GPL v3:n alaisena"
 MSG_WEBSITE="https://github.com/sparkylinux/sparky-beep"
+
+# Composer - Main Menu
+MSG_COMPOSER_TITLE="Musiikkisäveltäjä"
+MSG_COMPOSER_SUBTITLE="Luo musiikkisävellyksiä piippausäänillä"
+MSG_COMPOSER_NEW="Uusi sävellys"
+MSG_COMPOSER_OPEN="Avaa sävellys"
+MSG_COMPOSER_SAVE="Tallenna sävellys"
+MSG_COMPOSER_SAVE_AS="Tallenna nimellä..."
+MSG_COMPOSER_PLAY="Toista sävellys"
+MSG_COMPOSER_EXPORT="Vie skriptiksi"
+MSG_COMPOSER_IMPORT="Tuo tiedostosta"
+MSG_COMPOSER_CLEAR="Tyhjennä sävellys"
+
+# Composer - Editor
+MSG_COMPOSER_EDITOR_TITLE="Sävellysten muokkain"
+MSG_COMPOSER_ADD_NOTE="Lisää nuotti"
+MSG_COMPOSER_ADD_REST="Lisää tauko"
+MSG_COMPOSER_DELETE_NOTE="Poista nuotti"
+MSG_COMPOSER_EDIT_NOTE="Muokkaa nuottia"
+MSG_COMPOSER_SET_TEMPO="Aseta tempo"
+MSG_COMPOSER_CURRENT_TEMPO="Nykyinen tempo: %d BPM"
+MSG_COMPOSER_INSERT="Lisää"
+MSG_COMPOSER_APPEND="Liitä loppuun"
+MSG_COMPOSER_MOVE_UP="Siirrä ylös"
+MSG_COMPOSER_MOVE_DOWN="Siirrä alas"
+
+# Composer - Note Selection
+MSG_COMPOSER_NOTE_SELECT="Valitse nuotti"
+MSG_COMPOSER_NOTE_LABEL="Nuotti:"
+MSG_COMPOSER_OCTAVE_LABEL="Oktaavi:"
+MSG_COMPOSER_DURATION_LABEL="Kesto:"
+MSG_COMPOSER_DURATION_WHOLE="Kokonuotti"
+MSG_COMPOSER_DURATION_HALF="Puolinuotti"
+MSG_COMPOSER_DURATION_QUARTER="Neljäsosanuotti"
+MSG_COMPOSER_DURATION_EIGHTH="Kahdeksasosanuotti"
+MSG_COMPOSER_DURATION_SIXTEENTH="Kuudestoistasosanuotti"
+MSG_COMPOSER_PREVIEW_NOTE="Esikuuntele nuotti"
+
+# Composer - File Operations
+MSG_COMPOSER_FILENAME="Tiedoston nimi:"
+MSG_COMPOSER_DESCRIPTION="Kuvaus:"
+MSG_COMPOSER_CATEGORY="Kategoria:"
+MSG_COMPOSER_FILE_EXISTS="Tiedosto on jo olemassa. Korvataanko?"
+MSG_COMPOSER_UNSAVED_CHANGES="Sinulla on tallentamattomia muutoksia. Jatketaanko?"
+MSG_COMPOSER_LOAD_SUCCESS="Sävellys ladattu: %s"
+MSG_COMPOSER_SAVE_SUCCESS="Sävellys tallennettu: %s"
+MSG_COMPOSER_EXPORT_SUCCESS="Viety kohteeseen: %s"
+
+# Composer - Playback
+MSG_COMPOSER_PLAYING="Toistetaan sävellystä..."
+MSG_COMPOSER_STOPPED="Toisto pysäytetty"
+MSG_COMPOSER_PAUSED="Toisto keskeytetty"
+MSG_COMPOSER_EMPTY="Sävellys on tyhjä"
+
+# Player - Main Menu
+MSG_PLAYER_TITLE="Musiikkisoitin"
+MSG_PLAYER_SUBTITLE="Toista musiikkisävellyksiä piippausäänillä"
+MSG_PLAYER_BROWSE="Selaa sävellyksiä"
+MSG_PLAYER_PLAYLIST="Hallinnoi soittolistaa"
+MSG_PLAYER_NOW_PLAYING="Nyt soi"
+MSG_PLAYER_SETTINGS="Soittimen asetukset"
+
+# Player - Playback Controls
+MSG_PLAYER_PLAY="Toista"
+MSG_PLAYER_PAUSE="Keskeytä"
+MSG_PLAYER_STOP="Pysäytä"
+MSG_PLAYER_NEXT="Seuraava"
+MSG_PLAYER_PREVIOUS="Edellinen"
+MSG_PLAYER_REPEAT="Toista uudelleen"
+MSG_PLAYER_SHUFFLE="Sekoita"
+MSG_PLAYER_REPEAT_OFF="Toisto: pois"
+MSG_PLAYER_REPEAT_ONE="Toisto: yksi"
+MSG_PLAYER_REPEAT_ALL="Toisto: kaikki"
+MSG_PLAYER_SHUFFLE_OFF="Sekoitus: pois"
+MSG_PLAYER_SHUFFLE_ON="Sekoitus: päällä"
+
+# Player - Composition Browser
+MSG_PLAYER_BROWSER_TITLE="Selaa sävellyksiä"
+MSG_PLAYER_CATEGORY_ALL="Kaikki sävellykset"
+MSG_PLAYER_CATEGORY_BUILTIN="Sisäänrakennetut melodiat"
+MSG_PLAYER_CATEGORY_SYSTEM="Järjestelmääänet"
+MSG_PLAYER_CATEGORY_MUSICAL="Musiikkikappaleet"
+MSG_PLAYER_CATEGORY_USER="Käyttäjän sävellykset"
+MSG_PLAYER_FILTER="Suodatin:"
+MSG_PLAYER_SORT_NAME="Lajittele nimen mukaan"
+MSG_PLAYER_SORT_DATE="Lajittele päivämäärän mukaan"
+MSG_PLAYER_SORT_CATEGORY="Lajittele kategorian mukaan"
+
+# Player - Playlist
+MSG_PLAYER_PLAYLIST_TITLE="Soittolistan hallinta"
+MSG_PLAYER_PLAYLIST_EMPTY="Soittolista on tyhjä"
+MSG_PLAYER_PLAYLIST_ADD="Lisää soittolistaan"
+MSG_PLAYER_PLAYLIST_REMOVE="Poista soittolistasta"
+MSG_PLAYER_PLAYLIST_CLEAR="Tyhjennä soittolista"
+MSG_PLAYER_PLAYLIST_SAVE="Tallenna soittolista"
+MSG_PLAYER_PLAYLIST_LOAD="Lataa soittolista"
+MSG_PLAYER_PLAYLIST_ITEMS="%d kohdetta soittolistalla"
+
+# Player - Now Playing
+MSG_PLAYER_NP_TITLE="Nyt soi: %s"
+MSG_PLAYER_NP_COMPOSER="Säveltäjä: %s"
+MSG_PLAYER_NP_CATEGORY="Kategoria: %s"
+MSG_PLAYER_NP_DURATION="Kesto: %s"
+MSG_PLAYER_NP_TEMPO="Tempo: %d BPM"
+MSG_PLAYER_NP_NOTES="%d nuottia"
+MSG_PLAYER_NP_NOTHING="Ei toisteta mitään"
+
+# Player - Settings
+MSG_PLAYER_SETTINGS_TITLE="Soittimen asetukset"
+MSG_PLAYER_AUTO_PLAY="Toista seuraava automaattisesti"
+MSG_PLAYER_SHOW_NOTIFICATIONS="Näytä ilmoitukset"
+MSG_PLAYER_DEFAULT_TEMPO="Oletustempo: %d BPM"
+
+# Player - Messages
+MSG_PLAYER_LOAD_ERROR="Sävellyksen lataus epäonnistui: %s"
+MSG_PLAYER_PLAY_ERROR="Sävellyksen toisto epäonnistui: %s"
+MSG_PLAYER_NO_COMPOSITIONS="Sävellyksiä ei löytynyt"
+MSG_PLAYER_ADDED_TO_PLAYLIST="Lisätty soittolistaan: %s"
+MSG_PLAYER_REMOVED_FROM_PLAYLIST="Poistettu soittolistasta: %s"

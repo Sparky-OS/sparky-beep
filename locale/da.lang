@@ -197,3 +197,122 @@ MSG_VERSION="Sparky Beep version %s"
 MSG_COPYRIGHT="Copyright (C) 2018-2025 Paweł Pijanowski & Bidragydere"
 MSG_LICENSE="Licenseret under GNU GPL v3"
 MSG_WEBSITE="https://github.com/sparkylinux/sparky-beep"
+
+# Composer - Main Menu
+MSG_COMPOSER_TITLE="Musikkomponist"
+MSG_COMPOSER_SUBTITLE="Opret beep-musikkompositioner"
+MSG_COMPOSER_NEW="Ny komposition"
+MSG_COMPOSER_OPEN="Åbn komposition"
+MSG_COMPOSER_SAVE="Gem komposition"
+MSG_COMPOSER_SAVE_AS="Gem som..."
+MSG_COMPOSER_PLAY="Afspil komposition"
+MSG_COMPOSER_EXPORT="Eksporter til script"
+MSG_COMPOSER_IMPORT="Importer fra fil"
+MSG_COMPOSER_CLEAR="Ryd komposition"
+
+# Composer - Editor
+MSG_COMPOSER_EDITOR_TITLE="Kompositionseditor"
+MSG_COMPOSER_ADD_NOTE="Tilføj node"
+MSG_COMPOSER_ADD_REST="Tilføj pause"
+MSG_COMPOSER_DELETE_NOTE="Slet node"
+MSG_COMPOSER_EDIT_NOTE="Rediger node"
+MSG_COMPOSER_SET_TEMPO="Indstil tempo"
+MSG_COMPOSER_CURRENT_TEMPO="Nuværende tempo: %d BPM"
+MSG_COMPOSER_INSERT="Indsæt"
+MSG_COMPOSER_APPEND="Tilføj"
+MSG_COMPOSER_MOVE_UP="Flyt op"
+MSG_COMPOSER_MOVE_DOWN="Flyt ned"
+
+# Composer - Note Selection
+MSG_COMPOSER_NOTE_SELECT="Vælg node"
+MSG_COMPOSER_NOTE_LABEL="Node:"
+MSG_COMPOSER_OCTAVE_LABEL="Oktav:"
+MSG_COMPOSER_DURATION_LABEL="Varighed:"
+MSG_COMPOSER_DURATION_WHOLE="Hel node"
+MSG_COMPOSER_DURATION_HALF="Halv node"
+MSG_COMPOSER_DURATION_QUARTER="Kvart node"
+MSG_COMPOSER_DURATION_EIGHTH="Ottendedels node"
+MSG_COMPOSER_DURATION_SIXTEENTH="Sekstendedels node"
+MSG_COMPOSER_PREVIEW_NOTE="Forhåndsvis node"
+
+# Composer - File Operations
+MSG_COMPOSER_FILENAME="Filnavn:"
+MSG_COMPOSER_DESCRIPTION="Beskrivelse:"
+MSG_COMPOSER_CATEGORY="Kategori:"
+MSG_COMPOSER_FILE_EXISTS="Fil eksisterer allerede. Overskriv?"
+MSG_COMPOSER_UNSAVED_CHANGES="Du har ikke-gemte ændringer. Fortsæt?"
+MSG_COMPOSER_LOAD_SUCCESS="Komposition indlæst: %s"
+MSG_COMPOSER_SAVE_SUCCESS="Komposition gemt: %s"
+MSG_COMPOSER_EXPORT_SUCCESS="Eksporteret til: %s"
+
+# Composer - Playback
+MSG_COMPOSER_PLAYING="Afspiller komposition..."
+MSG_COMPOSER_STOPPED="Afspilning stoppet"
+MSG_COMPOSER_PAUSED="Afspilning sat på pause"
+MSG_COMPOSER_EMPTY="Komposition er tom"
+
+# Player - Main Menu
+MSG_PLAYER_TITLE="Musikafspiller"
+MSG_PLAYER_SUBTITLE="Afspil beep-musikkompositioner"
+MSG_PLAYER_BROWSE="Gennemse kompositioner"
+MSG_PLAYER_PLAYLIST="Administrer afspilningsliste"
+MSG_PLAYER_NOW_PLAYING="Spiller nu"
+MSG_PLAYER_SETTINGS="Afspillerindstillinger"
+
+# Player - Playback Controls
+MSG_PLAYER_PLAY="Afspil"
+MSG_PLAYER_PAUSE="Pause"
+MSG_PLAYER_STOP="Stop"
+MSG_PLAYER_NEXT="Næste"
+MSG_PLAYER_PREVIOUS="Forrige"
+MSG_PLAYER_REPEAT="Gentag"
+MSG_PLAYER_SHUFFLE="Bland"
+MSG_PLAYER_REPEAT_OFF="Gentag: Fra"
+MSG_PLAYER_REPEAT_ONE="Gentag: Én"
+MSG_PLAYER_REPEAT_ALL="Gentag: Alle"
+MSG_PLAYER_SHUFFLE_OFF="Bland: Fra"
+MSG_PLAYER_SHUFFLE_ON="Bland: Til"
+
+# Player - Composition Browser
+MSG_PLAYER_BROWSER_TITLE="Gennemse kompositioner"
+MSG_PLAYER_CATEGORY_ALL="Alle kompositioner"
+MSG_PLAYER_CATEGORY_BUILTIN="Indbyggede melodier"
+MSG_PLAYER_CATEGORY_SYSTEM="Systemlyde"
+MSG_PLAYER_CATEGORY_MUSICAL="Musikstykker"
+MSG_PLAYER_CATEGORY_USER="Brugerkompositioner"
+MSG_PLAYER_FILTER="Filter:"
+MSG_PLAYER_SORT_NAME="Sorter efter navn"
+MSG_PLAYER_SORT_DATE="Sorter efter dato"
+MSG_PLAYER_SORT_CATEGORY="Sorter efter kategori"
+
+# Player - Playlist
+MSG_PLAYER_PLAYLIST_TITLE="Administration af afspilningsliste"
+MSG_PLAYER_PLAYLIST_EMPTY="Afspilningsliste er tom"
+MSG_PLAYER_PLAYLIST_ADD="Tilføj til afspilningsliste"
+MSG_PLAYER_PLAYLIST_REMOVE="Fjern fra afspilningsliste"
+MSG_PLAYER_PLAYLIST_CLEAR="Ryd afspilningsliste"
+MSG_PLAYER_PLAYLIST_SAVE="Gem afspilningsliste"
+MSG_PLAYER_PLAYLIST_LOAD="Indlæs afspilningsliste"
+MSG_PLAYER_PLAYLIST_ITEMS="%d elementer i afspilningsliste"
+
+# Player - Now Playing
+MSG_PLAYER_NP_TITLE="Spiller nu: %s"
+MSG_PLAYER_NP_COMPOSER="Komponist: %s"
+MSG_PLAYER_NP_CATEGORY="Kategori: %s"
+MSG_PLAYER_NP_DURATION="Varighed: %s"
+MSG_PLAYER_NP_TEMPO="Tempo: %d BPM"
+MSG_PLAYER_NP_NOTES="%d noder"
+MSG_PLAYER_NP_NOTHING="Intet afspilles"
+
+# Player - Settings
+MSG_PLAYER_SETTINGS_TITLE="Afspillerindstillinger"
+MSG_PLAYER_AUTO_PLAY="Afspil automatisk næste"
+MSG_PLAYER_SHOW_NOTIFICATIONS="Vis notifikationer"
+MSG_PLAYER_DEFAULT_TEMPO="Standardtempo: %d BPM"
+
+# Player - Messages
+MSG_PLAYER_LOAD_ERROR="Kunne ikke indlæse komposition: %s"
+MSG_PLAYER_PLAY_ERROR="Kunne ikke afspille komposition: %s"
+MSG_PLAYER_NO_COMPOSITIONS="Ingen kompositioner fundet"
+MSG_PLAYER_ADDED_TO_PLAYLIST="Tilføjet til afspilningsliste: %s"
+MSG_PLAYER_REMOVED_FROM_PLAYLIST="Fjernet fra afspilningsliste: %s"

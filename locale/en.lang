@@ -197,3 +197,122 @@ MSG_VERSION="Sparky Beep version %s"
 MSG_COPYRIGHT="Copyright (C) 2018-2025 Paweł Pijanowski & Contributors"
 MSG_LICENSE="Licensed under GNU GPL v3"
 MSG_WEBSITE="https://github.com/sparkylinux/sparky-beep"
+
+# Composer - Main Menu
+MSG_COMPOSER_TITLE="Music Composer"
+MSG_COMPOSER_SUBTITLE="Create beep music compositions"
+MSG_COMPOSER_NEW="New Composition"
+MSG_COMPOSER_OPEN="Open Composition"
+MSG_COMPOSER_SAVE="Save Composition"
+MSG_COMPOSER_SAVE_AS="Save As..."
+MSG_COMPOSER_PLAY="Play Composition"
+MSG_COMPOSER_EXPORT="Export to Script"
+MSG_COMPOSER_IMPORT="Import from File"
+MSG_COMPOSER_CLEAR="Clear Composition"
+
+# Composer - Editor
+MSG_COMPOSER_EDITOR_TITLE="Composition Editor"
+MSG_COMPOSER_ADD_NOTE="Add Note"
+MSG_COMPOSER_ADD_REST="Add Rest"
+MSG_COMPOSER_DELETE_NOTE="Delete Note"
+MSG_COMPOSER_EDIT_NOTE="Edit Note"
+MSG_COMPOSER_SET_TEMPO="Set Tempo"
+MSG_COMPOSER_CURRENT_TEMPO="Current Tempo: %d BPM"
+MSG_COMPOSER_INSERT="Insert"
+MSG_COMPOSER_APPEND="Append"
+MSG_COMPOSER_MOVE_UP="Move Up"
+MSG_COMPOSER_MOVE_DOWN="Move Down"
+
+# Composer - Note Selection
+MSG_COMPOSER_NOTE_SELECT="Select Note"
+MSG_COMPOSER_NOTE_LABEL="Note:"
+MSG_COMPOSER_OCTAVE_LABEL="Octave:"
+MSG_COMPOSER_DURATION_LABEL="Duration:"
+MSG_COMPOSER_DURATION_WHOLE="Whole Note"
+MSG_COMPOSER_DURATION_HALF="Half Note"
+MSG_COMPOSER_DURATION_QUARTER="Quarter Note"
+MSG_COMPOSER_DURATION_EIGHTH="Eighth Note"
+MSG_COMPOSER_DURATION_SIXTEENTH="Sixteenth Note"
+MSG_COMPOSER_PREVIEW_NOTE="Preview Note"
+
+# Composer - File Operations
+MSG_COMPOSER_FILENAME="File Name:"
+MSG_COMPOSER_DESCRIPTION="Description:"
+MSG_COMPOSER_CATEGORY="Category:"
+MSG_COMPOSER_FILE_EXISTS="File already exists. Overwrite?"
+MSG_COMPOSER_UNSAVED_CHANGES="You have unsaved changes. Continue?"
+MSG_COMPOSER_LOAD_SUCCESS="Composition loaded: %s"
+MSG_COMPOSER_SAVE_SUCCESS="Composition saved: %s"
+MSG_COMPOSER_EXPORT_SUCCESS="Exported to: %s"
+
+# Composer - Playback
+MSG_COMPOSER_PLAYING="Playing composition..."
+MSG_COMPOSER_STOPPED="Playback stopped"
+MSG_COMPOSER_PAUSED="Playback paused"
+MSG_COMPOSER_EMPTY="Composition is empty"
+
+# Player - Main Menu
+MSG_PLAYER_TITLE="Music Player"
+MSG_PLAYER_SUBTITLE="Play beep music compositions"
+MSG_PLAYER_BROWSE="Browse Compositions"
+MSG_PLAYER_PLAYLIST="Manage Playlist"
+MSG_PLAYER_NOW_PLAYING="Now Playing"
+MSG_PLAYER_SETTINGS="Player Settings"
+
+# Player - Playback Controls
+MSG_PLAYER_PLAY="Play"
+MSG_PLAYER_PAUSE="Pause"
+MSG_PLAYER_STOP="Stop"
+MSG_PLAYER_NEXT="Next"
+MSG_PLAYER_PREVIOUS="Previous"
+MSG_PLAYER_REPEAT="Repeat"
+MSG_PLAYER_SHUFFLE="Shuffle"
+MSG_PLAYER_REPEAT_OFF="Repeat: Off"
+MSG_PLAYER_REPEAT_ONE="Repeat: One"
+MSG_PLAYER_REPEAT_ALL="Repeat: All"
+MSG_PLAYER_SHUFFLE_OFF="Shuffle: Off"
+MSG_PLAYER_SHUFFLE_ON="Shuffle: On"
+
+# Player - Composition Browser
+MSG_PLAYER_BROWSER_TITLE="Browse Compositions"
+MSG_PLAYER_CATEGORY_ALL="All Compositions"
+MSG_PLAYER_CATEGORY_BUILTIN="Built-in Tunes"
+MSG_PLAYER_CATEGORY_SYSTEM="System Sounds"
+MSG_PLAYER_CATEGORY_MUSICAL="Musical Pieces"
+MSG_PLAYER_CATEGORY_USER="User Compositions"
+MSG_PLAYER_FILTER="Filter:"
+MSG_PLAYER_SORT_NAME="Sort by Name"
+MSG_PLAYER_SORT_DATE="Sort by Date"
+MSG_PLAYER_SORT_CATEGORY="Sort by Category"
+
+# Player - Playlist
+MSG_PLAYER_PLAYLIST_TITLE="Playlist Management"
+MSG_PLAYER_PLAYLIST_EMPTY="Playlist is empty"
+MSG_PLAYER_PLAYLIST_ADD="Add to Playlist"
+MSG_PLAYER_PLAYLIST_REMOVE="Remove from Playlist"
+MSG_PLAYER_PLAYLIST_CLEAR="Clear Playlist"
+MSG_PLAYER_PLAYLIST_SAVE="Save Playlist"
+MSG_PLAYER_PLAYLIST_LOAD="Load Playlist"
+MSG_PLAYER_PLAYLIST_ITEMS="%d items in playlist"
+
+# Player - Now Playing
+MSG_PLAYER_NP_TITLE="Now Playing: %s"
+MSG_PLAYER_NP_COMPOSER="Composer: %s"
+MSG_PLAYER_NP_CATEGORY="Category: %s"
+MSG_PLAYER_NP_DURATION="Duration: %s"
+MSG_PLAYER_NP_TEMPO="Tempo: %d BPM"
+MSG_PLAYER_NP_NOTES="%d notes"
+MSG_PLAYER_NP_NOTHING="Nothing playing"
+
+# Player - Settings
+MSG_PLAYER_SETTINGS_TITLE="Player Settings"
+MSG_PLAYER_AUTO_PLAY="Auto-play next"
+MSG_PLAYER_SHOW_NOTIFICATIONS="Show notifications"
+MSG_PLAYER_DEFAULT_TEMPO="Default tempo: %d BPM"
+
+# Player - Messages
+MSG_PLAYER_LOAD_ERROR="Failed to load composition: %s"
+MSG_PLAYER_PLAY_ERROR="Failed to play composition: %s"
+MSG_PLAYER_NO_COMPOSITIONS="No compositions found"
+MSG_PLAYER_ADDED_TO_PLAYLIST="Added to playlist: %s"
+MSG_PLAYER_REMOVED_FROM_PLAYLIST="Removed from playlist: %s"

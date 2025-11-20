@@ -197,3 +197,122 @@ MSG_VERSION="Sparky Beep wersja %s"
 MSG_COPYRIGHT="Copyright (C) 2018-2025 Paweł Pijanowski i Współtwórcy"
 MSG_LICENSE="Licencjonowane pod GNU GPL v3"
 MSG_WEBSITE="https://github.com/sparkylinux/sparky-beep"
+
+# Composer - Main Menu
+MSG_COMPOSER_TITLE="Kompozytor Muzyczny"
+MSG_COMPOSER_SUBTITLE="Twórz kompozycje muzyczne z dźwiękami beep"
+MSG_COMPOSER_NEW="Nowa Kompozycja"
+MSG_COMPOSER_OPEN="Otwórz Kompozycję"
+MSG_COMPOSER_SAVE="Zapisz Kompozycję"
+MSG_COMPOSER_SAVE_AS="Zapisz jako..."
+MSG_COMPOSER_PLAY="Odtwórz Kompozycję"
+MSG_COMPOSER_EXPORT="Eksportuj do Skryptu"
+MSG_COMPOSER_IMPORT="Importuj z Pliku"
+MSG_COMPOSER_CLEAR="Wyczyść Kompozycję"
+
+# Composer - Editor
+MSG_COMPOSER_EDITOR_TITLE="Edytor Kompozycji"
+MSG_COMPOSER_ADD_NOTE="Dodaj Nutę"
+MSG_COMPOSER_ADD_REST="Dodaj Pauzę"
+MSG_COMPOSER_DELETE_NOTE="Usuń Nutę"
+MSG_COMPOSER_EDIT_NOTE="Edytuj Nutę"
+MSG_COMPOSER_SET_TEMPO="Ustaw Tempo"
+MSG_COMPOSER_CURRENT_TEMPO="Aktualne Tempo: %d BPM"
+MSG_COMPOSER_INSERT="Wstaw"
+MSG_COMPOSER_APPEND="Dołącz"
+MSG_COMPOSER_MOVE_UP="Przenieś w Górę"
+MSG_COMPOSER_MOVE_DOWN="Przenieś w Dół"
+
+# Composer - Note Selection
+MSG_COMPOSER_NOTE_SELECT="Wybierz Nutę"
+MSG_COMPOSER_NOTE_LABEL="Nuta:"
+MSG_COMPOSER_OCTAVE_LABEL="Oktawa:"
+MSG_COMPOSER_DURATION_LABEL="Czas trwania:"
+MSG_COMPOSER_DURATION_WHOLE="Cała Nuta"
+MSG_COMPOSER_DURATION_HALF="Półnuta"
+MSG_COMPOSER_DURATION_QUARTER="Ćwierćnuta"
+MSG_COMPOSER_DURATION_EIGHTH="Ósemka"
+MSG_COMPOSER_DURATION_SIXTEENTH="Szesnastka"
+MSG_COMPOSER_PREVIEW_NOTE="Podgląd Nuty"
+
+# Composer - File Operations
+MSG_COMPOSER_FILENAME="Nazwa Pliku:"
+MSG_COMPOSER_DESCRIPTION="Opis:"
+MSG_COMPOSER_CATEGORY="Kategoria:"
+MSG_COMPOSER_FILE_EXISTS="Plik już istnieje. Nadpisać?"
+MSG_COMPOSER_UNSAVED_CHANGES="Masz niezapisane zmiany. Kontynuować?"
+MSG_COMPOSER_LOAD_SUCCESS="Wczytano kompozycję: %s"
+MSG_COMPOSER_SAVE_SUCCESS="Zapisano kompozycję: %s"
+MSG_COMPOSER_EXPORT_SUCCESS="Wyeksportowano do: %s"
+
+# Composer - Playback
+MSG_COMPOSER_PLAYING="Odtwarzanie kompozycji..."
+MSG_COMPOSER_STOPPED="Odtwarzanie zatrzymane"
+MSG_COMPOSER_PAUSED="Odtwarzanie wstrzymane"
+MSG_COMPOSER_EMPTY="Kompozycja jest pusta"
+
+# Player - Main Menu
+MSG_PLAYER_TITLE="Odtwarzacz Muzyki"
+MSG_PLAYER_SUBTITLE="Odtwarzaj kompozycje muzyczne z dźwiękami beep"
+MSG_PLAYER_BROWSE="Przeglądaj Kompozycje"
+MSG_PLAYER_PLAYLIST="Zarządzaj Playlistą"
+MSG_PLAYER_NOW_PLAYING="Teraz Odtwarzane"
+MSG_PLAYER_SETTINGS="Ustawienia Odtwarzacza"
+
+# Player - Playback Controls
+MSG_PLAYER_PLAY="Odtwórz"
+MSG_PLAYER_PAUSE="Pauza"
+MSG_PLAYER_STOP="Stop"
+MSG_PLAYER_NEXT="Następny"
+MSG_PLAYER_PREVIOUS="Poprzedni"
+MSG_PLAYER_REPEAT="Powtórz"
+MSG_PLAYER_SHUFFLE="Losowo"
+MSG_PLAYER_REPEAT_OFF="Powtarzanie: Wył"
+MSG_PLAYER_REPEAT_ONE="Powtarzanie: Jeden"
+MSG_PLAYER_REPEAT_ALL="Powtarzanie: Wszystkie"
+MSG_PLAYER_SHUFFLE_OFF="Losowo: Wył"
+MSG_PLAYER_SHUFFLE_ON="Losowo: Wł"
+
+# Player - Composition Browser
+MSG_PLAYER_BROWSER_TITLE="Przeglądaj Kompozycje"
+MSG_PLAYER_CATEGORY_ALL="Wszystkie Kompozycje"
+MSG_PLAYER_CATEGORY_BUILTIN="Wbudowane Melodie"
+MSG_PLAYER_CATEGORY_SYSTEM="Dźwięki Systemowe"
+MSG_PLAYER_CATEGORY_MUSICAL="Utwory Muzyczne"
+MSG_PLAYER_CATEGORY_USER="Kompozycje Użytkownika"
+MSG_PLAYER_FILTER="Filtr:"
+MSG_PLAYER_SORT_NAME="Sortuj według Nazwy"
+MSG_PLAYER_SORT_DATE="Sortuj według Daty"
+MSG_PLAYER_SORT_CATEGORY="Sortuj według Kategorii"
+
+# Player - Playlist
+MSG_PLAYER_PLAYLIST_TITLE="Zarządzanie Playlistą"
+MSG_PLAYER_PLAYLIST_EMPTY="Playlista jest pusta"
+MSG_PLAYER_PLAYLIST_ADD="Dodaj do Playlisty"
+MSG_PLAYER_PLAYLIST_REMOVE="Usuń z Playlisty"
+MSG_PLAYER_PLAYLIST_CLEAR="Wyczyść Playlistę"
+MSG_PLAYER_PLAYLIST_SAVE="Zapisz Playlistę"
+MSG_PLAYER_PLAYLIST_LOAD="Wczytaj Playlistę"
+MSG_PLAYER_PLAYLIST_ITEMS="%d elementów na playliście"
+
+# Player - Now Playing
+MSG_PLAYER_NP_TITLE="Teraz Odtwarzane: %s"
+MSG_PLAYER_NP_COMPOSER="Kompozytor: %s"
+MSG_PLAYER_NP_CATEGORY="Kategoria: %s"
+MSG_PLAYER_NP_DURATION="Czas trwania: %s"
+MSG_PLAYER_NP_TEMPO="Tempo: %d BPM"
+MSG_PLAYER_NP_NOTES="%d nut"
+MSG_PLAYER_NP_NOTHING="Nic nie jest odtwarzane"
+
+# Player - Settings
+MSG_PLAYER_SETTINGS_TITLE="Ustawienia Odtwarzacza"
+MSG_PLAYER_AUTO_PLAY="Automatycznie odtwórz następny"
+MSG_PLAYER_SHOW_NOTIFICATIONS="Pokazuj powiadomienia"
+MSG_PLAYER_DEFAULT_TEMPO="Domyślne tempo: %d BPM"
+
+# Player - Messages
+MSG_PLAYER_LOAD_ERROR="Nie udało się wczytać kompozycji: %s"
+MSG_PLAYER_PLAY_ERROR="Nie udało się odtworzyć kompozycji: %s"
+MSG_PLAYER_NO_COMPOSITIONS="Nie znaleziono kompozycji"
+MSG_PLAYER_ADDED_TO_PLAYLIST="Dodano do playlisty: %s"
+MSG_PLAYER_REMOVED_FROM_PLAYLIST="Usunięto z playlisty: %s"
