@@ -1,0 +1,14 @@
+# Japanese (日本語) translations for Sparky Beep
+# Author: Sparky Beep Contributors
+# Last updated: 2025-01-20
+
+# Service status messages
+MSG_SERVICE_ACTIVE="%s サービスは稼働中です..."
+MSG_SERVICE_NOT_ACTIVE="%s サービスは稼働していません..."
+MSG_SPARKY_STARTED="sparky-beep 起動しました"
+
+# Usage messages
+MSG_USAGE_BEEP_SYS="使い方: /etc/init.d/beep_sys {start|stop|restart}"
+MSG_USAGE_BEEP_NETDATA="使い方: /etc/init.d/beep_netdata {start|stop|restart}"
+MSG_USAGE_BEEP_SAMBA="使い方: /etc/init.d/beep_samba {start|stop|restart}"
+MSG_USAGE_BEEP_WEBMIN="使い方: /etc/init.d/beep_webmin {start|stop|restart}"

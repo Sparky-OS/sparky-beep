@@ -1,0 +1,14 @@
+# English translations for Sparky Beep
+# Author: Sparky Beep Contributors
+# Last updated: 2025-01-20
+
+# Service status messages
+MSG_SERVICE_ACTIVE="%s service is active..."
+MSG_SERVICE_NOT_ACTIVE="%s service is NOT active..."
+MSG_SPARKY_STARTED="sparky-beep started"
+
+# Usage messages
+MSG_USAGE_BEEP_SYS="Use: /etc/init.d/beep_sys {start|stop|restart}"
+MSG_USAGE_BEEP_NETDATA="Use: /etc/init.d/beep_netdata {start|stop|restart}"
+MSG_USAGE_BEEP_SAMBA="Use: /etc/init.d/beep_samba {start|stop|restart}"
+MSG_USAGE_BEEP_WEBMIN="Use: /etc/init.d/beep_webmin {start|stop|restart}"

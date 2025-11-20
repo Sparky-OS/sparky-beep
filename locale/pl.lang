@@ -1,0 +1,14 @@
+# Polish (Polski) translations for Sparky Beep
+# Author: Paweł Pijanowski and Sparky Beep Contributors
+# Last updated: 2025-01-20
+
+# Service status messages
+MSG_SERVICE_ACTIVE="usługa %s jest aktywna..."
+MSG_SERVICE_NOT_ACTIVE="usługa %s NIE jest aktywna..."
+MSG_SPARKY_STARTED="sparky-beep uruchomiony"
+
+# Usage messages
+MSG_USAGE_BEEP_SYS="Użycie: /etc/init.d/beep_sys {start|stop|restart}"
+MSG_USAGE_BEEP_NETDATA="Użycie: /etc/init.d/beep_netdata {start|stop|restart}"
+MSG_USAGE_BEEP_SAMBA="Użycie: /etc/init.d/beep_samba {start|stop|restart}"
+MSG_USAGE_BEEP_WEBMIN="Użycie: /etc/init.d/beep_webmin {start|stop|restart}"
