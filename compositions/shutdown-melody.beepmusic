@@ -1,0 +1,10 @@
+# System Shutdown Melody
+# Gentle descending melody for system shutdown
+# Tempo: 90 BPM (slower, calming)
+
+tempo:90
+
+# Descending melody
+C5q G4q E4q C4h
+r:q
+C5e G4e E4e C4w

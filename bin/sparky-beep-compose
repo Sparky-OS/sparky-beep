@@ -1,0 +1,348 @@
+#!/bin/bash
+#
+# Sparky Beep Composer
+# Translates musical notation to beep commands
+# Supports both binary and ternary beep modes
+# last update 2025/11/20 by AI Assistant
+#
+
+# Source the notes library
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+LIB_DIR="$(dirname "$SCRIPT_DIR")/lib"
+
+if [ -f "$LIB_DIR/notes.sh" ]; then
+    source "$LIB_DIR/notes.sh"
+else
+    echo "ERROR: Cannot find notes library at $LIB_DIR/notes.sh" >&2
+    exit 1
+fi
+
+# Load configuration
+CONFIG_FILE="/etc/sparky-beep/beep.conf"
+if [ -f "$CONFIG_FILE" ]; then
+    source "$CONFIG_FILE"
+fi
+
+# Default configuration
+BEEP_MODE="${BEEP_MODE:-binary}"  # binary or ternary
+BEEP_COMMAND="${BEEP_COMMAND:-beep}"  # beep or tbeep
+DEFAULT_TEMPO="${DEFAULT_TEMPO:-120}"  # BPM
+DEFAULT_OCTAVE="${DEFAULT_OCTAVE:-4}"  # Middle octave
+
+# Set default tempo
+set_tempo_bpm "$DEFAULT_TEMPO" 2>/dev/null || true
+
+#
+# Function: show_usage
+# Description: Display usage information
+#
+show_usage() {
+    cat << EOF
+Sparky Beep Composer - Musical notation to beep command translator
+
+USAGE:
+    sparky-beep-compose [OPTIONS] <notation_file>
+    sparky-beep-compose [OPTIONS] -e "<notation_string>"
+
+OPTIONS:
+    -h, --help              Show this help message
+    -e, --execute           Execute the composition immediately
+    -s, --string "<notes>"  Compose from string instead of file
+    -t, --tempo <bpm>       Set tempo in BPM (default: 120)
+    -m, --mode <mode>       Set beep mode: binary or ternary (default: binary)
+    -o, --output <file>     Output beep commands to file instead of stdout
+    -p, --play              Play the composition after generating
+    -d, --dry-run           Show generated beep commands without playing
+
+NOTATION FORMAT:
+    Notes: C4, D4, E4, F#4, Gb5, etc.
+    Durations: w (whole), h (half), q (quarter), e (eighth), s (sixteenth)
+    Rests: r (rest)
+    Tempo: tempo:120 (sets BPM)
+    Comments: # This is a comment
+
+    Format: <note><duration> or <note>:<duration>
+    Examples:
+        C4q     # C4 quarter note
+        C4:q    # C4 quarter note (alternate syntax)
+        D4h     # D4 half note
+        r:q     # Quarter rest
+        tempo:140  # Set tempo to 140 BPM
+
+COMPOSITION FILE EXAMPLE:
+    # Happy Birthday
+    tempo:120
+    C4q C4e D4h C4h F4h E4w
+    C4q C4e D4h C4h G4h F4w
+    C4q C4e C5h A4h F4q E4q D4w
+    Bb4q Bb4e A4h F4h G4h F4w
+
+INLINE EXAMPLES:
+    # Play C major scale
+    sparky-beep-compose -s "C4q D4q E4q F4q G4q A4q B4q C5q" -p
+
+    # Play with different tempo
+    sparky-beep-compose -s "tempo:80 C4h D4h E4h F4h" -p
+
+    # Generate beep commands to file
+    sparky-beep-compose -s "C4q E4q G4q" -o /tmp/chord.beep
+
+BEEP MODES:
+    binary   - Standard beep (square waves, harsh sound)
+    ternary  - Ternary beep (smoother, more musical sound) [requires tbeep]
+
+EOF
+}
+
+#
+# Function: parse_composition
+# Description: Parse composition notation and generate beep commands
+# Usage: parse_composition "<composition_string>"
+# Returns: Beep command string
+#
+parse_composition() {
+    local composition="$1"
+    local beep_cmd=""
+    local current_octave="$DEFAULT_OCTAVE"
+    local current_tempo="$DEFAULT_TEMPO"
+
+    # Remove comments and extra whitespace
+    composition=$(echo "$composition" | sed 's/#.*$//' | tr '\n' ' ' | sed 's/  */ /g')
+
+    # Parse each token
+    for token in $composition; do
+        # Skip empty tokens
+        [ -z "$token" ] && continue
+
+        # Check for tempo directive
+        if [[ "$token" =~ ^tempo:([0-9]+)$ ]]; then
+            current_tempo="${BASH_REMATCH[1]}"
+            set_tempo_bpm "$current_tempo"
+            continue
+        fi
+
+        # Check for octave directive
+        if [[ "$token" =~ ^octave:([0-8])$ ]]; then
+            current_octave="${BASH_REMATCH[1]}"
+            continue
+        fi
+
+        # Parse note or rest
+        if [[ "$token" =~ ^([A-G][#b]?[0-9])([whqes]|whole|half|quarter|eighth|sixteenth)$ ]] || \
+           [[ "$token" =~ ^([A-G][#b]?[0-9]):([whqes]|whole|half|quarter|eighth|sixteenth)$ ]]; then
+            # Note with duration
+            local note_str="${BASH_REMATCH[1]}"
+            local duration_type="${BASH_REMATCH[2]}"
+
+            # Parse note and octave
+            local note_parts=$(parse_note "$note_str")
+            if [ $? -ne 0 ]; then
+                echo "ERROR: Failed to parse note '$note_str'" >&2
+                continue
+            fi
+
+            local note=$(echo "$note_parts" | cut -d' ' -f1)
+            local octave=$(echo "$note_parts" | cut -d' ' -f2)
+
+            # Get frequency
+            local freq=$(get_note_frequency "$note" "$octave")
+            if [ $? -ne 0 ]; then
+                echo "ERROR: Failed to get frequency for $note$octave" >&2
+                continue
+            fi
+
+            # Get duration
+            local duration=$(get_note_duration "$duration_type")
+            if [ $? -ne 0 ]; then
+                echo "ERROR: Failed to get duration for '$duration_type'" >&2
+                continue
+            fi
+
+            # Round frequency to integer
+            freq=$(echo "$freq" | cut -d. -f1)
+
+            # Add to beep command
+            if [ -z "$beep_cmd" ]; then
+                beep_cmd="-f $freq -l $duration"
+            else
+                beep_cmd="$beep_cmd -n -f $freq -l $duration"
+            fi
+
+        elif [[ "$token" =~ ^r:?([whqes]|whole|half|quarter|eighth|sixteenth)$ ]]; then
+            # Rest with duration
+            local duration_type="${BASH_REMATCH[1]}"
+
+            # Get duration
+            local duration=$(get_rest_duration "$duration_type")
+            if [ $? -ne 0 ]; then
+                echo "ERROR: Failed to get rest duration for '$duration_type'" >&2
+                continue
+            fi
+
+            # Add silence (very low frequency, essentially a delay)
+            # Using -D (delay after) instead of actual beep for rests
+            if [ -z "$beep_cmd" ]; then
+                beep_cmd="-f 1 -l 1 -D $duration"
+            else
+                beep_cmd="$beep_cmd -n -f 1 -l 1 -D $duration"
+            fi
+
+        else
+            echo "WARNING: Unrecognized token '$token', skipping" >&2
+        fi
+    done
+
+    echo "$beep_cmd"
+}
+
+#
+# Function: compose_from_file
+# Description: Read composition from file and generate beep commands
+# Usage: compose_from_file <filename>
+#
+compose_from_file() {
+    local filename="$1"
+
+    if [ ! -f "$filename" ]; then
+        echo "ERROR: Composition file '$filename' not found" >&2
+        return 1
+    fi
+
+    local composition=$(cat "$filename")
+    parse_composition "$composition"
+}
+
+#
+# Function: play_composition
+# Description: Execute beep commands
+# Usage: play_composition "<beep_command_string>"
+#
+play_composition() {
+    local beep_cmd="$1"
+
+    if [ -z "$beep_cmd" ]; then
+        echo "ERROR: No beep commands to play" >&2
+        return 1
+    fi
+
+    # Execute the beep command
+    if [ "$BEEP_MODE" = "ternary" ] && command -v tbeep >/dev/null 2>&1; then
+        eval "tbeep $beep_cmd"
+    else
+        eval "$BEEP_COMMAND $beep_cmd"
+    fi
+}
+
+#
+# Main program
+#
+main() {
+    local composition_string=""
+    local composition_file=""
+    local output_file=""
+    local do_play=false
+    local dry_run=false
+    local custom_tempo=""
+    local custom_mode=""
+
+    # Parse command line arguments
+    while [ $# -gt 0 ]; do
+        case "$1" in
+            -h|--help)
+                show_usage
+                exit 0
+                ;;
+            -s|--string)
+                composition_string="$2"
+                shift 2
+                ;;
+            -t|--tempo)
+                custom_tempo="$2"
+                shift 2
+                ;;
+            -m|--mode)
+                custom_mode="$2"
+                shift 2
+                ;;
+            -o|--output)
+                output_file="$2"
+                shift 2
+                ;;
+            -p|--play)
+                do_play=true
+                shift
+                ;;
+            -d|--dry-run)
+                dry_run=true
+                shift
+                ;;
+            -e|--execute)
+                do_play=true
+                shift
+                ;;
+            -*)
+                echo "ERROR: Unknown option '$1'" >&2
+                show_usage
+                exit 1
+                ;;
+            *)
+                composition_file="$1"
+                shift
+                ;;
+        esac
+    done
+
+    # Set custom tempo if provided
+    if [ -n "$custom_tempo" ]; then
+        set_tempo_bpm "$custom_tempo"
+    fi
+
+    # Set custom mode if provided
+    if [ -n "$custom_mode" ]; then
+        BEEP_MODE="$custom_mode"
+    fi
+
+    # Validate input
+    if [ -z "$composition_string" ] && [ -z "$composition_file" ]; then
+        echo "ERROR: No composition provided. Use -s for string or provide a file." >&2
+        show_usage
+        exit 1
+    fi
+
+    # Generate beep commands
+    local beep_commands=""
+    if [ -n "$composition_string" ]; then
+        beep_commands=$(parse_composition "$composition_string")
+    else
+        beep_commands=$(compose_from_file "$composition_file")
+    fi
+
+    if [ -z "$beep_commands" ]; then
+        echo "ERROR: Failed to generate beep commands" >&2
+        exit 1
+    fi
+
+    # Output or play
+    if [ "$dry_run" = true ]; then
+        echo "# Generated beep commands (mode: $BEEP_MODE):"
+        echo "$BEEP_COMMAND $beep_commands"
+    elif [ -n "$output_file" ]; then
+        echo "#!/bin/bash" > "$output_file"
+        echo "# Generated by sparky-beep-compose" >> "$output_file"
+        echo "# Mode: $BEEP_MODE" >> "$output_file"
+        echo "$BEEP_COMMAND $beep_commands" >> "$output_file"
+        chmod +x "$output_file"
+        echo "Beep commands written to: $output_file"
+    else
+        echo "$BEEP_COMMAND $beep_commands"
+    fi
+
+    # Play if requested
+    if [ "$do_play" = true ] && [ "$dry_run" = false ]; then
+        echo "Playing composition (mode: $BEEP_MODE)..." >&2
+        play_composition "$beep_commands"
+    fi
+}
+
+# Run main program
+main "$@"

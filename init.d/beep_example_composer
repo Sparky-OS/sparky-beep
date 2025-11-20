@@ -1,0 +1,86 @@
+#!/bin/sh -e
+### BEGIN INIT INFO
+# Provides: beep_example_composer
+# Required-Start: $syslog
+# Required-Stop: $syslog
+# Required-Reload: $syslog
+# Default-Start: 2 3 4 5
+# Default-Stop:	0 1 6
+# Description: Example beep script using sparky-beep-compose
+#
+### END INIT INFO
+#
+# This is an example init script demonstrating how to use
+# the sparky-beep-compose system for creating musical
+# service notifications.
+#
+# Two approaches are shown:
+# 1. Using pre-made composition files
+# 2. Using inline musical notation
+#
+
+set -e
+
+# Check if composer is available
+if ! command -v sparky-beep-compose >/dev/null 2>&1; then
+	# Fallback to standard beep if composer not available
+	COMPOSER_AVAILABLE=0
+else
+	COMPOSER_AVAILABLE=1
+fi
+
+case "$1" in
+  start)
+	if [ "$COMPOSER_AVAILABLE" = "1" ]; then
+		# Method 1: Use pre-made composition file
+		# Plays the startup fanfare from compositions directory
+		COMPOSITION_FILE="/usr/share/sparky-beep/compositions/startup-fanfare.beepmusic"
+
+		if [ -f "$COMPOSITION_FILE" ]; then
+			# Generate and execute beep commands from composition
+			sparky-beep-compose "$COMPOSITION_FILE" -e
+		else
+			# Method 2: Use inline musical notation
+			# Create startup sound using inline notation
+			sparky-beep-compose -s "tempo:140 C4e E4e G4q C5e r:e C4e E4e G4q C5e r:e C5q G4q C5h" -e
+		fi
+	else
+		# Fallback: Standard beep for start
+		beep -f 600 -l 200 -n -f 800 -l 200 -n -f 1000 -l 300
+	fi
+	;;
+
+  stop)
+	if [ "$COMPOSER_AVAILABLE" = "1" ]; then
+		# Use pre-made composition for shutdown
+		COMPOSITION_FILE="/usr/share/sparky-beep/compositions/shutdown-melody.beepmusic"
+
+		if [ -f "$COMPOSITION_FILE" ]; then
+			sparky-beep-compose "$COMPOSITION_FILE" -e
+		else
+			# Inline: Descending melody for shutdown
+			sparky-beep-compose -s "tempo:90 C5q G4q E4q C4h r:q C5e G4e E4e C4w" -e
+		fi
+	else
+		# Fallback: Standard beep for stop
+		beep -f 1000 -l 200 -n -f 800 -l 200 -n -f 600 -l 300
+	fi
+	;;
+
+  restart)
+	if [ "$COMPOSER_AVAILABLE" = "1" ]; then
+		# Inline: Quick restart pattern
+		sparky-beep-compose -s "tempo:160 C4s E4s G4s C5s r:e C5s G4s E4s C4s" -e
+	else
+		# Fallback: Standard beep for restart
+		beep -f 600 -l 100 -n -f 800 -l 100 -n -f 1000 -l 100 -n -f 800 -l 100 -n -f 600 -l 100
+	fi
+	;;
+
+  *)
+	echo "Use: /etc/init.d/beep_example_composer {start|stop|restart}"
+	exit 1
+	;;
+esac
+
+exit 0

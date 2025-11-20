@@ -1,0 +1,14 @@
+# Super Mario Bros Theme (Simplified)
+# Iconic video game music
+# Tempo: 180 BPM (fast, energetic)
+
+tempo:180
+
+# Main theme
+E5s E5s r:s E5s r:s C5s E5s r:s
+G5q r:q G4q r:q
+
+# Variation
+C5q r:e G4q r:e
+E4q r:e A4q r:e B4q r:e
+Bb4e A4q
