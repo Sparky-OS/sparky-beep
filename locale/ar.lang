@@ -197,3 +197,122 @@ MSG_VERSION="Sparky Beep الإصدار %s"
 MSG_COPYRIGHT="حقوق النشر (C) 2018-2025 Paweł Pijanowski والمساهمون"
 MSG_LICENSE="مرخص بموجب GNU GPL v3"
 MSG_WEBSITE="https://github.com/sparkylinux/sparky-beep"
+
+# Composer - Main Menu
+MSG_COMPOSER_TITLE="مؤلف موسيقي"
+MSG_COMPOSER_SUBTITLE="إنشاء تركيبات موسيقية بالصفير"
+MSG_COMPOSER_NEW="تركيب جديد"
+MSG_COMPOSER_OPEN="فتح تركيب"
+MSG_COMPOSER_SAVE="حفظ التركيب"
+MSG_COMPOSER_SAVE_AS="حفظ باسم..."
+MSG_COMPOSER_PLAY="تشغيل التركيب"
+MSG_COMPOSER_EXPORT="تصدير إلى نص برمجي"
+MSG_COMPOSER_IMPORT="استيراد من ملف"
+MSG_COMPOSER_CLEAR="مسح التركيب"
+
+# Composer - Editor
+MSG_COMPOSER_EDITOR_TITLE="محرر التركيب"
+MSG_COMPOSER_ADD_NOTE="إضافة نغمة"
+MSG_COMPOSER_ADD_REST="إضافة سكتة"
+MSG_COMPOSER_DELETE_NOTE="حذف نغمة"
+MSG_COMPOSER_EDIT_NOTE="تعديل نغمة"
+MSG_COMPOSER_SET_TEMPO="تعيين الإيقاع"
+MSG_COMPOSER_CURRENT_TEMPO="الإيقاع الحالي: %d BPM"
+MSG_COMPOSER_INSERT="إدراج"
+MSG_COMPOSER_APPEND="إلحاق"
+MSG_COMPOSER_MOVE_UP="تحريك لأعلى"
+MSG_COMPOSER_MOVE_DOWN="تحريك لأسفل"
+
+# Composer - Note Selection
+MSG_COMPOSER_NOTE_SELECT="اختر نغمة"
+MSG_COMPOSER_NOTE_LABEL="النغمة:"
+MSG_COMPOSER_OCTAVE_LABEL="الديوان:"
+MSG_COMPOSER_DURATION_LABEL="المدة:"
+MSG_COMPOSER_DURATION_WHOLE="نغمة كاملة"
+MSG_COMPOSER_DURATION_HALF="نصف نغمة"
+MSG_COMPOSER_DURATION_QUARTER="ربع نغمة"
+MSG_COMPOSER_DURATION_EIGHTH="ثمن نغمة"
+MSG_COMPOSER_DURATION_SIXTEENTH="نغمة سدس عشر"
+MSG_COMPOSER_PREVIEW_NOTE="معاينة النغمة"
+
+# Composer - File Operations
+MSG_COMPOSER_FILENAME="اسم الملف:"
+MSG_COMPOSER_DESCRIPTION="الوصف:"
+MSG_COMPOSER_CATEGORY="الفئة:"
+MSG_COMPOSER_FILE_EXISTS="الملف موجود بالفعل. هل تريد الكتابة فوقه؟"
+MSG_COMPOSER_UNSAVED_CHANGES="لديك تغييرات غير محفوظة. هل تريد المتابعة؟"
+MSG_COMPOSER_LOAD_SUCCESS="تم تحميل التركيب: %s"
+MSG_COMPOSER_SAVE_SUCCESS="تم حفظ التركيب: %s"
+MSG_COMPOSER_EXPORT_SUCCESS="تم التصدير إلى: %s"
+
+# Composer - Playback
+MSG_COMPOSER_PLAYING="جاري تشغيل التركيب..."
+MSG_COMPOSER_STOPPED="تم إيقاف التشغيل"
+MSG_COMPOSER_PAUSED="تم إيقاف التشغيل مؤقتاً"
+MSG_COMPOSER_EMPTY="التركيب فارغ"
+
+# Player - Main Menu
+MSG_PLAYER_TITLE="مشغل موسيقى"
+MSG_PLAYER_SUBTITLE="تشغيل التركيبات الموسيقية بالصفير"
+MSG_PLAYER_BROWSE="تصفح التركيبات"
+MSG_PLAYER_PLAYLIST="إدارة قائمة التشغيل"
+MSG_PLAYER_NOW_PLAYING="قيد التشغيل الآن"
+MSG_PLAYER_SETTINGS="إعدادات المشغل"
+
+# Player - Playback Controls
+MSG_PLAYER_PLAY="تشغيل"
+MSG_PLAYER_PAUSE="إيقاف مؤقت"
+MSG_PLAYER_STOP="إيقاف"
+MSG_PLAYER_NEXT="التالي"
+MSG_PLAYER_PREVIOUS="السابق"
+MSG_PLAYER_REPEAT="تكرار"
+MSG_PLAYER_SHUFFLE="عشوائي"
+MSG_PLAYER_REPEAT_OFF="التكرار: متوقف"
+MSG_PLAYER_REPEAT_ONE="التكرار: واحد"
+MSG_PLAYER_REPEAT_ALL="التكرار: الكل"
+MSG_PLAYER_SHUFFLE_OFF="العشوائي: متوقف"
+MSG_PLAYER_SHUFFLE_ON="العشوائي: مفعل"
+
+# Player - Composition Browser
+MSG_PLAYER_BROWSER_TITLE="تصفح التركيبات"
+MSG_PLAYER_CATEGORY_ALL="جميع التركيبات"
+MSG_PLAYER_CATEGORY_BUILTIN="الألحان المدمجة"
+MSG_PLAYER_CATEGORY_SYSTEM="أصوات النظام"
+MSG_PLAYER_CATEGORY_MUSICAL="القطع الموسيقية"
+MSG_PLAYER_CATEGORY_USER="تركيبات المستخدم"
+MSG_PLAYER_FILTER="تصفية:"
+MSG_PLAYER_SORT_NAME="ترتيب حسب الاسم"
+MSG_PLAYER_SORT_DATE="ترتيب حسب التاريخ"
+MSG_PLAYER_SORT_CATEGORY="ترتيب حسب الفئة"
+
+# Player - Playlist
+MSG_PLAYER_PLAYLIST_TITLE="إدارة قائمة التشغيل"
+MSG_PLAYER_PLAYLIST_EMPTY="قائمة التشغيل فارغة"
+MSG_PLAYER_PLAYLIST_ADD="إضافة إلى قائمة التشغيل"
+MSG_PLAYER_PLAYLIST_REMOVE="إزالة من قائمة التشغيل"
+MSG_PLAYER_PLAYLIST_CLEAR="مسح قائمة التشغيل"
+MSG_PLAYER_PLAYLIST_SAVE="حفظ قائمة التشغيل"
+MSG_PLAYER_PLAYLIST_LOAD="تحميل قائمة التشغيل"
+MSG_PLAYER_PLAYLIST_ITEMS="%d عناصر في قائمة التشغيل"
+
+# Player - Now Playing
+MSG_PLAYER_NP_TITLE="قيد التشغيل الآن: %s"
+MSG_PLAYER_NP_COMPOSER="المؤلف: %s"
+MSG_PLAYER_NP_CATEGORY="الفئة: %s"
+MSG_PLAYER_NP_DURATION="المدة: %s"
+MSG_PLAYER_NP_TEMPO="الإيقاع: %d BPM"
+MSG_PLAYER_NP_NOTES="%d نغمات"
+MSG_PLAYER_NP_NOTHING="لا يوجد شيء قيد التشغيل"
+
+# Player - Settings
+MSG_PLAYER_SETTINGS_TITLE="إعدادات المشغل"
+MSG_PLAYER_AUTO_PLAY="تشغيل تلقائي للتالي"
+MSG_PLAYER_SHOW_NOTIFICATIONS="عرض الإشعارات"
+MSG_PLAYER_DEFAULT_TEMPO="الإيقاع الافتراضي: %d BPM"
+
+# Player - Messages
+MSG_PLAYER_LOAD_ERROR="فشل تحميل التركيب: %s"
+MSG_PLAYER_PLAY_ERROR="فشل تشغيل التركيب: %s"
+MSG_PLAYER_NO_COMPOSITIONS="لم يتم العثور على تركيبات"
+MSG_PLAYER_ADDED_TO_PLAYLIST="تمت الإضافة إلى قائمة التشغيل: %s"
+MSG_PLAYER_REMOVED_FROM_PLAYLIST="تمت الإزالة من قائمة التشغيل: %s"

@@ -31,6 +31,10 @@ if [ "$1" = "uninstall" ]; then
 	# Remove executables
 	rm -f /usr/bin/sparky-beep-run
 	rm -f /usr/bin/sparky-beep-compose
+	rm -f /usr/bin/sparky-beep-composer-tui
+	rm -f /usr/bin/sparky-beep-composer-gui
+	rm -f /usr/bin/sparky-beep-player-tui
+	rm -f /usr/bin/sparky-beep-player-gui
 	rm -f /usr/bin/sparky-beep-config
 	rm -f /usr/bin/sparky-beep-config-tui
 	rm -f /usr/bin/sparky-beep-config-gui
@@ -57,10 +61,16 @@ else
 	# Install executables (skip .c source files)
 	cp bin/sparky-beep-run /usr/bin/
 	cp bin/sparky-beep-compose /usr/bin/
+	cp bin/sparky-beep-composer-tui /usr/bin/
+	cp bin/sparky-beep-composer-gui /usr/bin/
+	cp bin/sparky-beep-player-tui /usr/bin/
+	cp bin/sparky-beep-player-gui /usr/bin/
 	cp bin/sparky-beep-config /usr/bin/
 	cp bin/sparky-beep-config-tui /usr/bin/
 	cp bin/sparky-beep-config-gui /usr/bin/
 	chmod +x /usr/bin/sparky-beep-config*
+	chmod +x /usr/bin/sparky-beep-composer*
+	chmod +x /usr/bin/sparky-beep-player*
 	[ -f bin/tbeep ] && cp bin/tbeep /usr/bin/ || true
 
 	# Install locale files
@@ -97,6 +107,14 @@ else
 	echo "  sparky-beep-config-tui  - Text user interface"
 	echo "  sparky-beep-config-gui  - Graphical user interface"
 	echo ""
+	echo "Composer Tools:"
+	echo "  sparky-beep-composer-tui  - Interactive music composer (TUI)"
+	echo "  sparky-beep-composer-gui  - Interactive music composer (GUI)"
+	echo ""
+	echo "Player Tools:"
+	echo "  sparky-beep-player-tui    - Music player (TUI)"
+	echo "  sparky-beep-player-gui    - Music player (GUI)"
+	echo ""
 	echo "Quick Commands:"
 	echo "  sparky-beep-config --list              - List available services"
 	echo "  sparky-beep-config --enable <service>  - Enable beep for service"
@@ -108,5 +126,7 @@ else
 	echo ""
 	echo "Test the composer:"
 	echo "  sparky-beep-compose -s \"C4q D4q E4q F4q\" -p"
+	echo "  sparky-beep-composer-tui    # Interactive composer"
+	echo "  sparky-beep-player-tui      # Play compositions"
 	echo ""
 fi

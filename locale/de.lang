@@ -197,3 +197,122 @@ MSG_VERSION="Sparky Beep Version %s"
 MSG_COPYRIGHT="Copyright (C) 2018-2025 Paweł Pijanowski & Mitwirkende"
 MSG_LICENSE="Lizenziert unter GNU GPL v3"
 MSG_WEBSITE="https://github.com/sparkylinux/sparky-beep"
+
+# Composer - Main Menu
+MSG_COMPOSER_TITLE="Musikkomponist"
+MSG_COMPOSER_SUBTITLE="Erstellen Sie Beep-Musikkompositionen"
+MSG_COMPOSER_NEW="Neue Komposition"
+MSG_COMPOSER_OPEN="Komposition öffnen"
+MSG_COMPOSER_SAVE="Komposition speichern"
+MSG_COMPOSER_SAVE_AS="Speichern unter..."
+MSG_COMPOSER_PLAY="Komposition abspielen"
+MSG_COMPOSER_EXPORT="Als Script exportieren"
+MSG_COMPOSER_IMPORT="Aus Datei importieren"
+MSG_COMPOSER_CLEAR="Komposition leeren"
+
+# Composer - Editor
+MSG_COMPOSER_EDITOR_TITLE="Kompositionseditor"
+MSG_COMPOSER_ADD_NOTE="Note hinzufügen"
+MSG_COMPOSER_ADD_REST="Pause hinzufügen"
+MSG_COMPOSER_DELETE_NOTE="Note löschen"
+MSG_COMPOSER_EDIT_NOTE="Note bearbeiten"
+MSG_COMPOSER_SET_TEMPO="Tempo festlegen"
+MSG_COMPOSER_CURRENT_TEMPO="Aktuelles Tempo: %d BPM"
+MSG_COMPOSER_INSERT="Einfügen"
+MSG_COMPOSER_APPEND="Anhängen"
+MSG_COMPOSER_MOVE_UP="Nach oben"
+MSG_COMPOSER_MOVE_DOWN="Nach unten"
+
+# Composer - Note Selection
+MSG_COMPOSER_NOTE_SELECT="Note auswählen"
+MSG_COMPOSER_NOTE_LABEL="Note:"
+MSG_COMPOSER_OCTAVE_LABEL="Oktave:"
+MSG_COMPOSER_DURATION_LABEL="Dauer:"
+MSG_COMPOSER_DURATION_WHOLE="Ganze Note"
+MSG_COMPOSER_DURATION_HALF="Halbe Note"
+MSG_COMPOSER_DURATION_QUARTER="Viertelnote"
+MSG_COMPOSER_DURATION_EIGHTH="Achtelnote"
+MSG_COMPOSER_DURATION_SIXTEENTH="Sechzehntelnote"
+MSG_COMPOSER_PREVIEW_NOTE="Note vorhören"
+
+# Composer - File Operations
+MSG_COMPOSER_FILENAME="Dateiname:"
+MSG_COMPOSER_DESCRIPTION="Beschreibung:"
+MSG_COMPOSER_CATEGORY="Kategorie:"
+MSG_COMPOSER_FILE_EXISTS="Datei existiert bereits. Überschreiben?"
+MSG_COMPOSER_UNSAVED_CHANGES="Sie haben nicht gespeicherte Änderungen. Fortfahren?"
+MSG_COMPOSER_LOAD_SUCCESS="Komposition geladen: %s"
+MSG_COMPOSER_SAVE_SUCCESS="Komposition gespeichert: %s"
+MSG_COMPOSER_EXPORT_SUCCESS="Exportiert nach: %s"
+
+# Composer - Playback
+MSG_COMPOSER_PLAYING="Komposition wird abgespielt..."
+MSG_COMPOSER_STOPPED="Wiedergabe gestoppt"
+MSG_COMPOSER_PAUSED="Wiedergabe pausiert"
+MSG_COMPOSER_EMPTY="Komposition ist leer"
+
+# Player - Main Menu
+MSG_PLAYER_TITLE="Musikplayer"
+MSG_PLAYER_SUBTITLE="Beep-Musikkompositionen abspielen"
+MSG_PLAYER_BROWSE="Kompositionen durchsuchen"
+MSG_PLAYER_PLAYLIST="Wiedergabeliste verwalten"
+MSG_PLAYER_NOW_PLAYING="Jetzt läuft"
+MSG_PLAYER_SETTINGS="Player-Einstellungen"
+
+# Player - Playback Controls
+MSG_PLAYER_PLAY="Abspielen"
+MSG_PLAYER_PAUSE="Pause"
+MSG_PLAYER_STOP="Stopp"
+MSG_PLAYER_NEXT="Weiter"
+MSG_PLAYER_PREVIOUS="Zurück"
+MSG_PLAYER_REPEAT="Wiederholen"
+MSG_PLAYER_SHUFFLE="Zufällig"
+MSG_PLAYER_REPEAT_OFF="Wiederholen: Aus"
+MSG_PLAYER_REPEAT_ONE="Wiederholen: Eines"
+MSG_PLAYER_REPEAT_ALL="Wiederholen: Alle"
+MSG_PLAYER_SHUFFLE_OFF="Zufällig: Aus"
+MSG_PLAYER_SHUFFLE_ON="Zufällig: An"
+
+# Player - Composition Browser
+MSG_PLAYER_BROWSER_TITLE="Kompositionen durchsuchen"
+MSG_PLAYER_CATEGORY_ALL="Alle Kompositionen"
+MSG_PLAYER_CATEGORY_BUILTIN="Integrierte Melodien"
+MSG_PLAYER_CATEGORY_SYSTEM="Systemklänge"
+MSG_PLAYER_CATEGORY_MUSICAL="Musikstücke"
+MSG_PLAYER_CATEGORY_USER="Benutzerkompositionen"
+MSG_PLAYER_FILTER="Filter:"
+MSG_PLAYER_SORT_NAME="Nach Name sortieren"
+MSG_PLAYER_SORT_DATE="Nach Datum sortieren"
+MSG_PLAYER_SORT_CATEGORY="Nach Kategorie sortieren"
+
+# Player - Playlist
+MSG_PLAYER_PLAYLIST_TITLE="Wiedergabelistenverwaltung"
+MSG_PLAYER_PLAYLIST_EMPTY="Wiedergabeliste ist leer"
+MSG_PLAYER_PLAYLIST_ADD="Zur Wiedergabeliste hinzufügen"
+MSG_PLAYER_PLAYLIST_REMOVE="Aus Wiedergabeliste entfernen"
+MSG_PLAYER_PLAYLIST_CLEAR="Wiedergabeliste leeren"
+MSG_PLAYER_PLAYLIST_SAVE="Wiedergabeliste speichern"
+MSG_PLAYER_PLAYLIST_LOAD="Wiedergabeliste laden"
+MSG_PLAYER_PLAYLIST_ITEMS="%d Einträge in Wiedergabeliste"
+
+# Player - Now Playing
+MSG_PLAYER_NP_TITLE="Jetzt läuft: %s"
+MSG_PLAYER_NP_COMPOSER="Komponist: %s"
+MSG_PLAYER_NP_CATEGORY="Kategorie: %s"
+MSG_PLAYER_NP_DURATION="Dauer: %s"
+MSG_PLAYER_NP_TEMPO="Tempo: %d BPM"
+MSG_PLAYER_NP_NOTES="%d Noten"
+MSG_PLAYER_NP_NOTHING="Nichts wird abgespielt"
+
+# Player - Settings
+MSG_PLAYER_SETTINGS_TITLE="Player-Einstellungen"
+MSG_PLAYER_AUTO_PLAY="Nächsten automatisch abspielen"
+MSG_PLAYER_SHOW_NOTIFICATIONS="Benachrichtigungen anzeigen"
+MSG_PLAYER_DEFAULT_TEMPO="Standard-Tempo: %d BPM"
+
+# Player - Messages
+MSG_PLAYER_LOAD_ERROR="Fehler beim Laden der Komposition: %s"
+MSG_PLAYER_PLAY_ERROR="Fehler beim Abspielen der Komposition: %s"
+MSG_PLAYER_NO_COMPOSITIONS="Keine Kompositionen gefunden"
+MSG_PLAYER_ADDED_TO_PLAYLIST="Zur Wiedergabeliste hinzugefügt: %s"
+MSG_PLAYER_REMOVED_FROM_PLAYLIST="Aus Wiedergabeliste entfernt: %s"

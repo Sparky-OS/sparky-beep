@@ -197,3 +197,122 @@ MSG_VERSION="Sparky Beep έκδοση %s"
 MSG_COPYRIGHT="Πνευματικά Δικαιώματα (C) 2018-2025 Paweł Pijanowski & Συνεισφέροντες"
 MSG_LICENSE="Αδειοδοτημένο υπό GNU GPL v3"
 MSG_WEBSITE="https://github.com/sparkylinux/sparky-beep"
+
+# Composer - Main Menu
+MSG_COMPOSER_TITLE="Μουσικός Συνθέτης"
+MSG_COMPOSER_SUBTITLE="Δημιουργήστε μουσικές συνθέσεις με beep"
+MSG_COMPOSER_NEW="Νέα Σύνθεση"
+MSG_COMPOSER_OPEN="Άνοιγμα Σύνθεσης"
+MSG_COMPOSER_SAVE="Αποθήκευση Σύνθεσης"
+MSG_COMPOSER_SAVE_AS="Αποθήκευση Ως..."
+MSG_COMPOSER_PLAY="Αναπαραγωγή Σύνθεσης"
+MSG_COMPOSER_EXPORT="Εξαγωγή σε Script"
+MSG_COMPOSER_IMPORT="Εισαγωγή από Αρχείο"
+MSG_COMPOSER_CLEAR="Εκκαθάριση Σύνθεσης"
+
+# Composer - Editor
+MSG_COMPOSER_EDITOR_TITLE="Επεξεργαστής Σύνθεσης"
+MSG_COMPOSER_ADD_NOTE="Προσθήκη Νότας"
+MSG_COMPOSER_ADD_REST="Προσθήκη Παύσης"
+MSG_COMPOSER_DELETE_NOTE="Διαγραφή Νότας"
+MSG_COMPOSER_EDIT_NOTE="Επεξεργασία Νότας"
+MSG_COMPOSER_SET_TEMPO="Ορισμός Tempo"
+MSG_COMPOSER_CURRENT_TEMPO="Τρέχον Tempo: %d BPM"
+MSG_COMPOSER_INSERT="Εισαγωγή"
+MSG_COMPOSER_APPEND="Προσάρτηση"
+MSG_COMPOSER_MOVE_UP="Μετακίνηση Πάνω"
+MSG_COMPOSER_MOVE_DOWN="Μετακίνηση Κάτω"
+
+# Composer - Note Selection
+MSG_COMPOSER_NOTE_SELECT="Επιλογή Νότας"
+MSG_COMPOSER_NOTE_LABEL="Νότα:"
+MSG_COMPOSER_OCTAVE_LABEL="Οκτάβα:"
+MSG_COMPOSER_DURATION_LABEL="Διάρκεια:"
+MSG_COMPOSER_DURATION_WHOLE="Ολόκληρη Νότα"
+MSG_COMPOSER_DURATION_HALF="Μισή Νότα"
+MSG_COMPOSER_DURATION_QUARTER="Τέταρτο Νότας"
+MSG_COMPOSER_DURATION_EIGHTH="Όγδοο Νότας"
+MSG_COMPOSER_DURATION_SIXTEENTH="Δέκατο έκτο Νότας"
+MSG_COMPOSER_PREVIEW_NOTE="Προεπισκόπηση Νότας"
+
+# Composer - File Operations
+MSG_COMPOSER_FILENAME="Όνομα Αρχείου:"
+MSG_COMPOSER_DESCRIPTION="Περιγραφή:"
+MSG_COMPOSER_CATEGORY="Κατηγορία:"
+MSG_COMPOSER_FILE_EXISTS="Το αρχείο υπάρχει ήδη. Αντικατάσταση;"
+MSG_COMPOSER_UNSAVED_CHANGES="Έχετε μη αποθηκευμένες αλλαγές. Συνέχεια;"
+MSG_COMPOSER_LOAD_SUCCESS="Η σύνθεση φορτώθηκε: %s"
+MSG_COMPOSER_SAVE_SUCCESS="Η σύνθεση αποθηκεύτηκε: %s"
+MSG_COMPOSER_EXPORT_SUCCESS="Εξαγωγή σε: %s"
+
+# Composer - Playback
+MSG_COMPOSER_PLAYING="Αναπαραγωγή σύνθεσης..."
+MSG_COMPOSER_STOPPED="Η αναπαραγωγή σταμάτησε"
+MSG_COMPOSER_PAUSED="Η αναπαραγωγή τέθηκε σε παύση"
+MSG_COMPOSER_EMPTY="Η σύνθεση είναι κενή"
+
+# Player - Main Menu
+MSG_PLAYER_TITLE="Μουσικός Αναπαραγωγέας"
+MSG_PLAYER_SUBTITLE="Αναπαραγωγή μουσικών συνθέσεων με beep"
+MSG_PLAYER_BROWSE="Περιήγηση Συνθέσεων"
+MSG_PLAYER_PLAYLIST="Διαχείριση Λίστας Αναπαραγωγής"
+MSG_PLAYER_NOW_PLAYING="Αναπαράγεται Τώρα"
+MSG_PLAYER_SETTINGS="Ρυθμίσεις Αναπαραγωγέα"
+
+# Player - Playback Controls
+MSG_PLAYER_PLAY="Αναπαραγωγή"
+MSG_PLAYER_PAUSE="Παύση"
+MSG_PLAYER_STOP="Διακοπή"
+MSG_PLAYER_NEXT="Επόμενο"
+MSG_PLAYER_PREVIOUS="Προηγούμενο"
+MSG_PLAYER_REPEAT="Επανάληψη"
+MSG_PLAYER_SHUFFLE="Ανακάτεμα"
+MSG_PLAYER_REPEAT_OFF="Επανάληψη: Ανενεργή"
+MSG_PLAYER_REPEAT_ONE="Επανάληψη: Ένα"
+MSG_PLAYER_REPEAT_ALL="Επανάληψη: Όλα"
+MSG_PLAYER_SHUFFLE_OFF="Ανακάτεμα: Ανενεργό"
+MSG_PLAYER_SHUFFLE_ON="Ανακάτεμα: Ενεργό"
+
+# Player - Composition Browser
+MSG_PLAYER_BROWSER_TITLE="Περιήγηση Συνθέσεων"
+MSG_PLAYER_CATEGORY_ALL="Όλες οι Συνθέσεις"
+MSG_PLAYER_CATEGORY_BUILTIN="Ενσωματωμένες Μελωδίες"
+MSG_PLAYER_CATEGORY_SYSTEM="Ήχοι Συστήματος"
+MSG_PLAYER_CATEGORY_MUSICAL="Μουσικά Κομμάτια"
+MSG_PLAYER_CATEGORY_USER="Συνθέσεις Χρήστη"
+MSG_PLAYER_FILTER="Φίλτρο:"
+MSG_PLAYER_SORT_NAME="Ταξινόμηση κατά Όνομα"
+MSG_PLAYER_SORT_DATE="Ταξινόμηση κατά Ημερομηνία"
+MSG_PLAYER_SORT_CATEGORY="Ταξινόμηση κατά Κατηγορία"
+
+# Player - Playlist
+MSG_PLAYER_PLAYLIST_TITLE="Διαχείριση Λίστας Αναπαραγωγής"
+MSG_PLAYER_PLAYLIST_EMPTY="Η λίστα αναπαραγωγής είναι κενή"
+MSG_PLAYER_PLAYLIST_ADD="Προσθήκη στη Λίστα"
+MSG_PLAYER_PLAYLIST_REMOVE="Αφαίρεση από τη Λίστα"
+MSG_PLAYER_PLAYLIST_CLEAR="Εκκαθάριση Λίστας"
+MSG_PLAYER_PLAYLIST_SAVE="Αποθήκευση Λίστας"
+MSG_PLAYER_PLAYLIST_LOAD="Φόρτωση Λίστας"
+MSG_PLAYER_PLAYLIST_ITEMS="%d στοιχεία στη λίστα"
+
+# Player - Now Playing
+MSG_PLAYER_NP_TITLE="Αναπαράγεται Τώρα: %s"
+MSG_PLAYER_NP_COMPOSER="Συνθέτης: %s"
+MSG_PLAYER_NP_CATEGORY="Κατηγορία: %s"
+MSG_PLAYER_NP_DURATION="Διάρκεια: %s"
+MSG_PLAYER_NP_TEMPO="Tempo: %d BPM"
+MSG_PLAYER_NP_NOTES="%d νότες"
+MSG_PLAYER_NP_NOTHING="Δεν αναπαράγεται τίποτα"
+
+# Player - Settings
+MSG_PLAYER_SETTINGS_TITLE="Ρυθμίσεις Αναπαραγωγέα"
+MSG_PLAYER_AUTO_PLAY="Αυτόματη αναπαραγωγή επόμενου"
+MSG_PLAYER_SHOW_NOTIFICATIONS="Εμφάνιση ειδοποιήσεων"
+MSG_PLAYER_DEFAULT_TEMPO="Προεπιλεγμένο tempo: %d BPM"
+
+# Player - Messages
+MSG_PLAYER_LOAD_ERROR="Αποτυχία φόρτωσης σύνθεσης: %s"
+MSG_PLAYER_PLAY_ERROR="Αποτυχία αναπαραγωγής σύνθεσης: %s"
+MSG_PLAYER_NO_COMPOSITIONS="Δεν βρέθηκαν συνθέσεις"
+MSG_PLAYER_ADDED_TO_PLAYLIST="Προστέθηκε στη λίστα: %s"
+MSG_PLAYER_REMOVED_FROM_PLAYLIST="Αφαιρέθηκε από τη λίστα: %s"

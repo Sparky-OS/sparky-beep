@@ -197,3 +197,122 @@ MSG_VERSION="Sparky Beep versie %s"
 MSG_COPYRIGHT="Copyright (C) 2018-2025 Paweł Pijanowski & Bijdragers"
 MSG_LICENSE="Gelicenseerd onder GNU GPL v3"
 MSG_WEBSITE="https://github.com/sparkylinux/sparky-beep"
+
+# Composer - Main Menu
+MSG_COMPOSER_TITLE="Muziekcomponist"
+MSG_COMPOSER_SUBTITLE="Creëer beep-muziekcomposities"
+MSG_COMPOSER_NEW="Nieuwe Compositie"
+MSG_COMPOSER_OPEN="Compositie Openen"
+MSG_COMPOSER_SAVE="Compositie Opslaan"
+MSG_COMPOSER_SAVE_AS="Opslaan Als..."
+MSG_COMPOSER_PLAY="Compositie Afspelen"
+MSG_COMPOSER_EXPORT="Exporteren naar Script"
+MSG_COMPOSER_IMPORT="Importeren uit Bestand"
+MSG_COMPOSER_CLEAR="Compositie Wissen"
+
+# Composer - Editor
+MSG_COMPOSER_EDITOR_TITLE="Compositie-editor"
+MSG_COMPOSER_ADD_NOTE="Noot Toevoegen"
+MSG_COMPOSER_ADD_REST="Rust Toevoegen"
+MSG_COMPOSER_DELETE_NOTE="Noot Verwijderen"
+MSG_COMPOSER_EDIT_NOTE="Noot Bewerken"
+MSG_COMPOSER_SET_TEMPO="Tempo Instellen"
+MSG_COMPOSER_CURRENT_TEMPO="Huidig Tempo: %d BPM"
+MSG_COMPOSER_INSERT="Invoegen"
+MSG_COMPOSER_APPEND="Toevoegen"
+MSG_COMPOSER_MOVE_UP="Omhoog Verplaatsen"
+MSG_COMPOSER_MOVE_DOWN="Omlaag Verplaatsen"
+
+# Composer - Note Selection
+MSG_COMPOSER_NOTE_SELECT="Noot Selecteren"
+MSG_COMPOSER_NOTE_LABEL="Noot:"
+MSG_COMPOSER_OCTAVE_LABEL="Octaaf:"
+MSG_COMPOSER_DURATION_LABEL="Duur:"
+MSG_COMPOSER_DURATION_WHOLE="Hele Noot"
+MSG_COMPOSER_DURATION_HALF="Halve Noot"
+MSG_COMPOSER_DURATION_QUARTER="Kwartnoot"
+MSG_COMPOSER_DURATION_EIGHTH="Achtste Noot"
+MSG_COMPOSER_DURATION_SIXTEENTH="Zestiende Noot"
+MSG_COMPOSER_PREVIEW_NOTE="Noot Voorvertonen"
+
+# Composer - File Operations
+MSG_COMPOSER_FILENAME="Bestandsnaam:"
+MSG_COMPOSER_DESCRIPTION="Beschrijving:"
+MSG_COMPOSER_CATEGORY="Categorie:"
+MSG_COMPOSER_FILE_EXISTS="Bestand bestaat al. Overschrijven?"
+MSG_COMPOSER_UNSAVED_CHANGES="U heeft niet-opgeslagen wijzigingen. Doorgaan?"
+MSG_COMPOSER_LOAD_SUCCESS="Compositie geladen: %s"
+MSG_COMPOSER_SAVE_SUCCESS="Compositie opgeslagen: %s"
+MSG_COMPOSER_EXPORT_SUCCESS="Geëxporteerd naar: %s"
+
+# Composer - Playback
+MSG_COMPOSER_PLAYING="Compositie afspelen..."
+MSG_COMPOSER_STOPPED="Afspelen gestopt"
+MSG_COMPOSER_PAUSED="Afspelen gepauzeerd"
+MSG_COMPOSER_EMPTY="Compositie is leeg"
+
+# Player - Main Menu
+MSG_PLAYER_TITLE="Muziekspeler"
+MSG_PLAYER_SUBTITLE="Speel beep-muziekcomposities af"
+MSG_PLAYER_BROWSE="Composities Bladeren"
+MSG_PLAYER_PLAYLIST="Afspeellijst Beheren"
+MSG_PLAYER_NOW_PLAYING="Nu Afspelend"
+MSG_PLAYER_SETTINGS="Spelerinstellingen"
+
+# Player - Playback Controls
+MSG_PLAYER_PLAY="Afspelen"
+MSG_PLAYER_PAUSE="Pauzeren"
+MSG_PLAYER_STOP="Stoppen"
+MSG_PLAYER_NEXT="Volgende"
+MSG_PLAYER_PREVIOUS="Vorige"
+MSG_PLAYER_REPEAT="Herhalen"
+MSG_PLAYER_SHUFFLE="Willekeurig"
+MSG_PLAYER_REPEAT_OFF="Herhalen: Uit"
+MSG_PLAYER_REPEAT_ONE="Herhalen: Eén"
+MSG_PLAYER_REPEAT_ALL="Herhalen: Alles"
+MSG_PLAYER_SHUFFLE_OFF="Willekeurig: Uit"
+MSG_PLAYER_SHUFFLE_ON="Willekeurig: Aan"
+
+# Player - Composition Browser
+MSG_PLAYER_BROWSER_TITLE="Composities Bladeren"
+MSG_PLAYER_CATEGORY_ALL="Alle Composities"
+MSG_PLAYER_CATEGORY_BUILTIN="Ingebouwde Melodieën"
+MSG_PLAYER_CATEGORY_SYSTEM="Systeemgeluiden"
+MSG_PLAYER_CATEGORY_MUSICAL="Muziekstukken"
+MSG_PLAYER_CATEGORY_USER="Gebruikerscomposities"
+MSG_PLAYER_FILTER="Filter:"
+MSG_PLAYER_SORT_NAME="Sorteren op Naam"
+MSG_PLAYER_SORT_DATE="Sorteren op Datum"
+MSG_PLAYER_SORT_CATEGORY="Sorteren op Categorie"
+
+# Player - Playlist
+MSG_PLAYER_PLAYLIST_TITLE="Afspeellijstbeheer"
+MSG_PLAYER_PLAYLIST_EMPTY="Afspeellijst is leeg"
+MSG_PLAYER_PLAYLIST_ADD="Toevoegen aan Afspeellijst"
+MSG_PLAYER_PLAYLIST_REMOVE="Verwijderen uit Afspeellijst"
+MSG_PLAYER_PLAYLIST_CLEAR="Afspeellijst Wissen"
+MSG_PLAYER_PLAYLIST_SAVE="Afspeellijst Opslaan"
+MSG_PLAYER_PLAYLIST_LOAD="Afspeellijst Laden"
+MSG_PLAYER_PLAYLIST_ITEMS="%d items in afspeellijst"
+
+# Player - Now Playing
+MSG_PLAYER_NP_TITLE="Nu Afspelend: %s"
+MSG_PLAYER_NP_COMPOSER="Componist: %s"
+MSG_PLAYER_NP_CATEGORY="Categorie: %s"
+MSG_PLAYER_NP_DURATION="Duur: %s"
+MSG_PLAYER_NP_TEMPO="Tempo: %d BPM"
+MSG_PLAYER_NP_NOTES="%d noten"
+MSG_PLAYER_NP_NOTHING="Niets aan het afspelen"
+
+# Player - Settings
+MSG_PLAYER_SETTINGS_TITLE="Spelerinstellingen"
+MSG_PLAYER_AUTO_PLAY="Volgende automatisch afspelen"
+MSG_PLAYER_SHOW_NOTIFICATIONS="Meldingen weergeven"
+MSG_PLAYER_DEFAULT_TEMPO="Standaard tempo: %d BPM"
+
+# Player - Messages
+MSG_PLAYER_LOAD_ERROR="Kan compositie niet laden: %s"
+MSG_PLAYER_PLAY_ERROR="Kan compositie niet afspelen: %s"
+MSG_PLAYER_NO_COMPOSITIONS="Geen composities gevonden"
+MSG_PLAYER_ADDED_TO_PLAYLIST="Toegevoegd aan afspeellijst: %s"
+MSG_PLAYER_REMOVED_FROM_PLAYLIST="Verwijderd uit afspeellijst: %s"

@@ -1,0 +1,546 @@
+#!/bin/bash
+#
+# Sparky Beep Composer GUI
+# Graphical music composer for beep compositions
+# Uses zenity for user interface
+# last update 2025/11/20
+#
+
+# Determine script directory
+SCRIPT_DIR="$(dirname "$(readlink -f "$0")")"
+LIB_DIR="$(dirname "$SCRIPT_DIR")/lib"
+LOCALE_DIR="$(dirname "$SCRIPT_DIR")/locale"
+COMPOSITIONS_DIR="$(dirname "$SCRIPT_DIR")/compositions"
+
+# Source required libraries
+. "${LIB_DIR}/notes.sh" || exit 1
+. "${LIB_DIR}/config.sh" || exit 1
+. "${LOCALE_DIR}/i18n.sh" || exit 1
+
+# Check for zenity
+if ! command -v zenity >/dev/null 2>&1; then
+    echo "ERROR: zenity is not installed." >&2
+    echo "Please install: zenity" >&2
+    if command -v yad >/dev/null 2>&1; then
+        echo "Alternatively, yad was detected but is not yet supported." >&2
+    fi
+    exit 1
+fi
+
+# Composition state
+COMPOSITION_NOTES=()
+COMPOSITION_TEMPO=120
+COMPOSITION_FILENAME=""
+COMPOSITION_DESCRIPTION=""
+COMPOSITION_CHANGED=0
+
+# User compositions directory
+USER_COMPOSITIONS_DIR="${HOME}/.local/share/sparky-beep/compositions"
+mkdir -p "$USER_COMPOSITIONS_DIR"
+
+#
+# Function: show_error
+# Description: Show error dialog
+#
+show_error() {
+    zenity --error --title="$(t COMPOSER_TITLE)" --text="$1" --width=400
+}
+
+#
+# Function: show_info
+# Description: Show info dialog
+#
+show_info() {
+    zenity --info --title="$(t COMPOSER_TITLE)" --text="$1" --width=400
+}
+
+#
+# Function: show_warning
+# Description: Show warning dialog
+#
+show_warning() {
+    zenity --warning --title="$(t COMPOSER_TITLE)" --text="$1" --width=400
+}
+
+#
+# Function: ask_question
+# Description: Show yes/no question
+#
+ask_question() {
+    zenity --question --title="$(t COMPOSER_TITLE)" --text="$1" --width=400
+}
+
+#
+# Function: show_main_window
+# Description: Show the main composer window
+#
+show_main_window() {
+    while true; do
+        local notes_count=${#COMPOSITION_NOTES[@]}
+        local status_line="$(printf "$(t COMPOSER_CURRENT_TEMPO)" "$COMPOSITION_TEMPO") | $notes_count $(t PLAYER_NP_NOTES)"
+
+        local choice=$(zenity --list \
+            --title="$(t COMPOSER_TITLE)" \
+            --text="$status_line" \
+            --column="ID" --column="$(t BUTTON_OK)" \
+            --hide-column=1 \
+            --width=600 --height=500 \
+            1 "$(t COMPOSER_NEW)" \
+            2 "$(t COMPOSER_OPEN)" \
+            3 "$(t COMPOSER_SAVE)" \
+            4 "$(t COMPOSER_SAVE_AS)" \
+            5 "$(t COMPOSER_ADD_NOTE)" \
+            6 "$(t COMPOSER_ADD_REST)" \
+            7 "$(t COMPOSER_EDIT_NOTE)" \
+            8 "$(t COMPOSER_DELETE_NOTE)" \
+            9 "$(t COMPOSER_SET_TEMPO)" \
+            10 "$(t COMPOSER_PLAY)" \
+            11 "$(t COMPOSER_EXPORT)" \
+            12 "$(t MENU_EXIT)")
+
+        [ -z "$choice" ] && choice=12
+
+        case "$choice" in
+            1) new_composition ;;
+            2) open_composition ;;
+            3) save_composition ;;
+            4) save_composition_as ;;
+            5) add_note ;;
+            6) add_rest ;;
+            7) edit_note ;;
+            8) delete_note ;;
+            9) set_tempo ;;
+            10) play_composition ;;
+            11) export_composition ;;
+            12)
+                if [ $COMPOSITION_CHANGED -eq 1 ]; then
+                    if ask_question "$(t COMPOSER_UNSAVED_CHANGES)"; then
+                        break
+                    fi
+                else
+                    break
+                fi
+                ;;
+            *) break ;;
+        esac
+    done
+}
+
+#
+# Function: new_composition
+# Description: Create a new composition
+#
+new_composition() {
+    if [ $COMPOSITION_CHANGED -eq 1 ]; then
+        if ! ask_question "$(t COMPOSER_UNSAVED_CHANGES)"; then
+            return
+        fi
+    fi
+
+    COMPOSITION_NOTES=()
+    COMPOSITION_TEMPO=120
+    COMPOSITION_FILENAME=""
+    COMPOSITION_DESCRIPTION=""
+    COMPOSITION_CHANGED=0
+
+    show_info "$(t COMPOSER_CLEAR)"
+}
+
+#
+# Function: open_composition
+# Description: Open an existing composition
+#
+open_composition() {
+    if [ $COMPOSITION_CHANGED -eq 1 ]; then
+        if ! ask_question "$(t COMPOSER_UNSAVED_CHANGES)"; then
+            return
+        fi
+    fi
+
+    # Use zenity file chooser
+    local selected=$(zenity --file-selection \
+        --title="$(t COMPOSER_OPEN)" \
+        --filename="$COMPOSITIONS_DIR/" \
+        --file-filter="Beep Music|*.beepmusic" \
+        --file-filter="$(t BUTTON_OK)|*")
+
+    if [ -n "$selected" ] && [ -f "$selected" ]; then
+        load_composition_file "$selected"
+    fi
+}
+
+#
+# Function: load_composition_file
+# Description: Load composition from file
+#
+load_composition_file() {
+    local file="$1"
+
+    COMPOSITION_NOTES=()
+    COMPOSITION_TEMPO=120
+
+    # Read file and parse
+    while IFS= read -r line; do
+        # Skip comments and empty lines
+        [[ "$line" =~ ^#.*$ ]] && continue
+        [[ -z "$line" ]] && continue
+
+        # Check for tempo directive
+        if [[ "$line" =~ ^tempo:([0-9]+)$ ]]; then
+            COMPOSITION_TEMPO="${BASH_REMATCH[1]}"
+            continue
+        fi
+
+        # Parse notes
+        for token in $line; do
+            # Skip empty tokens
+            [ -z "$token" ] && continue
+
+            # Add token to composition
+            COMPOSITION_NOTES+=("$token")
+        done
+    done < "$file"
+
+    COMPOSITION_FILENAME="$file"
+    COMPOSITION_CHANGED=0
+
+    show_info "$(printf "$(t COMPOSER_LOAD_SUCCESS)" "$(basename "$file")")"
+}
+
+#
+# Function: save_composition
+# Description: Save current composition
+#
+save_composition() {
+    if [ -z "$COMPOSITION_FILENAME" ]; then
+        save_composition_as
+        return
+    fi
+
+    write_composition_file "$COMPOSITION_FILENAME"
+}
+
+#
+# Function: save_composition_as
+# Description: Save composition with new filename
+#
+save_composition_as() {
+    local filename=$(zenity --file-selection \
+        --title="$(t COMPOSER_SAVE_AS)" \
+        --filename="$USER_COMPOSITIONS_DIR/composition.beepmusic" \
+        --save \
+        --confirm-overwrite \
+        --file-filter="Beep Music|*.beepmusic")
+
+    [ -z "$filename" ] && return
+
+    # Add .beepmusic extension if not present
+    [[ "$filename" != *.beepmusic ]] && filename="${filename}.beepmusic"
+
+    # Ask for description
+    local description=$(zenity --entry \
+        --title="$(t COMPOSER_SAVE_AS)" \
+        --text="$(t COMPOSER_DESCRIPTION)" \
+        --entry-text="$COMPOSITION_DESCRIPTION")
+
+    COMPOSITION_DESCRIPTION="$description"
+    COMPOSITION_FILENAME="$filename"
+
+    write_composition_file "$filename"
+}
+
+#
+# Function: write_composition_file
+# Description: Write composition to file
+#
+write_composition_file() {
+    local filepath="$1"
+
+    {
+        echo "# Composition created with Sparky Beep Composer"
+        [ -n "$COMPOSITION_DESCRIPTION" ] && echo "# Description: $COMPOSITION_DESCRIPTION"
+        echo "# Category: user"
+        echo ""
+        echo "tempo:${COMPOSITION_TEMPO}"
+        echo ""
+
+        # Write notes (6 per line for readability)
+        local count=0
+        for note in "${COMPOSITION_NOTES[@]}"; do
+            echo -n "$note "
+            count=$((count + 1))
+            if [ $((count % 6)) -eq 0 ]; then
+                echo ""
+            fi
+        done
+        echo ""
+    } > "$filepath"
+
+    COMPOSITION_CHANGED=0
+    show_info "$(printf "$(t COMPOSER_SAVE_SUCCESS)" "$(basename "$filepath")")"
+}
+
+#
+# Function: add_note
+# Description: Add a note to composition
+#
+add_note() {
+    # Create form for note input
+    local result=$(zenity --forms \
+        --title="$(t COMPOSER_ADD_NOTE)" \
+        --text="$(t COMPOSER_ADD_NOTE)" \
+        --add-combo="$(t COMPOSER_NOTE_LABEL)" --combo-values="C|C#|D|D#|E|F|F#|G|G#|A|A#|B" \
+        --add-combo="$(t COMPOSER_OCTAVE_LABEL)" --combo-values="2|3|4|5|6|7" \
+        --add-combo="$(t COMPOSER_DURATION_LABEL)" --combo-values="w|h|q|e|s" \
+        --separator="|")
+
+    [ -z "$result" ] && return
+
+    # Parse result
+    local note=$(echo "$result" | cut -d'|' -f1)
+    local octave=$(echo "$result" | cut -d'|' -f2)
+    local duration=$(echo "$result" | cut -d'|' -f3)
+
+    [ -z "$note" ] || [ -z "$octave" ] || [ -z "$duration" ] && return
+
+    # Add note to composition
+    local note_str="${note}${octave}${duration}"
+    COMPOSITION_NOTES+=("$note_str")
+    COMPOSITION_CHANGED=1
+
+    # Ask if user wants to preview
+    if ask_question "$(t COMPOSER_PREVIEW_NOTE)?"; then
+        preview_note "$note_str"
+    fi
+}
+
+#
+# Function: add_rest
+# Description: Add a rest to composition
+#
+add_rest() {
+    # Select duration
+    local duration=$(zenity --list \
+        --title="$(t COMPOSER_ADD_REST)" \
+        --text="$(t COMPOSER_DURATION_LABEL)" \
+        --column="Duration" --column="Name" \
+        --hide-column=1 \
+        --width=400 --height=300 \
+        "w" "$(t COMPOSER_DURATION_WHOLE)" \
+        "h" "$(t COMPOSER_DURATION_HALF)" \
+        "q" "$(t COMPOSER_DURATION_QUARTER)" \
+        "e" "$(t COMPOSER_DURATION_EIGHTH)" \
+        "s" "$(t COMPOSER_DURATION_SIXTEENTH)")
+
+    [ -z "$duration" ] && return
+
+    # Add rest to composition
+    local rest_str="r:${duration}"
+    COMPOSITION_NOTES+=("$rest_str")
+    COMPOSITION_CHANGED=1
+}
+
+#
+# Function: edit_note
+# Description: Edit an existing note
+#
+edit_note() {
+    if [ ${#COMPOSITION_NOTES[@]} -eq 0 ]; then
+        show_info "$(t COMPOSER_EMPTY)"
+        return
+    fi
+
+    # Build list of notes
+    local list_data=()
+    local index=0
+    for note in "${COMPOSITION_NOTES[@]}"; do
+        list_data+=("$index" "$note")
+        index=$((index + 1))
+    done
+
+    local selected=$(zenity --list \
+        --title="$(t COMPOSER_EDIT_NOTE)" \
+        --text="$(t COMPOSER_EDIT_NOTE)" \
+        --column="Index" --column="Note" \
+        --hide-column=1 \
+        --width=500 --height=400 \
+        "${list_data[@]}")
+
+    [ -z "$selected" ] && return
+
+    # For simplicity, delete and add new note
+    delete_note_by_index "$selected"
+    add_note
+}
+
+#
+# Function: delete_note
+# Description: Delete a note from composition
+#
+delete_note() {
+    if [ ${#COMPOSITION_NOTES[@]} -eq 0 ]; then
+        show_info "$(t COMPOSER_EMPTY)"
+        return
+    fi
+
+    # Build list of notes
+    local list_data=()
+    local index=0
+    for note in "${COMPOSITION_NOTES[@]}"; do
+        list_data+=("$index" "$note")
+        index=$((index + 1))
+    done
+
+    local selected=$(zenity --list \
+        --title="$(t COMPOSER_DELETE_NOTE)" \
+        --text="$(t COMPOSER_DELETE_NOTE)" \
+        --column="Index" --column="Note" \
+        --hide-column=1 \
+        --width=500 --height=400 \
+        "${list_data[@]}")
+
+    [ -z "$selected" ] && return
+
+    delete_note_by_index "$selected"
+}
+
+#
+# Function: delete_note_by_index
+# Description: Delete note at specific index
+#
+delete_note_by_index() {
+    local index="$1"
+
+    # Create new array without the selected note
+    local new_notes=()
+    local i=0
+    for note in "${COMPOSITION_NOTES[@]}"; do
+        if [ $i -ne "$index" ]; then
+            new_notes+=("$note")
+        fi
+        i=$((i + 1))
+    done
+
+    COMPOSITION_NOTES=("${new_notes[@]}")
+    COMPOSITION_CHANGED=1
+}
+
+#
+# Function: set_tempo
+# Description: Set composition tempo
+#
+set_tempo() {
+    local tempo=$(zenity --scale \
+        --title="$(t COMPOSER_SET_TEMPO)" \
+        --text="$(t COMPOSER_SET_TEMPO)" \
+        --min-value=40 \
+        --max-value=240 \
+        --value="$COMPOSITION_TEMPO" \
+        --step=5)
+
+    [ -z "$tempo" ] && return
+
+    COMPOSITION_TEMPO="$tempo"
+    COMPOSITION_CHANGED=1
+}
+
+#
+# Function: play_composition
+# Description: Play current composition
+#
+play_composition() {
+    if [ ${#COMPOSITION_NOTES[@]} -eq 0 ]; then
+        show_info "$(t COMPOSER_EMPTY)"
+        return
+    fi
+
+    # Build composition string
+    local comp_str="tempo:${COMPOSITION_TEMPO} ${COMPOSITION_NOTES[*]}"
+
+    # Create temporary file
+    local temp_file=$(mktemp)
+    echo "$comp_str" > "$temp_file"
+
+    # Play using sparky-beep-compose in background
+    local compose_cmd="${SCRIPT_DIR}/sparky-beep-compose"
+
+    # Show progress dialog while playing
+    (
+        echo "# $(t COMPOSER_PLAYING)"
+        $compose_cmd "$temp_file" -p 2>/dev/null
+    ) | zenity --progress \
+        --title="$(t COMPOSER_PLAY)" \
+        --text="$(t COMPOSER_PLAYING)" \
+        --pulsate \
+        --auto-close \
+        --no-cancel
+
+    rm -f "$temp_file"
+}
+
+#
+# Function: preview_note
+# Description: Preview a single note
+#
+preview_note() {
+    local note="$1"
+
+    local compose_cmd="${SCRIPT_DIR}/sparky-beep-compose"
+
+    # Play in background
+    (
+        $compose_cmd -s "$note" -p 2>/dev/null
+    ) &
+}
+
+#
+# Function: export_composition
+# Description: Export composition to executable script
+#
+export_composition() {
+    if [ ${#COMPOSITION_NOTES[@]} -eq 0 ]; then
+        show_info "$(t COMPOSER_EMPTY)"
+        return
+    fi
+
+    local filepath=$(zenity --file-selection \
+        --title="$(t COMPOSER_EXPORT)" \
+        --filename="$USER_COMPOSITIONS_DIR/composition.sh" \
+        --save \
+        --confirm-overwrite)
+
+    [ -z "$filepath" ] && return
+
+    # Build composition string
+    local comp_str="tempo:${COMPOSITION_TEMPO} ${COMPOSITION_NOTES[*]}"
+
+    # Create script file
+    {
+        echo "#!/bin/bash"
+        echo "# Generated by Sparky Beep Composer"
+        echo "# $(date)"
+        echo ""
+        echo "COMPOSITION='$comp_str'"
+        echo ""
+        echo "sparky-beep-compose -s \"\$COMPOSITION\" -p"
+    } > "$filepath"
+
+    chmod +x "$filepath"
+
+    show_info "$(printf "$(t COMPOSER_EXPORT_SUCCESS)" "$filepath")"
+}
+
+#
+# Main program
+#
+main() {
+    # Initialize libraries
+    init_config 2>/dev/null || true
+    load_config 2>/dev/null || true
+
+    # Show main window
+    show_main_window
+}
+
+# Run main program
+main "$@"

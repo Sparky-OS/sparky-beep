@@ -1,0 +1,591 @@
+#!/bin/bash
+#
+# Sparky Beep Player GUI
+# Graphical music player for beep compositions
+# Uses zenity for user interface
+# last update 2025/11/20
+#
+
+# Determine script directory
+SCRIPT_DIR="$(dirname "$(readlink -f "$0")")"
+LIB_DIR="$(dirname "$SCRIPT_DIR")/lib"
+LOCALE_DIR="$(dirname "$SCRIPT_DIR")/locale"
+COMPOSITIONS_DIR="$(dirname "$SCRIPT_DIR")/compositions"
+
+# Source required libraries
+. "${LIB_DIR}/notes.sh" || exit 1
+. "${LIB_DIR}/config.sh" || exit 1
+. "${LIB_DIR}/tunes.sh" || exit 1
+. "${LOCALE_DIR}/i18n.sh" || exit 1
+
+# Check for zenity
+if ! command -v zenity >/dev/null 2>&1; then
+    echo "ERROR: zenity is not installed." >&2
+    echo "Please install: zenity" >&2
+    exit 1
+fi
+
+# Player state
+declare -a PLAYLIST
+CURRENT_INDEX=-1
+REPEAT_MODE="off"  # off, one, all
+SHUFFLE_MODE="off"  # off, on
+PLAYING=0
+
+# User directories
+USER_COMPOSITIONS_DIR="${HOME}/.local/share/sparky-beep/compositions"
+USER_PLAYLISTS_DIR="${HOME}/.local/share/sparky-beep/playlists"
+SYSTEM_TUNES_DIR="/usr/share/sparky-beep/compositions"
+
+mkdir -p "$USER_COMPOSITIONS_DIR"
+mkdir -p "$USER_PLAYLISTS_DIR"
+
+#
+# Function: show_error
+# Description: Show error dialog
+#
+show_error() {
+    zenity --error --title="$(t PLAYER_TITLE)" --text="$1" --width=400
+}
+
+#
+# Function: show_info
+# Description: Show info dialog
+#
+show_info() {
+    zenity --info --title="$(t PLAYER_TITLE)" --text="$1" --width=400
+}
+
+#
+# Function: ask_question
+# Description: Show yes/no question
+#
+ask_question() {
+    zenity --question --title="$(t PLAYER_TITLE)" --text="$1" --width=400
+}
+
+#
+# Function: show_main_window
+# Description: Show the main player window
+#
+show_main_window() {
+    while true; do
+        local playlist_count=${#PLAYLIST[@]}
+        local status_line=""
+
+        if [ $CURRENT_INDEX -ge 0 ] && [ $CURRENT_INDEX -lt $playlist_count ]; then
+            local current_file="${PLAYLIST[$CURRENT_INDEX]}"
+            status_line="$(t PLAYER_NOW_PLAYING): $(basename "$current_file" .beepmusic)"
+        else
+            status_line="$(t PLAYER_NP_NOTHING)"
+        fi
+
+        status_line="$status_line | $(printf "$(t PLAYER_PLAYLIST_ITEMS)" "$playlist_count") | $(t PLAYER_REPEAT): $(get_repeat_status) | $(t PLAYER_SHUFFLE): $(get_shuffle_status)"
+
+        local choice=$(zenity --list \
+            --title="$(t PLAYER_TITLE)" \
+            --text="$status_line" \
+            --column="ID" --column="$(t BUTTON_OK)" \
+            --hide-column=1 \
+            --width=700 --height=500 \
+            1 "$(t PLAYER_BROWSE)" \
+            2 "$(t PLAYER_PLAYLIST)" \
+            3 "$(t PLAYER_PLAY)" \
+            4 "$(t PLAYER_NEXT)" \
+            5 "$(t PLAYER_PREVIOUS)" \
+            6 "$(t PLAYER_STOP)" \
+            7 "$(t PLAYER_REPEAT): $(get_repeat_status)" \
+            8 "$(t PLAYER_SHUFFLE): $(get_shuffle_status)" \
+            9 "$(t PLAYER_SETTINGS)" \
+            10 "$(t MENU_EXIT)")
+
+        [ -z "$choice" ] && choice=10
+
+        case "$choice" in
+            1) browse_compositions ;;
+            2) manage_playlist ;;
+            3) play_current ;;
+            4) play_next ;;
+            5) play_previous ;;
+            6) stop_playback ;;
+            7) toggle_repeat ;;
+            8) toggle_shuffle ;;
+            9) show_settings ;;
+            10) break ;;
+            *) break ;;
+        esac
+    done
+}
+
+#
+# Function: get_repeat_status
+# Description: Get repeat mode status text
+#
+get_repeat_status() {
+    case "$REPEAT_MODE" in
+        off) echo "$(t PLAYER_REPEAT_OFF)" | cut -d: -f2 ;;
+        one) echo "$(t PLAYER_REPEAT_ONE)" | cut -d: -f2 ;;
+        all) echo "$(t PLAYER_REPEAT_ALL)" | cut -d: -f2 ;;
+    esac
+}
+
+#
+# Function: get_shuffle_status
+# Description: Get shuffle mode status text
+#
+get_shuffle_status() {
+    case "$SHUFFLE_MODE" in
+        off) echo "$(t PLAYER_SHUFFLE_OFF)" | cut -d: -f2 ;;
+        on) echo "$(t PLAYER_SHUFFLE_ON)" | cut -d: -f2 ;;
+    esac
+}
+
+#
+# Function: browse_compositions
+# Description: Browse and select compositions
+#
+browse_compositions() {
+    # Build list of available compositions
+    local list_data=()
+
+    # Scan all directories
+    for dir in "$COMPOSITIONS_DIR" "$USER_COMPOSITIONS_DIR" "$SYSTEM_TUNES_DIR"; do
+        [ ! -d "$dir" ] && continue
+
+        while IFS= read -r -d '' file; do
+            local basename=$(basename "$file" .beepmusic)
+            local desc=$(grep "^# Description:" "$file" 2>/dev/null | sed 's/^# Description: //' || echo "$basename")
+            local category=$(grep "^# Category:" "$file" 2>/dev/null | sed 's/^# Category: //' || echo "general")
+            list_data+=("$file" "$basename" "$desc" "$category")
+        done < <(find "$dir" -name "*.beepmusic" -type f -print0 2>/dev/null | sort -z)
+    done
+
+    if [ ${#list_data[@]} -eq 0 ]; then
+        show_info "$(t PLAYER_NO_COMPOSITIONS)"
+        return
+    fi
+
+    local selected=$(zenity --list \
+        --title="$(t PLAYER_BROWSER_TITLE)" \
+        --text="$(t PLAYER_BROWSE)" \
+        --column="Path" --column="Name" --column="Description" --column="Category" \
+        --hide-column=1 \
+        --width=800 --height=500 \
+        "${list_data[@]}")
+
+    if [ -n "$selected" ] && [ -f "$selected" ]; then
+        # Ask what to do
+        local action=$(zenity --list \
+            --title="$(t PLAYER_BROWSER_TITLE)" \
+            --text="$(basename "$selected" .beepmusic)" \
+            --column="ID" --column="Action" \
+            --hide-column=1 \
+            --width=400 --height=300 \
+            1 "$(t PLAYER_PLAY)" \
+            2 "$(t PLAYER_PLAYLIST_ADD)")
+
+        case "$action" in
+            1)
+                PLAYLIST=("$selected")
+                CURRENT_INDEX=0
+                play_current
+                ;;
+            2)
+                add_to_playlist "$selected"
+                ;;
+        esac
+    fi
+}
+
+#
+# Function: manage_playlist
+# Description: Manage playlist
+#
+manage_playlist() {
+    while true; do
+        local playlist_count=${#PLAYLIST[@]}
+
+        if [ $playlist_count -eq 0 ]; then
+            local choice=$(zenity --list \
+                --title="$(t PLAYER_PLAYLIST_TITLE)" \
+                --text="$(t PLAYER_PLAYLIST_EMPTY)" \
+                --column="ID" --column="Action" \
+                --hide-column=1 \
+                --width=500 --height=300 \
+                1 "$(t PLAYER_PLAYLIST_LOAD)" \
+                2 "$(t BUTTON_BACK)")
+
+            case "$choice" in
+                1) load_playlist ;;
+                2) break ;;
+                *) break ;;
+            esac
+        else
+            local choice=$(zenity --list \
+                --title="$(t PLAYER_PLAYLIST_TITLE)" \
+                --text="$(printf "$(t PLAYER_PLAYLIST_ITEMS)" "$playlist_count")" \
+                --column="ID" --column="Action" \
+                --hide-column=1 \
+                --width=500 --height=400 \
+                1 "$(t PLAYER_PLAYLIST_TITLE)" \
+                2 "$(t PLAYER_PLAYLIST_CLEAR)" \
+                3 "$(t PLAYER_PLAYLIST_SAVE)" \
+                4 "$(t PLAYER_PLAYLIST_LOAD)" \
+                5 "$(t PLAYER_PLAYLIST_REMOVE)" \
+                6 "$(t BUTTON_BACK)")
+
+            case "$choice" in
+                1) show_playlist ;;
+                2) clear_playlist ;;
+                3) save_playlist ;;
+                4) load_playlist ;;
+                5) remove_from_playlist ;;
+                6) break ;;
+                *) break ;;
+            esac
+        fi
+    done
+}
+
+#
+# Function: show_playlist
+# Description: Show playlist contents
+#
+show_playlist() {
+    local list_data=()
+    local index=0
+
+    for file in "${PLAYLIST[@]}"; do
+        local marker=""
+        [ $index -eq $CURRENT_INDEX ] && marker="▶"
+        list_data+=("$index" "$marker" "$(basename "$file" .beepmusic)" "$file")
+        index=$((index + 1))
+    done
+
+    zenity --list \
+        --title="$(t PLAYER_PLAYLIST_TITLE)" \
+        --text="$(printf "$(t PLAYER_PLAYLIST_ITEMS)" "${#PLAYLIST[@]}")" \
+        --column="Index" --column="Playing" --column="Name" --column="Path" \
+        --hide-column=1 --hide-column=4 \
+        --width=700 --height=400 \
+        "${list_data[@]}" >/dev/null
+}
+
+#
+# Function: add_to_playlist
+# Description: Add composition to playlist
+#
+add_to_playlist() {
+    local file="$1"
+
+    PLAYLIST+=("$file")
+    show_info "$(printf "$(t PLAYER_ADDED_TO_PLAYLIST)" "$(basename "$file" .beepmusic)")"
+}
+
+#
+# Function: remove_from_playlist
+# Description: Remove item from playlist
+#
+remove_from_playlist() {
+    if [ ${#PLAYLIST[@]} -eq 0 ]; then
+        return
+    fi
+
+    local list_data=()
+    local index=0
+
+    for file in "${PLAYLIST[@]}"; do
+        list_data+=("$index" "$(basename "$file" .beepmusic)")
+        index=$((index + 1))
+    done
+
+    local selected=$(zenity --list \
+        --title="$(t PLAYER_PLAYLIST_REMOVE)" \
+        --text="$(t PLAYER_PLAYLIST_REMOVE)" \
+        --column="Index" --column="Name" \
+        --hide-column=1 \
+        --width=600 --height=400 \
+        "${list_data[@]}")
+
+    if [ -n "$selected" ]; then
+        # Create new array without the selected item
+        local new_playlist=()
+        local i=0
+        for file in "${PLAYLIST[@]}"; do
+            if [ $i -ne "$selected" ]; then
+                new_playlist+=("$file")
+            fi
+            i=$((i + 1))
+        done
+
+        PLAYLIST=("${new_playlist[@]}")
+
+        # Adjust current index
+        if [ $CURRENT_INDEX -ge ${#PLAYLIST[@]} ]; then
+            CURRENT_INDEX=$((${#PLAYLIST[@]} - 1))
+        fi
+
+        show_info "$(printf "$(t PLAYER_REMOVED_FROM_PLAYLIST)" "")"
+    fi
+}
+
+#
+# Function: clear_playlist
+# Description: Clear entire playlist
+#
+clear_playlist() {
+    if ask_question "$(t PLAYER_PLAYLIST_CLEAR)?"; then
+        PLAYLIST=()
+        CURRENT_INDEX=-1
+        PLAYING=0
+    fi
+}
+
+#
+# Function: save_playlist
+# Description: Save playlist to file
+#
+save_playlist() {
+    if [ ${#PLAYLIST[@]} -eq 0 ]; then
+        show_info "$(t PLAYER_PLAYLIST_EMPTY)"
+        return
+    fi
+
+    local filepath=$(zenity --file-selection \
+        --title="$(t PLAYER_PLAYLIST_SAVE)" \
+        --filename="$USER_PLAYLISTS_DIR/playlist.m3u" \
+        --save \
+        --confirm-overwrite)
+
+    [ -z "$filepath" ] && return
+
+    # Add .m3u extension if not present
+    [[ "$filepath" != *.m3u ]] && filepath="${filepath}.m3u"
+
+    # Write playlist
+    {
+        echo "#EXTM3U"
+        for file in "${PLAYLIST[@]}"; do
+            echo "$file"
+        done
+    } > "$filepath"
+
+    show_info "$(printf "$(t COMPOSER_SAVE_SUCCESS)" "$(basename "$filepath")")"
+}
+
+#
+# Function: load_playlist
+# Description: Load playlist from file
+#
+load_playlist() {
+    local selected=$(zenity --file-selection \
+        --title="$(t PLAYER_PLAYLIST_LOAD)" \
+        --filename="$USER_PLAYLISTS_DIR/" \
+        --file-filter="M3U Playlist|*.m3u" \
+        --file-filter="$(t BUTTON_OK)|*")
+
+    if [ -n "$selected" ] && [ -f "$selected" ]; then
+        # Load playlist
+        PLAYLIST=()
+        while IFS= read -r line; do
+            # Skip comments and empty lines
+            [[ "$line" =~ ^#.*$ ]] && continue
+            [[ -z "$line" ]] && continue
+
+            # Add to playlist if file exists
+            if [ -f "$line" ]; then
+                PLAYLIST+=("$line")
+            fi
+        done < "$selected"
+
+        CURRENT_INDEX=0
+        show_info "$(printf "$(t COMPOSER_LOAD_SUCCESS)" "$(basename "$selected")")"
+    fi
+}
+
+#
+# Function: play_current
+# Description: Play current composition
+#
+play_current() {
+    if [ ${#PLAYLIST[@]} -eq 0 ]; then
+        show_info "$(t PLAYER_PLAYLIST_EMPTY)"
+        return
+    fi
+
+    if [ $CURRENT_INDEX -lt 0 ]; then
+        CURRENT_INDEX=0
+    fi
+
+    if [ $CURRENT_INDEX -ge ${#PLAYLIST[@]} ]; then
+        CURRENT_INDEX=0
+    fi
+
+    local file="${PLAYLIST[$CURRENT_INDEX]}"
+
+    if [ ! -f "$file" ]; then
+        show_error "$(printf "$(t PLAYER_LOAD_ERROR)" "$(basename "$file")")"
+        return
+    fi
+
+    local compose_cmd="${SCRIPT_DIR}/sparky-beep-compose"
+    local filename=$(basename "$file" .beepmusic")
+
+    # Play in background with progress dialog
+    (
+        echo "# $(printf "$(t PLAYER_NP_TITLE)" "$filename")"
+        PLAYING=1
+        $compose_cmd "$file" -p 2>/dev/null
+        PLAYING=0
+    ) | zenity --progress \
+        --title="$(t PLAYER_PLAY)" \
+        --text="$(printf "$(t PLAYER_NP_TITLE)" "$filename")" \
+        --pulsate \
+        --auto-close \
+        --no-cancel
+
+    # Auto-advance based on repeat mode
+    if [ "$REPEAT_MODE" = "one" ]; then
+        # Stay on current track
+        return
+    elif [ "$REPEAT_MODE" = "all" ] || [ $CURRENT_INDEX -lt $((${#PLAYLIST[@]} - 1)) ]; then
+        play_next
+    fi
+}
+
+#
+# Function: play_next
+# Description: Play next composition
+#
+play_next() {
+    if [ ${#PLAYLIST[@]} -eq 0 ]; then
+        return
+    fi
+
+    if [ "$SHUFFLE_MODE" = "on" ]; then
+        CURRENT_INDEX=$((RANDOM % ${#PLAYLIST[@]}))
+    else
+        CURRENT_INDEX=$((CURRENT_INDEX + 1))
+        if [ $CURRENT_INDEX -ge ${#PLAYLIST[@]} ]; then
+            if [ "$REPEAT_MODE" = "all" ]; then
+                CURRENT_INDEX=0
+            else
+                CURRENT_INDEX=$((${#PLAYLIST[@]} - 1))
+                show_info "$(t COMPOSER_STOPPED)"
+                return
+            fi
+        fi
+    fi
+
+    play_current
+}
+
+#
+# Function: play_previous
+# Description: Play previous composition
+#
+play_previous() {
+    if [ ${#PLAYLIST[@]} -eq 0 ]; then
+        return
+    fi
+
+    if [ "$SHUFFLE_MODE" = "on" ]; then
+        CURRENT_INDEX=$((RANDOM % ${#PLAYLIST[@]}))
+    else
+        CURRENT_INDEX=$((CURRENT_INDEX - 1))
+        if [ $CURRENT_INDEX -lt 0 ]; then
+            if [ "$REPEAT_MODE" = "all" ]; then
+                CURRENT_INDEX=$((${#PLAYLIST[@]} - 1))
+            else
+                CURRENT_INDEX=0
+                show_info "$(t COMPOSER_STOPPED)"
+                return
+            fi
+        fi
+    fi
+
+    play_current
+}
+
+#
+# Function: stop_playback
+# Description: Stop current playback
+#
+stop_playback() {
+    PLAYING=0
+    # Kill any running beep processes
+    pkill -f "sparky-beep-compose" 2>/dev/null || true
+    pkill beep 2>/dev/null || true
+    pkill tbeep 2>/dev/null || true
+
+    show_info "$(t COMPOSER_STOPPED)"
+}
+
+#
+# Function: toggle_repeat
+# Description: Toggle repeat mode
+#
+toggle_repeat() {
+    case "$REPEAT_MODE" in
+        off) REPEAT_MODE="one" ;;
+        one) REPEAT_MODE="all" ;;
+        all) REPEAT_MODE="off" ;;
+    esac
+}
+
+#
+# Function: toggle_shuffle
+# Description: Toggle shuffle mode
+#
+toggle_shuffle() {
+    case "$SHUFFLE_MODE" in
+        off) SHUFFLE_MODE="on" ;;
+        on) SHUFFLE_MODE="off" ;;
+    esac
+}
+
+#
+# Function: show_settings
+# Description: Show player settings
+#
+show_settings() {
+    local choice=$(zenity --list \
+        --title="$(t PLAYER_SETTINGS_TITLE)" \
+        --text="$(t PLAYER_SETTINGS_TITLE)" \
+        --column="ID" --column="Setting" --column="Value" \
+        --hide-column=1 \
+        --width=600 --height=400 \
+        1 "$(t PLAYER_REPEAT)" "$(get_repeat_status)" \
+        2 "$(t PLAYER_SHUFFLE)" "$(get_shuffle_status)" \
+        3 "$(t SETTINGS_BEEP_MODE)" "$BEEP_MODE" \
+        4 "$(t BUTTON_BACK)" "")
+
+    case "$choice" in
+        1) toggle_repeat ;;
+        2) toggle_shuffle ;;
+        3)
+            if [ "$BEEP_MODE" = "binary" ]; then
+                BEEP_MODE="ternary"
+            else
+                BEEP_MODE="binary"
+            fi
+            ;;
+        4) return ;;
+    esac
+}
+
+#
+# Main program
+#
+main() {
+    # Initialize libraries
+    init_config 2>/dev/null || true
+    load_config 2>/dev/null || true
+    init_tune_library 2>/dev/null || true
+
+    # Show main window
+    show_main_window
+}
+
+# Run main program
+main "$@"

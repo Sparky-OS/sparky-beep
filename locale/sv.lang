@@ -197,3 +197,122 @@ MSG_VERSION="Sparky Beep version %s"
 MSG_COPYRIGHT="Copyright (C) 2018-2025 Paweł Pijanowski och Bidragsgivare"
 MSG_LICENSE="Licensierad under GNU GPL v3"
 MSG_WEBSITE="https://github.com/sparkylinux/sparky-beep"
+
+# Composer - Main Menu
+MSG_COMPOSER_TITLE="Musikkompositör"
+MSG_COMPOSER_SUBTITLE="Skapa beep-musikkompositioner"
+MSG_COMPOSER_NEW="Ny Komposition"
+MSG_COMPOSER_OPEN="Öppna Komposition"
+MSG_COMPOSER_SAVE="Spara Komposition"
+MSG_COMPOSER_SAVE_AS="Spara Som..."
+MSG_COMPOSER_PLAY="Spela Komposition"
+MSG_COMPOSER_EXPORT="Exportera till Skript"
+MSG_COMPOSER_IMPORT="Importera från Fil"
+MSG_COMPOSER_CLEAR="Rensa Komposition"
+
+# Composer - Editor
+MSG_COMPOSER_EDITOR_TITLE="Kompositionsredigerare"
+MSG_COMPOSER_ADD_NOTE="Lägg till Not"
+MSG_COMPOSER_ADD_REST="Lägg till Paus"
+MSG_COMPOSER_DELETE_NOTE="Ta bort Not"
+MSG_COMPOSER_EDIT_NOTE="Redigera Not"
+MSG_COMPOSER_SET_TEMPO="Ställ in Tempo"
+MSG_COMPOSER_CURRENT_TEMPO="Aktuellt Tempo: %d BPM"
+MSG_COMPOSER_INSERT="Infoga"
+MSG_COMPOSER_APPEND="Lägg till i Slutet"
+MSG_COMPOSER_MOVE_UP="Flytta Upp"
+MSG_COMPOSER_MOVE_DOWN="Flytta Ner"
+
+# Composer - Note Selection
+MSG_COMPOSER_NOTE_SELECT="Välj Not"
+MSG_COMPOSER_NOTE_LABEL="Not:"
+MSG_COMPOSER_OCTAVE_LABEL="Oktav:"
+MSG_COMPOSER_DURATION_LABEL="Varaktighet:"
+MSG_COMPOSER_DURATION_WHOLE="Helnot"
+MSG_COMPOSER_DURATION_HALF="Halvnot"
+MSG_COMPOSER_DURATION_QUARTER="Kvartnot"
+MSG_COMPOSER_DURATION_EIGHTH="Åttondelsnot"
+MSG_COMPOSER_DURATION_SIXTEENTH="Sextondelsnot"
+MSG_COMPOSER_PREVIEW_NOTE="Förhandsgranska Not"
+
+# Composer - File Operations
+MSG_COMPOSER_FILENAME="Filnamn:"
+MSG_COMPOSER_DESCRIPTION="Beskrivning:"
+MSG_COMPOSER_CATEGORY="Kategori:"
+MSG_COMPOSER_FILE_EXISTS="Filen finns redan. Skriva över?"
+MSG_COMPOSER_UNSAVED_CHANGES="Du har osparade ändringar. Fortsätta?"
+MSG_COMPOSER_LOAD_SUCCESS="Komposition laddad: %s"
+MSG_COMPOSER_SAVE_SUCCESS="Komposition sparad: %s"
+MSG_COMPOSER_EXPORT_SUCCESS="Exporterad till: %s"
+
+# Composer - Playback
+MSG_COMPOSER_PLAYING="Spelar komposition..."
+MSG_COMPOSER_STOPPED="Uppspelning stoppad"
+MSG_COMPOSER_PAUSED="Uppspelning pausad"
+MSG_COMPOSER_EMPTY="Kompositionen är tom"
+
+# Player - Main Menu
+MSG_PLAYER_TITLE="Musikspelare"
+MSG_PLAYER_SUBTITLE="Spela beep-musikkompositioner"
+MSG_PLAYER_BROWSE="Bläddra Kompositioner"
+MSG_PLAYER_PLAYLIST="Hantera Spellista"
+MSG_PLAYER_NOW_PLAYING="Spelar Nu"
+MSG_PLAYER_SETTINGS="Spelarinställningar"
+
+# Player - Playback Controls
+MSG_PLAYER_PLAY="Spela"
+MSG_PLAYER_PAUSE="Paus"
+MSG_PLAYER_STOP="Stopp"
+MSG_PLAYER_NEXT="Nästa"
+MSG_PLAYER_PREVIOUS="Föregående"
+MSG_PLAYER_REPEAT="Upprepa"
+MSG_PLAYER_SHUFFLE="Blanda"
+MSG_PLAYER_REPEAT_OFF="Upprepa: Av"
+MSG_PLAYER_REPEAT_ONE="Upprepa: En"
+MSG_PLAYER_REPEAT_ALL="Upprepa: Alla"
+MSG_PLAYER_SHUFFLE_OFF="Blanda: Av"
+MSG_PLAYER_SHUFFLE_ON="Blanda: På"
+
+# Player - Composition Browser
+MSG_PLAYER_BROWSER_TITLE="Bläddra Kompositioner"
+MSG_PLAYER_CATEGORY_ALL="Alla Kompositioner"
+MSG_PLAYER_CATEGORY_BUILTIN="Inbyggda Melodier"
+MSG_PLAYER_CATEGORY_SYSTEM="Systemljud"
+MSG_PLAYER_CATEGORY_MUSICAL="Musikstycken"
+MSG_PLAYER_CATEGORY_USER="Användarkompositioner"
+MSG_PLAYER_FILTER="Filter:"
+MSG_PLAYER_SORT_NAME="Sortera efter Namn"
+MSG_PLAYER_SORT_DATE="Sortera efter Datum"
+MSG_PLAYER_SORT_CATEGORY="Sortera efter Kategori"
+
+# Player - Playlist
+MSG_PLAYER_PLAYLIST_TITLE="Hantera Spellista"
+MSG_PLAYER_PLAYLIST_EMPTY="Spellistan är tom"
+MSG_PLAYER_PLAYLIST_ADD="Lägg till i Spellista"
+MSG_PLAYER_PLAYLIST_REMOVE="Ta bort från Spellista"
+MSG_PLAYER_PLAYLIST_CLEAR="Rensa Spellista"
+MSG_PLAYER_PLAYLIST_SAVE="Spara Spellista"
+MSG_PLAYER_PLAYLIST_LOAD="Ladda Spellista"
+MSG_PLAYER_PLAYLIST_ITEMS="%d objekt i spellistan"
+
+# Player - Now Playing
+MSG_PLAYER_NP_TITLE="Spelar Nu: %s"
+MSG_PLAYER_NP_COMPOSER="Kompositör: %s"
+MSG_PLAYER_NP_CATEGORY="Kategori: %s"
+MSG_PLAYER_NP_DURATION="Varaktighet: %s"
+MSG_PLAYER_NP_TEMPO="Tempo: %d BPM"
+MSG_PLAYER_NP_NOTES="%d noter"
+MSG_PLAYER_NP_NOTHING="Inget spelas"
+
+# Player - Settings
+MSG_PLAYER_SETTINGS_TITLE="Spelarinställningar"
+MSG_PLAYER_AUTO_PLAY="Spela nästa automatiskt"
+MSG_PLAYER_SHOW_NOTIFICATIONS="Visa meddelanden"
+MSG_PLAYER_DEFAULT_TEMPO="Standardtempo: %d BPM"
+
+# Player - Messages
+MSG_PLAYER_LOAD_ERROR="Kunde inte ladda komposition: %s"
+MSG_PLAYER_PLAY_ERROR="Kunde inte spela komposition: %s"
+MSG_PLAYER_NO_COMPOSITIONS="Inga kompositioner hittades"
+MSG_PLAYER_ADDED_TO_PLAYLIST="Tillagd till spellista: %s"
+MSG_PLAYER_REMOVED_FROM_PLAYLIST="Borttagen från spellista: %s"

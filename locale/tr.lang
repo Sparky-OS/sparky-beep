@@ -197,3 +197,122 @@ MSG_VERSION="Sparky Beep sürüm %s"
 MSG_COPYRIGHT="Telif Hakkı (C) 2018-2025 Paweł Pijanowski ve Katkıda Bulunanlar"
 MSG_LICENSE="GNU GPL v3 altında lisanslanmıştır"
 MSG_WEBSITE="https://github.com/sparkylinux/sparky-beep"
+
+# Composer - Main Menu
+MSG_COMPOSER_TITLE="Müzik Bestecisi"
+MSG_COMPOSER_SUBTITLE="Bip müzik besteleri oluşturun"
+MSG_COMPOSER_NEW="Yeni Beste"
+MSG_COMPOSER_OPEN="Beste Aç"
+MSG_COMPOSER_SAVE="Besteyi Kaydet"
+MSG_COMPOSER_SAVE_AS="Farklı Kaydet..."
+MSG_COMPOSER_PLAY="Besteyi Çal"
+MSG_COMPOSER_EXPORT="Script'e Aktar"
+MSG_COMPOSER_IMPORT="Dosyadan İçe Aktar"
+MSG_COMPOSER_CLEAR="Besteyi Temizle"
+
+# Composer - Editor
+MSG_COMPOSER_EDITOR_TITLE="Beste Düzenleyici"
+MSG_COMPOSER_ADD_NOTE="Nota Ekle"
+MSG_COMPOSER_ADD_REST="Sus Ekle"
+MSG_COMPOSER_DELETE_NOTE="Notayı Sil"
+MSG_COMPOSER_EDIT_NOTE="Notayı Düzenle"
+MSG_COMPOSER_SET_TEMPO="Tempoyu Ayarla"
+MSG_COMPOSER_CURRENT_TEMPO="Mevcut Tempo: %d BPM"
+MSG_COMPOSER_INSERT="Ekle"
+MSG_COMPOSER_APPEND="Sona Ekle"
+MSG_COMPOSER_MOVE_UP="Yukarı Taşı"
+MSG_COMPOSER_MOVE_DOWN="Aşağı Taşı"
+
+# Composer - Note Selection
+MSG_COMPOSER_NOTE_SELECT="Nota Seç"
+MSG_COMPOSER_NOTE_LABEL="Nota:"
+MSG_COMPOSER_OCTAVE_LABEL="Oktav:"
+MSG_COMPOSER_DURATION_LABEL="Süre:"
+MSG_COMPOSER_DURATION_WHOLE="Tam Nota"
+MSG_COMPOSER_DURATION_HALF="Yarım Nota"
+MSG_COMPOSER_DURATION_QUARTER="Dörtlük Nota"
+MSG_COMPOSER_DURATION_EIGHTH="Sekizlik Nota"
+MSG_COMPOSER_DURATION_SIXTEENTH="Onaltılık Nota"
+MSG_COMPOSER_PREVIEW_NOTE="Notayı Önizle"
+
+# Composer - File Operations
+MSG_COMPOSER_FILENAME="Dosya Adı:"
+MSG_COMPOSER_DESCRIPTION="Açıklama:"
+MSG_COMPOSER_CATEGORY="Kategori:"
+MSG_COMPOSER_FILE_EXISTS="Dosya zaten mevcut. Üzerine yazılsın mı?"
+MSG_COMPOSER_UNSAVED_CHANGES="Kaydedilmemiş değişiklikleriniz var. Devam edilsin mi?"
+MSG_COMPOSER_LOAD_SUCCESS="Beste yüklendi: %s"
+MSG_COMPOSER_SAVE_SUCCESS="Beste kaydedildi: %s"
+MSG_COMPOSER_EXPORT_SUCCESS="Şuraya aktarıldı: %s"
+
+# Composer - Playback
+MSG_COMPOSER_PLAYING="Beste çalınıyor..."
+MSG_COMPOSER_STOPPED="Çalma durduruldu"
+MSG_COMPOSER_PAUSED="Çalma duraklatıldı"
+MSG_COMPOSER_EMPTY="Beste boş"
+
+# Player - Main Menu
+MSG_PLAYER_TITLE="Müzik Çalar"
+MSG_PLAYER_SUBTITLE="Bip müzik bestelerini çalın"
+MSG_PLAYER_BROWSE="Bestelere Göz At"
+MSG_PLAYER_PLAYLIST="Çalma Listesini Yönet"
+MSG_PLAYER_NOW_PLAYING="Şimdi Çalıyor"
+MSG_PLAYER_SETTINGS="Çalar Ayarları"
+
+# Player - Playback Controls
+MSG_PLAYER_PLAY="Çal"
+MSG_PLAYER_PAUSE="Duraklat"
+MSG_PLAYER_STOP="Durdur"
+MSG_PLAYER_NEXT="Sonraki"
+MSG_PLAYER_PREVIOUS="Önceki"
+MSG_PLAYER_REPEAT="Tekrarla"
+MSG_PLAYER_SHUFFLE="Karıştır"
+MSG_PLAYER_REPEAT_OFF="Tekrar: Kapalı"
+MSG_PLAYER_REPEAT_ONE="Tekrar: Bir"
+MSG_PLAYER_REPEAT_ALL="Tekrar: Tümü"
+MSG_PLAYER_SHUFFLE_OFF="Karıştır: Kapalı"
+MSG_PLAYER_SHUFFLE_ON="Karıştır: Açık"
+
+# Player - Composition Browser
+MSG_PLAYER_BROWSER_TITLE="Bestelere Göz At"
+MSG_PLAYER_CATEGORY_ALL="Tüm Besteler"
+MSG_PLAYER_CATEGORY_BUILTIN="Yerleşik Melodiler"
+MSG_PLAYER_CATEGORY_SYSTEM="Sistem Sesleri"
+MSG_PLAYER_CATEGORY_MUSICAL="Müzik Parçaları"
+MSG_PLAYER_CATEGORY_USER="Kullanıcı Besteleri"
+MSG_PLAYER_FILTER="Filtre:"
+MSG_PLAYER_SORT_NAME="İsme Göre Sırala"
+MSG_PLAYER_SORT_DATE="Tarihe Göre Sırala"
+MSG_PLAYER_SORT_CATEGORY="Kategoriye Göre Sırala"
+
+# Player - Playlist
+MSG_PLAYER_PLAYLIST_TITLE="Çalma Listesi Yönetimi"
+MSG_PLAYER_PLAYLIST_EMPTY="Çalma listesi boş"
+MSG_PLAYER_PLAYLIST_ADD="Çalma Listesine Ekle"
+MSG_PLAYER_PLAYLIST_REMOVE="Çalma Listesinden Kaldır"
+MSG_PLAYER_PLAYLIST_CLEAR="Çalma Listesini Temizle"
+MSG_PLAYER_PLAYLIST_SAVE="Çalma Listesini Kaydet"
+MSG_PLAYER_PLAYLIST_LOAD="Çalma Listesini Yükle"
+MSG_PLAYER_PLAYLIST_ITEMS="Çalma listesinde %d öğe"
+
+# Player - Now Playing
+MSG_PLAYER_NP_TITLE="Şimdi Çalıyor: %s"
+MSG_PLAYER_NP_COMPOSER="Besteci: %s"
+MSG_PLAYER_NP_CATEGORY="Kategori: %s"
+MSG_PLAYER_NP_DURATION="Süre: %s"
+MSG_PLAYER_NP_TEMPO="Tempo: %d BPM"
+MSG_PLAYER_NP_NOTES="%d nota"
+MSG_PLAYER_NP_NOTHING="Hiçbir şey çalmıyor"
+
+# Player - Settings
+MSG_PLAYER_SETTINGS_TITLE="Çalar Ayarları"
+MSG_PLAYER_AUTO_PLAY="Sonrakini otomatik çal"
+MSG_PLAYER_SHOW_NOTIFICATIONS="Bildirimleri göster"
+MSG_PLAYER_DEFAULT_TEMPO="Varsayılan tempo: %d BPM"
+
+# Player - Messages
+MSG_PLAYER_LOAD_ERROR="Beste yüklenemedi: %s"
+MSG_PLAYER_PLAY_ERROR="Beste çalınamadı: %s"
+MSG_PLAYER_NO_COMPOSITIONS="Hiç beste bulunamadı"
+MSG_PLAYER_ADDED_TO_PLAYLIST="Çalma listesine eklendi: %s"
+MSG_PLAYER_REMOVED_FROM_PLAYLIST="Çalma listesinden kaldırıldı: %s"

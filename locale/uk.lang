@@ -197,3 +197,122 @@ MSG_VERSION="Sparky Beep версія %s"
 MSG_COPYRIGHT="Copyright (C) 2018-2025 Paweł Pijanowski та Учасники"
 MSG_LICENSE="Ліцензовано під GNU GPL v3"
 MSG_WEBSITE="https://github.com/sparkylinux/sparky-beep"
+
+# Composer - Main Menu
+MSG_COMPOSER_TITLE="Музичний Композитор"
+MSG_COMPOSER_SUBTITLE="Створюйте музичні композиції з пищанням"
+MSG_COMPOSER_NEW="Нова Композиція"
+MSG_COMPOSER_OPEN="Відкрити Композицію"
+MSG_COMPOSER_SAVE="Зберегти Композицію"
+MSG_COMPOSER_SAVE_AS="Зберегти Як..."
+MSG_COMPOSER_PLAY="Відтворити Композицію"
+MSG_COMPOSER_EXPORT="Експортувати в Скрипт"
+MSG_COMPOSER_IMPORT="Імпортувати з Файлу"
+MSG_COMPOSER_CLEAR="Очистити Композицію"
+
+# Composer - Editor
+MSG_COMPOSER_EDITOR_TITLE="Редактор Композицій"
+MSG_COMPOSER_ADD_NOTE="Додати Ноту"
+MSG_COMPOSER_ADD_REST="Додати Паузу"
+MSG_COMPOSER_DELETE_NOTE="Видалити Ноту"
+MSG_COMPOSER_EDIT_NOTE="Редагувати Ноту"
+MSG_COMPOSER_SET_TEMPO="Встановити Темп"
+MSG_COMPOSER_CURRENT_TEMPO="Поточний Темп: %d BPM"
+MSG_COMPOSER_INSERT="Вставити"
+MSG_COMPOSER_APPEND="Додати в Кінець"
+MSG_COMPOSER_MOVE_UP="Перемістити Вгору"
+MSG_COMPOSER_MOVE_DOWN="Перемістити Вниз"
+
+# Composer - Note Selection
+MSG_COMPOSER_NOTE_SELECT="Вибрати Ноту"
+MSG_COMPOSER_NOTE_LABEL="Нота:"
+MSG_COMPOSER_OCTAVE_LABEL="Октава:"
+MSG_COMPOSER_DURATION_LABEL="Тривалість:"
+MSG_COMPOSER_DURATION_WHOLE="Ціла Нота"
+MSG_COMPOSER_DURATION_HALF="Половинна Нота"
+MSG_COMPOSER_DURATION_QUARTER="Чвертьнота"
+MSG_COMPOSER_DURATION_EIGHTH="Восьма Нота"
+MSG_COMPOSER_DURATION_SIXTEENTH="Шістнадцята Нота"
+MSG_COMPOSER_PREVIEW_NOTE="Попередній Перегляд Ноти"
+
+# Composer - File Operations
+MSG_COMPOSER_FILENAME="Ім'я Файлу:"
+MSG_COMPOSER_DESCRIPTION="Опис:"
+MSG_COMPOSER_CATEGORY="Категорія:"
+MSG_COMPOSER_FILE_EXISTS="Файл вже існує. Перезаписати?"
+MSG_COMPOSER_UNSAVED_CHANGES="У вас є незбережені зміни. Продовжити?"
+MSG_COMPOSER_LOAD_SUCCESS="Композицію завантажено: %s"
+MSG_COMPOSER_SAVE_SUCCESS="Композицію збережено: %s"
+MSG_COMPOSER_EXPORT_SUCCESS="Експортовано в: %s"
+
+# Composer - Playback
+MSG_COMPOSER_PLAYING="Відтворення композиції..."
+MSG_COMPOSER_STOPPED="Відтворення зупинено"
+MSG_COMPOSER_PAUSED="Відтворення призупинено"
+MSG_COMPOSER_EMPTY="Композиція порожня"
+
+# Player - Main Menu
+MSG_PLAYER_TITLE="Музичний Плеєр"
+MSG_PLAYER_SUBTITLE="Відтворюйте музичні композиції з пищанням"
+MSG_PLAYER_BROWSE="Огляд Композицій"
+MSG_PLAYER_PLAYLIST="Керування Плейлистом"
+MSG_PLAYER_NOW_PLAYING="Зараз Грає"
+MSG_PLAYER_SETTINGS="Налаштування Плеєра"
+
+# Player - Playback Controls
+MSG_PLAYER_PLAY="Відтворити"
+MSG_PLAYER_PAUSE="Пауза"
+MSG_PLAYER_STOP="Зупинити"
+MSG_PLAYER_NEXT="Наступний"
+MSG_PLAYER_PREVIOUS="Попередній"
+MSG_PLAYER_REPEAT="Повтор"
+MSG_PLAYER_SHUFFLE="Перемішати"
+MSG_PLAYER_REPEAT_OFF="Повтор: Вимк"
+MSG_PLAYER_REPEAT_ONE="Повтор: Один"
+MSG_PLAYER_REPEAT_ALL="Повтор: Усі"
+MSG_PLAYER_SHUFFLE_OFF="Перемішування: Вимк"
+MSG_PLAYER_SHUFFLE_ON="Перемішування: Увімк"
+
+# Player - Composition Browser
+MSG_PLAYER_BROWSER_TITLE="Огляд Композицій"
+MSG_PLAYER_CATEGORY_ALL="Усі Композиції"
+MSG_PLAYER_CATEGORY_BUILTIN="Вбудовані Мелодії"
+MSG_PLAYER_CATEGORY_SYSTEM="Системні Звуки"
+MSG_PLAYER_CATEGORY_MUSICAL="Музичні Твори"
+MSG_PLAYER_CATEGORY_USER="Композиції Користувача"
+MSG_PLAYER_FILTER="Фільтр:"
+MSG_PLAYER_SORT_NAME="Сортувати за Назвою"
+MSG_PLAYER_SORT_DATE="Сортувати за Датою"
+MSG_PLAYER_SORT_CATEGORY="Сортувати за Категорією"
+
+# Player - Playlist
+MSG_PLAYER_PLAYLIST_TITLE="Керування Плейлистом"
+MSG_PLAYER_PLAYLIST_EMPTY="Плейлист порожній"
+MSG_PLAYER_PLAYLIST_ADD="Додати до Плейлиста"
+MSG_PLAYER_PLAYLIST_REMOVE="Видалити з Плейлиста"
+MSG_PLAYER_PLAYLIST_CLEAR="Очистити Плейлист"
+MSG_PLAYER_PLAYLIST_SAVE="Зберегти Плейлист"
+MSG_PLAYER_PLAYLIST_LOAD="Завантажити Плейлист"
+MSG_PLAYER_PLAYLIST_ITEMS="%d елементів у плейлисті"
+
+# Player - Now Playing
+MSG_PLAYER_NP_TITLE="Зараз Грає: %s"
+MSG_PLAYER_NP_COMPOSER="Композитор: %s"
+MSG_PLAYER_NP_CATEGORY="Категорія: %s"
+MSG_PLAYER_NP_DURATION="Тривалість: %s"
+MSG_PLAYER_NP_TEMPO="Темп: %d BPM"
+MSG_PLAYER_NP_NOTES="%d нот"
+MSG_PLAYER_NP_NOTHING="Нічого не відтворюється"
+
+# Player - Settings
+MSG_PLAYER_SETTINGS_TITLE="Налаштування Плеєра"
+MSG_PLAYER_AUTO_PLAY="Автоматично відтворювати наступний"
+MSG_PLAYER_SHOW_NOTIFICATIONS="Показувати сповіщення"
+MSG_PLAYER_DEFAULT_TEMPO="Темп за замовчуванням: %d BPM"
+
+# Player - Messages
+MSG_PLAYER_LOAD_ERROR="Не вдалося завантажити композицію: %s"
+MSG_PLAYER_PLAY_ERROR="Не вдалося відтворити композицію: %s"
+MSG_PLAYER_NO_COMPOSITIONS="Композиції не знайдено"
+MSG_PLAYER_ADDED_TO_PLAYLIST="Додано до плейлиста: %s"
+MSG_PLAYER_REMOVED_FROM_PLAYLIST="Видалено з плейлиста: %s"

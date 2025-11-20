@@ -197,3 +197,122 @@ MSG_VERSION="Sparky Beep verzió %s"
 MSG_COPYRIGHT="Szerzői jog (C) 2018-2025 Paweł Pijanowski és Közreműködők"
 MSG_LICENSE="Licensz: GNU GPL v3"
 MSG_WEBSITE="https://github.com/sparkylinux/sparky-beep"
+
+# Composer - Main Menu
+MSG_COMPOSER_TITLE="Zenei Zeneszerző"
+MSG_COMPOSER_SUBTITLE="Beep zenei kompozíciók létrehozása"
+MSG_COMPOSER_NEW="Új Kompozíció"
+MSG_COMPOSER_OPEN="Kompozíció Megnyitása"
+MSG_COMPOSER_SAVE="Kompozíció Mentése"
+MSG_COMPOSER_SAVE_AS="Mentés Másként..."
+MSG_COMPOSER_PLAY="Kompozíció Lejátszása"
+MSG_COMPOSER_EXPORT="Exportálás Scriptre"
+MSG_COMPOSER_IMPORT="Importálás Fájlból"
+MSG_COMPOSER_CLEAR="Kompozíció Törlése"
+
+# Composer - Editor
+MSG_COMPOSER_EDITOR_TITLE="Kompozíció Szerkesztő"
+MSG_COMPOSER_ADD_NOTE="Hang Hozzáadása"
+MSG_COMPOSER_ADD_REST="Szünet Hozzáadása"
+MSG_COMPOSER_DELETE_NOTE="Hang Törlése"
+MSG_COMPOSER_EDIT_NOTE="Hang Szerkesztése"
+MSG_COMPOSER_SET_TEMPO="Tempó Beállítása"
+MSG_COMPOSER_CURRENT_TEMPO="Jelenlegi Tempó: %d BPM"
+MSG_COMPOSER_INSERT="Beszúrás"
+MSG_COMPOSER_APPEND="Hozzáfűzés"
+MSG_COMPOSER_MOVE_UP="Fel"
+MSG_COMPOSER_MOVE_DOWN="Le"
+
+# Composer - Note Selection
+MSG_COMPOSER_NOTE_SELECT="Hang Kiválasztása"
+MSG_COMPOSER_NOTE_LABEL="Hang:"
+MSG_COMPOSER_OCTAVE_LABEL="Oktáv:"
+MSG_COMPOSER_DURATION_LABEL="Időtartam:"
+MSG_COMPOSER_DURATION_WHOLE="Egész Hang"
+MSG_COMPOSER_DURATION_HALF="Fél Hang"
+MSG_COMPOSER_DURATION_QUARTER="Negyed Hang"
+MSG_COMPOSER_DURATION_EIGHTH="Nyolcad Hang"
+MSG_COMPOSER_DURATION_SIXTEENTH="Tizenhatod Hang"
+MSG_COMPOSER_PREVIEW_NOTE="Hang Előnézete"
+
+# Composer - File Operations
+MSG_COMPOSER_FILENAME="Fájlnév:"
+MSG_COMPOSER_DESCRIPTION="Leírás:"
+MSG_COMPOSER_CATEGORY="Kategória:"
+MSG_COMPOSER_FILE_EXISTS="A fájl már létezik. Felülírja?"
+MSG_COMPOSER_UNSAVED_CHANGES="Nem mentett változások vannak. Folytatja?"
+MSG_COMPOSER_LOAD_SUCCESS="Kompozíció betöltve: %s"
+MSG_COMPOSER_SAVE_SUCCESS="Kompozíció mentve: %s"
+MSG_COMPOSER_EXPORT_SUCCESS="Exportálva ide: %s"
+
+# Composer - Playback
+MSG_COMPOSER_PLAYING="Kompozíció lejátszása..."
+MSG_COMPOSER_STOPPED="Lejátszás leállítva"
+MSG_COMPOSER_PAUSED="Lejátszás szüneteltetve"
+MSG_COMPOSER_EMPTY="A kompozíció üres"
+
+# Player - Main Menu
+MSG_PLAYER_TITLE="Zenelejátszó"
+MSG_PLAYER_SUBTITLE="Beep zenei kompozíciók lejátszása"
+MSG_PLAYER_BROWSE="Kompozíciók Böngészése"
+MSG_PLAYER_PLAYLIST="Lejátszási Lista Kezelése"
+MSG_PLAYER_NOW_PLAYING="Most Játszik"
+MSG_PLAYER_SETTINGS="Lejátszó Beállításai"
+
+# Player - Playback Controls
+MSG_PLAYER_PLAY="Lejátszás"
+MSG_PLAYER_PAUSE="Szünet"
+MSG_PLAYER_STOP="Leállítás"
+MSG_PLAYER_NEXT="Következő"
+MSG_PLAYER_PREVIOUS="Előző"
+MSG_PLAYER_REPEAT="Ismétlés"
+MSG_PLAYER_SHUFFLE="Véletlenszerű"
+MSG_PLAYER_REPEAT_OFF="Ismétlés: Ki"
+MSG_PLAYER_REPEAT_ONE="Ismétlés: Egy"
+MSG_PLAYER_REPEAT_ALL="Ismétlés: Mind"
+MSG_PLAYER_SHUFFLE_OFF="Véletlenszerű: Ki"
+MSG_PLAYER_SHUFFLE_ON="Véletlenszerű: Be"
+
+# Player - Composition Browser
+MSG_PLAYER_BROWSER_TITLE="Kompozíciók Böngészése"
+MSG_PLAYER_CATEGORY_ALL="Összes Kompozíció"
+MSG_PLAYER_CATEGORY_BUILTIN="Beépített Dallamok"
+MSG_PLAYER_CATEGORY_SYSTEM="Rendszerhangok"
+MSG_PLAYER_CATEGORY_MUSICAL="Zenei Darabok"
+MSG_PLAYER_CATEGORY_USER="Felhasználói Kompozíciók"
+MSG_PLAYER_FILTER="Szűrő:"
+MSG_PLAYER_SORT_NAME="Rendezés Név Szerint"
+MSG_PLAYER_SORT_DATE="Rendezés Dátum Szerint"
+MSG_PLAYER_SORT_CATEGORY="Rendezés Kategória Szerint"
+
+# Player - Playlist
+MSG_PLAYER_PLAYLIST_TITLE="Lejátszási Lista Kezelése"
+MSG_PLAYER_PLAYLIST_EMPTY="A lejátszási lista üres"
+MSG_PLAYER_PLAYLIST_ADD="Hozzáadás a Listához"
+MSG_PLAYER_PLAYLIST_REMOVE="Eltávolítás a Listáról"
+MSG_PLAYER_PLAYLIST_CLEAR="Lista Törlése"
+MSG_PLAYER_PLAYLIST_SAVE="Lista Mentése"
+MSG_PLAYER_PLAYLIST_LOAD="Lista Betöltése"
+MSG_PLAYER_PLAYLIST_ITEMS="%d elem a listában"
+
+# Player - Now Playing
+MSG_PLAYER_NP_TITLE="Most Játszik: %s"
+MSG_PLAYER_NP_COMPOSER="Zeneszerző: %s"
+MSG_PLAYER_NP_CATEGORY="Kategória: %s"
+MSG_PLAYER_NP_DURATION="Időtartam: %s"
+MSG_PLAYER_NP_TEMPO="Tempó: %d BPM"
+MSG_PLAYER_NP_NOTES="%d hang"
+MSG_PLAYER_NP_NOTHING="Nincs lejátszás"
+
+# Player - Settings
+MSG_PLAYER_SETTINGS_TITLE="Lejátszó Beállításai"
+MSG_PLAYER_AUTO_PLAY="Következő automatikus lejátszása"
+MSG_PLAYER_SHOW_NOTIFICATIONS="Értesítések megjelenítése"
+MSG_PLAYER_DEFAULT_TEMPO="Alapértelmezett tempó: %d BPM"
+
+# Player - Messages
+MSG_PLAYER_LOAD_ERROR="Kompozíció betöltése sikertelen: %s"
+MSG_PLAYER_PLAY_ERROR="Kompozíció lejátszása sikertelen: %s"
+MSG_PLAYER_NO_COMPOSITIONS="Nem található kompozíció"
+MSG_PLAYER_ADDED_TO_PLAYLIST="Hozzáadva a listához: %s"
+MSG_PLAYER_REMOVED_FROM_PLAYLIST="Eltávolítva a listáról: %s"

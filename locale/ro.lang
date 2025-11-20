@@ -197,3 +197,122 @@ MSG_VERSION="Sparky Beep versiunea %s"
 MSG_COPYRIGHT="Drepturi de autor (C) 2018-2025 Paweł Pijanowski & Contribuitori"
 MSG_LICENSE="Licențiat sub GNU GPL v3"
 MSG_WEBSITE="https://github.com/sparkylinux/sparky-beep"
+
+# Composer - Main Menu
+MSG_COMPOSER_TITLE="Compozitor Muzical"
+MSG_COMPOSER_SUBTITLE="Creați compoziții muzicale cu beep"
+MSG_COMPOSER_NEW="Compoziție Nouă"
+MSG_COMPOSER_OPEN="Deschideți Compoziție"
+MSG_COMPOSER_SAVE="Salvați Compoziția"
+MSG_COMPOSER_SAVE_AS="Salvați ca..."
+MSG_COMPOSER_PLAY="Redați Compoziția"
+MSG_COMPOSER_EXPORT="Exportați în Script"
+MSG_COMPOSER_IMPORT="Importați din Fișier"
+MSG_COMPOSER_CLEAR="Ștergeți Compoziția"
+
+# Composer - Editor
+MSG_COMPOSER_EDITOR_TITLE="Editor de Compoziție"
+MSG_COMPOSER_ADD_NOTE="Adăugați Notă"
+MSG_COMPOSER_ADD_REST="Adăugați Pauză"
+MSG_COMPOSER_DELETE_NOTE="Ștergeți Nota"
+MSG_COMPOSER_EDIT_NOTE="Editați Nota"
+MSG_COMPOSER_SET_TEMPO="Setați Tempo-ul"
+MSG_COMPOSER_CURRENT_TEMPO="Tempo Curent: %d BPM"
+MSG_COMPOSER_INSERT="Inserați"
+MSG_COMPOSER_APPEND="Adăugați la Sfârșit"
+MSG_COMPOSER_MOVE_UP="Mutați în Sus"
+MSG_COMPOSER_MOVE_DOWN="Mutați în Jos"
+
+# Composer - Note Selection
+MSG_COMPOSER_NOTE_SELECT="Selectați Nota"
+MSG_COMPOSER_NOTE_LABEL="Notă:"
+MSG_COMPOSER_OCTAVE_LABEL="Octavă:"
+MSG_COMPOSER_DURATION_LABEL="Durată:"
+MSG_COMPOSER_DURATION_WHOLE="Notă Întreagă"
+MSG_COMPOSER_DURATION_HALF="Notă Doime"
+MSG_COMPOSER_DURATION_QUARTER="Notă Pătrime"
+MSG_COMPOSER_DURATION_EIGHTH="Notă Optime"
+MSG_COMPOSER_DURATION_SIXTEENTH="Notă Șaisprezeceime"
+MSG_COMPOSER_PREVIEW_NOTE="Previzualizați Nota"
+
+# Composer - File Operations
+MSG_COMPOSER_FILENAME="Nume Fișier:"
+MSG_COMPOSER_DESCRIPTION="Descriere:"
+MSG_COMPOSER_CATEGORY="Categorie:"
+MSG_COMPOSER_FILE_EXISTS="Fișierul există deja. Suprascrieți?"
+MSG_COMPOSER_UNSAVED_CHANGES="Aveți modificări nesalvate. Continuați?"
+MSG_COMPOSER_LOAD_SUCCESS="Compoziție încărcată: %s"
+MSG_COMPOSER_SAVE_SUCCESS="Compoziție salvată: %s"
+MSG_COMPOSER_EXPORT_SUCCESS="Exportat în: %s"
+
+# Composer - Playback
+MSG_COMPOSER_PLAYING="Se redă compoziția..."
+MSG_COMPOSER_STOPPED="Redare oprită"
+MSG_COMPOSER_PAUSED="Redare întreruptă"
+MSG_COMPOSER_EMPTY="Compoziția este goală"
+
+# Player - Main Menu
+MSG_PLAYER_TITLE="Player Muzical"
+MSG_PLAYER_SUBTITLE="Redați compoziții muzicale cu beep"
+MSG_PLAYER_BROWSE="Răsfoiți Compoziții"
+MSG_PLAYER_PLAYLIST="Gestionați Lista de Redare"
+MSG_PLAYER_NOW_PLAYING="Se Redă Acum"
+MSG_PLAYER_SETTINGS="Setări Player"
+
+# Player - Playback Controls
+MSG_PLAYER_PLAY="Redare"
+MSG_PLAYER_PAUSE="Pauză"
+MSG_PLAYER_STOP="Oprire"
+MSG_PLAYER_NEXT="Următorul"
+MSG_PLAYER_PREVIOUS="Anteriorul"
+MSG_PLAYER_REPEAT="Repetare"
+MSG_PLAYER_SHUFFLE="Amestecare"
+MSG_PLAYER_REPEAT_OFF="Repetare: Dezactivată"
+MSG_PLAYER_REPEAT_ONE="Repetare: Una"
+MSG_PLAYER_REPEAT_ALL="Repetare: Toate"
+MSG_PLAYER_SHUFFLE_OFF="Amestecare: Dezactivată"
+MSG_PLAYER_SHUFFLE_ON="Amestecare: Activată"
+
+# Player - Composition Browser
+MSG_PLAYER_BROWSER_TITLE="Răsfoiți Compoziții"
+MSG_PLAYER_CATEGORY_ALL="Toate Compozițiile"
+MSG_PLAYER_CATEGORY_BUILTIN="Melodii Integrate"
+MSG_PLAYER_CATEGORY_SYSTEM="Sunete Sistem"
+MSG_PLAYER_CATEGORY_MUSICAL="Piese Muzicale"
+MSG_PLAYER_CATEGORY_USER="Compoziții Utilizator"
+MSG_PLAYER_FILTER="Filtru:"
+MSG_PLAYER_SORT_NAME="Sortați după Nume"
+MSG_PLAYER_SORT_DATE="Sortați după Dată"
+MSG_PLAYER_SORT_CATEGORY="Sortați după Categorie"
+
+# Player - Playlist
+MSG_PLAYER_PLAYLIST_TITLE="Gestionare Listă de Redare"
+MSG_PLAYER_PLAYLIST_EMPTY="Lista de redare este goală"
+MSG_PLAYER_PLAYLIST_ADD="Adăugați în Listă"
+MSG_PLAYER_PLAYLIST_REMOVE="Eliminați din Listă"
+MSG_PLAYER_PLAYLIST_CLEAR="Goliți Lista"
+MSG_PLAYER_PLAYLIST_SAVE="Salvați Lista"
+MSG_PLAYER_PLAYLIST_LOAD="Încărcați Lista"
+MSG_PLAYER_PLAYLIST_ITEMS="%d elemente în listă"
+
+# Player - Now Playing
+MSG_PLAYER_NP_TITLE="Se Redă Acum: %s"
+MSG_PLAYER_NP_COMPOSER="Compozitor: %s"
+MSG_PLAYER_NP_CATEGORY="Categorie: %s"
+MSG_PLAYER_NP_DURATION="Durată: %s"
+MSG_PLAYER_NP_TEMPO="Tempo: %d BPM"
+MSG_PLAYER_NP_NOTES="%d note"
+MSG_PLAYER_NP_NOTHING="Nimic nu se redă"
+
+# Player - Settings
+MSG_PLAYER_SETTINGS_TITLE="Setări Player"
+MSG_PLAYER_AUTO_PLAY="Redare automată următorul"
+MSG_PLAYER_SHOW_NOTIFICATIONS="Afișați notificări"
+MSG_PLAYER_DEFAULT_TEMPO="Tempo implicit: %d BPM"
+
+# Player - Messages
+MSG_PLAYER_LOAD_ERROR="Eșec la încărcarea compoziției: %s"
+MSG_PLAYER_PLAY_ERROR="Eșec la redarea compoziției: %s"
+MSG_PLAYER_NO_COMPOSITIONS="Nu s-au găsit compoziții"
+MSG_PLAYER_ADDED_TO_PLAYLIST="Adăugat în listă: %s"
+MSG_PLAYER_REMOVED_FROM_PLAYLIST="Eliminat din listă: %s"
