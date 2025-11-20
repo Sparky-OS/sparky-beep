@@ -1,0 +1,12 @@
+# System Startup Fanfare
+# Triumphant ascending fanfare for system boot
+# Tempo: 140 BPM (energetic)
+
+tempo:140
+
+# Ascending fanfare
+C4e E4e G4q C5e r:e
+C4e E4e G4q C5e r:e
+
+# Power chord resolution
+C5q G4q C5h

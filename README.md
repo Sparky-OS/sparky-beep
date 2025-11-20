@@ -45,6 +45,76 @@ Key Points
 - `sparky-beep-run` can be triggered from an init script and keeps the
   beep services enabled and running.
 
+Musical Composer (NEW!)
+-----------------------
+Sparky Beep now includes a **musical notation composer** that lets you create
+melodic beeps using standard musical notation instead of raw frequencies!
+
+**Features:**
+- 🎵 **Musical notation support** - Write `C4q D4q E4q` instead of `beep -f 261 -l 500 -n -f 293...`
+- 🎼 **8 octaves** - Full range from C0 to B8 (88 notes)
+- 🎹 **All chromatic notes** - Sharps (#) and flats (b) supported
+- ⏱️ **Tempo control** - Set BPM from 40-240
+- 🔊 **Ternary beep mode** - Optional smoother sounds using ternary logic (requires compilation)
+
+**Quick Examples:**
+
+```bash
+# Play C major scale
+sparky-beep-compose -s "C4q D4q E4q F4q G4q A4q B4q C5q" -p
+
+# Play Happy Birthday
+sparky-beep-compose compositions/happy-birthday.beepmusic -p
+
+# Custom tempo
+sparky-beep-compose -s "tempo:140 C4h E4h G4h C5w" -p
+```
+
+**Included Compositions:**
+- C Major Scale
+- Happy Birthday
+- Twinkle Twinkle Little Star
+- Ode to Joy (Beethoven)
+- Star Wars Theme
+- Super Mario Bros Theme
+- Startup/Shutdown fanfares
+- Alert/notification sounds
+
+**Ternary Beep Engine (Advanced):**
+
+For smoother, more musical sounds, compile the optional ternary beep engine:
+
+```bash
+make              # Compile tbeep
+sudo make install # Install ternary beep engine
+
+# Enable ternary mode in config
+sudo nano /etc/sparky-beep/beep.conf
+# Change: BEEP_MODE="ternary"
+
+# Test
+sudo tbeep -f 440 -l 500
+```
+
+**What is Ternary Beep?**
+
+Standard beep uses **binary states** (ON/OFF), creating harsh square waves.
+Ternary beep uses **3 states** {-1, 0, +1}, approximating sine waves for
+smoother, more pleasant sounds!
+
+```
+Binary:  ┌─┐ ┌─┐ ┌─┐   (harsh, buzzy)
+Ternary:   ╭─╮         (smooth, musical)
+         ╭─╯ ╰─╮
+        ─╯     ╰─
+```
+
+**Documentation:**
+- **COMPOSER.md** - Complete composer documentation and examples
+- **config/beep.conf** - Configuration file for beep mode and settings
+- **compositions/** - Pre-made musical compositions
+- **lib/notes.sh** - Musical note library with all frequencies
+
 Internationalization (i18n)
 ---------------------------
 Sparky Beep supports **15 languages** with automatic detection based on your

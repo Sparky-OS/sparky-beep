@@ -1,0 +1,8 @@
+# Success Notification
+# Pleasant ascending chime for successful operations
+# Tempo: 120 BPM
+
+tempo:120
+
+# Ascending triad
+C4e E4e G4e C5q r:h

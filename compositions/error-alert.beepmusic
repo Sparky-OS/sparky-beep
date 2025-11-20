@@ -1,0 +1,14 @@
+# Error Alert
+# Urgent but non-annoying error notification
+# Tempo: 160 BPM (fast, urgent)
+
+tempo:160
+
+# Alternating high-low pattern
+E5s E5s r:s
+C4s C4s r:s
+E5s E5s r:s
+C4s C4s r:s
+
+# Final warning tone
+E5q

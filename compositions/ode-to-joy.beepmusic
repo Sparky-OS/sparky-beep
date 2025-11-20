@@ -1,0 +1,17 @@
+# Ode to Joy (Beethoven's 9th Symphony, Theme)
+# Famous classical melody
+# Tempo: 120 BPM
+
+tempo:120
+
+# First phrase
+E4q E4q F4q G4q
+G4q F4q E4q D4q
+C4q C4q D4q E4q
+E4q D4e D4h
+
+# Second phrase
+E4q E4q F4q G4q
+G4q F4q E4q D4q
+C4q C4q D4q E4q
+D4q C4e C4h
