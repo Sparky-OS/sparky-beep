@@ -1,0 +1,75 @@
+#!/usr/bin/make -f
+# debian/rules for sparky-beep
+
+# Uncomment this to turn on verbose mode.
+#export DH_VERBOSE=1
+
+# Enable all hardening build flags
+export DEB_BUILD_MAINT_OPTIONS = hardening=+all
+
+%:
+	dh $@
+
+override_dh_auto_build:
+	# Compile tbeep binary
+	$(MAKE) all
+
+override_dh_auto_clean:
+	# Clean compiled binaries
+	$(MAKE) clean || true
+	dh_auto_clean
+
+override_dh_auto_install:
+	# Install to debian/sparky-beep/ staging area
+	dh_auto_install
+
+	# Create directory structure
+	install -d debian/sparky-beep/usr/bin
+	install -d debian/sparky-beep/etc/init.d
+	install -d debian/sparky-beep/lib/systemd/system
+	install -d debian/sparky-beep/usr/share/sparky-beep/lib
+	install -d debian/sparky-beep/usr/share/sparky-beep/locale
+	install -d debian/sparky-beep/usr/share/sparky-beep/compositions
+	install -d debian/sparky-beep/etc/sparky-beep
+
+	# Install binaries
+	install -m 755 bin/tbeep debian/sparky-beep/usr/bin/
+	install -m 755 bin/sparky-beep-run debian/sparky-beep/usr/bin/
+	install -m 755 bin/sparky-beep-config debian/sparky-beep/usr/bin/
+	install -m 755 bin/sparky-beep-config-tui debian/sparky-beep/usr/bin/
+	install -m 755 bin/sparky-beep-config-gui debian/sparky-beep/usr/bin/
+	install -m 755 bin/sparky-beep-compose debian/sparky-beep/usr/bin/
+	install -m 755 bin/sparky-beep-composer-tui debian/sparky-beep/usr/bin/
+	install -m 755 bin/sparky-beep-composer-gui debian/sparky-beep/usr/bin/
+	install -m 755 bin/sparky-beep-player-tui debian/sparky-beep/usr/bin/
+	install -m 755 bin/sparky-beep-player-gui debian/sparky-beep/usr/bin/
+
+	# Install init scripts
+	install -m 755 init.d/sparky-beep debian/sparky-beep/etc/init.d/
+	install -m 755 init.d/beep_sys debian/sparky-beep/etc/init.d/
+	install -m 755 init.d/beep_samba debian/sparky-beep/etc/init.d/
+	install -m 755 init.d/beep_netdata debian/sparky-beep/etc/init.d/
+	install -m 755 init.d/beep_webmin debian/sparky-beep/etc/init.d/
+
+	# Install systemd service files
+	install -m 644 system/beep_sys.service debian/sparky-beep/lib/systemd/system/
+	install -m 644 system/beep_samba.service debian/sparky-beep/lib/systemd/system/
+	install -m 644 system/beep_netdata.service debian/sparky-beep/lib/systemd/system/
+	install -m 644 system/beep_webmin.service debian/sparky-beep/lib/systemd/system/
+
+	# Install library files
+	install -m 644 lib/*.sh debian/sparky-beep/usr/share/sparky-beep/lib/
+
+	# Install locale files
+	install -m 644 locale/*.lang debian/sparky-beep/usr/share/sparky-beep/locale/
+	install -m 644 locale/i18n.sh debian/sparky-beep/usr/share/sparky-beep/locale/
+
+	# Install composition files
+	install -m 644 compositions/*.beepmusic debian/sparky-beep/usr/share/sparky-beep/compositions/
+
+	# Install configuration file as example
+	install -m 644 config/beep.conf debian/sparky-beep/etc/sparky-beep/beep.conf.example
+
+override_dh_installsystemd:
+	# Don't auto-enable or auto-start services (they bind to optional packages)
+	dh_installsystemd --no-enable --no-start

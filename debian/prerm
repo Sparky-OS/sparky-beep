@@ -1,0 +1,32 @@
+#!/bin/sh
+# prerm script for sparky-beep
+
+set -e
+
+case "$1" in
+    remove|deconfigure)
+        # Stop and disable all beep services before removal
+        if [ -d /run/systemd/system ]; then
+            for service in beep_sys beep_samba beep_netdata beep_webmin; do
+                if systemctl is-active --quiet $service 2>/dev/null; then
+                    systemctl stop $service >/dev/null 2>&1 || true
+                fi
+                if systemctl is-enabled --quiet $service 2>/dev/null; then
+                    systemctl disable $service >/dev/null 2>&1 || true
+                fi
+            done
+        fi
+        ;;
+
+    upgrade|failed-upgrade)
+        ;;
+
+    *)
+        echo "prerm called with unknown argument \`$1'" >&2
+        exit 1
+        ;;
+esac
+
+#DEBHELPER#
+
+exit 0

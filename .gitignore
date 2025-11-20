@@ -1,0 +1,34 @@
+# Compiled binaries
+bin/tbeep
+
+# Debian build artifacts
+debian/.debhelper/
+debian/sparky-beep/
+debian/sparky-beep-dbgsym/
+debian/files
+debian/*.substvars
+debian/*.log
+debian/*.debhelper
+debian/debhelper-build-stamp
+debian/tmp/
+
+# Build artifacts in parent directory
+../*.deb
+../*.ddeb
+../*.changes
+../*.buildinfo
+../*.dsc
+../*.tar.gz
+../*.tar.xz
+
+# Object files and archives
+*.o
+*.a
+*.so
+*.so.*
+
+# Backup files
+*~
+*.bak
+*.swp
+.*.sw?

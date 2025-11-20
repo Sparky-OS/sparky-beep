@@ -1,0 +1,41 @@
+Source: sparky-beep
+Section: admin
+Priority: optional
+Maintainer: Capitain_Jack and Claude <sparky-os@example.com>
+Build-Depends: debhelper-compat (= 13),
+               gcc,
+               make
+Standards-Version: 4.6.2
+Homepage: https://github.com/Sparky-OS/sparky-beep
+Vcs-Browser: https://github.com/Sparky-OS/sparky-beep
+Vcs-Git: https://github.com/Sparky-OS/sparky-beep.git
+
+Package: sparky-beep
+Architecture: any
+Depends: ${shlibs:Depends},
+         ${misc:Depends},
+         beep,
+         systemd,
+         bash (>= 4.0)
+Suggests: netdata,
+          samba,
+          webmin,
+          dialog | whiptail,
+          zenity | yad
+Description: Audible notifications for system service state changes
+ Sparky Beep provides audible notifications (beeps) when selected system
+ services start, stop, or restart. It's designed for Sparky Linux Server
+ Edition and uses the PC speaker to create distinctive sound patterns for
+ different service state changes.
+ .
+ Features:
+  * Service-specific beep patterns for SSH, Samba, NetData, and Webmin
+  * TUI and GUI configuration interfaces for easy setup
+  * Multi-language support (26 languages)
+  * Custom tune library with 10+ built-in melodies
+  * Time-based scheduling with quiet hours support
+  * Musical composition system for creating custom beep sequences
+  * Automatic service discovery and management
+ .
+ The package integrates with systemd to provide seamless notification
+ of service state changes through the PC speaker.
