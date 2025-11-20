@@ -25,10 +25,14 @@ if [ "$1" = "uninstall" ]; then
 	rm -f /lib/systemd/system/beep_sys.service
 	rm -f /lib/systemd/system/beep_webmin.service
 	rm -f /usr/bin/sparky-beep-run
+	rm -rf /usr/share/sparky-beep/locale
 	#rm -f /etc/xdg/autostart/sparky-beep-run.desktop
 else
 	cp init.d/* /etc/init.d/
 	cp system/* /lib/systemd/system/
 	cp bin/* /usr/bin/
+	mkdir -p /usr/share/sparky-beep/locale
+	cp locale/*.lang locale/*.sh /usr/share/sparky-beep/locale/
+	cp locale/*.md /usr/share/sparky-beep/locale/ 2>/dev/null || true
 	#cp etc/* /etc/xdg/autostart/
 fi

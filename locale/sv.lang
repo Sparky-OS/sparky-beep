@@ -1,0 +1,14 @@
+# Swedish (Svenska) translations for Sparky Beep
+# Author: Sparky Beep Contributors
+# Last updated: 2025-01-20
+
+# Service status messages
+MSG_SERVICE_ACTIVE="%s tjänsten är aktiv..."
+MSG_SERVICE_NOT_ACTIVE="%s tjänsten är INTE aktiv..."
+MSG_SPARKY_STARTED="sparky-beep startad"
+
+# Usage messages
+MSG_USAGE_BEEP_SYS="Användning: /etc/init.d/beep_sys {start|stop|restart}"
+MSG_USAGE_BEEP_NETDATA="Användning: /etc/init.d/beep_netdata {start|stop|restart}"
+MSG_USAGE_BEEP_SAMBA="Användning: /etc/init.d/beep_samba {start|stop|restart}"
+MSG_USAGE_BEEP_WEBMIN="Användning: /etc/init.d/beep_webmin {start|stop|restart}"

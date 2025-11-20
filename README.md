@@ -45,6 +45,42 @@ Key Points
 - `sparky-beep-run` can be triggered from an init script and keeps the
   beep services enabled and running.
 
+Internationalization (i18n)
+---------------------------
+Sparky Beep supports **15 languages** with automatic detection based on your
+system's `LANG` environment variable:
+
+| Language | Native Name | Code |
+|----------|-------------|------|
+| Czech | Čeština | cs |
+| German | Deutsch | de |
+| English | English | en (default) |
+| Spanish | Español | es |
+| French | Français | fr |
+| Italian | Italiano | it |
+| Japanese | 日本語 | ja |
+| Dutch | Nederlands | nl |
+| Polish | Polski | pl |
+| Portuguese | Português | pt |
+| Russian | Русский | ru |
+| Swedish | Svenska | sv |
+| Turkish | Türkçe | tr |
+| Ukrainian | Українська | uk |
+| Chinese (Simplified) | 简体中文 | zh_CN |
+
+**Usage:**
+```bash
+# Change language by setting LANG environment variable
+export LANG=de_DE.UTF-8  # Use German
+./bin/sparky-beep-run
+
+export LANG=fr_FR.UTF-8  # Use French
+/etc/init.d/beep_netdata start
+```
+
+**Translation files:** `locale/*.lang`
+**Documentation:** See `locale/LANGUAGES.md` for details on adding new languages
+
 Where to Learn More
 -------------------
 - Inspect `bin/sparky-beep-run` to see how it uses `systemctl` to check

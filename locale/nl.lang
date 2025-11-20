@@ -1,0 +1,14 @@
+# Dutch (Nederlands) translations for Sparky Beep
+# Author: Sparky Beep Contributors
+# Last updated: 2025-01-20
+
+# Service status messages
+MSG_SERVICE_ACTIVE="%s service is actief..."
+MSG_SERVICE_NOT_ACTIVE="%s service is NIET actief..."
+MSG_SPARKY_STARTED="sparky-beep gestart"
+
+# Usage messages
+MSG_USAGE_BEEP_SYS="Gebruik: /etc/init.d/beep_sys {start|stop|restart}"
+MSG_USAGE_BEEP_NETDATA="Gebruik: /etc/init.d/beep_netdata {start|stop|restart}"
+MSG_USAGE_BEEP_SAMBA="Gebruik: /etc/init.d/beep_samba {start|stop|restart}"
+MSG_USAGE_BEEP_WEBMIN="Gebruik: /etc/init.d/beep_webmin {start|stop|restart}"

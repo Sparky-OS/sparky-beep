@@ -1,0 +1,14 @@
+# Ukrainian (Українська) translations for Sparky Beep
+# Author: Sparky Beep Contributors
+# Last updated: 2025-01-20
+
+# Service status messages
+MSG_SERVICE_ACTIVE="сервіс %s активний..."
+MSG_SERVICE_NOT_ACTIVE="сервіс %s НЕ активний..."
+MSG_SPARKY_STARTED="sparky-beep запущено"
+
+# Usage messages
+MSG_USAGE_BEEP_SYS="Використання: /etc/init.d/beep_sys {start|stop|restart}"
+MSG_USAGE_BEEP_NETDATA="Використання: /etc/init.d/beep_netdata {start|stop|restart}"
+MSG_USAGE_BEEP_SAMBA="Використання: /etc/init.d/beep_samba {start|stop|restart}"
+MSG_USAGE_BEEP_WEBMIN="Використання: /etc/init.d/beep_webmin {start|stop|restart}"
