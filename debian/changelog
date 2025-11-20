@@ -1,0 +1,38 @@
+sparky-beep (0.2.0-1) unstable; urgency=medium
+
+  * MAJOR UPDATE: Configuration Management & Extended Multilingual Support
+  * Added TUI/GUI/CLI configuration interfaces (sparky-beep-config)
+  * Added tune/melody library management with 10+ built-in melodies
+  * Implemented time-based scheduling with quiet hours support
+  * Added composer and player tools for creating custom beep sequences
+  * Expanded internationalization from 15 to 26 languages
+  * Added 11 new language translations (Arabic, Catalan, Danish, Greek,
+    Finnish, Hungarian, Korean, Portuguese Brazil, Romanian, Slovak,
+    Traditional Chinese)
+  * New libraries: config.sh, discovery.sh, tunes.sh, scheduler.sh
+  * Enhanced documentation and test coverage (228 tests, ~85% core coverage)
+  * Configuration file support: /etc/sparky-beep/beep.conf
+  * Automatic configuration backup system
+  * Service enable/disable management
+  * Custom tune assignment for each service event
+  * Schedule rules for time-based beep control
+
+ -- Capitain_Jack and Claude <sparky-os@example.com>  Wed, 20 Nov 2025 00:00:00 +0000
+
+sparky-beep (0.1.11-1) unstable; urgency=low
+
+  * Moved netdata, samba, webmin from dependency to suggests
+
+ -- Capitain_Jack and Claude <sparky-os@example.com>  Sat, 23 Feb 2019 00:00:00 +0000
+
+sparky-beep (0.1.10-1) unstable; urgency=low
+
+  * Updated init.d/beep_netdata
+
+ -- Capitain_Jack and Claude <sparky-os@example.com>  Thu, 24 Jan 2019 00:00:00 +0000
+
+sparky-beep (0.1.0-1) unstable; urgency=low
+
+  * Initial release
+
+ -- Capitain_Jack and Claude <sparky-os@example.com>  Tue, 09 Oct 2018 00:00:00 +0000

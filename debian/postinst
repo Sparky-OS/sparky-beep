@@ -1,0 +1,45 @@
+#!/bin/sh
+# postinst script for sparky-beep
+
+set -e
+
+case "$1" in
+    configure)
+        # Reload systemd daemon to recognize new service files
+        if [ -d /run/systemd/system ]; then
+            systemctl daemon-reload >/dev/null 2>&1 || true
+        fi
+
+        # Create configuration directory if it doesn't exist
+        if [ ! -d /etc/sparky-beep ]; then
+            mkdir -p /etc/sparky-beep
+        fi
+
+        # Copy example config if no config exists
+        if [ ! -f /etc/sparky-beep/beep.conf ] && [ -f /etc/sparky-beep/beep.conf.example ]; then
+            cp /etc/sparky-beep/beep.conf.example /etc/sparky-beep/beep.conf
+        fi
+
+        # Run sparky-beep-run to discover and enable beep services
+        # This will only enable services for installed packages
+        if [ -x /usr/bin/sparky-beep-run ]; then
+            /usr/bin/sparky-beep-run >/dev/null 2>&1 || true
+        fi
+
+        echo "Sparky Beep has been installed successfully!"
+        echo "Run 'sparky-beep-config' to configure beep services."
+        echo "Configuration file: /etc/sparky-beep/beep.conf"
+        ;;
+
+    abort-upgrade|abort-remove|abort-deconfigure)
+        ;;
+
+    *)
+        echo "postinst called with unknown argument \`$1'" >&2
+        exit 1
+        ;;
+esac
+
+#DEBHELPER#
+
+exit 0
