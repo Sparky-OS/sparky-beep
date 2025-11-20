@@ -2,6 +2,10 @@
 
 This directory contains the Debian packaging files for building a `.deb` package of Sparky Beep.
 
+## Target Platform
+
+This package targets **Debian 12 "Bookworm" (stable)** and Debian-based distributions including Sparky Linux.
+
 ## Package Information
 
 - **Package Name**: sparky-beep
@@ -9,6 +13,7 @@ This directory contains the Debian packaging files for building a `.deb` package
 - **Architecture**: any (includes compiled tbeep binary)
 - **Section**: admin
 - **Priority**: optional
+- **Target Distribution**: Debian stable (Bookworm)
 - **Maintainer**: Capitain_Jack and Claude
 
 ## Requirements
@@ -246,12 +251,13 @@ systemctl status ssh
 
 ## Debian Policy Compliance
 
-This package follows Debian Policy Manual standards:
-- Debhelper compatibility level: 13
-- Standards-Version: 4.6.2
+This package follows Debian Policy Manual standards for Debian 12 "Bookworm":
+- Debhelper compatibility level: 13 (matches Debian 12 stable)
+- Standards-Version: 4.6.2 (Debian 12 policy version)
 - Source format: 3.0 (native)
 - Build flags: All hardening flags enabled
 - License: GPL-3.0+
+- Tested on: Debian 12 (Bookworm) and derivatives
 
 ## Contributing
 
