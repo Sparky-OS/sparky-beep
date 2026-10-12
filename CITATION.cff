@@ -1,0 +1,19 @@
+cff-version: 1.2.0
+message: "If you use this work, please cite it as below."
+type: software
+title: "sparky-beep: sound announcements for running services"
+abstract: "Sound announcements for the services running on a Linux machine, in 26 languages, with Debian packaging."
+authors:
+  - family-names: "Ramos"
+    given-names: "Daniel Campos"
+    orcid: "https://orcid.org/0009-0001-4546-8673"
+license: GPL-3.0-or-later
+repository-code: "https://github.com/Sparky-OS/sparky-beep"
+keywords:
+  - "SparkyLinux"
+  - "Debian"
+  - "small-business server"
+  - "Bash"
+  - "audio"
+  - "notifications"
+  - "accessibility"
