@@ -1,4 +1,7 @@
 Sparky Beep
+
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23309046.svg)](https://doi.org/10.5281/zenodo.23309046)
+
 Provides beep support for a few services of server edition.
 
 Overview
