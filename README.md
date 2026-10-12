@@ -497,3 +497,23 @@ Uninstall:
 -------------
 su (or sudo)
 ./install.sh uninstall
+
+Credits
+-------
+- The service tones are Daniel Ramos's own, made by hand in 2020, before any
+  AI partner. Claude, Jules and Codex revamped the package in 2025, and Claude
+  added the composer and the project's own tunes (scale, alert, startup,
+  shutdown and success).
+- `beep` (https://github.com/spkr-beep/beep) plays every tone: Johnathan
+  Nightingale, its author; Hans Ulrich Niedermann, its maintainer since 2018;
+  Peter Tirsek, Andreas Hochsteger, Rick Franchuk, Serge Winitzki and Ryan
+  Weaver, named in its CREDITS.md; Gerfried Fuchs, who maintained it in Debian
+  for years.
+- The melodies in `compositions/` are simplified beep arrangements of:
+  - "Happy Birthday": Mildred J. Hill and Patty Smith Hill ("Good Morning to
+    All", 1893);
+  - "Ode to Joy": Ludwig van Beethoven (Symphony No. 9, 1824);
+  - "Twinkle Twinkle Little Star": the French melody "Ah! vous dirai-je,
+    maman" (1761), words by Jane Taylor (1806);
+  - the Super Mario Bros. theme: Koji Kondo (Nintendo, 1985);
+  - the Star Wars main title: John Williams (1977).
