@@ -253,13 +253,13 @@ teardown() {
 }
 
 @test "config file has BEEP_MODE setting" {
-    grep -q "BEEP_MODE=" "$CONFIG_DIR/beep.conf"
+    grep -q "^beep_mode=" "$CONFIG_DIR/beep.conf"
 }
 
 @test "config file has DEFAULT_TEMPO setting" {
-    grep -q "DEFAULT_TEMPO=" "$CONFIG_DIR/beep.conf"
+    grep -q "^default_tempo=" "$CONFIG_DIR/beep.conf"
 }
 
 @test "config file has DEFAULT_OCTAVE setting" {
-    grep -q "DEFAULT_OCTAVE=" "$CONFIG_DIR/beep.conf"
+    grep -q "^default_octave=" "$CONFIG_DIR/beep.conf"
 }

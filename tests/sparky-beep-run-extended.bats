@@ -209,17 +209,6 @@ EOS
   assert_service_enabled beep_sys
 }
 
-# Log file creation
-@test "creates log file in /tmp" {
-  mock_apt_cache_no_packages
-
-  run bin/sparky-beep-run
-
-  [ "$status" -eq 0 ]
-  # Check that a log file was created (pattern: /tmp/sparky-beep-test.*)
-  [ -n "$(find /tmp -name 'sparky-beep-test.*' -type f 2>/dev/null)" ]
-}
-
 # Multiple services
 @test "handles multiple services when multiple packages are installed" {
   # Mock with both netdata and webmin installed

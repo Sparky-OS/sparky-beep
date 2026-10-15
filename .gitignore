@@ -1,6 +1,3 @@
-# Compiled binaries
-bin/tbeep
-
 # Debian build artifacts
 debian/.debhelper/
 debian/sparky-beep/

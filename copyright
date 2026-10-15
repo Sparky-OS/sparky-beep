@@ -18,7 +18,7 @@ Files:
     License: GPL-3
 
 Files:
-    /usr/bin/sparky-beep-compose, sparky-beep-config*, sparky-beep-composer-*, sparky-beep-player-*, tbeep
+    /usr/bin/sparky-beep-compose, sparky-beep-config*, sparky-beep-composer-*, sparky-beep-player-*
     /usr/share/sparky-beep/*
     Copyright (C) 2025-2026 Daniel Ramos (Capitain Jack), written with AI assistance (Claude)
     License: GPL-3

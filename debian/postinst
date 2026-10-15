@@ -1,45 +1,21 @@
 #!/bin/sh
-# postinst script for sparky-beep
+# postinst script
+#
+# see: dh_installdeb(1)
 
 set -e
 
-case "$1" in
-    configure)
-        # Reload systemd daemon to recognize new service files
-        if [ -d /run/systemd/system ]; then
-            systemctl daemon-reload >/dev/null 2>&1 || true
-        fi
+# the values of a 0.2.0/0.2.1 shell-format beep.conf (set aside by preinst) go into the INI file
+if [ -f /etc/sparky-beep/beep.conf.0.2.1 ]; then
+	bash -c '. /usr/share/sparky-beep/lib/config.sh; migrate_shell_config /etc/sparky-beep/beep.conf.0.2.1 /etc/sparky-beep/beep.conf'
+	mkdir -p /etc/sparky-beep/backups
+	mv /etc/sparky-beep/beep.conf.0.2.1 /etc/sparky-beep/backups/
+fi
+dpkg-maintscript-helper rm_conffile /etc/sparky-beep/beep.conf.example 0.2.2~ sparky-beep -- "$@"
 
-        # Create configuration directory if it doesn't exist
-        if [ ! -d /etc/sparky-beep ]; then
-            mkdir -p /etc/sparky-beep
-        fi
-
-        # Copy example config if no config exists
-        if [ ! -f /etc/sparky-beep/beep.conf ] && [ -f /etc/sparky-beep/beep.conf.example ]; then
-            cp /etc/sparky-beep/beep.conf.example /etc/sparky-beep/beep.conf
-        fi
-
-        # Run sparky-beep-run to discover and enable beep services
-        # This will only enable services for installed packages
-        if [ -x /usr/bin/sparky-beep-run ]; then
-            /usr/bin/sparky-beep-run >/dev/null 2>&1 || true
-        fi
-
-        echo "Sparky Beep has been installed successfully!"
-        echo "Run 'sparky-beep-config' to configure beep services."
-        echo "Configuration file: /etc/sparky-beep/beep.conf"
-        ;;
-
-    abort-upgrade|abort-remove|abort-deconfigure)
-        ;;
-
-    *)
-        echo "postinst called with unknown argument \`$1'" >&2
-        exit 1
-        ;;
-esac
-
-#DEBHELPER#
+if [ -d /run/systemd/system ]; then
+	systemctl daemon-reload >/dev/null 2>&1 || true
+	/usr/bin/sparky-beep-run >/dev/null 2>&1 || true
+fi
 
 exit 0

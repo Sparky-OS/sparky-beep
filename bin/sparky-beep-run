@@ -2,6 +2,7 @@
 
 # It checks beep services running on Sparky server edition
 # last update 2019/02/23 by pavroo
+# 2026/10/15: the /tmp/sparky-beep-test.$$ note at the end removed
 
 ##################################################################
 # check 1: beep_netdata
@@ -101,7 +102,5 @@ if [ "$PACKWEBMIN" != "" ]; then
 	fi
 fi
 #######################################################################
-
-echo "sparky-beep started" >> /tmp/sparky-beep-test.$$
 
 exit 0

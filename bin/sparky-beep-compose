@@ -2,8 +2,7 @@
 #
 # Sparky Beep Composer
 # Translates musical notation to beep commands
-# Supports both binary and ternary beep modes
-# last update 2025/11/20 by AI Assistant
+# last update 2026/10/15
 #
 
 # Source the notes library
@@ -21,20 +20,29 @@ else
     exit 1
 fi
 
-# Load configuration
+# The configuration library reads /etc/sparky-beep/beep.conf (INI, [general] default_tempo, default_octave, beep_mode)
+source "$LIB_DIR/config.sh"
 CONFIG_FILE="/etc/sparky-beep/beep.conf"
-if [ -f "$CONFIG_FILE" ]; then
-    source "$CONFIG_FILE"
-fi
 
-# Default configuration
-BEEP_MODE="${BEEP_MODE:-binary}"  # binary or ternary
-BEEP_COMMAND="${BEEP_COMMAND:-beep}"  # beep or tbeep
-DEFAULT_TEMPO="${DEFAULT_TEMPO:-120}"  # BPM
-DEFAULT_OCTAVE="${DEFAULT_OCTAVE:-4}"  # Middle octave
+#
+# Function: load_defaults
+# Description: Read the configuration file, if any, then the built-in defaults
+# Usage: load_defaults [config_file]
+#
+load_defaults() {
+    local config_file="${1:-$CONFIG_FILE}"
 
-# Set default tempo
-set_tempo_bpm "$DEFAULT_TEMPO" 2>/dev/null || true
+    if [ -f "$config_file" ]; then
+        load_config "$config_file" 2>/dev/null
+    fi
+
+    BEEP_MODE="${BEEP_MODE:-binary}"  # binary, or ternary when a tbeep command is installed
+    BEEP_COMMAND="${BEEP_COMMAND:-beep}"
+    DEFAULT_TEMPO="${DEFAULT_TEMPO:-120}"  # BPM
+    DEFAULT_OCTAVE="${DEFAULT_OCTAVE:-4}"  # Middle octave
+
+    set_tempo_bpm "$DEFAULT_TEMPO" 2>/dev/null || true
+}
 
 #
 # Function: show_usage
@@ -54,6 +62,7 @@ OPTIONS:
     -s, --string "<notes>"  Compose from string instead of file
     -t, --tempo <bpm>       Set tempo in BPM (default: 120)
     -m, --mode <mode>       Set beep mode: binary or ternary (default: binary)
+    -c, --config <file>     Read this configuration file instead of /etc/sparky-beep/beep.conf
     -o, --output <file>     Output beep commands to file instead of stdout
     -p, --play              Play the composition after generating
     -d, --dry-run           Show generated beep commands without playing
@@ -92,8 +101,8 @@ INLINE EXAMPLES:
     sparky-beep-compose -s "C4q E4q G4q" -o /tmp/chord.beep
 
 BEEP MODES:
-    binary   - Standard beep (square waves, harsh sound)
-    ternary  - Ternary beep (smoother, more musical sound) [requires tbeep]
+    binary   - Standard beep
+    ternary  - Hands the same command to a tbeep program, if one is installed (none ships with Sparky Beep)
 
 EOF
 }
@@ -248,6 +257,7 @@ main() {
     local dry_run=false
     local custom_tempo=""
     local custom_mode=""
+    local config_file="$CONFIG_FILE"
 
     # Parse command line arguments
     while [ $# -gt 0 ]; do
@@ -266,6 +276,10 @@ main() {
                 ;;
             -m|--mode)
                 custom_mode="$2"
+                shift 2
+                ;;
+            -c|--config)
+                config_file="$2"
                 shift 2
                 ;;
             -o|--output)
@@ -295,6 +309,8 @@ main() {
                 ;;
         esac
     done
+
+    load_defaults "$config_file"
 
     # Set custom tempo if provided
     if [ -n "$custom_tempo" ]; then

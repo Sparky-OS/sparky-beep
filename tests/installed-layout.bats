@@ -54,14 +54,6 @@ teardown() {
   ! echo "$output" | grep -q -- "-f 523"
 }
 
-@test "tbeep -h works without root" {
-  command -v gcc >/dev/null || skip "no gcc"
-  gcc -Wall -Wextra -O2 -o "$ROOT/tbeep" "$SRC_ROOT/bin/tbeep.c" -lm
-  run "$ROOT/tbeep" -h
-  [ "$status" -eq 0 ]
-  echo "$output" | grep -q "Ternary Beep Engine"
-}
-
 @test "LANG=pt_BR loads pt_BR.lang, not pt.lang" {
   run bash -c 'cd "$ROOT/usr/bin" && sed "s|/usr/share/sparky-beep|$ROOT/usr/share/sparky-beep|" sparky-beep-config > config.test && LANG=pt_BR.UTF-8 bash config.test --help'
   [ "$status" -eq 0 ]

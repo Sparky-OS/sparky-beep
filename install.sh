@@ -38,7 +38,6 @@ if [ "$1" = "uninstall" ]; then
 	rm -f /usr/bin/sparky-beep-config
 	rm -f /usr/bin/sparky-beep-config-tui
 	rm -f /usr/bin/sparky-beep-config-gui
-	rm -f /usr/bin/tbeep
 
 	# Remove shared data
 	rm -rf /usr/share/sparky-beep/locale
@@ -58,7 +57,7 @@ else
 	# Install systemd services
 	cp system/* /lib/systemd/system/
 
-	# Install executables (skip .c source files)
+	# Install executables
 	cp bin/sparky-beep-run /usr/bin/
 	cp bin/sparky-beep-compose /usr/bin/
 	cp bin/sparky-beep-composer-tui /usr/bin/
@@ -71,7 +70,6 @@ else
 	chmod +x /usr/bin/sparky-beep-config*
 	chmod +x /usr/bin/sparky-beep-composer*
 	chmod +x /usr/bin/sparky-beep-player*
-	[ -f bin/tbeep ] && cp bin/tbeep /usr/bin/ || true
 
 	# Install locale files
 	mkdir -p /usr/share/sparky-beep/locale
@@ -119,10 +117,6 @@ else
 	echo "  sparky-beep-config --list              - List available services"
 	echo "  sparky-beep-config --enable <service>  - Enable beep for service"
 	echo "  sparky-beep-config --test ssh start    - Test beep sound"
-	echo ""
-	echo "Optional: Compile and install ternary beep engine:"
-	echo "  make"
-	echo "  sudo make install"
 	echo ""
 	echo "Test the composer:"
 	echo "  sparky-beep-compose -s \"C4q D4q E4q F4q\" -p"

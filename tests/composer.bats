@@ -273,7 +273,7 @@ EOF
 @test "config file has valid defaults" {
     CONFIG="$SCRIPT_DIR/config/beep.conf"
 
-    grep -q 'BEEP_MODE="binary"' "$CONFIG"
-    grep -q 'DEFAULT_TEMPO=120' "$CONFIG"
-    grep -q 'DEFAULT_OCTAVE=4' "$CONFIG"
+    grep -q '^beep_mode=binary' "$CONFIG"
+    grep -q '^default_tempo=120' "$CONFIG"
+    grep -q '^default_octave=4' "$CONFIG"
 }

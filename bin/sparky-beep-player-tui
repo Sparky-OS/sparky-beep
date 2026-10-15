@@ -565,7 +565,6 @@ stop_playback() {
     # Kill any running beep processes
     pkill -f "sparky-beep-compose" 2>/dev/null || true
     pkill beep 2>/dev/null || true
-    pkill tbeep 2>/dev/null || true
 
     dialog_msgbox "$(t PLAYER_STOP)" "$(t COMPOSER_STOPPED)"
 }

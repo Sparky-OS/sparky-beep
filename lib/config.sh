@@ -20,12 +20,16 @@ DEFAULT_LOG_EVENTS="false"
 DEFAULT_SCHEDULE_ENABLED="false"
 DEFAULT_QUIET_START="22:00"
 DEFAULT_QUIET_END="07:00"
+DEFAULT_COMPOSE_TEMPO=120
+DEFAULT_COMPOSE_OCTAVE=4
 
 # Global configuration variables
 BEEP_MODE=""
 LANGUAGE_CODE=""
 AUTO_ENABLE_SERVICES=""
 LOG_BEEP_EVENTS=""
+DEFAULT_TEMPO=""
+DEFAULT_OCTAVE=""
 SCHEDULE_ENABLED=""
 QUIET_HOURS_START=""
 QUIET_HOURS_END=""
@@ -86,6 +90,9 @@ beep_mode=$DEFAULT_BEEP_MODE
 language=$DEFAULT_LANGUAGE
 auto_enable=$DEFAULT_AUTO_ENABLE
 log_events=$DEFAULT_LOG_EVENTS
+# Composer defaults: tempo in BPM (40-240), octave (0-8)
+default_tempo=$DEFAULT_COMPOSE_TEMPO
+default_octave=$DEFAULT_COMPOSE_OCTAVE
 
 [schedule]
 enabled=$DEFAULT_SCHEDULE_ENABLED
@@ -124,6 +131,12 @@ load_config() {
         return 1
     fi
 
+    # Up to 0.2.1 the file was shell (BEEP_MODE="binary"); read it once and rewrite it as INI
+    if is_shell_config "$config_file"; then
+        migrate_shell_config "$config_file"
+        return $?
+    fi
+
     local section=""
 
     while IFS= read -r line || [ -n "$line" ]; do
@@ -148,6 +161,8 @@ load_config() {
                         language) LANGUAGE_CODE="$value" ;;
                         auto_enable) AUTO_ENABLE_SERVICES="$value" ;;
                         log_events) LOG_BEEP_EVENTS="$value" ;;
+                        default_tempo) DEFAULT_TEMPO="$value" ;;
+                        default_octave) DEFAULT_OCTAVE="$value" ;;
                     esac
                     ;;
                 schedule)
@@ -177,6 +192,44 @@ load_config() {
 }
 
 #
+# Function: is_shell_config
+# Description: True when the file is the shell format of 0.2.0/0.2.1 (BEEP_MODE="binary")
+# Usage: is_shell_config <config_file>
+#
+is_shell_config() {
+    grep -q '^BEEP_MODE=' "$1" 2>/dev/null
+}
+
+#
+# Function: migrate_shell_config
+# Description: Read a shell-format file (BEEP_MODE, DEFAULT_TEMPO, DEFAULT_OCTAVE) into the
+#              globals and, when the file is writable, rewrite it as INI (a backup is kept);
+#              with a destination, write the INI there instead
+# Usage: migrate_shell_config <config_file> [destination]
+#
+migrate_shell_config() {
+    local config_file="$1"
+    local destination="${2:-$1}"
+    local values
+    values=$(sh -c '. "$1" 2>/dev/null; printf "%s\n%s\n%s\n" "$BEEP_MODE" "$DEFAULT_TEMPO" "$DEFAULT_OCTAVE"' sh "$config_file")
+    BEEP_MODE=$(echo "$values" | sed -n 1p)
+    DEFAULT_TEMPO=$(echo "$values" | sed -n 2p)
+    DEFAULT_OCTAVE=$(echo "$values" | sed -n 3p)
+    BEEP_MODE="${BEEP_MODE:-$DEFAULT_BEEP_MODE}"
+
+    if [ -w "$destination" ] || { [ ! -e "$destination" ] && [ -w "$(dirname "$destination")" ]; }; then
+        # the services of a fresh file: the shell format never held any
+        SERVICE_ENABLED["beep_sys"]="true"
+        SERVICE_ENABLED["beep_netdata"]="true"
+        SERVICE_ENABLED["beep_samba"]="true"
+        SERVICE_TUNE_START["beep_samba"]="imperial-march"
+        SERVICE_ENABLED["beep_webmin"]="true"
+        save_config "$destination"
+    fi
+    return 0
+}
+
+#
 # Function: save_config
 # Description: Save current configuration to file
 # Usage: save_config [config_file]
@@ -187,6 +240,7 @@ save_config() {
     # Create backup of existing config
     if [ -f "$config_file" ]; then
         local backup_file="$BACKUP_DIR/beep.conf.$(date +%Y%m%d_%H%M%S)"
+        mkdir -p "$BACKUP_DIR" 2>/dev/null
         cp "$config_file" "$backup_file" 2>/dev/null
     fi
 
@@ -200,6 +254,9 @@ beep_mode=${BEEP_MODE:-$DEFAULT_BEEP_MODE}
 language=${LANGUAGE_CODE:-$DEFAULT_LANGUAGE}
 auto_enable=${AUTO_ENABLE_SERVICES:-$DEFAULT_AUTO_ENABLE}
 log_events=${LOG_BEEP_EVENTS:-$DEFAULT_LOG_EVENTS}
+# Composer defaults: tempo in BPM (40-240), octave (0-8)
+default_tempo=${DEFAULT_TEMPO:-$DEFAULT_COMPOSE_TEMPO}
+default_octave=${DEFAULT_OCTAVE:-$DEFAULT_COMPOSE_OCTAVE}
 
 [schedule]
 enabled=${SCHEDULE_ENABLED:-$DEFAULT_SCHEDULE_ENABLED}
