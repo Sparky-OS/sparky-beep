@@ -9,6 +9,10 @@
 # Source the notes library
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 LIB_DIR="$(dirname "$SCRIPT_DIR")/lib"
+# Installed to /usr/bin, the library lives in /usr/share/sparky-beep
+if [ ! -f "$LIB_DIR/notes.sh" ]; then
+    LIB_DIR="/usr/share/sparky-beep/lib"
+fi
 
 if [ -f "$LIB_DIR/notes.sh" ]; then
     source "$LIB_DIR/notes.sh"
@@ -107,7 +111,7 @@ parse_composition() {
     local current_tempo="$DEFAULT_TEMPO"
 
     # Remove comments and extra whitespace
-    composition=$(echo "$composition" | sed 's/#.*$//' | tr '\n' ' ' | sed 's/  */ /g')
+    composition=$(echo "$composition" | sed -E 's/(^|[[:space:]])#.*$//' | tr '\n' ' ' | sed 's/  */ /g')
 
     # Parse each token
     for token in $composition; do

@@ -10,6 +10,11 @@
 SCRIPT_DIR="$(dirname "$(readlink -f "$0")")"
 LIB_DIR="$(dirname "$SCRIPT_DIR")/lib"
 LOCALE_DIR="$(dirname "$SCRIPT_DIR")/locale"
+# Installed to /usr/bin, the libraries live in /usr/share/sparky-beep
+if [ ! -f "${LIB_DIR}/config.sh" ]; then
+    LIB_DIR="/usr/share/sparky-beep/lib"
+    LOCALE_DIR="/usr/share/sparky-beep/locale"
+fi
 
 # Source required libraries
 . "${LIB_DIR}/config.sh" || exit 1

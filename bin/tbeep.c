@@ -128,6 +128,12 @@ void generate_ternary_sine_pattern(TernaryState *pattern, int pattern_length) {
  * Creates smoother sound than standard binary beep
  */
 void play_ternary_tone(int frequency, int duration_ms) {
+    // Below hearing: a pause of the same length (rests from sparky-beep-compose)
+    if (frequency < 20) {
+        usleep(duration_ms * 1000);
+        return;
+    }
+
     // Pattern length affects smoothness
     // More states = smoother, but slower state transitions
     const int pattern_length = 12;
@@ -163,6 +169,10 @@ void play_ternary_tone(int frequency, int duration_ms) {
  * Compatible with standard beep behavior
  */
 void play_binary_tone(int frequency, int duration_ms) {
+    if (frequency < 20) {
+        usleep(duration_ms * 1000);
+        return;
+    }
     set_speaker_frequency(frequency);
     set_speaker_state(TERNARY_POS);
     usleep(duration_ms * 1000);
@@ -177,7 +187,7 @@ void show_usage(const char *program_name) {
     printf("USAGE:\n");
     printf("  %s [OPTIONS]\n\n", program_name);
     printf("OPTIONS:\n");
-    printf("  -f <freq>     Frequency in Hz (20-20000)\n");
+    printf("  -f <freq>     Frequency in Hz (1-20000; below 20 is a pause)\n");
     printf("  -l <length>   Length in milliseconds\n");
     printf("  -D <delay>    Delay after beep in milliseconds\n");
     printf("  -n            Start next beep (allows chaining)\n");
@@ -212,6 +222,14 @@ int main(int argc, char *argv[]) {
         {0, 0, 0, 0}
     };
 
+    // Help needs no hardware
+    for (int i = 1; i < argc; i++) {
+        if (strcmp(argv[i], "-h") == 0 || strcmp(argv[i], "--help") == 0) {
+            show_usage(argv[0]);
+            return 0;
+        }
+    }
+
     // Initialize speaker hardware
     if (init_speaker() != 0) {
         fprintf(stderr, "ERROR: Failed to initialize PC speaker\n");
@@ -224,8 +242,8 @@ int main(int argc, char *argv[]) {
         switch (opt) {
             case 'f':
                 current_note.frequency = atoi(optarg);
-                if (current_note.frequency < 20 || current_note.frequency > 20000) {
-                    fprintf(stderr, "ERROR: Frequency must be 20-20000 Hz\n");
+                if (current_note.frequency < 1 || current_note.frequency > 20000) {
+                    fprintf(stderr, "ERROR: Frequency must be 1-20000 Hz (below 20 Hz is a pause)\n");
                     return 1;
                 }
                 break;

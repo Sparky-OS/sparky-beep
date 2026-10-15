@@ -41,7 +41,7 @@ setup() {
 }
 
 @test "composer-tui: sources lib/notes.sh" {
-    grep -q "source.*lib/notes.sh\|\\. .*lib/notes.sh" "$COMPOSER_TUI"
+    grep -q "LIB_DIR}/notes.sh" "$COMPOSER_TUI"
 }
 
 @test "composer-tui: sources locale/i18n.sh for translations" {
@@ -77,7 +77,7 @@ setup() {
 }
 
 @test "composer-gui: sources lib/notes.sh" {
-    grep -q "source.*lib/notes.sh\|\\. .*lib/notes.sh" "$COMPOSER_GUI"
+    grep -q "LIB_DIR}/notes.sh" "$COMPOSER_GUI"
 }
 
 @test "composer-gui: sources locale/i18n.sh for translations" {

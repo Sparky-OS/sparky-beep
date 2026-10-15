@@ -202,7 +202,7 @@ teardown() {
     local lang_count=0
     for lang in ar ca cs da de el en es fi fr hu it ja ko nl pl pt pt_BR ro ru sk sv tr uk zh_CN zh_TW; do
         if [ -f "$LOCALE_DIR/${lang}.lang" ]; then
-            ((lang_count++))
+            lang_count=$((lang_count + 1))
         fi
     done
     [ "$lang_count" -eq 26 ]

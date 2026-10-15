@@ -127,7 +127,7 @@ setup() {
 }
 
 @test "tbeep.c: includes argument validation" {
-    grep -q "if.*argc\|validate\|check.*arg" "$TBEEP_SOURCE"
+    grep -q "Frequency must be\|Length must be" "$TBEEP_SOURCE"
 }
 
 @test "tbeep.c: has reasonable file size (< 50KB)" {

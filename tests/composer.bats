@@ -47,60 +47,60 @@ setup() {
     run "$COMPOSER" -s "C4q D4q E4q" -d
     [ "$status" -eq 0 ]
     echo "$output" | grep -q "beep -f 261 -l 500"
-    echo "$output" | grep -q "-f 293 -l 500"
-    echo "$output" | grep -q "-f 329 -l 500"
+    echo "$output" | grep -q -- "-f 293 -l 500"
+    echo "$output" | grep -q -- "-f 329 -l 500"
 }
 
 @test "composer handles sharps correctly" {
     run "$COMPOSER" -s "C#4q" -d
     [ "$status" -eq 0 ]
-    echo "$output" | grep -q "-f 277"  # C# ≈ 277 Hz
+    echo "$output" | grep -q -- "-f 277"  # C# ≈ 277 Hz
 }
 
 @test "composer handles flats correctly" {
     run "$COMPOSER" -s "Bb4q" -d
     [ "$status" -eq 0 ]
-    echo "$output" | grep -q "-f 466"  # Bb ≈ 466 Hz
+    echo "$output" | grep -q -- "-f 466"  # Bb ≈ 466 Hz
 }
 
 @test "composer handles different octaves" {
     # C3 (lower) vs C5 (higher)
     run "$COMPOSER" -s "C3q" -d
     [ "$status" -eq 0 ]
-    echo "$output" | grep -q "-f 130"  # C3 ≈ 130 Hz
+    echo "$output" | grep -q -- "-f 130"  # C3 ≈ 130 Hz
 
     run "$COMPOSER" -s "C5q" -d
     [ "$status" -eq 0 ]
-    echo "$output" | grep -q "-f 523"  # C5 ≈ 523 Hz
+    echo "$output" | grep -q -- "-f 523"  # C5 ≈ 523 Hz
 }
 
 @test "composer handles different durations" {
     # Whole note (2000ms at 120 BPM)
     run "$COMPOSER" -s "C4w" -d
     [ "$status" -eq 0 ]
-    echo "$output" | grep -q "-l 2000"
+    echo "$output" | grep -q -- "-l 2000"
 
     # Half note (1000ms)
     run "$COMPOSER" -s "C4h" -d
     [ "$status" -eq 0 ]
-    echo "$output" | grep -q "-l 1000"
+    echo "$output" | grep -q -- "-l 1000"
 
     # Quarter note (500ms)
     run "$COMPOSER" -s "C4q" -d
     [ "$status" -eq 0 ]
-    echo "$output" | grep -q "-l 500"
+    echo "$output" | grep -q -- "-l 500"
 
     # Eighth note (250ms)
     run "$COMPOSER" -s "C4e" -d
     [ "$status" -eq 0 ]
-    echo "$output" | grep -q "-l 250"
+    echo "$output" | grep -q -- "-l 250"
 }
 
 @test "composer handles tempo directive" {
     # Tempo 60 BPM = quarter note 1000ms
     run "$COMPOSER" -s "tempo:60 C4q" -d
     [ "$status" -eq 0 ]
-    echo "$output" | grep -q "-l 1000"
+    echo "$output" | grep -q -- "-l 1000"
 }
 
 @test "composer handles rests" {
@@ -113,15 +113,15 @@ setup() {
 @test "composer handles alternate colon syntax" {
     run "$COMPOSER" -s "C4:q" -d
     [ "$status" -eq 0 ]
-    echo "$output" | grep -q "-f 261 -l 500"
+    echo "$output" | grep -q -- "-f 261 -l 500"
 }
 
 @test "composer handles comments in notation" {
     run "$COMPOSER" -s "# Comment
 C4q D4q" -d
     [ "$status" -eq 0 ]
-    echo "$output" | grep -q "-f 261"
-    echo "$output" | grep -q "-f 293"
+    echo "$output" | grep -q -- "-f 261"
+    echo "$output" | grep -q -- "-f 293"
 }
 
 @test "composer reads from composition file" {
@@ -135,9 +135,9 @@ EOF
 
     run "$COMPOSER" "$TMP_COMP" -d
     [ "$status" -eq 0 ]
-    echo "$output" | grep -q "-f 261"
-    echo "$output" | grep -q "-f 293"
-    echo "$output" | grep -q "-f 329"
+    echo "$output" | grep -q -- "-f 261"
+    echo "$output" | grep -q -- "-f 293"
+    echo "$output" | grep -q -- "-f 329"
 
     rm -f "$TMP_COMP"
 }
@@ -171,14 +171,14 @@ EOF
     [ "$status" -eq 0 ]
 
     # Verify frequencies are ascending
-    echo "$output" | grep -q "-f 261"  # C4
-    echo "$output" | grep -q "-f 293"  # D4
-    echo "$output" | grep -q "-f 329"  # E4
-    echo "$output" | grep -q "-f 349"  # F4
-    echo "$output" | grep -q "-f 392"  # G4
-    echo "$output" | grep -q "-f 440"  # A4
-    echo "$output" | grep -q "-f 493"  # B4
-    echo "$output" | grep -q "-f 523"  # C5
+    echo "$output" | grep -q -- "-f 261"  # C4
+    echo "$output" | grep -q -- "-f 293"  # D4
+    echo "$output" | grep -q -- "-f 329"  # E4
+    echo "$output" | grep -q -- "-f 349"  # F4
+    echo "$output" | grep -q -- "-f 392"  # G4
+    echo "$output" | grep -q -- "-f 440"  # A4
+    echo "$output" | grep -q -- "-f 493"  # B4
+    echo "$output" | grep -q -- "-f 523"  # C5
 }
 
 @test "composer rejects invalid note format" {

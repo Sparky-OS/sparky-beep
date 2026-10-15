@@ -12,13 +12,8 @@ detect_language() {
 # Load translation file for detected language
 load_translations() {
   local lang=$(detect_language)
-  local script_dir="$(dirname "$(readlink -f "$0")")"
-  local locale_dir="${script_dir}/../locale"
-
-  # If running from /usr/bin, use system locale directory
-  if [ "$(dirname "$0")" = "/usr/bin" ]; then
-    locale_dir="/usr/share/sparky-beep/locale"
-  fi
+  # The .lang files sit beside this file (locale/ in the tree, /usr/share/sparky-beep/locale installed)
+  local locale_dir="$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")"
 
   local trans_file="${locale_dir}/${lang}.lang"
 
@@ -35,7 +30,7 @@ load_translations() {
 
 # Translation function - returns translated string or key if not found
 t() {
-  local key="$1"
+  local key="${1#MSG_}"
   local var_name="MSG_${key}"
   eval echo "\${${var_name}:-${key}}"
 }
