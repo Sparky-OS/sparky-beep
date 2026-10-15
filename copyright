@@ -1,3 +1,5 @@
+Sparky Stereo OS, an edition of SparkyLinux (https://sparkylinux.org), created by Paweł "pavroo" Pijanowski <pavroo@onet.eu> and Daniel Ramos (Capitain Jack) <Capitain_Jack@yahoo.com>.
+
 Upstream Author(s): 
     Paweł "pavroo" Pijanowski <pavroo@onet.eu>
     
@@ -13,6 +15,12 @@ Files:
     /etc/init.d/beep_*
     /lib/systemd/system/*
     Copyright (C) 2018-2019 Daniel Campos Ramos
+    License: GPL-3
+
+Files:
+    /usr/bin/sparky-beep-compose, sparky-beep-config*, sparky-beep-composer-*, sparky-beep-player-*, tbeep
+    /usr/share/sparky-beep/*
+    Copyright (C) 2025-2026 Daniel Ramos (Capitain Jack), written with AI assistance (Claude)
     License: GPL-3
 
 

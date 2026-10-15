@@ -458,7 +458,7 @@ When contributing to Sparky Beep, please:
 
 For more detailed testing guidance, see `tests/README.md`.
 
-Copyright (C) 2018-2020 Paweł Pijanowski & Daniel Campos Ramos
+Copyright (C) 2018-2026 Paweł Pijanowski and Daniel Ramos (Capitain Jack), see copyright file.
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -476,15 +476,22 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 Dependencies:
 -------------
 apt
+bash
+bc
 beep
 coreutils
 grep
-openssh-server
 systemd
+
+Recommends:
+-------------
+whiptail | dialog
+yad | zenity
 
 Suggests:
 -------------
 netdata
+openssh-server
 samba
 webmin
 

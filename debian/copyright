@@ -1,35 +1,41 @@
 Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
 Upstream-Name: sparky-beep
-Upstream-Contact: Capitain_Jack and Claude <sparky-os@example.com>
+Upstream-Contact: Daniel Ramos (Capitain Jack) <Capitain_Jack@yahoo.com>
 Source: https://github.com/Sparky-OS/sparky-beep
+Comment: Sparky Stereo OS, an edition of SparkyLinux (https://sparkylinux.org),
+ created by Paweł "pavroo" Pijanowski <pavroo@onet.eu> and Daniel Ramos
+ (Capitain Jack) <Capitain_Jack@yahoo.com>. sparky-beep is Paweł's and
+ Daniel's program from the SparkyLinux Server Edition (2018); the 2025
+ additions (composer, configuration tools, translations, tbeep) were written
+ with AI assistance (Claude) under Daniel's direction.
 
 Files: *
 Copyright: 2018-2025 Paweł "pavroo" Pijanowski <pavroo@onet.eu>
-           2018-2025 Daniel Campos Ramos
-           2025 Capitain_Jack and Claude
+           2018-2026 Daniel Ramos (Capitain Jack) <Capitain_Jack@yahoo.com>
+           2025-2026 Daniel Ramos (Capitain Jack)
 License: GPL-3.0+
 
 Files: debian/*
-Copyright: 2025 Capitain_Jack and Claude <sparky-os@example.com>
+Copyright: 2025-2026 Daniel Ramos (Capitain Jack) <Capitain_Jack@yahoo.com>
 License: GPL-3.0+
 
 Files: bin/*
        init.d/sparky-beep
 Copyright: 2018-2019 Paweł "pavroo" Pijanowski <pavroo@onet.eu>
-           2025 Capitain_Jack and Claude
+           2025-2026 Daniel Ramos (Capitain Jack)
 License: GPL-3.0+
 
 Files: init.d/beep_*
        system/*.service
 Copyright: 2018-2019 Daniel Campos Ramos
-           2025 Capitain_Jack and Claude
+           2025-2026 Daniel Ramos (Capitain Jack)
 License: GPL-3.0+
 
 Files: lib/*
        locale/*
        config/*
        compositions/*
-Copyright: 2025 Capitain_Jack and Claude
+Copyright: 2025-2026 Daniel Ramos (Capitain Jack)
 License: GPL-3.0+
 
 License: GPL-3.0+

@@ -3,7 +3,7 @@
  * Advanced PC speaker control using ternary state logic
  * Provides smoother, more musical sounds than standard beep
  *
- * Copyright (C) 2025 Sparky Beep Project
+ * Copyright (C) 2025-2026 Daniel Ramos (Capitain Jack), written with AI assistance (Claude)
  * Licensed under GNU GPL v3
  *
  * Compile: gcc -o tbeep tbeep.c -lm

@@ -9,15 +9,25 @@ detect_language() {
   echo "${lang%%_*}"
 }
 
+# Language with territory, e.g. "pt_BR" from "pt_BR.UTF-8" (pt_BR, zh_CN and zh_TW have their own files)
+detect_language_territory() {
+  local lang="${LANG:-en_US.UTF-8}"
+  lang="${lang%%.*}"
+  echo "${lang%%@*}"
+}
+
 # Load translation file for detected language
 load_translations() {
   local lang=$(detect_language)
   # The .lang files sit beside this file (locale/ in the tree, /usr/share/sparky-beep/locale installed)
   local locale_dir="$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")"
 
-  local trans_file="${locale_dir}/${lang}.lang"
+  local trans_file="${locale_dir}/$(detect_language_territory).lang"
 
-  # Fallback to English if translation file doesn't exist
+  # Then the bare language, then English
+  if [ ! -f "$trans_file" ]; then
+    trans_file="${locale_dir}/${lang}.lang"
+  fi
   if [ ! -f "$trans_file" ]; then
     trans_file="${locale_dir}/en.lang"
   fi

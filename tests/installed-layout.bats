@@ -61,3 +61,26 @@ teardown() {
   [ "$status" -eq 0 ]
   echo "$output" | grep -q "Ternary Beep Engine"
 }
+
+@test "LANG=pt_BR loads pt_BR.lang, not pt.lang" {
+  run bash -c 'cd "$ROOT/usr/bin" && sed "s|/usr/share/sparky-beep|$ROOT/usr/share/sparky-beep|" sparky-beep-config > config.test && LANG=pt_BR.UTF-8 bash config.test --help'
+  [ "$status" -eq 0 ]
+  expected=$(grep '^MSG_CLI_DESCRIPTION=' "$SRC_ROOT/locale/pt_BR.lang" | sed 's/^MSG_CLI_DESCRIPTION="//; s/"$//')
+  [ -n "$expected" ]
+  echo "$output" | grep -qF "$expected"
+}
+
+@test "LANG=zh_CN loads zh_CN.lang" {
+  run bash -c 'cd "$ROOT/usr/bin" && sed "s|/usr/share/sparky-beep|$ROOT/usr/share/sparky-beep|" sparky-beep-config > config.test && LANG=zh_CN.UTF-8 bash config.test --help'
+  [ "$status" -eq 0 ]
+  expected=$(grep '^MSG_CLI_DESCRIPTION=' "$SRC_ROOT/locale/zh_CN.lang" | sed 's/^MSG_CLI_DESCRIPTION="//; s/"$//')
+  [ -n "$expected" ]
+  echo "$output" | grep -qF "$expected"
+}
+
+@test "LANG=fr_CA falls back to fr.lang" {
+  run bash -c 'cd "$ROOT/usr/bin" && sed "s|/usr/share/sparky-beep|$ROOT/usr/share/sparky-beep|" sparky-beep-config > config.test && LANG=fr_CA.UTF-8 bash config.test --help'
+  [ "$status" -eq 0 ]
+  expected=$(grep '^MSG_CLI_DESCRIPTION=' "$SRC_ROOT/locale/fr.lang" | sed 's/^MSG_CLI_DESCRIPTION="//; s/"$//')
+  echo "$output" | grep -qF "$expected"
+}

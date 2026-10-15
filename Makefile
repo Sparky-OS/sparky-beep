@@ -7,7 +7,7 @@ LDFLAGS = -lm
 
 # Directories
 BIN_DIR = bin
-INSTALL_DIR = /usr/bin
+INSTALL_DIR = $(DESTDIR)/usr/bin
 
 # Targets
 TBEEP_SRC = $(BIN_DIR)/tbeep.c
@@ -27,6 +27,7 @@ $(TBEEP_BIN): $(TBEEP_SRC)
 # Install tbeep
 install: $(TBEEP_BIN)
 	@echo "Installing tbeep to $(INSTALL_DIR)..."
+	@install -d $(INSTALL_DIR)
 	@install -m 755 $(TBEEP_BIN) $(INSTALL_DIR)/tbeep
 	@echo "Installed successfully!"
 	@echo ""

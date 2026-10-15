@@ -1,30 +1,30 @@
 Source: sparky-beep
 Section: admin
 Priority: optional
-Maintainer: Capitain_Jack and Claude <sparky-os@example.com>
-Build-Depends: debhelper-compat (= 13),
-               gcc,
-               make
-Standards-Version: 4.6.2
-Homepage: https://github.com/Sparky-OS/sparky-beep
+Maintainer: Daniel Ramos (Capitain Jack) <Capitain_Jack@yahoo.com>
+Build-Depends: debhelper-compat (= 13)
+Standards-Version: 4.7.2
+Rules-Requires-Root: no
+Homepage: https://sparkylinux.org
 Vcs-Browser: https://github.com/Sparky-OS/sparky-beep
 Vcs-Git: https://github.com/Sparky-OS/sparky-beep.git
 
 Package: sparky-beep
-Architecture: any
+Architecture: amd64 i386
 Depends: ${shlibs:Depends},
          ${misc:Depends},
+         bash (>= 4.0),
+         bc,
          beep,
-         systemd,
-         bash (>= 4.0)
+         systemd
+Recommends: whiptail | dialog,
+            yad | zenity
 Suggests: netdata,
           samba,
-          webmin,
-          dialog | whiptail,
-          zenity | yad
+          webmin
 Description: Audible notifications for system service state changes
  Sparky Beep provides audible notifications (beeps) when selected system
- services start, stop, or restart. It's designed for Sparky Linux Server
+ services start, stop, or restart. It was made for the SparkyLinux Server
  Edition and uses the PC speaker to create distinctive sound patterns for
  different service state changes.
  .
@@ -37,5 +37,6 @@ Description: Audible notifications for system service state changes
   * Musical composition system for creating custom beep sequences
   * Automatic service discovery and management
  .
- The package integrates with systemd to provide seamless notification
- of service state changes through the PC speaker.
+ The beep services bind to the watched systemd units, so the PC speaker
+ reports their state changes. The ternary engine (tbeep) uses x86 port I/O,
+ so the package is built for amd64 and i386.

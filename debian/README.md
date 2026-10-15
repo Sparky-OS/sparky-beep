@@ -4,17 +4,17 @@ This directory contains the Debian packaging files for building a `.deb` package
 
 ## Target Platform
 
-This package targets **Debian 12 "Bookworm" (stable)** and Debian-based distributions including Sparky Linux.
+This package targets **Debian 14 "Forky" (testing)**, the base of SparkyLinux 9 and Sparky Stereo OS 9 "Mashtabba". The 2025 check against Debian 12 is kept in `DEBIAN-12-VERIFICATION.md` as history.
 
 ## Package Information
 
 - **Package Name**: sparky-beep
-- **Current Version**: 0.2.0-1
-- **Architecture**: any (includes compiled tbeep binary)
+- **Current Version**: 0.2.1
+- **Architecture**: amd64 i386 (tbeep uses x86 port I/O)
 - **Section**: admin
 - **Priority**: optional
-- **Target Distribution**: Debian stable (Bookworm)
-- **Maintainer**: Capitain_Jack and Claude
+- **Target Distribution**: Debian 14 "Forky" (testing)
+- **Maintainer**: Daniel Ramos (Capitain Jack) <Capitain_Jack@yahoo.com>
 
 ## Requirements
 
@@ -40,7 +40,7 @@ The easiest way to build the package is using the provided Makefile target:
 make deb
 
 # The package will be created in the parent directory:
-# ../sparky-beep_0.2.0-1_amd64.deb
+# ../sparky-beep_0.2.1_amd64.deb
 ```
 
 To clean up build artifacts:
@@ -71,7 +71,7 @@ Options explained:
 After building, install the package with:
 
 ```bash
-sudo dpkg -i ../sparky-beep_0.2.0-1_amd64.deb
+sudo dpkg -i ../sparky-beep_0.2.1_amd64.deb
 
 # If there are dependency issues, run:
 sudo apt-get install -f
@@ -81,7 +81,7 @@ Or install the dependencies first:
 
 ```bash
 sudo apt-get install beep systemd bash
-sudo dpkg -i ../sparky-beep_0.2.0-1_amd64.deb
+sudo dpkg -i ../sparky-beep_0.2.1_amd64.deb
 ```
 
 ## Package Contents
@@ -107,7 +107,7 @@ The package installs the following files:
 - `beep_netdata` - NetData service beep script
 - `beep_webmin` - Webmin service beep script
 
-### Systemd Services (`/lib/systemd/system/`)
+### Systemd Services (`/usr/lib/systemd/system/`)
 - `beep_sys.service`
 - `beep_samba.service`
 - `beep_netdata.service`
@@ -204,16 +204,16 @@ After building, you can test the package contents and metadata:
 
 ```bash
 # View package information
-dpkg-deb --info ../sparky-beep_0.2.0-1_amd64.deb
+dpkg-deb --info ../sparky-beep_0.2.1_amd64.deb
 
 # List package contents
-dpkg-deb --contents ../sparky-beep_0.2.0-1_amd64.deb
+dpkg-deb --contents ../sparky-beep_0.2.1_amd64.deb
 
 # Extract package to inspect
-dpkg-deb --extract ../sparky-beep_0.2.0-1_amd64.deb /tmp/test-extract
+dpkg-deb --extract ../sparky-beep_0.2.1_amd64.deb /tmp/test-extract
 
 # Check for lintian issues (Debian package quality checks)
-lintian ../sparky-beep_0.2.0-1_amd64.deb
+lintian ../sparky-beep_0.2.1_amd64.deb
 ```
 
 ## Troubleshooting
@@ -251,13 +251,13 @@ systemctl status ssh
 
 ## Debian Policy Compliance
 
-This package follows Debian Policy Manual standards for Debian 12 "Bookworm":
-- Debhelper compatibility level: 13 (matches Debian 12 stable)
-- Standards-Version: 4.6.2 (Debian 12 policy version)
+This package follows the Debian Policy Manual as of Debian 14 "Forky":
+- Debhelper compatibility level: 13
+- Standards-Version: 4.7.2
 - Source format: 3.0 (native)
 - Build flags: All hardening flags enabled
 - License: GPL-3.0+
-- Tested on: Debian 12 (Bookworm) and derivatives
+- Tested on: debian:testing (Forky) containers, 2026-10-14
 
 ## Contributing
 
@@ -279,7 +279,7 @@ When contributing to the Debian packaging:
 ## Authors
 
 - **Original Authors**: Paweł "pavroo" Pijanowski, Daniel Campos Ramos
-- **Debian Packaging**: Capitain_Jack and Claude (2025)
+- **Debian Packaging**: Daniel Ramos (Capitain Jack), with AI assistance (Claude), 2025-2026
 - **Project**: SparkyOS
 
 ## License

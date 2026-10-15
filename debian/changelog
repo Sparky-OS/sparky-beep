@@ -1,3 +1,17 @@
+sparky-beep (0.2.1) unstable; urgency=medium
+
+  * Target Debian 14 "Forky" / Sparky Stereo OS 9 and SparkyLinux 9
+  * Installed tools find their libraries in /usr/share/sparky-beep
+  * sparky-beep-config --help shows translated text instead of MSG_ keys
+  * Composer keeps sharps (C#4 was taken as a comment)
+  * tbeep -h works without root; frequencies below 20 Hz are a pause (rests)
+  * Native version without a Debian revision (3.0 (native) refuses one)
+  * Architecture amd64 i386 (tbeep uses x86 port I/O); Depends: bc (notes.sh)
+  * Test suite repaired and passing: 234 tests on debian:testing
+  * Maintainer and homepage: Daniel Ramos (Capitain Jack), sparkylinux.org
+
+ -- Daniel Ramos (Capitain Jack) <Capitain_Jack@yahoo.com>  Wed, 14 Oct 2026 23:20:00 -0300
+
 sparky-beep (0.2.0-1) unstable; urgency=medium
 
   * MAJOR UPDATE: Configuration Management & Extended Multilingual Support

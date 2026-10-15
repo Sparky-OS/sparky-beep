@@ -1,4 +1,15 @@
 -------------------------------------------------------------------------------
+  Version 0.2.1 (2026-10-14)
+-------------------------------------------------------------------------------
+  * Target Debian 14 "Forky" (SparkyLinux 9, Sparky Stereo OS 9)
+  * Installed tools find their libraries in /usr/share/sparky-beep
+  * Translated usage in sparky-beep-config --help
+  * Composer keeps sharps
+  * tbeep -h without root; rests play in ternary mode
+  * Package: native version 0.2.1, amd64 i386, Depends bc, maintainer Daniel Ramos
+  * Test suite repaired: 234 tests pass in debian:testing
+
+-------------------------------------------------------------------------------
   Version 0.2.0 (2025-11-20)
 -------------------------------------------------------------------------------
   MAJOR UPDATE: Configuration Management & Extended Multilingual Support
