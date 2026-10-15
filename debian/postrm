@@ -1,34 +1,16 @@
 #!/bin/sh
-# postrm script for sparky-beep
+# postrm script
+#
+# see: dh_installdeb(1)
 
 set -e
 
-case "$1" in
-    purge)
-        # Remove configuration directory on purge
-        if [ -d /etc/sparky-beep ]; then
-            rm -rf /etc/sparky-beep
-        fi
-
-        # Reload systemd daemon after removing service files
-        if [ -d /run/systemd/system ]; then
-            systemctl daemon-reload >/dev/null 2>&1 || true
-        fi
-        ;;
-
-    remove|upgrade|failed-upgrade|abort-install|abort-upgrade|disappear)
-        # Reload systemd daemon
-        if [ -d /run/systemd/system ]; then
-            systemctl daemon-reload >/dev/null 2>&1 || true
-        fi
-        ;;
-
-    *)
-        echo "postrm called with unknown argument \`$1'" >&2
-        exit 1
-        ;;
-esac
-
-#DEBHELPER#
+dpkg-maintscript-helper rm_conffile /etc/sparky-beep/beep.conf.example 0.2.2~ sparky-beep -- "$@"
+if [ "$1" = "purge" ]; then
+	rm -rf /etc/sparky-beep
+fi
+if [ -d /run/systemd/system ]; then
+	systemctl daemon-reload >/dev/null 2>&1 || true
+fi
 
 exit 0

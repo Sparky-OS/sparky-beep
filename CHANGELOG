@@ -1,4 +1,25 @@
 -------------------------------------------------------------------------------
+  Version 0.2.2 (2026-10-15)
+-------------------------------------------------------------------------------
+  * One configuration file: /etc/sparky-beep/beep.conf is the INI file of sparky-beep-config, the composer reads it (default_tempo, default_octave, beep_mode); a 0.2.0/0.2.1 shell-format file is converted on upgrade with a backup
+  * sparky-beep-compose -c <file> reads another configuration file
+  * Removed the ternary beep engine (bin/tbeep.c) and the Makefile; beep_mode=ternary uses an external tbeep if one is installed
+  * sparky-beep-run no longer writes /tmp/sparky-beep-test.$$
+  * Packaging in Sparky's shape: hand-assembled binary package from the install.sh layout, Architecture all, Section System, debian/ reduced to the source stub with the maintainer scripts
+  * Dropped debian/README.md and DEBIAN-12-VERIFICATION.md (the dh build they described is gone)
+
+-------------------------------------------------------------------------------
+  Version 0.2.1 (2026-10-14)
+-------------------------------------------------------------------------------
+  * Target Debian 14 "Forky" (SparkyLinux 9, Sparky Stereo OS 9)
+  * Installed tools find their libraries in /usr/share/sparky-beep
+  * Translated usage in sparky-beep-config --help
+  * Composer keeps sharps
+  * tbeep -h without root; rests play in ternary mode
+  * Package: native version 0.2.1, amd64 i386, Depends bc, maintainer Daniel Ramos
+  * Test suite repaired: 234 tests pass in debian:testing
+
+-------------------------------------------------------------------------------
   Version 0.2.0 (2025-11-20)
 -------------------------------------------------------------------------------
   MAJOR UPDATE: Configuration Management & Extended Multilingual Support

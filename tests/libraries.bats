@@ -202,7 +202,7 @@ teardown() {
     local lang_count=0
     for lang in ar ca cs da de el en es fi fr hu it ja ko nl pl pt pt_BR ro ru sk sv tr uk zh_CN zh_TW; do
         if [ -f "$LOCALE_DIR/${lang}.lang" ]; then
-            ((lang_count++))
+            lang_count=$((lang_count + 1))
         fi
     done
     [ "$lang_count" -eq 26 ]
@@ -253,13 +253,13 @@ teardown() {
 }
 
 @test "config file has BEEP_MODE setting" {
-    grep -q "BEEP_MODE=" "$CONFIG_DIR/beep.conf"
+    grep -q "^beep_mode=" "$CONFIG_DIR/beep.conf"
 }
 
 @test "config file has DEFAULT_TEMPO setting" {
-    grep -q "DEFAULT_TEMPO=" "$CONFIG_DIR/beep.conf"
+    grep -q "^default_tempo=" "$CONFIG_DIR/beep.conf"
 }
 
 @test "config file has DEFAULT_OCTAVE setting" {
-    grep -q "DEFAULT_OCTAVE=" "$CONFIG_DIR/beep.conf"
+    grep -q "^default_octave=" "$CONFIG_DIR/beep.conf"
 }

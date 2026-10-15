@@ -4,6 +4,8 @@ setup() {
   # Create a temporary install directory
   INSTALL_ROOT=$(mktemp -d)
   export INSTALL_ROOT
+  SRC_ROOT="$(cd "$BATS_TEST_DIRNAME/.." && pwd)"
+  export SRC_ROOT
 
   # Create mock system directories
   mkdir -p "$INSTALL_ROOT/etc/init.d"
@@ -27,9 +29,9 @@ if [ "$1" = "uninstall" ]; then
 	rm -f "$INSTALL_ROOT/lib/systemd/system/beep_webmin.service"
 	rm -f "$INSTALL_ROOT/usr/bin/sparky-beep-run"
 else
-	cp init.d/* "$INSTALL_ROOT/etc/init.d/"
-	cp system/* "$INSTALL_ROOT/lib/systemd/system/"
-	cp bin/* "$INSTALL_ROOT/usr/bin/"
+	cp "$SRC_ROOT"/init.d/* "$INSTALL_ROOT/etc/init.d/"
+	cp "$SRC_ROOT"/system/* "$INSTALL_ROOT/lib/systemd/system/"
+	cp "$SRC_ROOT"/bin/* "$INSTALL_ROOT/usr/bin/"
 fi
 EOS
   chmod +x "$INSTALL_ROOT/install-test.sh"
@@ -146,10 +148,9 @@ teardown() {
 @test "install script handles missing source directories gracefully" {
   cd "$INSTALL_ROOT"
 
-  # Remove source directories to simulate missing files
-  rm -rf init.d system bin
-
-  run ./install-test.sh
+  # An empty source tree simulates missing files
+  mkdir -p "$INSTALL_ROOT/empty"
+  run env SRC_ROOT="$INSTALL_ROOT/empty" ./install-test.sh
 
   # cp will fail if source doesn't exist, which is expected behavior
   [ "$status" -ne 0 ]

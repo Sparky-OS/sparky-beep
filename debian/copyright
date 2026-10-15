@@ -1,50 +1,44 @@
-Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
-Upstream-Name: sparky-beep
-Upstream-Contact: Capitain_Jack and Claude <sparky-os@example.com>
-Source: https://github.com/Sparky-OS/sparky-beep
+Sparky Stereo OS, an edition of SparkyLinux (https://sparkylinux.org), created by Paweł "pavroo" Pijanowski <pavroo@onet.eu> and Daniel Ramos (Capitain Jack) <Capitain_Jack@yahoo.com>.
 
-Files: *
-Copyright: 2018-2025 Paweł "pavroo" Pijanowski <pavroo@onet.eu>
-           2018-2025 Daniel Campos Ramos
-           2025 Capitain_Jack and Claude
-License: GPL-3.0+
+Upstream Author(s): 
+    Paweł "pavroo" Pijanowski <pavroo@onet.eu>
+    
+Files: 
+    DEBIAN/*
+    /usr/bin/*
+    /usr/share/doc/*
+    /etc/init.d/sparky-beep
+    Copyright (C) 2018-2019 Paweł Pijanowski
+    License: GPL-3
 
-Files: debian/*
-Copyright: 2025 Capitain_Jack and Claude <sparky-os@example.com>
-License: GPL-3.0+
+Files:
+    /etc/init.d/beep_*
+    /lib/systemd/system/*
+    Copyright (C) 2018-2019 Daniel Campos Ramos
+    License: GPL-3
 
-Files: bin/*
-       init.d/sparky-beep
-Copyright: 2018-2019 Paweł "pavroo" Pijanowski <pavroo@onet.eu>
-           2025 Capitain_Jack and Claude
-License: GPL-3.0+
+Files:
+    /usr/bin/sparky-beep-compose, sparky-beep-config*, sparky-beep-composer-*, sparky-beep-player-*
+    /usr/share/sparky-beep/*
+    Copyright (C) 2025-2026 Daniel Ramos (Capitain Jack), written with AI assistance (Claude)
+    License: GPL-3
 
-Files: init.d/beep_*
-       system/*.service
-Copyright: 2018-2019 Daniel Campos Ramos
-           2025 Capitain_Jack and Claude
-License: GPL-3.0+
 
-Files: lib/*
-       locale/*
-       config/*
-       compositions/*
-Copyright: 2025 Capitain_Jack and Claude
-License: GPL-3.0+
+License:
 
-License: GPL-3.0+
- This program is free software: you can redistribute it and/or modify
- it under the terms of the GNU General Public License as published by
- the Free Software Foundation, either version 3 of the License, or
- (at your option) any later version.
- .
- This package is distributed in the hope that it will be useful,
- but WITHOUT ANY WARRANTY; without even the implied warranty of
- MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- GNU General Public License for more details.
- .
- You should have received a copy of the GNU General Public License
- along with this program. If not, see <https://www.gnu.org/licenses/>.
- .
- On Debian systems, the complete text of the GNU General
- Public License version 3 can be found in "/usr/share/common-licenses/GPL-3".
+    This package is free software; you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation; either version 2 of the License, or
+    (at your option) any later version.
+ 
+    This package is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+ 
+    You should have received a copy of the GNU General Public License
+    along with this package; if not, write to the Free Software
+    Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301 USA
+
+On Debian systems, the complete text of the GNU General
+Public License can be found in `/usr/share/common-licenses/GPL'.

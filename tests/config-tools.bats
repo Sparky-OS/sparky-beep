@@ -60,11 +60,11 @@ setup() {
 }
 
 @test "config: sources lib/config.sh" {
-    grep -q "source.*lib/config.sh\|\\. .*lib/config.sh" "$CONFIG_TOOL"
+    grep -q "LIB_DIR}/config.sh" "$CONFIG_TOOL"
 }
 
 @test "config: sources lib/discovery.sh" {
-    grep -q "source.*lib/discovery.sh\|\\. .*lib/discovery.sh" "$CONFIG_TOOL"
+    grep -q "LIB_DIR}/discovery.sh" "$CONFIG_TOOL"
 }
 
 # ============================================================================
@@ -92,11 +92,11 @@ setup() {
 }
 
 @test "config-tui: sources lib/config.sh" {
-    grep -q "source.*lib/config.sh\|\\. .*lib/config.sh" "$CONFIG_TUI"
+    grep -q "LIB_DIR}/config.sh" "$CONFIG_TUI"
 }
 
 @test "config-tui: sources lib/discovery.sh" {
-    grep -q "source.*lib/discovery.sh\|\\. .*lib/discovery.sh" "$CONFIG_TUI"
+    grep -q "LIB_DIR}/discovery.sh" "$CONFIG_TUI"
 }
 
 @test "config-tui: sources locale/i18n.sh for translations" {
@@ -128,11 +128,11 @@ setup() {
 }
 
 @test "config-gui: sources lib/config.sh" {
-    grep -q "source.*lib/config.sh\|\\. .*lib/config.sh" "$CONFIG_GUI"
+    grep -q "LIB_DIR}/config.sh" "$CONFIG_GUI"
 }
 
 @test "config-gui: sources lib/discovery.sh" {
-    grep -q "source.*lib/discovery.sh\|\\. .*lib/discovery.sh" "$CONFIG_GUI"
+    grep -q "LIB_DIR}/discovery.sh" "$CONFIG_GUI"
 }
 
 @test "config-gui: sources locale/i18n.sh for translations" {

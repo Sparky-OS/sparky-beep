@@ -58,7 +58,6 @@ melodic beeps using standard musical notation instead of raw frequencies!
 - 🎼 **8 octaves** - Full range from C0 to B8 (88 notes)
 - 🎹 **All chromatic notes** - Sharps (#) and flats (b) supported
 - ⏱️ **Tempo control** - Set BPM from 40-240
-- 🔊 **Ternary beep mode** - Optional smoother sounds using ternary logic (requires compilation)
 
 **Quick Examples:**
 
@@ -83,38 +82,12 @@ sparky-beep-compose -s "tempo:140 C4h E4h G4h C5w" -p
 - Startup/Shutdown fanfares
 - Alert/notification sounds
 
-**Ternary Beep Engine (Advanced):**
-
-For smoother, more musical sounds, compile the optional ternary beep engine:
-
-```bash
-make              # Compile tbeep
-sudo make install # Install ternary beep engine
-
-# Enable ternary mode in config
-sudo nano /etc/sparky-beep/beep.conf
-# Change: BEEP_MODE="ternary"
-
-# Test
-sudo tbeep -f 440 -l 500
-```
-
-**What is Ternary Beep?**
-
-Standard beep uses **binary states** (ON/OFF), creating harsh square waves.
-Ternary beep uses **3 states** {-1, 0, +1}, approximating sine waves for
-smoother, more pleasant sounds!
-
-```
-Binary:  ┌─┐ ┌─┐ ┌─┐   (harsh, buzzy)
-Ternary:   ╭─╮         (smooth, musical)
-         ╭─╯ ╰─╮
-        ─╯     ╰─
-```
+**Beep modes:** `beep_mode=binary` in `/etc/sparky-beep/beep.conf` plays through `beep`.
+`ternary` hands the same command to a `tbeep` program if one is installed; the experimental engine of 0.2.0 was removed in 0.2.2 (it drove the speaker port directly and needed root).
 
 **Documentation:**
 - **COMPOSER.md** - Complete composer documentation and examples
-- **config/beep.conf** - Configuration file for beep mode and settings
+- **config/beep.conf** - Configuration file (INI): beep mode, composer defaults, services, quiet hours
 - **compositions/** - Pre-made musical compositions
 - **lib/notes.sh** - Musical note library with all frequencies
 
@@ -158,10 +131,9 @@ sparky-beep-config --test ssh start   # Test SSH start beep
 - ✅ **Service Status** - Real-time service monitoring
 
 **Configuration File:**
-- Location: `/etc/sparky-beep/beep.conf`
+- Location: `/etc/sparky-beep/beep.conf` (one INI file for the services, the schedule and the composer defaults; a shell-format file from 0.2.0/0.2.1 is converted on upgrade)
 - User config: `~/.config/sparky-beep/beep.conf`
 - Automatic creation with sensible defaults
-- Human-readable INI format
 
 Internationalization (i18n)
 ---------------------------
@@ -255,7 +227,6 @@ The project now has **~85% test coverage** across core features and **~35% overa
 - `tests/libraries.bats` - Library function tests (42 tests) ✨ NEW
 - `tests/config-tools.bats` - Configuration tool tests (30 tests) ✨ NEW
 - `tests/ui-tools.bats` - TUI/GUI interface tests (38 tests) ✨ NEW
-- `tests/tbeep.bats` - Ternary beep engine tests (32 tests) ✨ NEW
 - `tests/helpers.bash` - Shared test infrastructure
 
 **Total: 228 tests** (increased from 86 tests) 🎉
@@ -276,7 +247,6 @@ The project now has **~85% test coverage** across core features and **~35% overa
 | locale/i18n.sh | ~1,000 | 10 | ~40% | ⚠️ Partial |
 | config/beep.conf | ~150 | 5 | N/A | ✅ Good |
 | TUI/GUI tools (7 files) | ~95,000 | 68 | ~20% | ⚠️ Partial |
-| bin/tbeep.c | ~450 | 32 | ~60% | ⚠️ Partial |
 | systemd services (4 files) | ~60 | 0 | 0% | ⚠️ Low |
 | **Core Features Total** | **~1,463** | **86** | **~85%** | ✅ **Good** |
 | **All Components Total** | **~138,923** | **228** | **~35%** | ⚠️ **Moderate** |
@@ -347,13 +317,6 @@ The project now has **~85% test coverage** across core features and **~35% overa
 - ✅ sparky-beep-player-gui - Player GUI (8 tests) ✨ NEW
 - ✅ Integration tests for all UI tools (6 tests) ✨ NEW
 
-**Now tested (ternary beep engine):** ✅ NEW
-- ✅ tbeep.c source code validation (32 tests) ✨ NEW
-- ✅ Makefile targets and compilation setup ✨ NEW
-- ✅ Ternary and binary mode support ✨ NEW
-- ✅ Command-line option parsing ✨ NEW
-- ✅ Integration with beep.conf ✨ NEW
-
 **Remaining gaps:**
 - ⚠️ Systemd service file syntax validation
 - ⚠️ Service dependency bindings (BindsTo, After, etc.)
@@ -377,12 +340,6 @@ The project now has **~85% test coverage** across core features and **~35% overa
    - ⚠️ User interaction simulation
    - ⚠️ Dialog/zenity output validation
    - ⚠️ Error handling in UI workflows
-
-3. **Ternary beep runtime tests:**
-   - ✅ Source code and Makefile tests ✅
-   - ⚠️ Compilation and execution tests
-   - ⚠️ Binary vs ternary mode comparison
-   - ⚠️ Actual frequency/duration validation
 
 **Priority 2: Integration Tests**
 
@@ -430,7 +387,6 @@ tests/
 ├── libraries.bats                   # ✅ Library function tests (42 tests) ✨ NEW
 ├── config-tools.bats                # ✅ Config tool tests (30 tests) ✨ NEW
 ├── ui-tools.bats                    # ✅ UI tool tests (38 tests) ✨ NEW
-├── tbeep.bats                       # ✅ Ternary beep tests (32 tests) ✨ NEW
 └── README.md                        # ✅ Testing documentation
 ```
 
@@ -461,7 +417,7 @@ When contributing to Sparky Beep, please:
 
 For more detailed testing guidance, see `tests/README.md`.
 
-Copyright (C) 2018-2020 Paweł Pijanowski & Daniel Campos Ramos
+Copyright (C) 2018-2026 Paweł Pijanowski and Daniel Ramos (Capitain Jack), see copyright file.
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -479,15 +435,22 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 Dependencies:
 -------------
 apt
+bash
+bc
 beep
 coreutils
 grep
-openssh-server
 systemd
+
+Recommends:
+-------------
+whiptail | dialog
+yad | zenity
 
 Suggests:
 -------------
 netdata
+openssh-server
 samba
 webmin
 

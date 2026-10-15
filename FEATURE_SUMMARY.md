@@ -1,3 +1,5 @@
+> 2025-11-20 implementation summary. Since 0.2.2 (2026-10-15) the ternary engine (`bin/tbeep.c`) and the Makefile are gone, and `config/beep.conf` is the INI file of `lib/config.sh`; see CHANGELOG and COMPOSER.md.
+
 # Sparky Beep Composer & Ternary Beep Feature Summary
 
 ## Project Plan Implementation

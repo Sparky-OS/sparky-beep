@@ -1,0 +1,15 @@
+#!/bin/sh
+# preinst script
+#
+# see: dh_installdeb(1)
+
+set -e
+
+# 0.2.0/0.2.1 wrote a shell-format beep.conf from postinst; set it aside so dpkg installs
+# the INI file without a prompt, postinst carries the values over
+if [ "$1" = "upgrade" ] && grep -q '^BEEP_MODE=' /etc/sparky-beep/beep.conf 2>/dev/null; then
+	mv /etc/sparky-beep/beep.conf /etc/sparky-beep/beep.conf.0.2.1
+fi
+dpkg-maintscript-helper rm_conffile /etc/sparky-beep/beep.conf.example 0.2.2~ sparky-beep -- "$@"
+
+exit 0

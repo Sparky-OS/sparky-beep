@@ -8,7 +8,7 @@ The Sparky Beep Composer system enables you to create musical PC speaker notific
 2. [Components](#components)
 3. [Musical Notation Format](#musical-notation-format)
 4. [Command Line Usage](#command-line-usage)
-5. [Beep Modes: Binary vs Ternary](#beep-modes-binary-vs-ternary)
+5. [Beep Modes](#beep-modes)
 6. [Composition Files](#composition-files)
 7. [Integration with Init Scripts](#integration-with-init-scripts)
 8. [Examples](#examples)
@@ -23,7 +23,7 @@ The Sparky Beep Composer system consists of three main components:
 
 1. **Musical Note Library** (`lib/notes.sh`) - Defines note-to-frequency mappings
 2. **Beep Composer** (`bin/sparky-beep-compose`) - Translates musical notation to beep commands
-3. **Ternary Beep Engine** (`bin/tbeep`) - Optional C program for smoother, more musical sounds
+3. **Beep modes** - `beep`, or an external `tbeep` if one is installed
 
 ### Why Use the Composer?
 
@@ -70,21 +70,9 @@ The main command-line tool for composing music.
 - Play compositions immediately or save to files
 - Support for rests and complex rhythms
 
-### 3. Ternary Beep Engine (`bin/tbeep`)
+### 3. Beep modes
 
-Optional C program that uses ternary logic for smoother sounds.
-
-**How It Works:**
-- Uses 3 states instead of 2: **{-1, 0, +1}**
-- Approximates sine waves instead of square waves
-- Creates more pleasant, musical tones
-- Reduces harmonic harshness
-
-**Compilation:**
-```bash
-make              # Compile tbeep
-sudo make install # Install to /usr/bin/tbeep
-```
+`beep_mode` in `/etc/sparky-beep/beep.conf` is `binary` (the `beep` command). `ternary` hands the same command line to a `tbeep` program if one is installed; Sparky Beep 0.2.2 ships none (the experimental engine of 0.2.0 was removed).
 
 ---
 
@@ -244,93 +232,14 @@ sparky-beep-compose -s "C4q D4q E4q" -d
 **Use ternary mode:**
 ```bash
 sparky-beep-compose -s "C4q D4q E4q" -m ternary -p
-# Requires tbeep to be installed
+# Runs tbeep instead of beep when such a command is installed
 ```
 
 ---
 
-## Beep Modes: Binary vs Ternary
+## Beep Modes
 
-### Binary Mode (Default)
-
-Uses standard `beep` command with **2 states**: ON/OFF
-
-**Characteristics:**
-- ✅ Compatible with all systems
-- ✅ No compilation required
-- ✅ Fast and simple
-- ❌ Harsh square wave sound
-- ❌ Strong odd harmonics (buzzy sound)
-
-**Waveform:**
-```
-  ┌─┐ ┌─┐ ┌─┐
-──┘ └─┘ └─┘ └──  (Square wave)
-```
-
-**Use Cases:**
-- Simple alerts and notifications
-- Maximum compatibility
-- Quick beeps
-
-### Ternary Mode (Advanced)
-
-Uses `tbeep` command with **3 states**: {-1, 0, +1}
-
-**Characteristics:**
-- ✅ Smoother, more musical sound
-- ✅ Approximates sine waves
-- ✅ Reduced harmonic harshness
-- ✅ Better for melodies
-- ❌ Requires compilation
-- ❌ Needs root access for PC speaker control
-
-**Waveform:**
-```
-    ╭─╮
-  ╭─╯ ╰─╮
-──╯     ╰──  (Approximated sine wave)
-```
-
-**Use Cases:**
-- Musical compositions
-- Pleasant startup/shutdown sounds
-- Multi-note melodies
-
-### Enabling Ternary Mode
-
-**1. Compile tbeep:**
-```bash
-cd /home/user/sparky-beep
-make
-sudo make install
-```
-
-**2. Configure ternary mode:**
-```bash
-sudo nano /etc/sparky-beep/beep.conf
-# Change: BEEP_MODE="binary"
-# To:     BEEP_MODE="ternary"
-```
-
-**3. Test:**
-```bash
-sudo tbeep -f 440 -l 500
-```
-
-### Comparison Example
-
-**Binary mode (harsh square wave):**
-```bash
-beep -f 440 -l 500
-# Buzzy, electronic sound
-```
-
-**Ternary mode (smooth sine approximation):**
-```bash
-sudo tbeep -f 440 -l 500
-# Warmer, more musical sound
-```
+`-m binary` (default) runs `beep`. `-m ternary` runs `tbeep` with the same arguments when such a command exists, else `beep`.
 
 ---
 
@@ -560,53 +469,16 @@ sparky-beep-compose -s "C4q Eb4q F4q F#4q G4q Bb4q C5h" -p
 
 ### Configuration File
 
-**Location:** `/etc/sparky-beep/beep.conf`
+`/etc/sparky-beep/beep.conf` is one INI file shared with `sparky-beep-config`. The composer reads `[general]`:
 
-**Key Settings:**
-
-```bash
-# Beep mode: binary or ternary
-BEEP_MODE="binary"
-
-# Beep command path
-BEEP_COMMAND="beep"
-
-# Default tempo (BPM)
-DEFAULT_TEMPO=120
-
-# Default octave
-DEFAULT_OCTAVE=4
-
-# Enable compositions
-ENABLE_COMPOSITIONS="yes"
-
-# Composition directory
-COMPOSITION_DIR="/usr/share/sparky-beep/compositions"
-
-# Fallback to binary if ternary unavailable
-FALLBACK_TO_BINARY="yes"
+```ini
+[general]
+beep_mode=binary
+default_tempo=120
+default_octave=4
 ```
 
-### Changing Beep Mode
-
-**Enable ternary mode:**
-```bash
-sudo nano /etc/sparky-beep/beep.conf
-# Change BEEP_MODE="binary" to BEEP_MODE="ternary"
-```
-
-**Verify tbeep is installed:**
-```bash
-which tbeep
-# Should output: /usr/bin/tbeep
-```
-
-### Setting Default Tempo
-
-```bash
-sudo nano /etc/sparky-beep/beep.conf
-# Change DEFAULT_TEMPO=120 to desired BPM
-```
+`sparky-beep-compose -c <file>` reads another file. A shell-format file from 0.2.0/0.2.1 (`BEEP_MODE="binary"`) is read once and rewritten as INI, with a backup in `/etc/sparky-beep/backups/`.
 
 ### Creating Custom Compositions
 
@@ -658,17 +530,6 @@ ls -la /usr/share/sparky-beep/lib/notes.sh
 
 # If missing, reinstall
 sudo ./install.sh
-```
-
-**3. "tbeep: Permission denied"**
-
-**Solution:**
-```bash
-# tbeep requires root access for PC speaker
-sudo tbeep -f 440 -l 500
-
-# Or use binary mode instead
-sparky-beep-compose -s "A4q" -m binary -p
 ```
 
 **4. "No sound / Silent beeps"**
@@ -742,29 +603,11 @@ sparky-beep-compose -s "C4q" -d
 # 3. Test beep command
 sudo beep -f 261 -l 500
 
-# 4. Test tbeep (if installed)
-sudo tbeep -f 261 -l 500
 ```
 
 ---
 
 ## Advanced Usage
-
-### Custom Ternary Patterns
-
-Edit `bin/tbeep.c` to modify ternary sine approximation:
-
-```c
-// Change pattern_length for different smoothness
-const int pattern_length = 24;  // More states = smoother (default: 12)
-```
-
-Recompile:
-```bash
-make clean
-make
-sudo make install
-```
 
 ### Harmonic Control
 
