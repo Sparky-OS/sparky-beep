@@ -5,3 +5,11 @@
 
 %:
 	dh $@
+
+override_dh_installdeb:
+	dh_installdeb
+	set -e; for script in postinst prerm postrm; do \
+		python3 debian/render-maintscript.py debian/sparky-beep/DEBIAN/$$script > debian/$$script.rendered; \
+		install -m 755 debian/$$script.rendered debian/sparky-beep/DEBIAN/$$script; \
+		rm debian/$$script.rendered; \
+	done

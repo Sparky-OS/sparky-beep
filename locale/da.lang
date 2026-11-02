@@ -316,3 +316,8 @@ MSG_PLAYER_PLAY_ERROR="Kunne ikke afspille komposition: %s"
 MSG_PLAYER_NO_COMPOSITIONS="Ingen kompositioner fundet"
 MSG_PLAYER_ADDED_TO_PLAYLIST="Tilføjet til afspilningsliste: %s"
 MSG_PLAYER_REMOVED_FROM_PLAYLIST="Fjernet fra afspilningsliste: %s"
+
+# Maintainer-script diagnostics (embedded for postrm).
+MSG_MAINT_FAILURE="Mislykkedes: %s (status %s). Prøv igen som administrator: %s."
+MSG_MAINT_SKIP="systemd kører ikke her; udsat til opstart: %s."
+MSG_MAINT_SUMMARY="Pakketrin %s. Udført: %s. Mislykkedes: %s. Udsat: %s."

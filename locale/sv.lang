@@ -316,3 +316,8 @@ MSG_PLAYER_PLAY_ERROR="Kunde inte spela komposition: %s"
 MSG_PLAYER_NO_COMPOSITIONS="Inga kompositioner hittades"
 MSG_PLAYER_ADDED_TO_PLAYLIST="Tillagd till spellista: %s"
 MSG_PLAYER_REMOVED_FROM_PLAYLIST="Borttagen från spellista: %s"
+
+# Maintainer-script diagnostics (embedded for postrm).
+MSG_MAINT_FAILURE="Misslyckades: %s (status %s). Försök igen som administratör: %s."
+MSG_MAINT_SKIP="systemd körs inte här; uppskjutet till uppstart: %s."
+MSG_MAINT_SUMMARY="Paketsteg %s. Slutfört: %s. Misslyckades: %s. Uppskjutet: %s."

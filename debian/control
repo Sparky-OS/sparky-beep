@@ -2,13 +2,13 @@ Source: sparky-beep
 Section: System
 Priority: optional
 Maintainer: Daniel Ramos (Capitain Jack) <Capitain_Jack@yahoo.com>
-Build-Depends: debhelper-compat (= 13)
+Build-Depends: debhelper-compat (= 13), python3
 Standards-Version: 4.7.2
 Homepage: https://sparkylinux.org
 
 Package: sparky-beep
 Architecture: all
-Depends: apt, bash, bc, beep, coreutils, grep, sed, systemd
+Depends: apt, bash, bc, beep, coreutils, grep, sed, systemd, util-linux
 Recommends: whiptail | dialog, yad | zenity
 Suggests: netdata, openssh-server, samba, webmin
 Description: Sparky Beep

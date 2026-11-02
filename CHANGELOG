@@ -1,4 +1,13 @@
 -------------------------------------------------------------------------------
+  Version 0.2.3 (2026-11-02)
+-------------------------------------------------------------------------------
+  * Show failed maintainer-script actions on the terminal and in the journal,
+    with repair commands and an honest completed/failed/deferred summary in all
+    26 languages. Embed diagnostics so removal works after package files are gone.
+  * Preserve the 0.2.0/0.2.1 configuration migration and backups. Keep running the
+    other service actions when one fails, but return failure from sparky-beep-run.
+
+-------------------------------------------------------------------------------
   Version 0.2.2 (2026-10-15)
 -------------------------------------------------------------------------------
   * One configuration file: /etc/sparky-beep/beep.conf is the INI file of sparky-beep-config, the composer reads it (default_tempo, default_octave, beep_mode); a 0.2.0/0.2.1 shell-format file is converted on upgrade with a backup

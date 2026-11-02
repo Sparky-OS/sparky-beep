@@ -316,3 +316,8 @@ MSG_PLAYER_PLAY_ERROR="Не удалось воспроизвести компо
 MSG_PLAYER_NO_COMPOSITIONS="Композиции не найдены"
 MSG_PLAYER_ADDED_TO_PLAYLIST="Добавлено в плейлист: %s"
 MSG_PLAYER_REMOVED_FROM_PLAYLIST="Удалено из плейлиста: %s"
+
+# Maintainer-script diagnostics (embedded for postrm).
+MSG_MAINT_FAILURE="Ошибка: %s (код %s). Повторите от имени администратора: %s."
+MSG_MAINT_SKIP="systemd здесь не запущен; отложено до загрузки: %s."
+MSG_MAINT_SUMMARY="Этап пакета %s. Выполнено: %s. Ошибки: %s. Отложено: %s."

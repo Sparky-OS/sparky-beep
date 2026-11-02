@@ -316,3 +316,8 @@ MSG_PLAYER_PLAY_ERROR="Kan compositie niet afspelen: %s"
 MSG_PLAYER_NO_COMPOSITIONS="Geen composities gevonden"
 MSG_PLAYER_ADDED_TO_PLAYLIST="Toegevoegd aan afspeellijst: %s"
 MSG_PLAYER_REMOVED_FROM_PLAYLIST="Verwijderd uit afspeellijst: %s"
+
+# Maintainer-script diagnostics (embedded for postrm).
+MSG_MAINT_FAILURE="Mislukt: %s (status %s). Probeer opnieuw als beheerder: %s."
+MSG_MAINT_SKIP="systemd draait hier niet; uitgesteld tot het opstarten: %s."
+MSG_MAINT_SUMMARY="Pakketstap %s. Voltooid: %s. Mislukt: %s. Uitgesteld: %s."

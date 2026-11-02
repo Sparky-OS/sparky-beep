@@ -316,3 +316,8 @@ MSG_PLAYER_PLAY_ERROR="播放作品失敗：%s"
 MSG_PLAYER_NO_COMPOSITIONS="未找到作品"
 MSG_PLAYER_ADDED_TO_PLAYLIST="已新增至播放清單：%s"
 MSG_PLAYER_REMOVED_FROM_PLAYLIST="已從播放清單移除：%s"
+
+# Maintainer-script diagnostics (embedded for postrm).
+MSG_MAINT_FAILURE="失敗：%s（狀態 %s）。請以管理員身分重試：%s。"
+MSG_MAINT_SKIP="此處未執行 systemd；延後至啟動時執行：%s。"
+MSG_MAINT_SUMMARY="套件步驟 %s。已完成：%s。失敗：%s。已延後：%s。"

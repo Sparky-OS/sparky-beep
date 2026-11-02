@@ -316,3 +316,8 @@ MSG_PLAYER_PLAY_ERROR="Sävellyksen toisto epäonnistui: %s"
 MSG_PLAYER_NO_COMPOSITIONS="Sävellyksiä ei löytynyt"
 MSG_PLAYER_ADDED_TO_PLAYLIST="Lisätty soittolistaan: %s"
 MSG_PLAYER_REMOVED_FROM_PLAYLIST="Poistettu soittolistasta: %s"
+
+# Maintainer-script diagnostics (embedded for postrm).
+MSG_MAINT_FAILURE="Epäonnistui: %s (tila %s). Yritä uudelleen ylläpitäjänä: %s."
+MSG_MAINT_SKIP="systemd ei ole käynnissä tässä ympäristössä; lykätty käynnistykseen: %s."
+MSG_MAINT_SUMMARY="Paketin vaihe %s. Valmis: %s. Epäonnistui: %s. Lykätty: %s."

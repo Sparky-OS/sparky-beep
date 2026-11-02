@@ -316,3 +316,8 @@ MSG_PLAYER_PLAY_ERROR="Failed to play composition: %s"
 MSG_PLAYER_NO_COMPOSITIONS="No compositions found"
 MSG_PLAYER_ADDED_TO_PLAYLIST="Added to playlist: %s"
 MSG_PLAYER_REMOVED_FROM_PLAYLIST="Removed from playlist: %s"
+
+# Maintainer-script diagnostics (embedded for postrm).
+MSG_MAINT_FAILURE="Failed: %s (status %s). Retry as administrator: %s."
+MSG_MAINT_SKIP="systemd is not running here; deferred until boot: %s."
+MSG_MAINT_SUMMARY="Package step %s. Completed: %s. Failed: %s. Deferred: %s."

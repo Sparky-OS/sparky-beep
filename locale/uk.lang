@@ -316,3 +316,8 @@ MSG_PLAYER_PLAY_ERROR="Не вдалося відтворити композиц
 MSG_PLAYER_NO_COMPOSITIONS="Композиції не знайдено"
 MSG_PLAYER_ADDED_TO_PLAYLIST="Додано до плейлиста: %s"
 MSG_PLAYER_REMOVED_FROM_PLAYLIST="Видалено з плейлиста: %s"
+
+# Maintainer-script diagnostics (embedded for postrm).
+MSG_MAINT_FAILURE="Помилка: %s (код %s). Повторіть від імені адміністратора: %s."
+MSG_MAINT_SKIP="systemd тут не запущено; відкладено до завантаження: %s."
+MSG_MAINT_SUMMARY="Етап пакунка %s. Виконано: %s. Помилки: %s. Відкладено: %s."

@@ -316,3 +316,8 @@ MSG_PLAYER_PLAY_ERROR="作品の再生に失敗しました: %s"
 MSG_PLAYER_NO_COMPOSITIONS="作品が見つかりません"
 MSG_PLAYER_ADDED_TO_PLAYLIST="プレイリストに追加しました: %s"
 MSG_PLAYER_REMOVED_FROM_PLAYLIST="プレイリストから削除しました: %s"
+
+# Maintainer-script diagnostics (embedded for postrm).
+MSG_MAINT_FAILURE="失敗: %s（終了コード %s）。管理者として再実行してください: %s。"
+MSG_MAINT_SKIP="ここでは systemd が動作していません。起動時まで延期: %s。"
+MSG_MAINT_SUMMARY="パッケージの処理 %s。完了: %s。失敗: %s。延期: %s。"

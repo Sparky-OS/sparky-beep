@@ -316,3 +316,8 @@ MSG_PLAYER_PLAY_ERROR="Falha ao reproduzir composição: %s"
 MSG_PLAYER_NO_COMPOSITIONS="Nenhuma composição encontrada"
 MSG_PLAYER_ADDED_TO_PLAYLIST="Adicionado à playlist: %s"
 MSG_PLAYER_REMOVED_FROM_PLAYLIST="Removido da playlist: %s"
+
+# Maintainer-script diagnostics (embedded for postrm).
+MSG_MAINT_FAILURE="Falha: %s (código %s). Tente novamente como administrador: %s."
+MSG_MAINT_SKIP="O systemd não está em execução aqui; adiado até a inicialização: %s."
+MSG_MAINT_SUMMARY="Etapa do pacote %s. Concluído: %s. Falhou: %s. Adiado: %s."

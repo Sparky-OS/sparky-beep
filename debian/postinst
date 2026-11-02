@@ -4,6 +4,7 @@
 # see: dh_installdeb(1)
 
 set -e
+#SPARKY-BEEP-MAINTSCRIPT#
 
 # the values of a 0.2.0/0.2.1 shell-format beep.conf (set aside by preinst) go into the INI file
 if [ -f /etc/sparky-beep/beep.conf.0.2.1 ]; then
@@ -13,9 +14,12 @@ if [ -f /etc/sparky-beep/beep.conf.0.2.1 ]; then
 fi
 dpkg-maintscript-helper rm_conffile /etc/sparky-beep/beep.conf.example 0.2.2~ sparky-beep -- "$@"
 
-if [ -d /run/systemd/system ]; then
-	systemctl daemon-reload >/dev/null 2>&1 || true
-	/usr/bin/sparky-beep-run >/dev/null 2>&1 || true
+if [ -z "${DPKG_ROOT:-}" ] && [ -d /run/systemd/system ]; then
+	beep_step systemctl daemon-reload
+	beep_step /usr/bin/sparky-beep-run
+else
+	beep_defer 'systemctl daemon-reload; /usr/bin/sparky-beep-run'
 fi
+beep_summary "postinst $1"
 
 exit 0

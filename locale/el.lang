@@ -316,3 +316,8 @@ MSG_PLAYER_PLAY_ERROR="Αποτυχία αναπαραγωγής σύνθεση�
 MSG_PLAYER_NO_COMPOSITIONS="Δεν βρέθηκαν συνθέσεις"
 MSG_PLAYER_ADDED_TO_PLAYLIST="Προστέθηκε στη λίστα: %s"
 MSG_PLAYER_REMOVED_FROM_PLAYLIST="Αφαιρέθηκε από τη λίστα: %s"
+
+# Maintainer-script diagnostics (embedded for postrm).
+MSG_MAINT_FAILURE="Αποτυχία: %s (κατάσταση %s). Δοκιμάστε ξανά ως διαχειριστής: %s."
+MSG_MAINT_SKIP="Το systemd δεν εκτελείται εδώ· αναβλήθηκε μέχρι την εκκίνηση: %s."
+MSG_MAINT_SUMMARY="Βήμα πακέτου %s. Ολοκληρώθηκε: %s. Απέτυχε: %s. Αναβλήθηκε: %s."

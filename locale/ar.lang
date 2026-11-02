@@ -316,3 +316,8 @@ MSG_PLAYER_PLAY_ERROR="فشل تشغيل التركيب: %s"
 MSG_PLAYER_NO_COMPOSITIONS="لم يتم العثور على تركيبات"
 MSG_PLAYER_ADDED_TO_PLAYLIST="تمت الإضافة إلى قائمة التشغيل: %s"
 MSG_PLAYER_REMOVED_FROM_PLAYLIST="تمت الإزالة من قائمة التشغيل: %s"
+
+# Maintainer-script diagnostics (embedded for postrm).
+MSG_MAINT_FAILURE="فشل: %s (الحالة %s). أعد المحاولة بصلاحيات المسؤول: %s."
+MSG_MAINT_SKIP="لا يعمل systemd هنا؛ أُجّل حتى الإقلاع: %s."
+MSG_MAINT_SUMMARY="خطوة الحزمة %s. اكتمل: %s. فشل: %s. أُجّل: %s."

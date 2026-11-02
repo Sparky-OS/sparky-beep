@@ -316,3 +316,8 @@ MSG_PLAYER_PLAY_ERROR="Impossibile riprodurre la composizione: %s"
 MSG_PLAYER_NO_COMPOSITIONS="Nessuna composizione trovata"
 MSG_PLAYER_ADDED_TO_PLAYLIST="Aggiunto alla playlist: %s"
 MSG_PLAYER_REMOVED_FROM_PLAYLIST="Rimosso dalla playlist: %s"
+
+# Maintainer-script diagnostics (embedded for postrm).
+MSG_MAINT_FAILURE="Operazione non riuscita: %s (stato %s). Riprovare come amministratore: %s."
+MSG_MAINT_SKIP="systemd non è in esecuzione qui; rimandato all’avvio: %s."
+MSG_MAINT_SUMMARY="Fase del pacchetto %s. Completato: %s. Non riuscito: %s. Rimandato: %s."

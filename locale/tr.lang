@@ -316,3 +316,8 @@ MSG_PLAYER_PLAY_ERROR="Beste çalınamadı: %s"
 MSG_PLAYER_NO_COMPOSITIONS="Hiç beste bulunamadı"
 MSG_PLAYER_ADDED_TO_PLAYLIST="Çalma listesine eklendi: %s"
 MSG_PLAYER_REMOVED_FROM_PLAYLIST="Çalma listesinden kaldırıldı: %s"
+
+# Maintainer-script diagnostics (embedded for postrm).
+MSG_MAINT_FAILURE="Başarısız: %s (durum %s). Yönetici olarak yeniden deneyin: %s."
+MSG_MAINT_SKIP="systemd burada çalışmıyor; açılışa ertelendi: %s."
+MSG_MAINT_SUMMARY="Paket adımı %s. Tamamlanan: %s. Başarısız: %s. Ertelenen: %s."

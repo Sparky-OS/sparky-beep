@@ -316,3 +316,8 @@ MSG_PLAYER_PLAY_ERROR="Eșec la redarea compoziției: %s"
 MSG_PLAYER_NO_COMPOSITIONS="Nu s-au găsit compoziții"
 MSG_PLAYER_ADDED_TO_PLAYLIST="Adăugat în listă: %s"
 MSG_PLAYER_REMOVED_FROM_PLAYLIST="Eliminat din listă: %s"
+
+# Maintainer-script diagnostics (embedded for postrm).
+MSG_MAINT_FAILURE="A eșuat: %s (stare %s). Reîncercați ca administrator: %s."
+MSG_MAINT_SKIP="systemd nu rulează aici; amânat până la pornire: %s."
+MSG_MAINT_SUMMARY="Etapa pachetului %s. Finalizat: %s. Eșuat: %s. Amânat: %s."

@@ -316,3 +316,8 @@ MSG_PLAYER_PLAY_ERROR="Chyba při přehrávání skladby: %s"
 MSG_PLAYER_NO_COMPOSITIONS="Nebyly nalezeny žádné skladby"
 MSG_PLAYER_ADDED_TO_PLAYLIST="Přidáno do seznamu: %s"
 MSG_PLAYER_REMOVED_FROM_PLAYLIST="Odebráno ze seznamu: %s"
+
+# Maintainer-script diagnostics (embedded for postrm).
+MSG_MAINT_FAILURE="Selhalo: %s (stav %s). Zkuste znovu jako správce: %s."
+MSG_MAINT_SKIP="systemd zde neběží; odloženo do spuštění systému: %s."
+MSG_MAINT_SUMMARY="Krok balíčku %s. Dokončeno: %s. Selhalo: %s. Odloženo: %s."

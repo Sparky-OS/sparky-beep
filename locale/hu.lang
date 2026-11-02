@@ -316,3 +316,8 @@ MSG_PLAYER_PLAY_ERROR="Kompozíció lejátszása sikertelen: %s"
 MSG_PLAYER_NO_COMPOSITIONS="Nem található kompozíció"
 MSG_PLAYER_ADDED_TO_PLAYLIST="Hozzáadva a listához: %s"
 MSG_PLAYER_REMOVED_FROM_PLAYLIST="Eltávolítva a listáról: %s"
+
+# Maintainer-script diagnostics (embedded for postrm).
+MSG_MAINT_FAILURE="Sikertelen: %s (állapot: %s). Próbálja újra rendszergazdaként: %s."
+MSG_MAINT_SKIP="Itt nem fut a systemd; elhalasztva a rendszerindításig: %s."
+MSG_MAINT_SUMMARY="Csomagművelet: %s. Kész: %s. Sikertelen: %s. Elhalasztva: %s."

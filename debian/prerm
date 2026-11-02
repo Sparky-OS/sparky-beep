@@ -4,13 +4,17 @@
 # see: dh_installdeb(1)
 
 set -e
+#SPARKY-BEEP-MAINTSCRIPT#
 
 if [ "$1" = "remove" ] || [ "$1" = "deconfigure" ] ; then
-	if [ -d /run/systemd/system ]; then
+	if [ -z "${DPKG_ROOT:-}" ] && [ -d /run/systemd/system ]; then
 		for service in beep_sys beep_samba beep_netdata beep_webmin; do
-			systemctl disable --now $service >/dev/null 2>&1 || true
+			beep_step systemctl disable --now "$service"
 		done
+	else
+		beep_defer 'systemctl disable --now beep_sys beep_samba beep_netdata beep_webmin'
 	fi
 fi
+beep_summary "prerm $1"
 
 exit 0

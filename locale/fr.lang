@@ -316,3 +316,8 @@ MSG_PLAYER_PLAY_ERROR="Échec de la lecture de la composition : %s"
 MSG_PLAYER_NO_COMPOSITIONS="Aucune composition trouvée"
 MSG_PLAYER_ADDED_TO_PLAYLIST="Ajouté à la liste : %s"
 MSG_PLAYER_REMOVED_FROM_PLAYLIST="Retiré de la liste : %s"
+
+# Maintainer-script diagnostics (embedded for postrm).
+MSG_MAINT_FAILURE="Échec : %s (code %s). Relancez en tant qu’administrateur : %s."
+MSG_MAINT_SKIP="systemd ne fonctionne pas ici ; reporté au démarrage : %s."
+MSG_MAINT_SUMMARY="Étape du paquet %s. Terminé : %s. Échec : %s. Reporté : %s."

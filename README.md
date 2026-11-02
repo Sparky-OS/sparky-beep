@@ -483,3 +483,11 @@ Credits
     maman" (1761), words by Jane Taylor (1806);
   - the Super Mario Bros. theme: Koji Kondo (Nintendo, 1985);
   - the Star Wars main title: John Williams (1977).
+
+Maintainer scripts (0.2.3) report each failed action and its command on the terminal
+and in the system journal. A final summary names completed, failed and deferred
+operations. Without a running systemd, service actions are deferred to boot.
+`util-linux` supplies logger. The package builder runs
+`python3 debian/render-maintscript.py debian/postrm` (and the other scripts) to
+embed the helper and all 26 translations; postrm needs no installed package files.
+The existing INI configuration migration and backup remain in postinst.

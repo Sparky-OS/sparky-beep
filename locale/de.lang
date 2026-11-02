@@ -316,3 +316,8 @@ MSG_PLAYER_PLAY_ERROR="Fehler beim Abspielen der Komposition: %s"
 MSG_PLAYER_NO_COMPOSITIONS="Keine Kompositionen gefunden"
 MSG_PLAYER_ADDED_TO_PLAYLIST="Zur Wiedergabeliste hinzugefügt: %s"
 MSG_PLAYER_REMOVED_FROM_PLAYLIST="Aus Wiedergabeliste entfernt: %s"
+
+# Maintainer-script diagnostics (embedded for postrm).
+MSG_MAINT_FAILURE="Fehlgeschlagen: %s (Status %s). Erneut als Administrator ausführen: %s."
+MSG_MAINT_SKIP="systemd läuft hier nicht; bis zum Systemstart aufgeschoben: %s."
+MSG_MAINT_SUMMARY="Paketschritt %s. Abgeschlossen: %s. Fehlgeschlagen: %s. Aufgeschoben: %s."

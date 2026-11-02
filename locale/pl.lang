@@ -316,3 +316,8 @@ MSG_PLAYER_PLAY_ERROR="Nie udało się odtworzyć kompozycji: %s"
 MSG_PLAYER_NO_COMPOSITIONS="Nie znaleziono kompozycji"
 MSG_PLAYER_ADDED_TO_PLAYLIST="Dodano do playlisty: %s"
 MSG_PLAYER_REMOVED_FROM_PLAYLIST="Usunięto z playlisty: %s"
+
+# Maintainer-script diagnostics (embedded for postrm).
+MSG_MAINT_FAILURE="Błąd: %s (kod %s). Uruchom ponownie jako administrator: %s."
+MSG_MAINT_SKIP="systemd nie działa w tym środowisku; odłożono do uruchomienia systemu: %s."
+MSG_MAINT_SUMMARY="Etap pakietu %s. Ukończono: %s. Błędy: %s. Odłożono: %s."

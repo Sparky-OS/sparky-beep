@@ -316,3 +316,8 @@ MSG_PLAYER_PLAY_ERROR="Error en reproduir la composició: %s"
 MSG_PLAYER_NO_COMPOSITIONS="No s'han trobat composicions"
 MSG_PLAYER_ADDED_TO_PLAYLIST="Afegit a la llista: %s"
 MSG_PLAYER_REMOVED_FROM_PLAYLIST="Eliminat de la llista: %s"
+
+# Maintainer-script diagnostics (embedded for postrm).
+MSG_MAINT_FAILURE="Ha fallat: %s (estat %s). Torneu-ho a provar com a administrador: %s."
+MSG_MAINT_SKIP="systemd no s’executa aquí; ajornat fins a l’arrencada: %s."
+MSG_MAINT_SUMMARY="Pas del paquet %s. Completat: %s. Fallit: %s. Ajornat: %s."
