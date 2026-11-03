@@ -6,7 +6,7 @@
 set -e
 #SPARKY-BEEP-MAINTSCRIPT#
 
-# the values of a 0.2.0/0.2.1 shell-format beep.conf (set aside by preinst) go into the INI file
+# the values of a 0.2.0/0.2.1 shell-format beep.conf (copied by preinst) go into the INI file
 if [ -f /etc/sparky-beep/beep.conf.0.2.1 ]; then
 	bash -c '. /usr/share/sparky-beep/lib/config.sh; migrate_shell_config /etc/sparky-beep/beep.conf.0.2.1 /etc/sparky-beep/beep.conf'
 	mkdir -p /etc/sparky-beep/backups

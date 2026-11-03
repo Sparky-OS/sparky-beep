@@ -1,5 +1,7 @@
 sparky-beep (0.2.3-1) unstable; urgency=medium
 
+  * Preserve the live legacy configuration until dpkg handles its conffile
+    choice, then migrate its values with a backup.
   * Report maintainer-script failures on the terminal and in the journal, with
     embedded translations for removal and accurate operation summaries.
 

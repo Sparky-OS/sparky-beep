@@ -1,6 +1,8 @@
 -------------------------------------------------------------------------------
   Version 0.2.3 (2026-11-02)
 -------------------------------------------------------------------------------
+  * Copy the legacy shell configuration for migration without making dpkg
+    treat it as deleted; retain dpkg's normal modified-conffile choice.
   * Show failed maintainer-script actions on the terminal and in the journal,
     with repair commands and an honest completed/failed/deferred summary in all
     26 languages. Embed diagnostics so removal works after package files are gone.

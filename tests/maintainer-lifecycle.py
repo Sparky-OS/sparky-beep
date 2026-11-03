@@ -28,7 +28,7 @@ def check(ok,text):
 with tempfile.TemporaryDirectory() as temp:
     work=Path(temp)
     work.chmod(0o755)
-    for name in ('postinst','prerm','postrm'):
+    for name in ('preinst','postinst','prerm','postrm'):
         content=(baseline/name).read_text() if baseline else subprocess.check_output(['python3',str(source/'debian/render-maintscript.py'),str(source/'debian'/name)],text=True)
         (work/name).write_text(content)
     (work/'systemctl').write_text('''#!/bin/sh
@@ -50,7 +50,12 @@ if [ "$FAIL" = yes ]; then echo 'runner injected failure' >&2; exit 1; fi
     shutil.copyfile(source/'lib/config.sh',lib/'config.sh')
     config=Path('/etc/sparky-beep')
     config.mkdir(exist_ok=True)
-    (config/'beep.conf.0.2.1').write_text('BEEP_MODE="ternary"\nDEFAULT_TEMPO=60\nDEFAULT_OCTAVE=5\n')
+    (config/'beep.conf').write_text('BEEP_MODE="ternary"\nDEFAULT_TEMPO=60\nDEFAULT_OCTAVE=5\n')
+    preenv=dict(os.environ,PATH=f'{work}:/usr/bin:/bin')
+    pre=subprocess.run(['sh',str(work/'preinst'),'upgrade','0.2.0'],env=preenv)
+    check(pre.returncode==0,'preinst completes')
+    check((config/'beep.conf').exists(),'preinst preserves the live conffile')
+    check((config/'beep.conf.0.2.1').read_bytes()==(config/'beep.conf').read_bytes(),'preinst copies legacy values for migration')
     try:
         for case in ('works','absent','fails'):
             if case!='absent': Path('/run/systemd/system').mkdir(parents=True,exist_ok=True)
