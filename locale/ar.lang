@@ -321,3 +321,4 @@ MSG_PLAYER_REMOVED_FROM_PLAYLIST="تمت الإزالة من قائمة التش
 MSG_MAINT_FAILURE="فشل: %s (الحالة %s). أعد المحاولة بصلاحيات المسؤول: %s."
 MSG_MAINT_SKIP="لا يعمل systemd هنا؛ أُجّل حتى الإقلاع: %s."
 MSG_MAINT_SUMMARY="خطوة الحزمة %s. اكتمل: %s. فشل: %s. أُجّل: %s."
+MSG_SOUND_INIT_FAILED="تعذر تحميل إعدادات الصوت أو مكتبته: %s"

@@ -1,3 +1,11 @@
+sparky-beep (0.2.4-1) unstable; urgency=medium
+
+  * Player and composer confirm the sound configuration and tune library before
+    starting and stop with the reason instead of using unconfirmed defaults
+    (ORDER 346f-5, U40).
+
+ -- Daniel Ramos (Capitain Jack) <Capitain_Jack@yahoo.com>  Wed, 04 Nov 2026 23:30:00 -0300
+
 sparky-beep (0.2.3-1) unstable; urgency=medium
 
   * Preserve the live legacy configuration until dpkg handles its conffile

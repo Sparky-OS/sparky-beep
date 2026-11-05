@@ -609,8 +609,9 @@ export_composition() {
 #
 main() {
     # Initialize libraries
-    init_config 2>/dev/null || true
-    load_config 2>/dev/null || true
+    # The configuration and library must be confirmed; unconfirmed defaults are not used
+    beep_ui_error() { dialog_msgbox "Sparky Beep" "$1"; }
+    beep_init_or_stop || exit 1
 
     # Show main menu
     show_main_menu

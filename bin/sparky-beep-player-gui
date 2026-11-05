@@ -585,9 +585,9 @@ show_settings() {
 #
 main() {
     # Initialize libraries
-    init_config 2>/dev/null || true
-    load_config 2>/dev/null || true
-    init_tune_library 2>/dev/null || true
+    # The configuration and library must be confirmed; unconfirmed defaults are not used
+    beep_ui_error() { show_error "$1"; }
+    beep_init_or_stop library || exit 1
 
     # Show main window
     show_main_window

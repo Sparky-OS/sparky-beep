@@ -76,6 +76,65 @@ init_config() {
 }
 
 #
+# Function: beep_init_or_stop
+# Description: Initialize the configuration (and, with "library", the tune
+#              library) and confirm it. When it cannot be done, say so with
+#              the reason where the person is (terminal, journal, and the
+#              program's own dialog if it defines beep_ui_error) and return 1;
+#              the caller stops. No unconfirmed defaults are used.
+# Usage: beep_init_or_stop [library]
+#
+beep_init_or_stop() {
+    local with_library=0 reason="" errfile status=0
+    [ "${1:-}" = library ] && with_library=1
+    errfile=$(mktemp 2>/dev/null) || errfile=""
+    if [ -z "$errfile" ]; then
+        reason="cannot create a temporary file to read the errors"
+        status=1
+    fi
+    if [ "$status" -eq 0 ]; then
+        init_config 2>"$errfile" || status=$?
+        if [ "$status" -ne 0 ]; then
+            reason=$(cat "$errfile")
+            if [ -z "$reason" ]; then
+                if [ ! -d "$CONFIG_DIR" ]; then
+                    reason="cannot create the folder $CONFIG_DIR"
+                else
+                    reason="cannot write the configuration file $CONFIG_PATH"
+                fi
+            fi
+        fi
+    fi
+    if [ "$status" -eq 0 ]; then
+        load_config 2>"$errfile" || status=$?
+        [ "$status" -eq 0 ] || reason=$(cat "$errfile")
+        if [ "$status" -ne 0 ] && [ -z "$reason" ]; then
+            reason="load_config failed (exit $status)"
+        fi
+    fi
+    if [ "$status" -eq 0 ] && [ "$with_library" -eq 1 ]; then
+        init_tune_library 2>"$errfile" || status=$?
+        [ "$status" -eq 0 ] || reason=$(cat "$errfile")
+        if [ "$status" -ne 0 ] && [ -z "$reason" ]; then
+            reason="init_tune_library failed (exit $status)"
+        fi
+    fi
+    [ -z "$errfile" ] || rm -f "$errfile"
+    [ "$status" -ne 0 ] || return 0
+
+    local message
+    message=$(printf "$(t SOUND_INIT_FAILED)" "$reason")
+    echo "sparky-beep: $message" >&2
+    if command -v logger >/dev/null 2>&1; then
+        logger -t sparky-beep -p user.err -- "$message" 2>/dev/null || true
+    fi
+    if declare -F beep_ui_error >/dev/null 2>&1; then
+        beep_ui_error "$message" || true
+    fi
+    return 1
+}
+
+#
 # Function: create_default_config
 # Description: Create a default configuration file
 # Usage: create_default_config
@@ -128,6 +187,12 @@ load_config() {
 
     if [ ! -f "$config_file" ]; then
         echo "ERROR: Configuration file not found: $config_file" >&2
+        return 1
+    fi
+    # An unreadable file made the loop below read nothing and still return 0,
+    # so the unconfirmed defaults were used without a word.
+    if [ ! -r "$config_file" ]; then
+        echo "ERROR: Configuration file cannot be read: $config_file" >&2
         return 1
     fi
 
@@ -443,6 +508,7 @@ set_service_tune() {
 
 # Export functions
 export -f init_config
+export -f beep_init_or_stop
 export -f create_default_config
 export -f load_config
 export -f save_config

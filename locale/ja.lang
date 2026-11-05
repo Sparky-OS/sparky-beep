@@ -321,3 +321,4 @@ MSG_PLAYER_REMOVED_FROM_PLAYLIST="プレイリストから削除しました: %s
 MSG_MAINT_FAILURE="失敗: %s（終了コード %s）。管理者として再実行してください: %s。"
 MSG_MAINT_SKIP="ここでは systemd が動作していません。起動時まで延期: %s。"
 MSG_MAINT_SUMMARY="パッケージの処理 %s。完了: %s。失敗: %s。延期: %s。"
+MSG_SOUND_INIT_FAILED="サウンド設定またはライブラリを読み込めませんでした: %s"

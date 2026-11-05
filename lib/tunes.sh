@@ -26,13 +26,17 @@ init_tune_library() {
     TUNE_DESCRIPTIONS=()
     TUNE_CATEGORIES=()
 
-    # Scan for tunes in all directories
-    scan_tune_directory "$SYSTEM_TUNES_DIR"
-    scan_tune_directory "$USER_TUNES_DIR"
-    scan_tune_directory "$LOCAL_TUNES_DIR"
+    # Scan for tunes in all directories; every folder is tried, and one that
+    # exists but cannot be read makes the whole initialization fail (it said
+    # nothing and listed fewer tunes before).
+    local status=0
+    scan_tune_directory "$SYSTEM_TUNES_DIR" || status=1
+    scan_tune_directory "$USER_TUNES_DIR" || status=1
+    scan_tune_directory "$LOCAL_TUNES_DIR" || status=1
 
     # Add built-in default tunes
     add_builtin_tunes
+    return $status
 }
 
 #
@@ -44,6 +48,10 @@ scan_tune_directory() {
     local dir="$1"
 
     [ ! -d "$dir" ] && return 0
+    if [ ! -r "$dir" ] || [ ! -x "$dir" ]; then
+        echo "ERROR: Tune folder cannot be read: $dir" >&2
+        return 1
+    fi
 
     # Find all .beepmusic files
     while IFS= read -r -d '' tune_file; do
