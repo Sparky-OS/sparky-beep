@@ -145,8 +145,7 @@ list_services() {
 enable_service_cli() {
     local service="$1"
 
-    init_config
-    load_config
+    beep_init_or_stop || exit 1
 
     # Check if service exists
     discover_services
@@ -168,8 +167,7 @@ enable_service_cli() {
 disable_service_cli() {
     local service="$1"
 
-    init_config
-    load_config
+    beep_init_or_stop || exit 1
 
     # Check if service exists
     discover_services
@@ -192,9 +190,7 @@ test_beep_cli() {
     local service="$1"
     local event="$2"
 
-    init_config
-    load_config
-    init_tune_library
+    beep_init_or_stop library || exit 1
 
     # Validate event
     if [ "$event" != "start" ] && [ "$event" != "stop" ] && [ "$event" != "restart" ]; then

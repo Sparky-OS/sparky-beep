@@ -507,10 +507,9 @@ main() {
     #     exit 1
     # fi
 
-    # Initialize libraries
-    init_config
-    load_config
-    init_tune_library
+    # Initialize libraries: confirm the configuration and the tune library, or stop with the reason
+    beep_ui_error() { dialog_msgbox "Sparky Beep" "$1"; }
+    beep_init_or_stop library || exit 1
     discover_services
 
     # Show main menu

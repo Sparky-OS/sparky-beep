@@ -1,3 +1,11 @@
+sparky-beep (0.2.5-1) unstable; urgency=medium
+
+  * The configuration tools (graphical, text and command line) confirm the sound
+    configuration and tune library before starting and stop with the reason
+    instead of using unconfirmed defaults (ORDER 346f-6, U40).
+
+ -- Daniel Ramos (Capitain Jack) <Capitain_Jack@yahoo.com>  Wed, 04 Nov 2026 21:58:00 -0300
+
 sparky-beep (0.2.4-1) unstable; urgency=medium
 
   * Player and composer confirm the sound configuration and tune library before

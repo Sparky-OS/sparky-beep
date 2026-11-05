@@ -1,4 +1,15 @@
 -------------------------------------------------------------------------------
+  Version 0.2.5 (2026-11-04)
+-------------------------------------------------------------------------------
+  * The configuration tools (sparky-beep-config-gui, sparky-beep-config-tui and the
+    --enable, --disable and --test commands of sparky-beep-config) confirm the sound
+    configuration (and, where they use it, the tune library) before they go on, as the
+    player and composer already do. When it cannot be loaded they say "The sound
+    configuration or library could not be loaded: REASON" in the program's own dialog,
+    on the terminal and in the journal, and stop with exit 1; they no longer go on with
+    unconfirmed defaults (ORDER 346f-6, audit 343 U40).
+
+-------------------------------------------------------------------------------
   Version 0.2.4 (2026-11-04)
 -------------------------------------------------------------------------------
   * The player and composer (graphical and text) confirm the sound configuration
